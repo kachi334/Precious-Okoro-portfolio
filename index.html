@@ -56,15 +56,25 @@
       <a class="btn btn-primary" href="#work">View Case Studies</a>
       <a class="btn-link" href="#contact">Let's Work Together</a>
     </div>
-    <div class="hero-visual" aria-hidden="true">
-      <span class="splat splat-amber"></span>
-      <span class="hero-visual-badge">Featured: Moniger</span>
-      <div class="hero-mockup-browser">
-        <div class="hero-mockup-chrome"><span></span><span></span><span></span></div>
+    <div class="hero-visual hero-slider" role="region" aria-label="Featured work: Moniger" aria-roledescription="carousel">
+      <span class="splat splat-amber" aria-hidden="true"></span>
+      <span class="hero-visual-badge" aria-hidden="true">Featured: Moniger</span>
+      <div class="hero-slide is-active">
         <img src="images/moniger-hero-home.png" alt="">
       </div>
-      <div class="hero-mockup-phone">
-        <img src="images/moniger-splash.jpg" alt="">
+      <div class="hero-slide">
+        <img src="images/moniger-onboarding-2.jpg" alt="">
+      </div>
+      <div class="hero-slider-controls">
+        <button class="hero-slider-btn hero-slider-pause" type="button" aria-label="Pause slideshow">
+          <svg width="10" height="12" viewBox="0 0 10 12" fill="none"><rect x="0" y="0" width="3" height="12" fill="currentColor"/><rect x="7" y="0" width="3" height="12" fill="currentColor"/></svg>
+        </button>
+        <button class="hero-slider-btn hero-slider-prev" type="button" aria-label="Previous slide">←</button>
+        <button class="hero-slider-btn hero-slider-next" type="button" aria-label="Next slide">→</button>
+      </div>
+      <div class="hero-slider-dots">
+        <button class="hero-dot is-active" type="button" data-slide="0" aria-label="Go to slide 1"></button>
+        <button class="hero-dot" type="button" data-slide="1" aria-label="Go to slide 2"></button>
       </div>
     </div>
   </section>
