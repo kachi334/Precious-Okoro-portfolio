@@ -453,6 +453,13 @@ section.proof-strip::after { bottom: 0; }
   object-fit: contain;
   filter: drop-shadow(0 20px 30px rgba(23, 19, 14, 0.18));
 }
+@keyframes hero-mascot-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-14px); }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .hero-slide-mascot img { animation: hero-mascot-float 4s ease-in-out infinite; }
+}
 .hero-slider-controls { position: absolute; bottom: 20px; right: 20px; z-index: 3; display: flex; gap: 8px; }
 .hero-slider-btn {
   width: 32px;
