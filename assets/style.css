@@ -418,11 +418,7 @@ section.proof-strip::after { bottom: 0; }
 .hero-visual {
   position: relative;
   min-height: 480px;
-  background: color-mix(in srgb, var(--accent) 6%, var(--surface));
-  border: 1.5px solid var(--ink);
-  border-radius: 28px;
 }
-.hero-visual .splat { position: absolute; top: -14px; right: 28px; z-index: 1; }
 .hero-visual-badge {
   position: absolute;
   top: 20px;
@@ -443,7 +439,7 @@ section.proof-strip::after { bottom: 0; }
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 56px 40px 64px;
+  padding: 52px 0 56px;
   opacity: 0;
   transition: opacity .6s ease;
   pointer-events: none;
@@ -489,7 +485,7 @@ section.proof-strip::after { bottom: 0; }
 }
 @media (max-width: 480px) {
   .hero-visual { min-height: 300px; }
-  .hero-slide { padding: 48px 24px 56px; }
+  .hero-slide { padding: 48px 4px 56px; }
 }
 
 .insight-box {
