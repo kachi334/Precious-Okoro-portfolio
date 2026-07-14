@@ -393,7 +393,7 @@ section.proof-strip::after { bottom: 0; }
 .hero { padding-top: clamp(4rem, 10vw, 8rem); }
 .hero-grid {
   display: grid;
-  grid-template-columns: 1.15fr 0.85fr;
+  grid-template-columns: 1fr 1.1fr;
   grid-template-areas: "intro visual" "actions visual";
   gap: 56px;
   align-items: center;
@@ -417,7 +417,7 @@ section.proof-strip::after { bottom: 0; }
 
 .hero-visual {
   position: relative;
-  min-height: 480px;
+  min-height: 600px;
 }
 .hero-visual-badge {
   position: absolute;
@@ -439,7 +439,7 @@ section.proof-strip::after { bottom: 0; }
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 52px 0 56px;
+  padding: 44px 0 48px;
   opacity: 0;
   transition: opacity .6s ease;
   pointer-events: none;
@@ -481,11 +481,11 @@ section.proof-strip::after { bottom: 0; }
     grid-template-areas: "intro" "visual" "actions";
     gap: 32px;
   }
-  .hero-visual { min-height: 360px; }
+  .hero-visual { min-height: 460px; }
 }
 @media (max-width: 480px) {
-  .hero-visual { min-height: 300px; }
-  .hero-slide { padding: 48px 4px 56px; }
+  .hero-visual { min-height: 400px; }
+  .hero-slide { padding: 44px 4px 48px; }
 }
 
 .insight-box {
