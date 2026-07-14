@@ -542,6 +542,21 @@ section.proof-strip::after { bottom: 0; }
 .pov-box .eyebrow { display: block; margin-bottom: 8px; }
 .pov-box p { color: var(--ink-soft); margin-bottom: 12px; }
 
+.about-page-grid { display: grid; grid-template-columns: 1.3fr 1fr; grid-template-areas: "content visual"; gap: 56px; align-items: start; }
+.about-content { grid-area: content; }
+.about-content h2 { font-size: clamp(2rem, 4.5vw, 2.8rem); margin: 20px 0 24px; max-width: 26ch; }
+.about-visual { grid-area: visual; }
+.about-visual img {
+  width: 100%;
+  display: block;
+  border: 2.5px solid var(--ink);
+  box-shadow: 10px 10px 0 rgba(23, 19, 14, 0.18);
+}
+@media (max-width: 900px) {
+  .about-page-grid { grid-template-columns: 1fr; grid-template-areas: "content" "visual"; gap: 40px; }
+  .about-visual { max-width: 420px; margin: 0 auto; }
+}
+
 .craft-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; margin-top: 48px; }
 .craft-item {
   padding: 32px 28px;
