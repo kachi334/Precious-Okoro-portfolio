@@ -365,7 +365,9 @@ section.proof-strip::after {
 section.proof-strip::before { top: 0; }
 section.proof-strip::after { bottom: 0; }
 .proof-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
-.proof-item { text-align: center; }
+.proof-item { text-align: center; text-decoration: none; display: block; transition: transform .2s ease; }
+a.proof-item:hover { transform: translateY(-4px); }
+a.proof-item:hover .proof-label { color: var(--ink); }
 .proof-number {
   display: block;
   font-family: 'Space Grotesk', sans-serif;
@@ -496,6 +498,30 @@ section.proof-strip::after { bottom: 0; }
 .hero-dot { width: 9px; height: 9px; border-radius: 50%; border: 1.5px solid var(--ink); background: var(--surface); cursor: pointer; padding: 0; }
 .hero-dot.is-active { background: var(--accent); border-color: var(--accent); }
 .hero-dot:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+.clients-visual {
+  position: relative;
+  min-height: 220px;
+  background: color-mix(in srgb, var(--accent) 5%, var(--surface));
+  border: 1.5px solid var(--ink);
+  margin-top: 40px;
+}
+.clients-visual .hero-slide { padding: 48px 88px; }
+.client-slide-content { text-align: center; }
+.client-slide-name {
+  display: inline-block;
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700;
+  font-size: clamp(1.8rem, 4.5vw, 2.6rem);
+  color: var(--ink);
+  text-decoration: none;
+  margin-bottom: 12px;
+}
+a.client-slide-name:hover { color: var(--accent); }
+.client-slide-desc { font-family: 'Inter', sans-serif; color: var(--ink-soft); font-size: 15px; max-width: 50ch; margin: 0 auto; }
+@media (max-width: 700px) {
+  .clients-visual .hero-slide { padding: 40px 56px; }
+}
 
 @media (max-width: 900px) {
   .hero-grid {
