@@ -756,7 +756,7 @@ section.proof-strip::after { bottom: 0; }
 }
 
 /* ===== FEATURED WORK (home teaser) ===== */
-.featured-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
+.featured-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
 .featured-card {
   position: relative;
   display: block;
@@ -778,6 +778,9 @@ section.proof-strip::after { bottom: 0; }
 .featured-card p { color: var(--ink-soft); font-size: 14px; margin-bottom: 16px; font-family: 'Inter', sans-serif; }
 .featured-card .project-link { transition: transform .2s ease; }
 .featured-card:hover .project-link { transform: translateX(4px); }
+@media (max-width: 900px) {
+  .featured-grid { grid-template-columns: repeat(2, 1fr); }
+}
 @media (max-width: 700px) {
   .featured-grid { grid-template-columns: 1fr; }
   .featured-card .image-block { min-height: 280px; }
