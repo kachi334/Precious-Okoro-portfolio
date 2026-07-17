@@ -101,6 +101,10 @@
     <div class="section-label">The Problem</div>
     <p>Beacon is an incident management platform built for IT operations teams responding to critical system outages. Research going into the redesign found engineers resolving P0 incidents <span class="text-highlight">40% slower than they should</span>, weighed down by corporate-speak and inconsistent severity labels.</p>
     <p>Nearly three in four on-call engineers reported real anxiety triggered by the product's own alert notifications. New hires needed two to three weeks just to learn the interface, and executives could not translate technical alerts into business impact without someone walking them through it.</p>
+    <div class="image-block case-support-image">
+      <img src="images/beacon-research-insights.png" alt="Research findings showing the top five user pain points for Beacon, including context switching overload and communication friction" onerror="this.style.display='none'">
+    </div>
+    <p class="case-caption">Stakeholder interview findings that shaped the brief</p>
   </section>
 
   <section class="wrap case-body">
@@ -114,6 +118,20 @@
     <div class="section-label">The Process</div>
     <p>A tool used during a company's worst moments cannot ask its users to decode it first. That reframed the brief: this was not a visual redesign that needed better copy. It was a content problem wearing a UI.</p>
     <p>Three personas, mapped across the full incident journey from detection to post-mortem, and a content audit of more than 200 inconsistent UI strings showed exactly where that content problem lived: fifteen different ways to describe severity, error messages that blamed users instead of guiding them, and no inline help anywhere in the product. Every fix that followed had to earn its place through testing, not intuition.</p>
+    <div class="case-image-pair">
+      <div>
+        <div class="image-block">
+          <img src="images/beacon-personas.png" alt="Three Beacon user personas: an on-call engineer, an incident commander, and a VP of engineering, each with their own goals and pain points" onerror="this.style.display='none'">
+        </div>
+        <p class="case-caption">Personas across the incident chain of command</p>
+      </div>
+      <div>
+        <div class="image-block">
+          <img src="images/beacon-journey-map.png" alt="Beacon incident journey map spanning detection, triage, response, resolution, and post-mortem, with actions, emotions, and pain points at each stage" onerror="this.style.display='none'">
+        </div>
+        <p class="case-caption">Mapping the full incident journey, stage by stage</p>
+      </div>
+    </div>
     <div class="craft-grid">
       <div class="craft-item">
         <span class="step-number">01</span>
@@ -135,6 +153,26 @@
   </section>
 
   <section class="wrap case-body">
+    <div class="section-label">Designing the Declaration Flow</div>
+    <p>Every incident starts the same way: someone has to declare it, under pressure, in seconds. The three-step declaration flow uses progressive disclosure to hide anything non-essential until the base incident is registered, smart defaults pre-filled from telemetry to cut manual entry, and inline reasoning so responders trust why a field is required instead of fighting it.</p>
+    <p>That same discipline carries into the notifications the flow triggers. A push alert and a stakeholder email drawing from the same incident record, written for two different reading speeds: one line to scan while running, one paragraph to read while deciding what to tell the business.</p>
+    <div class="case-image-pair">
+      <div>
+        <div class="image-block">
+          <img src="images/beacon-incident-flow.png" alt="Beacon three-step incident declaration flow with content design annotations covering progressive disclosure, smart defaults, and error prevention" onerror="this.style.display='none'">
+        </div>
+        <p class="case-caption">The declaration flow, with the content reasoning behind it</p>
+      </div>
+      <div>
+        <div class="image-block">
+          <img src="images/beacon-notification-templates.png" alt="Beacon notification templates showing a push notification and a stakeholder email update for the same incident" onerror="this.style.display='none'">
+        </div>
+        <p class="case-caption">One incident, two audiences, two reading speeds</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap case-body">
     <div class="section-label">Content in Every State</div>
     <p>A content system built for calm has to hold up when things go wrong twice over: the product itself failing mid-incident, five P0s firing at once, a junior engineer declaring their first-ever incident under pressure. Each of those scenarios got its own scripted copy, tested against the same principles shaping the rest of the product.</p>
     <p>Empty states and validation messages got the same care. A clear system reads as reassurance, not silence. An error reads as guidance, not a scolding.</p>
@@ -152,6 +190,11 @@
         <p class="case-caption">Empty states and validation, guidance not scolding</p>
       </div>
     </div>
+    <p>The same generic-versus-Beacon comparison ran across error states, critical alerts, and form microcopy, checking that the "guidance, not scolding" principle held everywhere, not just in the scenarios built to showcase it.</p>
+    <div class="image-block case-support-image">
+      <img src="images/beacon-before-after.png" alt="Before and after comparison of generic incident tool copy versus Beacon's guided copy for error validation and critical alerts" onerror="this.style.display='none'">
+    </div>
+    <p class="case-caption">Generic tool copy versus Beacon copy, side by side</p>
   </section>
 
   <section class="wrap case-body">
