@@ -914,21 +914,25 @@ a.client-slide-name:hover { color: var(--accent); }
 .cv-block p { color: var(--ink-soft); max-width: 46ch; font-family: 'Inter', sans-serif; }
 
 /* ===== WRITING ===== */
+.writing-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 32px; }
 .writing-card {
   position: relative;
   border: 1.5px solid var(--border);
   border-top: 4px solid var(--accent-amber);
   background: color-mix(in srgb, var(--accent-amber) 9%, var(--paper));
   padding: 32px;
-  max-width: 720px;
   transform: rotate(-1deg);
   box-shadow: 6px 6px 0 rgba(23, 19, 14, 0.15);
   transition: transform .25s ease, box-shadow .25s ease;
 }
 .writing-card:hover { transform: rotate(0deg) translateY(-4px); box-shadow: 8px 8px 0 rgba(23, 19, 14, 0.2); }
+.writing-card:nth-child(2) { border-top-color: var(--accent-mint); background: color-mix(in srgb, var(--accent-mint) 9%, var(--paper)); transform: rotate(1deg); }
 .writing-card .eyebrow { display: block; margin-bottom: 12px; }
 .writing-card h3 { font-size: 1.3rem; margin-bottom: 12px; }
 .writing-card p { color: var(--ink-soft); margin-bottom: 20px; font-family: 'Inter', sans-serif; }
+@media (max-width: 720px) {
+  .writing-grid { grid-template-columns: 1fr; }
+}
 
 /* ===== CONTACT ===== */
 .contact-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 56px; }
