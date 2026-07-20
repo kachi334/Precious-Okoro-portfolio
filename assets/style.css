@@ -172,7 +172,7 @@ h1, h2, h3 { font-family: 'Space Grotesk', sans-serif; font-weight: 700; letter-
 .btn-primary:hover { background: var(--accent); border-color: var(--accent); transform: translateY(-2px); box-shadow: 4px 4px 0 rgba(23, 19, 14, 0.2); }
 .btn-primary:active { transform: translateY(0); box-shadow: none; }
 .btn-ghost { background: transparent; color: var(--ink); }
-.btn-ghost:hover { background: var(--ink); color: var(--paper); transform: translateY(-2px); box-shadow: 4px 4px 0 rgba(23, 19, 14, 0.2); }
+.btn-ghost:hover { background: var(--accent-amber); color: var(--ink); border-color: var(--accent-amber); transform: translateY(-2px); box-shadow: 4px 4px 0 rgba(23, 19, 14, 0.2); }
 .btn-ghost:active { transform: translateY(0); box-shadow: none; }
 .btn-link {
   display: inline-flex;
