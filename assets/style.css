@@ -16,6 +16,8 @@
   --accent-amber-on-violet: #EFC670; /* gold tuned for --accent-deep bg — ~4.66:1 (base --accent-amber only hits ~3:1 there) */
   --accent-deep: color-mix(in srgb, var(--accent) 78%, var(--ink) 22%); /* large-surface violet — less saturated than --accent, ~6.9:1 with --paper text */
   --accent-mint-deep: color-mix(in srgb, var(--accent-mint) 65%, var(--ink) 35%); /* large-surface mint — supports white body text at ~5:1, dark headline text still passes large-text 3:1 */
+  --accent-coral-deep: color-mix(in srgb, var(--accent-coral) 60%, var(--ink) 40%); /* large-surface coral — supports white body text at ~5.5:1 */
+  --accent-amber-deep: color-mix(in srgb, var(--accent-amber) 55%, var(--ink) 45%); /* large-surface amber — supports white body text at ~5.5:1 */
   --border: rgba(23, 19, 14, 0.7);
 }
 
@@ -521,9 +523,9 @@ a.proof-item:hover .proof-label { color: var(--ink); }
 .client-card:nth-child(4) { transform: rotate(1.5deg); }
 .client-card:hover { transform: rotate(0deg) translateY(-8px); box-shadow: 10px 10px 0 rgba(23, 19, 14, 0.22); z-index: 2; }
 .client-card-violet { background: var(--accent-deep); color: var(--paper); }
-.client-card-amber { background: var(--accent-amber); color: var(--ink); }
+.client-card-amber { background: var(--accent-amber-deep); color: var(--paper); }
 .client-card-mint { background: var(--accent-mint-deep); color: var(--paper); }
-.client-card-coral { background: var(--accent-coral); color: var(--ink); }
+.client-card-coral { background: var(--accent-coral-deep); color: var(--paper); }
 .client-card-index {
   font-family: 'IBM Plex Mono', monospace;
   font-size: 11px;
