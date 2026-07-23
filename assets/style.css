@@ -53,6 +53,7 @@
 :root[data-theme="dark"] .mint-block,
 :root[data-theme="dark"] .client-deck {
   --paper: #F5F3FC;
+  --surface: #FBFAFE;
   --ink: #17130E;
   --ink-soft: #4A4438;
   --ink-faint: #6B6459;
@@ -61,6 +62,7 @@
   --accent-amber-text: #8C5E0C;
   --accent-coral-text: #B23A5C;
   --accent-sky-text: #1D6E96;
+  --shadow-rgb: 23, 19, 14;
   --border: rgba(23, 19, 14, 0.7);
 }
 
