@@ -15,6 +15,25 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
+  var timelineItems = document.querySelectorAll('.timeline-item');
+  if (timelineItems.length) {
+    var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reduceMotion || !('IntersectionObserver' in window)) {
+      timelineItems.forEach(function (item) { item.classList.add('is-visible'); });
+    } else {
+      var timelineObserver = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            var index = Array.prototype.indexOf.call(timelineItems, entry.target);
+            setTimeout(function () { entry.target.classList.add('is-visible'); }, index * 90);
+            timelineObserver.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.2, rootMargin: '0px 0px -40px 0px' });
+      timelineItems.forEach(function (item) { timelineObserver.observe(item); });
+    }
+  }
+
   var nav = document.querySelector('header.nav');
   var toggle = document.querySelector('.nav-toggle');
   if (!nav || !toggle) return;
