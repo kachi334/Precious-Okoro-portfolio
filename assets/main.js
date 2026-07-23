@@ -1,4 +1,20 @@
 document.addEventListener('DOMContentLoaded', function () {
+  var themeToggle = document.querySelector('.theme-toggle');
+  if (themeToggle) {
+    function reflectTheme(theme) {
+      var isDark = theme === 'dark';
+      themeToggle.setAttribute('aria-pressed', isDark ? 'true' : 'false');
+      themeToggle.setAttribute('aria-label', isDark ? 'Switch to light theme' : 'Switch to dark theme');
+    }
+    reflectTheme(document.documentElement.getAttribute('data-theme'));
+    themeToggle.addEventListener('click', function () {
+      var next = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', next);
+      try { localStorage.setItem('theme', next); } catch (e) {}
+      reflectTheme(next);
+    });
+  }
+
   var nav = document.querySelector('header.nav');
   var toggle = document.querySelector('.nav-toggle');
   if (!nav || !toggle) return;

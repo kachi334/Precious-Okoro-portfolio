@@ -21,6 +21,47 @@
   --border: rgba(23, 19, 14, 0.7);
 }
 
+/* ===== DARK THEME =====
+   Swaps the base paper/ink/accent tokens so every component built on them
+   (body text, .wrap cards, color-mix tints against --paper) re-themes for
+   free. --accent is brightened for dark backgrounds — the base violet only
+   hits ~3.3:1 on the dark paper, too low for the small text it's used for
+   (nav links, .text-highlight, .project-link). The "-text" safe variants
+   are repointed to the raw accent colors, which already clear 6:1+ on a
+   dark background (they only needed muting against the light paper). */
+:root[data-theme="dark"] {
+  --paper: #151310;
+  --surface: #1F1C17;
+  --ink: #F0EDE6;
+  --ink-soft: #B8B2A3;
+  --ink-faint: #8A8172;
+  --accent: #9B85E8;
+  --accent-mint-text: var(--accent-mint);
+  --accent-amber-text: var(--accent-amber);
+  --accent-coral-text: var(--accent-coral);
+  --accent-sky-text: var(--accent-sky);
+  --border: rgba(240, 237, 230, 0.18);
+}
+
+/* These sections are pre-calibrated solid-color "punctuation" blocks (not
+   content cards that should re-theme) — pin them back to the light-mode
+   token values so their fixed internal contrast never shifts with theme. */
+:root[data-theme="dark"] .dark-block,
+:root[data-theme="dark"] .violet-block,
+:root[data-theme="dark"] .mint-block,
+:root[data-theme="dark"] .client-deck {
+  --paper: #F5F3FC;
+  --ink: #17130E;
+  --ink-soft: #4A4438;
+  --ink-faint: #6B6459;
+  --accent: #6B4FD6;
+  --accent-mint-text: #0E7A50;
+  --accent-amber-text: #8C5E0C;
+  --accent-coral-text: #B23A5C;
+  --accent-sky-text: #1D6E96;
+  --border: rgba(23, 19, 14, 0.7);
+}
+
 /* Breakpoint scale used throughout: 860px (tablet), 700px (small tablet/large phone), 480px (phone) */
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -33,6 +74,7 @@ body {
   font-family: 'Inter', sans-serif;
   line-height: 1.7;
   overflow-x: hidden;
+  transition: background-color .25s ease, color .25s ease;
 }
 
 .wrap {
@@ -200,7 +242,7 @@ header.nav {
   position: sticky;
   top: 0;
   z-index: 20;
-  background: rgba(245, 243, 252, 0.92);
+  background: color-mix(in srgb, var(--paper) 92%, transparent);
   backdrop-filter: blur(6px);
   border-bottom: 1.5px solid var(--border);
 }
@@ -260,6 +302,26 @@ nav.links a.nav-cta::after { content: none; }
 nav.links a.nav-cta:hover { color: var(--accent-amber); background: var(--ink); transform: translateY(-2px); box-shadow: 3px 3px 0 rgba(23, 19, 14, 0.2); }
 nav.links a.nav-cta.active, nav.links a.nav-cta:active { color: var(--accent-amber); background: var(--ink); transform: translateY(0); box-shadow: none; }
 .nav-right { display: flex; align-items: center; gap: 20px; }
+
+.theme-toggle {
+  width: 38px;
+  height: 38px;
+  border: 1.5px solid var(--ink);
+  background: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  flex-shrink: 0;
+  color: var(--ink);
+  transition: background .15s ease, color .15s ease;
+}
+.theme-toggle:hover { background: var(--ink); color: var(--paper); }
+.theme-toggle:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.theme-toggle svg { width: 16px; height: 16px; }
+.theme-toggle .icon-moon { display: none; }
+:root[data-theme="dark"] .theme-toggle .icon-sun { display: none; }
+:root[data-theme="dark"] .theme-toggle .icon-moon { display: block; }
 
 .nav-toggle {
   display: none;
