@@ -35,7 +35,7 @@
   --surface: #1F1C17;
   --ink: #F0EDE6;
   --ink-soft: #B8B2A3;
-  --ink-faint: #8A8172;
+  --ink-faint: #9A9184; /* #8A8172 (the old failing light-mode value, reused carelessly) only hit ~4.2:1 against tinted card surfaces like .testimonial-card — this clears 5:1+ everywhere */
   --accent: #9B85E8;
   --accent-mint-text: var(--accent-mint);
   --accent-amber-text: var(--accent-amber);
