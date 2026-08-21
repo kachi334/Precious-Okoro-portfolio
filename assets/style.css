@@ -913,6 +913,14 @@ a.proof-item:hover .proof-label { color: var(--ink); }
 .case-results-list { list-style: none; display: flex; flex-direction: column; gap: 10px; margin-top: 24px; max-width: 60ch; }
 .case-results-list li { position: relative; padding-left: 22px; color: var(--ink-soft); font-family: 'Inter', sans-serif; font-size: 14.5px; }
 .case-results-list li::before { content: '\2713'; color: var(--accent-mint-text); position: absolute; left: 0; font-family: 'IBM Plex Mono', monospace; }
+.verb-test { display: flex; flex-wrap: wrap; gap: 16px; margin: 24px 0; }
+.verb-test-item { flex: 1 1 160px; border: 1.5px solid var(--border); background: var(--surface); padding: 20px; text-align: center; }
+.verb-test-item .verb-word { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 1.1rem; display: block; margin-bottom: 8px; }
+.verb-test-item .verb-score { font-family: 'IBM Plex Mono', monospace; font-weight: 600; font-size: 1.7rem; display: block; margin-bottom: 6px; color: var(--ink-faint); }
+.verb-test-item .verb-status { font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 1px; text-transform: uppercase; color: var(--ink-faint); }
+.verb-test-item.is-winner { border-color: var(--accent-mint); border-width: 2px; background: color-mix(in srgb, var(--accent-mint) 4%, var(--paper)); }
+.verb-test-item.is-winner .verb-score { color: var(--accent-mint-text); }
+.verb-test-item.is-winner .verb-status { color: var(--accent-mint-text); }
 .case-image-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin: 32px 0; }
 .case-image-pair .image-block { height: clamp(200px, 24vw, 320px); border: 1.5px solid var(--ink); }
 .case-caption { font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.3px; color: var(--ink-faint); text-align: center; margin-top: 8px; }
