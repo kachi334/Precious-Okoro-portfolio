@@ -64,6 +64,16 @@
   --accent-sky-text: #1D6E96;
   --shadow-rgb: 23, 19, 14;
   --border: rgba(23, 19, 14, 0.7);
+  /* --accent-*-deep tokens are declared once in the base :root and inherit
+     unchanged, so without a re-declaration here they'd keep carrying the
+     page-level dark-theme --ink (near-white) baked into their color-mix,
+     turning these into pale, low-contrast surfaces instead of the deep
+     ones white text was tuned against. Recomputed here against this
+     block's own pinned --ink so the mix matches light-mode again. */
+  --accent-deep: color-mix(in srgb, var(--accent) 78%, var(--ink) 22%);
+  --accent-mint-deep: color-mix(in srgb, var(--accent-mint) 65%, var(--ink) 35%);
+  --accent-coral-deep: color-mix(in srgb, var(--accent-coral) 60%, var(--ink) 40%);
+  --accent-amber-deep: color-mix(in srgb, var(--accent-amber) 55%, var(--ink) 45%);
 }
 
 /* Breakpoint scale used throughout: 860px (tablet), 700px (small tablet/large phone), 480px (phone) */
@@ -176,7 +186,7 @@ h1, h2, h3 { font-family: 'Space Grotesk', sans-serif; font-weight: 700; letter-
   letter-spacing: 0;
 }
 .accent-serif.ink { color: var(--ink); font-weight: 400; }
-.accent-serif.gold { color: var(--accent-amber); }
+.accent-serif.gold { color: var(--accent-amber-text); }
 
 /* Inline body-copy emphasis (distinct from .accent-serif, which is reserved for display headlines) */
 .text-highlight { font-weight: 600; color: var(--accent); }
@@ -454,8 +464,8 @@ a.proof-item:hover .proof-label { color: var(--ink); }
   color: var(--accent);
   margin-bottom: 8px;
 }
-.proof-item:nth-child(2) .proof-number { color: var(--accent-amber); }
-.proof-item:nth-child(3) .proof-number { color: var(--accent-mint); }
+.proof-item:nth-child(2) .proof-number { color: var(--accent-amber-text); }
+.proof-item:nth-child(3) .proof-number { color: var(--accent-mint-text); }
 .proof-label {
   display: block;
   font-family: 'IBM Plex Mono', monospace;
@@ -492,7 +502,9 @@ a.proof-item:hover .proof-label { color: var(--ink); }
   border: 2.5px solid var(--ink);
   border-radius: 6px;
   box-shadow: 3px 3px 0 rgba(var(--shadow-rgb), 0.15);
-  color: var(--ink);
+  color: #17130E; /* pinned dark: sits on raw --accent-mint/--accent-amber, which
+                      are decorative-only and only pass contrast with dark text.
+                      var(--ink) would flip to near-white in dark theme and fail. */
 }
 .headline-chip.chip-mint { background: var(--accent-mint); }
 .headline-chip.chip-amber { background: var(--accent-amber); }
@@ -1099,7 +1111,7 @@ a.proof-item:hover .proof-label { color: var(--ink); }
 .cv-block p { color: var(--ink-soft); max-width: 46ch; font-family: 'Inter', sans-serif; }
 
 /* ===== WRITING ===== */
-.writing-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 32px; }
+.writing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
 .writing-card {
   position: relative;
   border: 1.5px solid var(--border);
@@ -1112,10 +1124,14 @@ a.proof-item:hover .proof-label { color: var(--ink); }
 }
 .writing-card:hover { transform: rotate(0deg) translateY(-4px); box-shadow: 8px 8px 0 rgba(var(--shadow-rgb), 0.2); }
 .writing-card:nth-child(2) { border-top-color: var(--accent-mint); background: color-mix(in srgb, var(--accent-mint) 9%, var(--paper)); transform: rotate(1deg); }
+.writing-card:nth-child(3) { border-top-color: var(--accent); background: color-mix(in srgb, var(--accent) 9%, var(--paper)); transform: rotate(1deg); }
 .writing-card .eyebrow { display: block; margin-bottom: 12px; }
 .writing-card h3 { font-size: 1.3rem; margin-bottom: 12px; }
 .writing-card p { color: var(--ink-soft); margin-bottom: 20px; font-family: 'Inter', sans-serif; }
-@media (max-width: 720px) {
+@media (max-width: 900px) {
+  .writing-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 560px) {
   .writing-grid { grid-template-columns: 1fr; }
 }
 
@@ -1254,7 +1270,7 @@ footer { padding-top: clamp(3rem, 6vw, 5rem); padding-bottom: 32px; }
    rhythm break before the credibility section (CV) and the bold closing run,
    instead of nine consecutive light sections before any color block at all. */
 .amber-block {
-  background: color-mix(in srgb, var(--accent-amber) 18%, var(--paper));
+  background: color-mix(in srgb, var(--accent-amber) 13%, var(--paper));
   margin: 40px 0;
 }
 
