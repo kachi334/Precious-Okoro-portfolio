@@ -786,8 +786,13 @@ a.proof-item:hover .proof-label { color: var(--ink); }
    repeats violet, but it's diagonal from card 1 in the grid so it never reads
    as a duplicate. Border-top, background tint, mark, and bullets all share
    one accent per card so the color-coding stays legible at a glance. */
-.help-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+/* Flex, not grid: the card count doesn't always divide evenly by 3, and
+   flex-wrap + justify-content:center lets an incomplete last row center
+   itself instead of a fixed 3-col grid leaving a blank trailing slot. */
+.help-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 24px; }
 .help-card {
+  flex: 0 1 280px;
+  max-width: 340px;
   padding: 28px;
   border: 1.5px solid var(--border);
   border-top: 4px solid var(--accent);
@@ -824,10 +829,10 @@ a.proof-item:hover .proof-label { color: var(--ink); }
 .help-card:nth-child(4) li::before { background: var(--accent-coral); }
 .help-card:nth-child(5) li::before { background: var(--accent-sky); }
 @media (max-width: 860px) {
-  .help-grid { grid-template-columns: 1fr 1fr; }
+  .help-card { flex-basis: 45%; }
 }
 @media (max-width: 560px) {
-  .help-grid { grid-template-columns: 1fr; }
+  .help-card { flex-basis: 100%; max-width: none; }
 }
 
 /* ===== PROJECTS ===== */
