@@ -680,6 +680,9 @@ a.proof-item:hover .proof-label { color: var(--ink); }
 .about-head .avatar-block .image-block-label { display: none; }
 .about-intro h2 { font-size: clamp(2rem, 4.5vw, 2.8rem); margin-bottom: 24px; max-width: 26ch; }
 .about-intro p { color: var(--ink-soft); margin-bottom: 16px; max-width: 68ch; font-family: 'Inter', sans-serif; }
+.about-teaser { text-align: center; }
+.about-teaser .about-head { flex-direction: column; justify-content: center; }
+.about-teaser .about-intro p { margin-left: auto; margin-right: auto; }
 .pov-box { border-left: 2px solid var(--accent); padding-left: 20px; margin-top: 32px; max-width: 60ch; }
 .pov-box .eyebrow { display: block; margin-bottom: 8px; }
 .pov-box p { color: var(--ink-soft); margin-bottom: 12px; }
