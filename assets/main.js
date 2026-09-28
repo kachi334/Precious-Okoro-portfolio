@@ -97,4 +97,31 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   document.querySelectorAll('.hero-slider').forEach(initSlider);
+
+  var contactForm = document.getElementById('contact-form');
+  if (contactForm) {
+    contactForm.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var name = contactForm.elements['name'].value.trim();
+      var email = contactForm.elements['email'].value.trim();
+      var org = contactForm.elements['organization'].value.trim();
+      var aboutSelect = contactForm.elements['about'];
+      var about = aboutSelect.value;
+      var message = contactForm.elements['message'].value.trim();
+
+      var subject = 'New message from ' + name + (about ? ' — ' + about : '');
+      var body = [
+        'Name: ' + name,
+        'Email: ' + email,
+        'Organization: ' + (org || '—'),
+        'About: ' + (about || '—'),
+        '',
+        message
+      ].join('\n');
+
+      window.location.href = 'mailto:thepreciousokoro@gmail.com'
+        + '?subject=' + encodeURIComponent(subject)
+        + '&body=' + encodeURIComponent(body);
+    });
+  }
 });

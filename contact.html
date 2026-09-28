@@ -52,27 +52,61 @@
 
 <main id="main">
 
-  <div class="violet-block">
-    <section class="wrap" style="padding-top: clamp(3rem, 7vw, 5rem);">
-      <div class="section-label">Work Together</div>
-      <div class="contact-grid">
-        <div>
-          <h2>Better products start with better language <span class="accent-serif">infrastructure</span><span class="dot-glyph"></span></h2>
-          <p>Whether you're <span class="text-highlight">building a product</span>, <span class="text-highlight">growing a team</span>, or <span class="text-highlight">exploring a collaboration</span>, I'd love to hear what you're working on and explore how I can contribute.</p>
-          <div class="contact-actions">
-            <a class="btn btn-primary" href="https://calendly.com/thecontentdesignchief/30min" target="_blank" rel="noopener">Book a discovery call</a>
+  <section class="wrap contact-hero">
+    <div class="section-label">Contact</div>
+    <div class="contact-intro-grid">
+      <h2>Hi, I'm <span class="accent-serif">Precious Okoro</span><span class="dot-glyph"></span></h2>
+      <p class="contact-intro-text">I'm interested in the language problems that decide whether a product earns trust: content systems, AI experience, and the infrastructure most teams don't notice until it breaks.</p>
+    </div>
+  </section>
+
+  <hr class="contact-divider">
+
+  <section class="wrap">
+    <div class="say-hello-grid">
+      <h2>Say <span class="accent-serif">hello</span><span class="dot-glyph"></span></h2>
+      <div>
+        <p class="form-required-note">Required fields are marked *</p>
+        <form id="contact-form" class="contact-form">
+          <div class="form-row">
+            <div class="form-field">
+              <label for="cf-name">Name *</label>
+              <input type="text" id="cf-name" name="name" autocomplete="name" required>
+            </div>
+            <div class="form-field">
+              <label for="cf-email">Email *</label>
+              <input type="email" id="cf-email" name="email" autocomplete="email" required>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-field">
+              <label for="cf-org">Organization</label>
+              <input type="text" id="cf-org" name="organization" autocomplete="organization">
+            </div>
+            <div class="form-field">
+              <label for="cf-about">What is this about? *</label>
+              <select id="cf-about" name="about" required>
+                <option value="" selected disabled>Select one</option>
+                <option value="A project or retainer">A project or retainer</option>
+                <option value="A full-time or contract role">A full-time or contract role</option>
+                <option value="Speaking, writing, or collaboration">Speaking, writing, or collaboration</option>
+                <option value="Something else">Something else</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-field">
+            <label for="cf-message">Message *</label>
+            <textarea id="cf-message" name="message" rows="6" required></textarea>
+          </div>
+          <div class="contact-actions" style="margin-top: 8px; margin-bottom: 16px;">
+            <button type="submit" class="btn btn-primary">Send note →</button>
             <a class="btn btn-ghost" href="mailto:thepreciousokoro@gmail.com">Email instead</a>
           </div>
-        </div>
-        <div class="contact-list">
-          <span class="splat splat-violet" aria-hidden="true"></span>
-          <a href="mailto:thepreciousokoro@gmail.com"><span class="label">Email</span><span>thepreciousokoro@gmail.com</span></a>
-          <a href="https://www.linkedin.com/in/okoro-onyekachi-precious/" target="_blank" rel="noopener"><span class="label">LinkedIn</span><span>okoro-onyekachi-precious</span></a>
-          <a href="https://calendly.com/thecontentdesignchief/30min" target="_blank" rel="noopener"><span class="label">Calendly</span><span>Book a slot</span></a>
-        </div>
+          <p class="form-footer-note">Your details are only used to reply to this note. Prefer a call? <a href="https://calendly.com/thecontentdesignchief/30min" target="_blank" rel="noopener">Book a discovery call →</a></p>
+        </form>
       </div>
-    </section>
-  </div>
+    </div>
+  </section>
 
   <section class="wrap">
     <div class="section-label">The Process</div>

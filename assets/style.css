@@ -1194,6 +1194,48 @@ a.proof-item:hover .proof-label { color: var(--ink); }
   .contact-list a, .contact-list .row { flex-direction: column; align-items: flex-start; gap: 6px; padding-right: 22px; }
 }
 
+/* ===== CONTACT: PERSONAL HERO + FORM ===== */
+.contact-hero { padding-top: clamp(3rem, 7vw, 5rem); }
+.contact-intro-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 40px; align-items: end; margin-top: 16px; }
+.contact-intro-grid h2 { margin: 0; font-size: clamp(2.2rem, 5.5vw, 3.4rem); max-width: 14ch; }
+.contact-intro-text { color: var(--ink-soft); font-family: 'Inter', sans-serif; font-size: 15.5px; line-height: 1.7; max-width: 46ch; margin: 0; }
+.contact-divider { border: none; border-top: 1.5px solid var(--border); margin: clamp(2.5rem, 6vw, 4rem) 0 0; }
+
+.say-hello-grid { display: grid; grid-template-columns: 1fr 1.7fr; gap: 48px; padding: clamp(2.5rem, 6vw, 4rem) 0; align-items: start; }
+.say-hello-grid > h2 { margin: 0; font-size: clamp(1.8rem, 4vw, 2.4rem); }
+.form-required-note { font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.3px; color: var(--ink-faint); margin-bottom: 28px; }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+.form-field { display: flex; flex-direction: column; gap: 8px; margin-bottom: 24px; }
+.form-field label { font-family: 'Inter', sans-serif; font-size: 13.5px; font-weight: 600; color: var(--ink); }
+.form-field input,
+.form-field select,
+.form-field textarea {
+  font-family: 'Inter', sans-serif;
+  font-size: 15px;
+  color: var(--ink);
+  background: transparent;
+  border: none;
+  border-bottom: 1.5px solid var(--border);
+  padding: 8px 2px;
+  outline: none;
+  transition: border-color .15s ease;
+}
+.form-field textarea { border: 1.5px solid var(--border); padding: 12px; resize: vertical; min-height: 120px; font-family: 'Inter', sans-serif; }
+.form-field input:focus,
+.form-field select:focus,
+.form-field textarea:focus { border-color: var(--accent); }
+.form-field select { cursor: pointer; }
+.form-field select:invalid { color: var(--ink-faint); }
+.form-footer-note { font-family: 'Inter', sans-serif; font-size: 13px; color: var(--ink-faint); margin: 0; max-width: 42ch; }
+.form-footer-note a { color: var(--accent); }
+@media (max-width: 760px) {
+  .contact-intro-grid { grid-template-columns: 1fr; align-items: start; }
+  .say-hello-grid { grid-template-columns: 1fr; gap: 24px; }
+}
+@media (max-width: 560px) {
+  .form-row { grid-template-columns: 1fr; }
+}
+
 /* ===== FOOTER / SITEMAP ===== */
 footer { padding-top: clamp(3rem, 6vw, 5rem); padding-bottom: 32px; }
 .footer-grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 40px; padding-bottom: 40px; border-bottom: 1.5px solid var(--border); margin-bottom: 24px; }
