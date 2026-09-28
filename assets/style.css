@@ -438,19 +438,15 @@ header.nav.is-open .nav-mobile-panel { display: flex; }
 /* ===== SOCIAL PROOF METRICS ===== */
 section.proof-strip {
   position: relative;
-  padding: 48px 0;
 }
-section.proof-strip::before,
-section.proof-strip::after {
-  content: '';
-  position: absolute;
-  left: 0;
-  right: 0;
-  height: 6px;
-  background: linear-gradient(90deg, var(--accent) 0 33.333%, var(--accent-amber) 33.333% 66.666%, var(--accent-mint) 66.666% 100%);
-}
-section.proof-strip::before { top: 0; }
-section.proof-strip::after { bottom: 0; }
+.proof-strip-inner { padding: 48px 0; }
+/* Built as the same 3-col/24px-gap grid as .proof-grid, not a flat
+   33/33/33 gradient, so the color breaks land exactly on the column
+   boundaries below instead of drifting off by the accumulated gap width. */
+.proof-divider { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.proof-divider span { display: block; height: 6px; background: var(--accent); }
+.proof-divider span:nth-child(2) { background: var(--accent-amber); }
+.proof-divider span:nth-child(3) { background: var(--accent-mint); }
 .proof-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
 .proof-item { text-align: center; text-decoration: none; display: block; transition: transform .2s ease; }
 a.proof-item:hover { transform: translateY(-4px); }
@@ -476,6 +472,10 @@ a.proof-item:hover .proof-label { color: var(--ink); }
 }
 @media (max-width: 700px) {
   .proof-grid { grid-template-columns: 1fr; gap: 28px; }
+  /* Stats stack to one column here, so there's no grid to align the
+     divider to — fall back to a plain equal-thirds strip instead. */
+  .proof-divider { display: flex; }
+  .proof-divider span { flex: 1; }
 }
 
 /* ===== HERO ===== */
