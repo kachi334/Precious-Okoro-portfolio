@@ -1202,28 +1202,35 @@ a.proof-item:hover .proof-label { color: var(--ink); }
 .contact-divider { border: none; border-top: 1.5px solid var(--border); margin: clamp(2.5rem, 6vw, 4rem) 0 0; }
 
 .say-hello-grid { display: grid; grid-template-columns: 1fr 1.7fr; gap: 48px; padding: clamp(2.5rem, 6vw, 4rem) 0; align-items: start; }
-.say-hello-grid > h2 { margin: 0; font-size: clamp(1.8rem, 4vw, 2.4rem); }
+.say-hello-grid > div:first-child { position: relative; }
+.say-hello-grid h2 { margin: 0; font-size: clamp(1.8rem, 4vw, 2.4rem); }
+.contact-form-card {
+  border: 1.5px solid var(--border);
+  border-top: 4px solid var(--accent);
+  background: color-mix(in srgb, var(--accent) 6%, var(--paper));
+  box-shadow: 6px 6px 0 rgba(var(--shadow-rgb), 0.15);
+  padding: clamp(24px, 4vw, 40px);
+}
 .form-required-note { font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.3px; color: var(--ink-faint); margin-bottom: 28px; }
 .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
 .form-field { display: flex; flex-direction: column; gap: 8px; margin-bottom: 24px; }
-.form-field label { font-family: 'Inter', sans-serif; font-size: 13.5px; font-weight: 600; color: var(--ink); }
+.form-field label { font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.5px; text-transform: uppercase; color: var(--ink-soft); }
 .form-field input,
 .form-field select,
 .form-field textarea {
   font-family: 'Inter', sans-serif;
   font-size: 15px;
   color: var(--ink);
-  background: transparent;
-  border: none;
-  border-bottom: 1.5px solid var(--border);
-  padding: 8px 2px;
+  background: var(--paper);
+  border: 1.5px solid var(--border);
+  padding: 10px 12px;
   outline: none;
-  transition: border-color .15s ease;
+  transition: border-color .15s ease, box-shadow .15s ease;
 }
-.form-field textarea { border: 1.5px solid var(--border); padding: 12px; resize: vertical; min-height: 120px; font-family: 'Inter', sans-serif; }
+.form-field textarea { resize: vertical; min-height: 120px; }
 .form-field input:focus,
 .form-field select:focus,
-.form-field textarea:focus { border-color: var(--accent); }
+.form-field textarea:focus { border-color: var(--accent); box-shadow: 3px 3px 0 rgba(var(--shadow-rgb), 0.15); }
 .form-field select { cursor: pointer; }
 .form-field select:invalid { color: var(--ink-faint); }
 .form-footer-note { font-family: 'Inter', sans-serif; font-size: 13px; color: var(--ink-faint); margin: 0; max-width: 42ch; }
