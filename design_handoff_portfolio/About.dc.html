@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<script>(function(){try{var t=localStorage.getItem('theme');if(!t){t=window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..600;1,9..144,400..600&family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);-webkit-font-smoothing:antialiased;transition:background-color .25s ease,color .25s ease}
+:root{--paper:#FAF6ED;--paper-rgb:250,246,237;--surface:#FFFCF5;--ink:#17130E;--ink-rgb:23,19,14;--ink-soft:#4A4438;--ink-faint:#6B6459;--fade:#A39C8E;--accent:#6B4FD6;--accent-strong:#5942AA;--mint-text:#0E7A50;--amber-text:#8C5E0C;--coral-text:#B23A5C;--sky-text:#1D6E96;--t-mint-a:#DDF2E6;--t-mint-b:#F1F7EE;--t-amber-a:#F7E7C4;--t-amber-b:#FBF2DF;--t-violet-a:#E4DDFA;--t-violet-b:#F1EDFB;--t-coral-a:#FBE1E7;--t-coral-b:#FDF0F2;--t-violet-chip:#ECE7FB;--t-neutral:#EFEAE0;--t-field:#F1ECE1;color-scheme:light}
+:root[data-theme="dark"]{--paper:#0A0908;--paper-rgb:10,9,8;--surface:#161411;--ink:#F0EDE6;--ink-rgb:240,237,230;--ink-soft:#B8B2A3;--ink-faint:#9A9184;--fade:#6F685D;--accent:#9B85E8;--accent-strong:#B6A6F0;--mint-text:#3CC98A;--amber-text:#E5B04A;--coral-text:#F08DA6;--sky-text:#5DB3EA;--t-mint-a:#11281D;--t-mint-b:#0D1C15;--t-amber-a:#2B2110;--t-amber-b:#1C170D;--t-violet-a:#221B3D;--t-violet-b:#17132A;--t-coral-a:#30161E;--t-coral-b:#211116;--t-violet-chip:#261F42;--t-neutral:#1C1915;--t-field:#221E19;color-scheme:dark}
+a{color:var(--accent);text-decoration:none}
+a:hover{color:var(--accent-strong)}
+button:focus-visible,a:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+img{display:block;max-width:100%}
+</style>
+</helmet>
+
+<div style="background:var(--paper);min-height:100vh;font-family:'Inter',sans-serif;display:flex;flex-direction:column">
+
+  <header style="position:sticky;top:0;z-index:10;background:rgba(var(--paper-rgb),0.88);backdrop-filter:blur(12px)">
+    <div style="max-width:1200px;margin:0 auto;padding:20px 32px;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap">
+      <a href="Homepage.dc.html" style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:17px;color:var(--ink);letter-spacing:-0.01em">Precious Okoro</a>
+      <nav style="display:flex;align-items:center;gap:28px;flex-wrap:wrap;font-size:14.5px;font-weight:500">
+        <a href="Work.dc.html" style="color:var(--ink-soft)">Projects</a>
+        <a href="About.dc.html" aria-current="page" style="color:var(--ink);font-weight:600;border-bottom:2px solid #1FAE6E;padding-bottom:2px">About</a>
+        <a href="Experience.dc.html" style="color:var(--ink-soft)">Experience</a>
+        <a href="https://precious-okoro.medium.com/" target="_blank" rel="noopener" style="color:var(--ink-soft)">Blog</a>
+        <a href="Contact.dc.html" style="color:var(--surface);background:var(--ink);padding:10px 18px;border-radius:999px" style-hover="background:var(--accent);color:var(--surface)">Work Together</a>
+        <button type="button" onClick="{{ toggleTheme }}" aria-label="{{ themeLabel }}" style="width:40px;height:40px;border-radius:50%;border:1px solid rgba(var(--ink-rgb),0.22);background:transparent;color:var(--ink);display:flex;align-items:center;justify-content:center;cursor:pointer;padding:0" style-hover="border-color:var(--ink)"><sc-if value="{{ isLight }}" hint-placeholder-val="{{ true }}"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M14 9.5A6 6 0 1 1 6.5 2 4.8 4.8 0 0 0 14 9.5Z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"></path></svg></sc-if><sc-if value="{{ isDark }}" hint-placeholder-val="{{ false }}"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="8" cy="8" r="3" stroke="currentColor" stroke-width="1.4"></circle><path d="M8 0.5V2.5M8 13.5V15.5M15.5 8H13.5M2.5 8H0.5M13.3 2.7L11.9 4.1M4.1 11.9L2.7 13.3M13.3 13.3L11.9 11.9M4.1 4.1L2.7 2.7" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"></path></svg></sc-if></button>
+      </nav>
+    </div>
+  </header>
+
+  <main style="flex:1">
+    <section style="max-width:1200px;margin:0 auto;padding:120px 32px 100px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:56px 80px;align-items:end">
+      <div style="grid-column:span 2;display:flex;flex-direction:column;gap:28px;min-width:0">
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:1px;text-transform:uppercase;color:var(--ink-faint)">About</span>
+        <h1 style="margin:0;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(40px,6vw,84px);line-height:1.04;letter-spacing:-0.035em;max-width:16ch;text-wrap:balance">Hi, I'm Precious. <span style="color:var(--fade);font-weight:500">I build the</span> <span style="display:inline-block;background:#1FAE6E;color:#17130E;border-radius:999px;padding:0 0.32em 0.06em;line-height:1.08">language infrastructure</span> <span style="color:var(--fade);font-weight:500">behind</span> <span style="font-family:'Fraunces',serif;font-style:italic;font-weight:500;color:var(--accent);letter-spacing:-0.02em">products</span></h1>
+      </div>
+      <div style="border-radius:32px;background:linear-gradient(160deg,var(--t-violet-a) 0%,var(--t-violet-b) 100%);padding:20px;box-shadow:0 30px 80px -40px rgba(107,79,214,0.55);max-width:360px">
+        <img src="images/precious-headshot.jpg" alt="Precious Okoro" style="width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:22px">
+      </div>
+    </section>
+
+    <section style="max-width:1200px;margin:0 auto;padding:0 32px 140px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:56px 80px">
+      <div style="grid-column:span 2;display:flex;flex-direction:column;gap:24px;max-width:64ch;font-size:18px;line-height:1.75;color:var(--ink-soft);min-width:0">
+        <p style="margin:0;text-wrap:pretty">I'm a <strong style="color:var(--ink);font-weight:600">Senior Content Strategist</strong> and <strong style="color:var(--ink);font-weight:600">Content Designer</strong> with 6+ years of experience helping B2B SaaS, fintech, edtech, and enterprise technology teams build content that drives product adoption, retention, and growth.</p>
+        <p style="margin:0;text-wrap:pretty">Since 2019, I've worked across independent and in-house environments, designing the <strong style="color:var(--amber-text);font-weight:600">content systems</strong>, governance models, and workflows that make that infrastructure hold together, so teams can create clear, consistent, <strong style="color:var(--mint-text);font-weight:600">user-centered experiences</strong> at scale.</p>
+        <p style="margin:0;text-wrap:pretty">My work sits at the intersection of content strategy, UX writing, information architecture, and <strong style="color:var(--ink);font-weight:600">product thinking</strong>. I don't just write words. I build the systems, processes, and content decisions that help products communicate better, remove friction, and move users toward meaningful outcomes.</p>
+        <p style="margin:0;text-wrap:pretty">Increasingly, that means designing for <strong style="color:var(--amber-text);font-weight:600">agents instead of screens</strong>. I think about how an agent should behave, what knowledge and context it needs to answer well, how its responses are structured, and where a system needs guardrails to stay trustworthy under real use. <strong style="color:var(--mint-text);font-weight:600">Voxra</strong>, the AI content system I'm currently building to govern how agents communicate, is where I'm putting that thinking into practice.</p>
+      </div>
+      <aside style="align-self:start;position:sticky;top:110px;background:var(--surface);border-radius:28px;padding:36px;display:flex;flex-direction:column;gap:16px">
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:1px;text-transform:uppercase;color:var(--accent)">Who I work best with</span>
+        <p style="margin:0;font-family:'Fraunces',serif;font-size:21px;line-height:1.5;color:var(--ink);text-wrap:pretty">I work best with founders and product teams who treat language as a system, not a finishing touch. If you want someone who challenges an unclear decision instead of writing around it, we'll work well together.</p>
+        <a href="Contact.dc.html" style="font-weight:600;font-size:15px;color:var(--accent);margin-top:8px">Work together →</a>
+      </aside>
+    </section>
+  </main>
+
+  <footer style="width:100%;max-width:1200px;margin:0 auto;padding:40px 32px 56px;border-top:1px solid rgba(var(--ink-rgb),0.14);display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;font-size:14px;color:var(--ink-faint)">
+    <span>© 2026 Precious Okoro. Language infrastructure and content systems for products built to scale.</span>
+    <div style="display:flex;gap:24px;flex-wrap:wrap">
+      <a href="mailto:thepreciousokoro@gmail.com" style="color:var(--ink)">Email</a>
+      <a href="https://www.linkedin.com/in/okoro-onyekachi-precious/" target="_blank" rel="noopener" style="color:var(--ink)">LinkedIn</a>
+      <a href="https://calendly.com/thecontentdesignchief/30min" target="_blank" rel="noopener" style="color:var(--ink)">Book a call</a>
+    </div>
+  </footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  themeVals() {
+    const root = document.documentElement;
+    if (!root.getAttribute('data-theme')) { let t = 'light'; try { t = localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'); } catch (e) {} root.setAttribute('data-theme', t); }
+    const dark = (this.state && this.state.theme ? this.state.theme : root.getAttribute('data-theme')) === 'dark';
+    return {
+      isDark: dark, isLight: !dark, themeLabel: dark ? 'Switch to light theme' : 'Switch to dark theme',
+      toggleTheme: () => { const t = dark ? 'light' : 'dark'; root.setAttribute('data-theme', t); try { localStorage.setItem('theme', t); } catch (e) {} this.setState({ theme: t }); }
+    };
+  }
+  renderVals() { return { ...this.themeVals() }; }
+}
+</script>
+</body>
+</html>

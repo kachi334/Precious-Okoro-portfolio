@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<script>(function(){try{var t=localStorage.getItem('theme');if(!t){t=window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..600;1,9..144,400..600&family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&family=IBM+Plex+Mono:wght@400;500;600&family=Caveat:wght@500;700&display=swap" rel="stylesheet">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<script src="./image-slot.js"></script>
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);-webkit-font-smoothing:antialiased;transition:background-color .25s ease,color .25s ease}
+:root{--paper:#FAF6ED;--paper-rgb:250,246,237;--surface:#FFFCF5;--ink:#17130E;--ink-rgb:23,19,14;--ink-soft:#4A4438;--ink-faint:#6B6459;--fade:#A39C8E;--accent:#6B4FD6;--accent-strong:#5942AA;--mint-text:#0E7A50;--amber-text:#8C5E0C;--coral-text:#B23A5C;--sky-text:#1D6E96;--t-mint-a:#DDF2E6;--t-mint-b:#F1F7EE;--t-amber-a:#F7E7C4;--t-amber-b:#FBF2DF;--t-violet-a:#E4DDFA;--t-violet-b:#F1EDFB;--t-coral-a:#FBE1E7;--t-coral-b:#FDF0F2;--t-violet-chip:#ECE7FB;--t-neutral:#EFEAE0;--t-field:#F1ECE1;color-scheme:light}
+:root[data-theme="dark"]{--paper:#0A0908;--paper-rgb:10,9,8;--surface:#161411;--ink:#F0EDE6;--ink-rgb:240,237,230;--ink-soft:#B8B2A3;--ink-faint:#9A9184;--fade:#6F685D;--accent:#9B85E8;--accent-strong:#B6A6F0;--mint-text:#3CC98A;--amber-text:#E5B04A;--coral-text:#F08DA6;--sky-text:#5DB3EA;--t-mint-a:#11281D;--t-mint-b:#0D1C15;--t-amber-a:#2B2110;--t-amber-b:#1C170D;--t-violet-a:#221B3D;--t-violet-b:#17132A;--t-coral-a:#30161E;--t-coral-b:#211116;--t-violet-chip:#261F42;--t-neutral:#1C1915;--t-field:#221E19;color-scheme:dark}
+a{color:var(--accent);text-decoration:none}
+a:hover{color:var(--accent-strong)}
+button:focus-visible,a:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+img{display:block;max-width:100%}
+@keyframes reelUp{from{transform:translateY(0)}to{transform:translateY(-50%)}}
+@keyframes reelDown{from{transform:translateY(-50%)}to{transform:translateY(0)}}
+@media (prefers-reduced-motion:reduce){[data-reel]{animation:none!important}}
+</style>
+</helmet>
+
+<div style="background:var(--paper);min-height:100vh;font-family:'Inter',sans-serif">
+
+  <header style="position:sticky;top:0;z-index:10;background:rgba(var(--paper-rgb),0.88);backdrop-filter:blur(12px)">
+    <div style="max-width:1200px;margin:0 auto;padding:20px 32px;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap">
+      <a href="Homepage.dc.html" style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:17px;color:var(--ink);letter-spacing:-0.01em">Precious Okoro</a>
+      <nav style="display:flex;align-items:center;gap:28px;flex-wrap:wrap;font-size:14.5px;font-weight:500">
+        <a href="Work.dc.html" style="color:var(--ink-soft)">Projects</a>
+        <a href="About.dc.html" style="color:var(--ink-soft)">About</a>
+        <a href="Experience.dc.html" style="color:var(--ink-soft)">Experience</a>
+        <a href="https://precious-okoro.medium.com/" target="_blank" rel="noopener" style="color:var(--ink-soft)">Blog</a>
+        <a href="Contact.dc.html" style="color:var(--surface);background:var(--ink);padding:10px 18px;border-radius:999px" style-hover="background:var(--accent);color:var(--surface)">Work Together</a>
+        <button type="button" onClick="{{ toggleTheme }}" aria-label="{{ themeLabel }}" style="width:40px;height:40px;border-radius:50%;border:1px solid rgba(var(--ink-rgb),0.22);background:transparent;color:var(--ink);display:flex;align-items:center;justify-content:center;cursor:pointer;padding:0" style-hover="border-color:var(--ink)"><sc-if value="{{ isLight }}" hint-placeholder-val="{{ true }}"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M14 9.5A6 6 0 1 1 6.5 2 4.8 4.8 0 0 0 14 9.5Z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"></path></svg></sc-if><sc-if value="{{ isDark }}" hint-placeholder-val="{{ false }}"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="8" cy="8" r="3" stroke="currentColor" stroke-width="1.4"></circle><path d="M8 0.5V2.5M8 13.5V15.5M15.5 8H13.5M2.5 8H0.5M13.3 2.7L11.9 4.1M4.1 11.9L2.7 13.3M13.3 13.3L11.9 11.9M4.1 4.1L2.7 2.7" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"></path></svg></sc-if></button>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section style="max-width:1200px;margin:0 auto;padding:120px 32px 140px;display:flex;flex-direction:column;align-items:flex-start;gap:36px">
+      <div style="display:flex;align-items:center;gap:10px;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.5px;color:var(--mint-text);border:1px solid rgba(14,122,80,0.3);border-radius:999px;padding:7px 14px 7px 12px">
+        <span style="width:7px;height:7px;border-radius:50%;background:#1FAE6E;box-shadow:0 0 0 4px rgba(31,174,110,0.18)"></span>Available for new engagements
+      </div>
+      <h1 style="margin:0;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(44px,7.4vw,104px);line-height:1.02;letter-spacing:-0.035em;max-width:13ch;text-wrap:balance">Designing content <span style="display:inline-block;background:#1FAE6E;color:#17130E;border-radius:999px;padding:0 0.32em 0.06em;line-height:1.08">systems</span> <span style="color:var(--fade);font-weight:500">that help products</span> <span style="font-family:'Fraunces',serif;font-style:italic;font-weight:500;color:var(--accent);letter-spacing:-0.02em">scale</span></h1>
+      <p style="margin:0;max-width:58ch;font-size:clamp(17px,1.5vw,19px);line-height:1.65;color:var(--ink-soft);text-wrap:pretty">I build the language infrastructure behind products, shaping how they communicate, guide decisions, and behave across markets, interfaces, and intelligent systems.</p>
+      <div style="display:flex;flex-direction:column;gap:12px">
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:1px;text-transform:uppercase;color:var(--ink-faint)">Content systems shipped for</span>
+        <div style="display:flex;flex-wrap:wrap;gap:12px 36px;align-items:center"><span style="display:flex;align-items:center;gap:8px;font-size:16px;font-weight:500;color:var(--ink)"><svg width="16" height="28" viewBox="0 0 16 28" fill="none" aria-hidden="true" style="color:var(--accent)"><path d="M12 2.5C6.5 8 5.5 19 12.5 25.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"></path><ellipse cx="9.6" cy="5" rx="1.6" ry="3.2" transform="rotate(-35 9.6 5)" fill="currentColor"></ellipse><ellipse cx="6.4" cy="9.6" rx="1.6" ry="3.2" transform="rotate(-60 6.4 9.6)" fill="currentColor"></ellipse><ellipse cx="5.4" cy="14.6" rx="1.6" ry="3.2" transform="rotate(-85 5.4 14.6)" fill="currentColor"></ellipse><ellipse cx="6.4" cy="19.6" rx="1.6" ry="3.2" transform="rotate(-115 6.4 19.6)" fill="currentColor"></ellipse><ellipse cx="9.4" cy="23.6" rx="1.4" ry="2.8" transform="rotate(-140 9.4 23.6)" fill="currentColor"></ellipse></svg>Moniger<svg width="16" height="28" viewBox="0 0 16 28" fill="none" aria-hidden="true" style="color:var(--accent);transform:scaleX(-1)"><path d="M12 2.5C6.5 8 5.5 19 12.5 25.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"></path><ellipse cx="9.6" cy="5" rx="1.6" ry="3.2" transform="rotate(-35 9.6 5)" fill="currentColor"></ellipse><ellipse cx="6.4" cy="9.6" rx="1.6" ry="3.2" transform="rotate(-60 6.4 9.6)" fill="currentColor"></ellipse><ellipse cx="5.4" cy="14.6" rx="1.6" ry="3.2" transform="rotate(-85 5.4 14.6)" fill="currentColor"></ellipse><ellipse cx="6.4" cy="19.6" rx="1.6" ry="3.2" transform="rotate(-115 6.4 19.6)" fill="currentColor"></ellipse><ellipse cx="9.4" cy="23.6" rx="1.4" ry="2.8" transform="rotate(-140 9.4 23.6)" fill="currentColor"></ellipse></svg></span><span style="display:flex;align-items:center;gap:8px;font-size:16px;font-weight:500;color:var(--ink)"><svg width="16" height="28" viewBox="0 0 16 28" fill="none" aria-hidden="true" style="color:var(--accent)"><path d="M12 2.5C6.5 8 5.5 19 12.5 25.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"></path><ellipse cx="9.6" cy="5" rx="1.6" ry="3.2" transform="rotate(-35 9.6 5)" fill="currentColor"></ellipse><ellipse cx="6.4" cy="9.6" rx="1.6" ry="3.2" transform="rotate(-60 6.4 9.6)" fill="currentColor"></ellipse><ellipse cx="5.4" cy="14.6" rx="1.6" ry="3.2" transform="rotate(-85 5.4 14.6)" fill="currentColor"></ellipse><ellipse cx="6.4" cy="19.6" rx="1.6" ry="3.2" transform="rotate(-115 6.4 19.6)" fill="currentColor"></ellipse><ellipse cx="9.4" cy="23.6" rx="1.4" ry="2.8" transform="rotate(-140 9.4 23.6)" fill="currentColor"></ellipse></svg>Culangex<svg width="16" height="28" viewBox="0 0 16 28" fill="none" aria-hidden="true" style="color:var(--accent);transform:scaleX(-1)"><path d="M12 2.5C6.5 8 5.5 19 12.5 25.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"></path><ellipse cx="9.6" cy="5" rx="1.6" ry="3.2" transform="rotate(-35 9.6 5)" fill="currentColor"></ellipse><ellipse cx="6.4" cy="9.6" rx="1.6" ry="3.2" transform="rotate(-60 6.4 9.6)" fill="currentColor"></ellipse><ellipse cx="5.4" cy="14.6" rx="1.6" ry="3.2" transform="rotate(-85 5.4 14.6)" fill="currentColor"></ellipse><ellipse cx="6.4" cy="19.6" rx="1.6" ry="3.2" transform="rotate(-115 6.4 19.6)" fill="currentColor"></ellipse><ellipse cx="9.4" cy="23.6" rx="1.4" ry="2.8" transform="rotate(-140 9.4 23.6)" fill="currentColor"></ellipse></svg></span><span style="display:flex;align-items:center;gap:8px;font-size:16px;font-weight:500;color:var(--ink)"><svg width="16" height="28" viewBox="0 0 16 28" fill="none" aria-hidden="true" style="color:var(--accent)"><path d="M12 2.5C6.5 8 5.5 19 12.5 25.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"></path><ellipse cx="9.6" cy="5" rx="1.6" ry="3.2" transform="rotate(-35 9.6 5)" fill="currentColor"></ellipse><ellipse cx="6.4" cy="9.6" rx="1.6" ry="3.2" transform="rotate(-60 6.4 9.6)" fill="currentColor"></ellipse><ellipse cx="5.4" cy="14.6" rx="1.6" ry="3.2" transform="rotate(-85 5.4 14.6)" fill="currentColor"></ellipse><ellipse cx="6.4" cy="19.6" rx="1.6" ry="3.2" transform="rotate(-115 6.4 19.6)" fill="currentColor"></ellipse><ellipse cx="9.4" cy="23.6" rx="1.4" ry="2.8" transform="rotate(-140 9.4 23.6)" fill="currentColor"></ellipse></svg>FastTrackUX<svg width="16" height="28" viewBox="0 0 16 28" fill="none" aria-hidden="true" style="color:var(--accent);transform:scaleX(-1)"><path d="M12 2.5C6.5 8 5.5 19 12.5 25.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"></path><ellipse cx="9.6" cy="5" rx="1.6" ry="3.2" transform="rotate(-35 9.6 5)" fill="currentColor"></ellipse><ellipse cx="6.4" cy="9.6" rx="1.6" ry="3.2" transform="rotate(-60 6.4 9.6)" fill="currentColor"></ellipse><ellipse cx="5.4" cy="14.6" rx="1.6" ry="3.2" transform="rotate(-85 5.4 14.6)" fill="currentColor"></ellipse><ellipse cx="6.4" cy="19.6" rx="1.6" ry="3.2" transform="rotate(-115 6.4 19.6)" fill="currentColor"></ellipse><ellipse cx="9.4" cy="23.6" rx="1.4" ry="2.8" transform="rotate(-140 9.4 23.6)" fill="currentColor"></ellipse></svg></span><span style="display:flex;align-items:center;gap:8px;font-size:16px;font-weight:500;color:var(--ink)"><svg width="16" height="28" viewBox="0 0 16 28" fill="none" aria-hidden="true" style="color:var(--accent)"><path d="M12 2.5C6.5 8 5.5 19 12.5 25.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"></path><ellipse cx="9.6" cy="5" rx="1.6" ry="3.2" transform="rotate(-35 9.6 5)" fill="currentColor"></ellipse><ellipse cx="6.4" cy="9.6" rx="1.6" ry="3.2" transform="rotate(-60 6.4 9.6)" fill="currentColor"></ellipse><ellipse cx="5.4" cy="14.6" rx="1.6" ry="3.2" transform="rotate(-85 5.4 14.6)" fill="currentColor"></ellipse><ellipse cx="6.4" cy="19.6" rx="1.6" ry="3.2" transform="rotate(-115 6.4 19.6)" fill="currentColor"></ellipse><ellipse cx="9.4" cy="23.6" rx="1.4" ry="2.8" transform="rotate(-140 9.4 23.6)" fill="currentColor"></ellipse></svg>Beacon<svg width="16" height="28" viewBox="0 0 16 28" fill="none" aria-hidden="true" style="color:var(--accent);transform:scaleX(-1)"><path d="M12 2.5C6.5 8 5.5 19 12.5 25.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"></path><ellipse cx="9.6" cy="5" rx="1.6" ry="3.2" transform="rotate(-35 9.6 5)" fill="currentColor"></ellipse><ellipse cx="6.4" cy="9.6" rx="1.6" ry="3.2" transform="rotate(-60 6.4 9.6)" fill="currentColor"></ellipse><ellipse cx="5.4" cy="14.6" rx="1.6" ry="3.2" transform="rotate(-85 5.4 14.6)" fill="currentColor"></ellipse><ellipse cx="6.4" cy="19.6" rx="1.6" ry="3.2" transform="rotate(-115 6.4 19.6)" fill="currentColor"></ellipse><ellipse cx="9.4" cy="23.6" rx="1.4" ry="2.8" transform="rotate(-140 9.4 23.6)" fill="currentColor"></ellipse></svg></span><span style="display:flex;align-items:center;gap:8px;font-size:16px;font-weight:500;color:var(--ink)"><svg width="16" height="28" viewBox="0 0 16 28" fill="none" aria-hidden="true" style="color:var(--accent)"><path d="M12 2.5C6.5 8 5.5 19 12.5 25.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"></path><ellipse cx="9.6" cy="5" rx="1.6" ry="3.2" transform="rotate(-35 9.6 5)" fill="currentColor"></ellipse><ellipse cx="6.4" cy="9.6" rx="1.6" ry="3.2" transform="rotate(-60 6.4 9.6)" fill="currentColor"></ellipse><ellipse cx="5.4" cy="14.6" rx="1.6" ry="3.2" transform="rotate(-85 5.4 14.6)" fill="currentColor"></ellipse><ellipse cx="6.4" cy="19.6" rx="1.6" ry="3.2" transform="rotate(-115 6.4 19.6)" fill="currentColor"></ellipse><ellipse cx="9.4" cy="23.6" rx="1.4" ry="2.8" transform="rotate(-140 9.4 23.6)" fill="currentColor"></ellipse></svg>Babelos<svg width="16" height="28" viewBox="0 0 16 28" fill="none" aria-hidden="true" style="color:var(--accent);transform:scaleX(-1)"><path d="M12 2.5C6.5 8 5.5 19 12.5 25.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"></path><ellipse cx="9.6" cy="5" rx="1.6" ry="3.2" transform="rotate(-35 9.6 5)" fill="currentColor"></ellipse><ellipse cx="6.4" cy="9.6" rx="1.6" ry="3.2" transform="rotate(-60 6.4 9.6)" fill="currentColor"></ellipse><ellipse cx="5.4" cy="14.6" rx="1.6" ry="3.2" transform="rotate(-85 5.4 14.6)" fill="currentColor"></ellipse><ellipse cx="6.4" cy="19.6" rx="1.6" ry="3.2" transform="rotate(-115 6.4 19.6)" fill="currentColor"></ellipse><ellipse cx="9.4" cy="23.6" rx="1.4" ry="2.8" transform="rotate(-140 9.4 23.6)" fill="currentColor"></ellipse></svg></span></div>
+      </div>
+      <div style="display:flex;gap:12px;flex-wrap:wrap">
+        <a href="#work" style="background:var(--accent);color:var(--surface);font-weight:600;font-size:15px;padding:15px 26px;border-radius:999px" style-hover="background:var(--accent-strong);color:var(--surface)">View Case Studies</a>
+        <a href="#contact" style="color:var(--ink);font-weight:600;font-size:15px;padding:14px 25px;border-radius:999px;border:1px solid rgba(var(--ink-rgb),0.25)" style-hover="border-color:var(--ink);color:var(--ink)">Let's Work Together</a>
+      </div>
+    </section>
+
+    <sc-if value="{{ showProof }}" hint-placeholder-val="{{ true }}">
+      <section style="position:relative;max-width:1440px;margin:0 auto;padding:40px 0 160px;overflow:hidden">
+        <div style="position:absolute;top:40px;left:max(32px,calc((100% - 1136px) / 2));z-index:2;display:flex;flex-direction:column;gap:14px">
+          <h2 style="margin:0;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(36px,5.4vw,76px);line-height:1;letter-spacing:-0.04em;color:var(--ink);max-width:9ch">Impact by the <span style="font-family:'Fraunces',serif;font-style:italic;font-weight:500;color:var(--accent)">numbers</span></h2>
+        </div>
+        <svg viewBox="0 0 1440 760" style="width:100%;height:auto;display:block;margin-top:120px;overflow:visible;color:var(--ink)" aria-label="Three results plotted on a hand-drawn line">
+          <path d="M10,740 C90,630 180,548 300,540 S520,592 610,525 S770,305 870,300 S1110,405 1250,405 S1390,260 1430,170" fill="none" stroke="currentColor" stroke-width="22" stroke-linecap="round"></path>
+
+          <g onClick="{{ pick0 }}" style="cursor:pointer">
+            <text x="196" y="330" style="font-family:'Caveat',cursive;font-size:104px;font-weight:700" fill="{{ t0 }}">25%</text>
+            <text x="202" y="372" style="font-family:'Caveat',cursive;font-size:40px;font-weight:500" fill="#6B6459">Moniger</text>
+            <path d="M272,392 C248,420 260,458 292,478" fill="none" stroke="{{ t0 }}" stroke-width="7" stroke-linecap="round"></path><path d="M268,474 L294,480 L292,454" fill="none" stroke="{{ t0 }}" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"></path>
+            <circle cx="300" cy="540" r="44" style="fill:var(--paper)" stroke="{{ c0 }}" stroke-width="15"></circle>
+            <circle cx="305" cy="535" r="20" fill="none" stroke="{{ c0 }}" stroke-width="9"></circle>
+            <circle cx="300" cy="500" r="110" fill="transparent"></circle>
+          </g>
+
+          <g onClick="{{ pick1 }}" style="cursor:pointer">
+            <text x="762" y="96" style="font-family:'Caveat',cursive;font-size:104px;font-weight:700" fill="{{ t1 }}">~2×</text>
+            <text x="768" y="138" style="font-family:'Caveat',cursive;font-size:40px;font-weight:500" fill="#6B6459">FastTrackUX</text>
+            <path d="M842,158 C818,186 830,222 862,242" fill="none" stroke="{{ t1 }}" stroke-width="7" stroke-linecap="round"></path><path d="M838,238 L864,244 L862,218" fill="none" stroke="{{ t1 }}" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"></path>
+            <circle cx="870" cy="300" r="44" style="fill:var(--paper)" stroke="{{ c1 }}" stroke-width="15"></circle>
+            <circle cx="875" cy="295" r="20" fill="none" stroke="{{ c1 }}" stroke-width="9"></circle>
+            <circle cx="870" cy="250" r="110" fill="transparent"></circle>
+          </g>
+
+          <g onClick="{{ pick2 }}" style="cursor:pointer">
+            <circle cx="1250" cy="405" r="44" style="fill:var(--paper)" stroke="{{ c2 }}" stroke-width="15"></circle>
+            <circle cx="1255" cy="400" r="20" fill="none" stroke="{{ c2 }}" stroke-width="9"></circle>
+            <path d="M1232,566 C1212,534 1222,494 1250,468" fill="none" stroke="{{ t2 }}" stroke-width="7" stroke-linecap="round"></path><path d="M1228,478 L1250,466 L1260,490" fill="none" stroke="{{ t2 }}" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"></path>
+            <text x="1156" y="664" style="font-family:'Caveat',cursive;font-size:104px;font-weight:700" fill="{{ t2 }}">62%</text>
+            <text x="1162" y="706" style="font-family:'Caveat',cursive;font-size:40px;font-weight:500" fill="#6B6459">Beacon</text>
+            <circle cx="1250" cy="500" r="120" fill="transparent"></circle>
+          </g>
+
+          <path d="M352,610 C340,622 342,640 356,648 M350,640 L357,650 L366,644" fill="none" stroke="#A39C8E" stroke-width="3" stroke-linecap="round"></path>
+          <text x="368" y="666" style="font-family:'Caveat',cursive;font-size:32px" fill="#A39C8E">Tap a number</text>
+        </svg>
+        <div style="{{ panelStyle }}">
+          <p style="margin:0;font-size:clamp(18px,1.7vw,22px);line-height:1.45;letter-spacing:-0.01em;color:var(--ink);text-wrap:pretty"><span style="color:var(--fade)">{{ mMethod }}… </span><strong style="font-weight:600">{{ mLabel }}</strong></p>
+          <a href="{{ mHref }}" style="font-weight:600;font-size:15px;color:var(--accent)">Read the {{ mName }} case study →</a>
+        </div>
+      </section>
+    </sc-if>
+
+    <section id="work" style="max-width:1200px;margin:0 auto;padding:0 32px 160px;display:flex;flex-direction:column;gap:140px">
+      <div style="display:flex;flex-direction:column;gap:16px">
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:14px;font-weight:600;letter-spacing:1.2px;text-transform:uppercase;color:var(--accent)">Selected Work</span>
+        <h2 style="margin:0;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(34px,4.4vw,56px);letter-spacing:-0.03em;line-height:1.05">Things I've helped make <span style="font-family:'Fraunces',serif;font-style:italic;font-weight:500;color:var(--accent)">clearer</span></h2>
+      </div>
+
+      <article style="display:flex;flex-wrap:wrap;align-items:center;gap:56px">
+        <a href="Moniger.dc.html" style="flex:1 1 520px;min-width:0;display:block;border-radius:32px;background:linear-gradient(160deg,var(--t-mint-a) 0%,var(--t-mint-b) 100%);padding:clamp(24px,4vw,56px);box-shadow:0 30px 80px -40px rgba(31,174,110,0.55)" style-hover="transform:translateY(-4px)">
+          <img src="images/moniger-cover.png" alt="Moniger app home screen showing net worth, linked bank accounts, and recent transactions" style="width:100%;border-radius:18px">
+        </a>
+        <div style="flex:1 1 340px;min-width:0;display:flex;flex-direction:column;gap:20px">
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--ink-faint);letter-spacing:0.3px">2023–2026 | Financial Content Systems</span>
+          <h3 style="margin:0;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(24px,2.4vw,32px);line-height:1.2;letter-spacing:-0.02em;text-wrap:pretty">I helped a multi-bank fintech product sound like <span style="font-family:'Fraunces',serif;font-style:italic;font-weight:500;color:var(--mint-text)">one bank</span> — and conversions rose 25%.</h3>
+          <p style="margin:0;font-size:16px;line-height:1.7;color:var(--ink-soft);max-width:48ch">Communicating a complex multi-bank financial product without jargon, a 2+ year content-first engagement across mobile app, website, and support content, including a knowledge base mapped to every stage of the user journey.</p>
+          <div style="display:flex;flex-wrap:wrap;gap:8px">
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;border:1px solid rgba(var(--ink-rgb),0.22);border-radius:999px;padding:5px 12px;color:var(--ink-soft)">Content Strategy</span>
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;border:1px solid rgba(var(--ink-rgb),0.22);border-radius:999px;padding:5px 12px;color:var(--ink-soft)">UX Writing</span>
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;border:1px solid rgba(var(--ink-rgb),0.22);border-radius:999px;padding:5px 12px;color:var(--ink-soft)">Fintech</span>
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;border:1px solid rgba(var(--ink-rgb),0.22);border-radius:999px;padding:5px 12px;color:var(--ink-soft)">Mobile</span>
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;border:1px solid rgba(var(--ink-rgb),0.22);border-radius:999px;padding:5px 12px;color:var(--ink-soft)">Knowledge Bases</span>
+          </div>
+          <a href="Moniger.dc.html" style="font-weight:600;font-size:15px;color:var(--accent);margin-top:4px">Read case study →</a>
+        </div>
+      </article>
+
+      <article style="display:flex;flex-wrap:wrap;flex-direction:row-reverse;align-items:center;gap:56px">
+        <a href="FastTrackUX.dc.html" style="flex:1 1 520px;min-width:0;display:block;border-radius:32px;background:linear-gradient(160deg,var(--t-amber-a) 0%,var(--t-amber-b) 100%);padding:clamp(24px,4vw,56px);box-shadow:0 30px 80px -40px rgba(214,154,26,0.6)" style-hover="transform:translateY(-4px)">
+          <img src="images/fasttrackux-cover.webp" alt="FastTrackUX landing page redesign" style="width:100%;border-radius:18px">
+        </a>
+        <div style="flex:1 1 340px;min-width:0;display:flex;flex-direction:column;gap:20px">
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--ink-faint);letter-spacing:0.3px">2024 | Dual-Audience Content Strategy</span>
+          <h3 style="margin:0;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(24px,2.4vw,32px);line-height:1.2;letter-spacing:-0.02em;text-wrap:pretty">I rebuilt one landing page to speak to <span style="font-family:'Fraunces',serif;font-style:italic;font-weight:500;color:var(--amber-text)">two</span> different audiences — student logins nearly doubled.</h3>
+          <p style="margin:0;font-size:16px;line-height:1.7;color:var(--ink-soft);max-width:48ch">A research-led landing page redesign bridging two very different audiences in one voice.</p>
+          <div style="display:flex;flex-wrap:wrap;gap:8px">
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;border:1px solid rgba(var(--ink-rgb),0.22);border-radius:999px;padding:5px 12px;color:var(--ink-soft)">UX Writing</span>
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;border:1px solid rgba(var(--ink-rgb),0.22);border-radius:999px;padding:5px 12px;color:var(--ink-soft)">Landing Page</span>
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;border:1px solid rgba(var(--ink-rgb),0.22);border-radius:999px;padding:5px 12px;color:var(--ink-soft)">Edtech</span>
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;border:1px solid rgba(var(--ink-rgb),0.22);border-radius:999px;padding:5px 12px;color:var(--ink-soft)">Conversion</span>
+          </div>
+          <a href="FastTrackUX.dc.html" style="font-weight:600;font-size:15px;color:var(--accent);margin-top:4px">Read case study →</a>
+        </div>
+      </article>
+
+      <article style="display:flex;flex-wrap:wrap;align-items:center;gap:56px">
+        <a href="Beacon.dc.html" style="flex:1 1 520px;min-width:0;display:block;border-radius:32px;background:linear-gradient(160deg,var(--t-violet-a) 0%,var(--t-violet-b) 100%);padding:clamp(24px,4vw,56px);box-shadow:0 30px 80px -40px rgba(107,79,214,0.55)" style-hover="transform:translateY(-4px)">
+          <img src="images/beacon-cover.png" alt="Beacon product landing page, an incident OS for enterprise engineering teams" style="width:100%;border-radius:18px">
+        </a>
+        <div style="flex:1 1 340px;min-width:0;display:flex;flex-direction:column;gap:20px">
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--ink-faint);letter-spacing:0.3px">2025 | Crisis Content Design</span>
+          <h3 style="margin:0;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(24px,2.4vw,32px);line-height:1.2;letter-spacing:-0.02em;text-wrap:pretty">I cut incident misclassification 62% by replacing fifteen labels with <span style="font-family:'Fraunces',serif;font-style:italic;font-weight:500;color:var(--accent)">one</span> engineers could trust at 3 AM.</h3>
+          <p style="margin:0;font-size:16px;line-height:1.7;color:var(--ink-soft);max-width:48ch">Content design for an enterprise incident platform, built for engineers working under real pressure.</p>
+          <div style="display:flex;flex-wrap:wrap;gap:8px">
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;border:1px solid rgba(var(--ink-rgb),0.22);border-radius:999px;padding:5px 12px;color:var(--ink-soft)">Content Design</span>
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;border:1px solid rgba(var(--ink-rgb),0.22);border-radius:999px;padding:5px 12px;color:var(--ink-soft)">UX Writing</span>
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;border:1px solid rgba(var(--ink-rgb),0.22);border-radius:999px;padding:5px 12px;color:var(--ink-soft)">Enterprise SaaS</span>
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;border:1px solid rgba(var(--ink-rgb),0.22);border-radius:999px;padding:5px 12px;color:var(--ink-soft)">Crisis Communication</span>
+          </div>
+          <a href="Beacon.dc.html" style="font-weight:600;font-size:15px;color:var(--accent);margin-top:4px">Read case study →</a>
+        </div>
+      </article>
+
+      <article aria-disabled="true" style="display:flex;flex-wrap:wrap;flex-direction:row-reverse;align-items:center;gap:56px">
+        <div style="flex:1 1 520px;min-width:0;position:relative;border-radius:32px;background:linear-gradient(160deg,var(--t-coral-a) 0%,var(--t-coral-b) 100%);padding:clamp(24px,4vw,56px);box-shadow:0 30px 80px -40px rgba(236,111,142,0.55);cursor:not-allowed">
+          <div style="aspect-ratio:16/10;display:flex;flex-direction:column;justify-content:space-between;gap:16px">
+            <div style="display:flex;justify-content:space-between;align-items:center;gap:12px">
+              <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:1px;text-transform:uppercase;color:var(--coral-text)">Content system for AI agents</span>
+              <span style="display:flex;align-items:center;gap:8px;font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--ink-soft)"><span style="width:7px;height:7px;border-radius:50%;background:#EC6F8E"></span>Coming soon</span>
+            </div>
+            <span style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(80px,13vw,180px);line-height:0.9;letter-spacing:-0.05em;color:var(--ink);align-self:center;margin:auto 0">Vox<span style="font-family:'Fraunces',serif;font-style:italic;font-weight:500;color:var(--coral-text)">ra</span></span>
+          </div>
+        </div>
+        <div style="flex:1 1 340px;min-width:0;display:flex;flex-direction:column;gap:20px">
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--ink-faint);letter-spacing:0.3px">2026 | Agentic Content Design</span>
+          <h3 style="margin:0;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(24px,2.4vw,32px);line-height:1.2;letter-spacing:-0.02em;text-wrap:pretty">Voxra: an AI content system that governs how <span style="font-family:'Fraunces',serif;font-style:italic;font-weight:500;color:var(--coral-text)">agents</span> communicate.</h3>
+          <p style="margin:0;font-size:16px;line-height:1.7;color:var(--ink-soft);max-width:48ch">Where my thinking on agentic content design, language infrastructure, and content systems for AI agents gets put into practice.</p>
+          <div style="display:flex;flex-wrap:wrap;gap:8px">
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;border:1px solid rgba(var(--ink-rgb),0.22);border-radius:999px;padding:5px 12px;color:var(--ink-soft)">Agentic Content Design</span>
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;border:1px solid rgba(var(--ink-rgb),0.22);border-radius:999px;padding:5px 12px;color:var(--ink-soft)">Language Infrastructure</span>
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;border:1px solid rgba(var(--ink-rgb),0.22);border-radius:999px;padding:5px 12px;color:var(--ink-soft)">AI Agents</span>
+          </div>
+          <span style="align-self:flex-start;display:flex;align-items:center;gap:8px;font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--ink-soft);border:1px dashed rgba(var(--ink-rgb),0.3);border-radius:999px;padding:6px 14px;margin-top:4px;cursor:not-allowed"><span style="width:7px;height:7px;border-radius:50%;background:#EC6F8E"></span>Case study coming soon</span>
+        </div>
+      </article>
+
+      <a href="Work.dc.html" style="align-self:center;font-weight:600;font-size:15px;color:var(--ink);border-bottom:1px solid var(--ink);padding-bottom:2px">View all case studies →</a>
+    </section>
+
+    <section id="industries" style="max-width:1200px;margin:0 auto;padding:0 32px 140px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:20px 40px;border-top:1px solid rgba(var(--ink-rgb),0.14);padding-top:40px">
+      <span style="font-family:'IBM Plex Mono',monospace;font-size:14px;font-weight:600;letter-spacing:1.2px;text-transform:uppercase;color:var(--amber-text)">Industries I've worked in</span>
+      <div style="display:flex;flex-wrap:wrap;gap:10px">
+        <span style="display:flex;align-items:center;gap:10px;border:1px solid rgba(var(--ink-rgb),0.18);border-radius:999px;padding:10px 18px 10px 14px;font-size:15px;font-weight:500;color:var(--ink)"><span style="width:9px;height:9px;border-radius:50%;background:#D69A1A"></span>EdTech</span>
+        <span style="display:flex;align-items:center;gap:10px;border:1px solid rgba(var(--ink-rgb),0.18);border-radius:999px;padding:10px 18px 10px 14px;font-size:15px;font-weight:500;color:var(--ink)"><span style="width:9px;height:9px;border-radius:50%;background:#3FA0E0"></span>Gaming</span>
+        <span style="display:flex;align-items:center;gap:10px;border:1px solid rgba(var(--ink-rgb),0.18);border-radius:999px;padding:10px 18px 10px 14px;font-size:15px;font-weight:500;color:var(--ink)"><span style="width:9px;height:9px;border-radius:50%;background:#1FAE6E"></span>Fintech</span>
+        <span style="display:flex;align-items:center;gap:10px;border:1px solid rgba(var(--ink-rgb),0.18);border-radius:999px;padding:10px 18px 10px 14px;font-size:15px;font-weight:500;color:var(--ink)"><span style="width:9px;height:9px;border-radius:50%;background:#EC6F8E"></span>Agentic AI Systems</span>
+        <span style="display:flex;align-items:center;gap:10px;border:1px solid rgba(var(--ink-rgb),0.18);border-radius:999px;padding:10px 18px 10px 14px;font-size:15px;font-weight:500;color:var(--ink)"><span style="width:9px;height:9px;border-radius:50%;background:#6B4FD6"></span>SaaS</span>
+      </div>
+    </section>
+
+    <sc-if value="{{ showThinking }}" hint-placeholder-val="{{ true }}">
+      <section style="{{ thinkSectionStyle }}">
+        <sc-if value="{{ showArts }}" hint-placeholder-val="{{ true }}">
+          <div style="{{ a0 }}">
+            <div style="position:relative;border:1.5px solid var(--accent);padding:14px">
+              <span style="position:absolute;left:-5px;top:-5px;width:9px;height:9px;background:var(--accent)"></span><span style="position:absolute;right:-5px;top:-5px;width:9px;height:9px;background:var(--accent)"></span><span style="position:absolute;left:-5px;bottom:-5px;width:9px;height:9px;background:var(--accent)"></span><span style="position:absolute;right:-5px;bottom:-5px;width:9px;height:9px;background:var(--accent)"></span>
+              <div style="background:var(--surface);border-radius:16px;padding:18px;box-shadow:0 14px 34px -18px rgba(23,19,14,0.35);display:flex;flex-direction:column;gap:14px">
+                <div style="display:flex;align-items:center;gap:10px"><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:600;background:var(--t-coral-a);color:var(--coral-text);border-radius:999px;padding:4px 10px">P0 - Critical</span><span style="font-size:13px;color:var(--ink-soft)">Incident declared</span></div>
+                <div style="display:flex;gap:8px"><span style="background:var(--ink);color:var(--surface);font-size:13px;font-weight:600;border-radius:999px;padding:9px 16px">Acknowledge</span><span style="border:1px solid rgba(var(--ink-rgb),0.2);font-size:13px;font-weight:500;border-radius:999px;padding:8px 14px;color:var(--ink-soft)">View details</span></div>
+              </div>
+              <div style="position:absolute;right:-34px;bottom:-26px;display:flex;align-items:flex-start;gap:2px"><svg width="22" height="22" viewBox="0 0 22 22" style="margin-top:-12px"><path d="M2,2 L20,9 L11,11 L9,20 Z" fill="#6B4FD6"></path></svg><span style="background:var(--accent);color:var(--surface);font-size:17px;font-weight:500;border-radius:999px;padding:9px 18px">Components</span></div>
+            </div>
+          </div>
+
+          <div style="{{ a1 }}">
+            <div style="position:relative;border:1.5px solid var(--ink);padding:14px">
+              <span style="position:absolute;left:-5px;top:-5px;width:9px;height:9px;background:var(--ink)"></span><span style="position:absolute;right:-5px;top:-5px;width:9px;height:9px;background:var(--ink)"></span><span style="position:absolute;left:-5px;bottom:-5px;width:9px;height:9px;background:var(--ink)"></span><span style="position:absolute;right:-5px;bottom:-5px;width:9px;height:9px;background:var(--ink)"></span>
+              <div style="background:var(--surface);border-radius:16px;padding:6px 16px;box-shadow:0 14px 34px -18px rgba(23,19,14,0.35);display:flex;flex-direction:column">
+                <div style="display:flex;justify-content:space-between;gap:10px;padding:10px 0;border-bottom:1px solid rgba(var(--ink-rgb),0.1)"><span style="font-size:13.5px;font-weight:600">Foundation</span><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--ink-faint)">Voice + vocabulary</span></div>
+                <div style="display:flex;justify-content:space-between;gap:10px;padding:10px 0;border-bottom:1px solid rgba(var(--ink-rgb),0.1)"><span style="font-size:13.5px;font-weight:600">Pattern</span><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--ink-faint)">Style guide</span></div>
+                <div style="display:flex;justify-content:space-between;gap:10px;padding:10px 0;border-bottom:1px solid rgba(var(--ink-rgb),0.1)"><span style="font-size:13.5px;font-weight:600">Journey</span><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--ink-faint)">End to end</span></div>
+                <div style="display:flex;justify-content:space-between;gap:10px;padding:10px 0"><span style="font-size:13.5px;font-weight:600">Documentation</span><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--ink-faint)">Knowledge base</span></div>
+              </div>
+              <div style="position:absolute;right:-40px;bottom:-26px;display:flex;align-items:flex-start;gap:2px"><svg width="22" height="22" viewBox="0 0 22 22" style="margin-top:-12px"><path d="M2,2 L20,9 L11,11 L9,20 Z" fill="currentColor"></path></svg><span style="background:var(--ink);color:var(--surface);font-size:17px;font-weight:500;border-radius:999px;padding:9px 18px">Content system</span></div>
+            </div>
+          </div>
+
+          <div style="{{ a2 }}">
+            <div style="position:relative;border:1.5px solid #D69A1A;padding:14px">
+              <span style="position:absolute;left:-5px;top:-5px;width:9px;height:9px;background:#D69A1A"></span><span style="position:absolute;right:-5px;top:-5px;width:9px;height:9px;background:#D69A1A"></span><span style="position:absolute;left:-5px;bottom:-5px;width:9px;height:9px;background:#D69A1A"></span><span style="position:absolute;right:-5px;bottom:-5px;width:9px;height:9px;background:#D69A1A"></span>
+              <div style="background:var(--surface);border-radius:16px;padding:6px 16px;box-shadow:0 14px 34px -18px rgba(23,19,14,0.35);display:flex;flex-direction:column">
+                <div style="display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid rgba(var(--ink-rgb),0.1)"><span style="font-size:13.5px;font-weight:700">✓ Acknowledge</span><span style="font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:600;color:var(--mint-text)">94%</span></div>
+                <div style="display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid rgba(var(--ink-rgb),0.1)"><span style="font-size:13.5px;color:var(--ink-faint)">I'm on it</span><span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--ink-faint)">71%</span></div>
+                <div style="display:flex;justify-content:space-between;padding:10px 0"><span style="font-size:13.5px;color:var(--ink-faint)">Accept</span><span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--ink-faint)">68%</span></div>
+              </div>
+              <div style="position:absolute;left:30px;bottom:-26px;display:flex;align-items:flex-start;gap:2px"><svg width="22" height="22" viewBox="0 0 22 22" style="margin-top:-12px"><path d="M2,2 L20,9 L11,11 L9,20 Z" fill="#D69A1A"></path></svg><span style="background:#D69A1A;color:#17130E;font-size:17px;font-weight:500;border-radius:999px;padding:9px 18px">Verb test</span></div>
+            </div>
+          </div>
+
+          <div style="{{ a4 }}">
+            <div style="position:relative;border:1.5px solid #1FAE6E;padding:14px">
+              <span style="position:absolute;left:-5px;top:-5px;width:9px;height:9px;background:#1FAE6E"></span><span style="position:absolute;right:-5px;top:-5px;width:9px;height:9px;background:#1FAE6E"></span><span style="position:absolute;left:-5px;bottom:-5px;width:9px;height:9px;background:#1FAE6E"></span><span style="position:absolute;right:-5px;bottom:-5px;width:9px;height:9px;background:#1FAE6E"></span>
+              <div style="background:var(--surface);border-radius:16px;padding:6px 16px;box-shadow:0 14px 34px -18px rgba(23,19,14,0.35);display:flex;flex-direction:column">
+                <div style="display:flex;flex-direction:column;gap:3px;padding:10px 0;border-bottom:1px solid rgba(var(--ink-rgb),0.1)"><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--mint-text)">severity.p0</span><span style="font-size:13.5px;font-weight:600">P0 - Critical</span></div>
+                <div style="display:flex;flex-direction:column;gap:3px;padding:10px 0;border-bottom:1px solid rgba(var(--ink-rgb),0.1)"><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--mint-text)">action.claim</span><span style="font-size:13.5px;font-weight:600">Acknowledge</span></div>
+                <div style="display:flex;flex-direction:column;gap:3px;padding:10px 0"><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--mint-text)">voice.tone</span><span style="font-size:13.5px;font-weight:600">Guidance, not scolding</span></div>
+              </div>
+              <div style="position:absolute;right:-30px;bottom:-26px;display:flex;align-items:flex-start;gap:2px"><svg width="22" height="22" viewBox="0 0 22 22" style="margin-top:-12px"><path d="M2,2 L20,9 L11,11 L9,20 Z" fill="#1FAE6E"></path></svg><span style="background:#1FAE6E;color:#17130E;font-size:17px;font-weight:500;border-radius:999px;padding:9px 18px">Language infrastructure</span></div>
+            </div>
+          </div>
+          <div style="{{ a5 }}">
+            <div style="position:relative;border:1.5px solid #EC6F8E;padding:14px">
+              <span style="position:absolute;left:-5px;top:-5px;width:9px;height:9px;background:#EC6F8E"></span><span style="position:absolute;right:-5px;top:-5px;width:9px;height:9px;background:#EC6F8E"></span><span style="position:absolute;left:-5px;bottom:-5px;width:9px;height:9px;background:#EC6F8E"></span><span style="position:absolute;right:-5px;bottom:-5px;width:9px;height:9px;background:#EC6F8E"></span>
+              <div style="background:var(--surface);border-radius:16px;padding:16px;box-shadow:0 14px 34px -18px rgba(23,19,14,0.35);display:flex;flex-direction:column;gap:12px">
+                <div style="display:flex;align-items:center;gap:8px"><span style="width:22px;height:22px;border-radius:50%;background:var(--ink);color:var(--surface);font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center">✦</span><span style="font-size:13.5px;font-weight:700">Agent</span><span style="font-size:12px;color:var(--fade)">wants to act</span></div>
+                <p style="margin:0;font-size:13.5px;line-height:1.45;color:var(--ink)">Send the incident summary to stakeholders.</p>
+                <div style="display:flex;flex-wrap:wrap;gap:6px">
+                  <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;background:var(--t-coral-a);color:var(--coral-text);border-radius:999px;padding:4px 9px">Intent</span>
+                  <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;background:var(--t-coral-a);color:var(--coral-text);border-radius:999px;padding:4px 9px">Confidence</span>
+                  <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;background:var(--t-coral-a);color:var(--coral-text);border-radius:999px;padding:4px 9px">Recovery</span>
+                </div>
+                <div style="display:flex;gap:8px"><span style="background:var(--ink);color:var(--surface);font-size:12.5px;font-weight:600;border-radius:999px;padding:8px 14px">Approve</span><span style="border:1px solid rgba(var(--ink-rgb),0.2);font-size:12.5px;font-weight:500;border-radius:999px;padding:7px 13px;color:var(--ink-soft)">Edit first</span></div>
+              </div>
+              <div style="position:absolute;left:-30px;top:-22px;display:flex;align-items:flex-start;gap:2px"><svg width="22" height="22" viewBox="0 0 22 22" style="margin-top:-12px"><path d="M2,2 L20,9 L11,11 L9,20 Z" fill="#B23A5C"></path></svg><span style="background:var(--coral-text);color:var(--surface);font-size:17px;font-weight:500;border-radius:999px;padding:9px 18px">Agentic content</span></div>
+            </div>
+          </div>
+          <div style="{{ a3 }}">
+            <div style="position:relative;border:1.5px solid #3FA0E0;padding:14px">
+              <span style="position:absolute;left:-5px;top:-5px;width:9px;height:9px;background:#3FA0E0"></span><span style="position:absolute;right:-5px;top:-5px;width:9px;height:9px;background:#3FA0E0"></span><span style="position:absolute;left:-5px;bottom:-5px;width:9px;height:9px;background:#3FA0E0"></span><span style="position:absolute;right:-5px;bottom:-5px;width:9px;height:9px;background:#3FA0E0"></span>
+              <div style="background:var(--surface);border-radius:16px;padding:16px;box-shadow:0 14px 34px -18px rgba(23,19,14,0.35);display:flex;flex-direction:column;gap:12px">
+                <div style="display:flex;justify-content:space-between"><span style="font-size:13.5px;font-weight:700">Error message</span><span style="font-size:12px;color:var(--fade)">Component</span></div>
+                <div style="display:flex;align-items:center;justify-content:space-between;gap:10px"><span style="font-size:12.5px;color:var(--ink-soft)">Tone</span><div style="display:flex;background:var(--t-field);border-radius:10px;padding:3px"><span style="background:var(--surface);color:var(--sky-text);font-size:12px;font-weight:600;border-radius:8px;padding:5px 12px">Guidance</span><span style="color:var(--ink-faint);font-size:12px;padding:5px 12px">Scolding</span></div></div>
+                <div style="display:flex;align-items:center;justify-content:space-between;gap:10px"><span style="font-size:12.5px;color:var(--ink-soft)">Length</span><span style="background:var(--t-field);font-family:'IBM Plex Mono',monospace;font-size:12px;border-radius:8px;padding:6px 12px">≤ 50 words</span></div>
+                <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:10px"><span style="font-size:12.5px;color:var(--ink-soft);padding-top:6px">Text</span><span style="background:var(--t-field);font-size:12.5px;line-height:1.4;border-radius:8px;padding:6px 12px;max-width:170px">What's broken and what to do next</span></div>
+              </div>
+              <div style="position:absolute;right:-48px;top:-22px;display:flex;align-items:flex-start;gap:2px"><svg width="22" height="22" viewBox="0 0 22 22" style="margin-top:-12px"><path d="M2,2 L20,9 L11,11 L9,20 Z" fill="#1D6E96"></path></svg><span style="background:var(--sky-text);color:var(--surface);font-size:17px;font-weight:500;border-radius:999px;padding:9px 18px">States</span></div>
+            </div>
+          </div>
+        </sc-if>
+
+        <div style="{{ thinkBodyStyle }}">
+          <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap">
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:1px;text-transform:uppercase;color:var(--ink-faint);margin-right:8px">How I Think</span>
+            <button type="button" onClick="{{ tab0 }}" style="{{ tabS0 }}">01</button>
+            <button type="button" onClick="{{ tab1 }}" style="{{ tabS1 }}">02</button>
+            <button type="button" onClick="{{ tab2 }}" style="{{ tabS2 }}">03</button>
+          </div>
+          <h2 style="margin:0;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(44px,7vw,104px);line-height:1;letter-spacing:-0.045em;color:var(--ink);text-wrap:balance">{{ pTitle }}</h2>
+          <p style="margin:0;align-self:flex-end;max-width:560px;font-size:clamp(18px,1.8vw,24px);line-height:1.45;letter-spacing:-0.01em;color:var(--fade);text-wrap:pretty">{{ pPre }}<mark style="background:#1FAE6E;color:#17130E;padding:0 4px">{{ pHi }}</mark>{{ pPost }}</p>
+        </div>
+      </section>
+    </sc-if>
+
+    <section style="max-width:1200px;margin:0 auto;padding:0 32px 160px;display:flex;flex-direction:column;gap:48px">
+      <span style="font-family:'IBM Plex Mono',monospace;font-size:14px;font-weight:600;letter-spacing:1.2px;text-transform:uppercase;color:var(--accent)">Words From Clients</span>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:24px">
+        <figure style="margin:0;background:var(--surface);border-radius:28px;padding:clamp(28px,3.5vw,44px);display:flex;flex-direction:column;justify-content:space-between;gap:36px">
+          <blockquote style="margin:0;font-family:'Fraunces',serif;font-size:clamp(19px,1.7vw,22px);line-height:1.5;color:var(--ink);text-wrap:pretty">“Precious has a rare ability to take abstract vision and turn it into emotionally resonant, beautifully crafted copy. Her writing doesn't just explain; it connects, inspires, and stays with you.”</blockquote>
+          <figcaption style="display:flex;flex-direction:column;gap:4px">
+            <span style="font-weight:600;font-size:15px;color:var(--ink)">Chioma Chinwuko</span>
+            <span style="font-size:14px;color:var(--ink-faint)">CEO/Founder at Oduko</span>
+          </figcaption>
+        </figure>
+        <figure style="margin:0;background:var(--surface);border-radius:28px;padding:clamp(28px,3.5vw,44px);display:flex;flex-direction:column;justify-content:space-between;gap:36px">
+          <blockquote style="margin:0;font-family:'Fraunces',serif;font-size:clamp(19px,1.7vw,22px);line-height:1.5;color:var(--ink);text-wrap:pretty">“As a designer myself, I am extremely impressed by how much Precious knows about UX design. Her thorough understanding of UX theories and methodologies allowed us to collaborate seamlessly and make great design decisions quickly.”</blockquote>
+          <figcaption style="display:flex;flex-direction:column;gap:4px">
+            <span style="font-weight:600;font-size:15px;color:var(--ink)">Aliena Cai</span>
+            <span style="font-size:14px;color:var(--ink-faint)">CEO at Aliena LLC · FastTrackUX</span>
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section style="max-width:1200px;margin:0 auto;padding:0 32px 160px;display:flex;flex-direction:column;gap:40px">
+      <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap">
+        <div style="display:flex;flex-direction:column;gap:16px">
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:14px;font-weight:600;letter-spacing:1.2px;text-transform:uppercase;color:var(--coral-text)">Writing</span>
+          <h2 style="margin:0;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(34px,4.4vw,56px);letter-spacing:-0.03em;line-height:1.05">Things I'm thinking <span style="font-family:'Fraunces',serif;font-style:italic;font-weight:500;color:var(--accent)">about</span></h2>
+        </div>
+        <a href="https://precious-okoro.medium.com/" target="_blank" rel="noopener" style="font-weight:600;font-size:15px;color:var(--ink);border-bottom:1px solid var(--ink);padding-bottom:2px">All articles on Medium →</a>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:24px">
+        <a href="https://precious-okoro.medium.com/ai-agent-trust-is-a-content-design-problem-6ca43235e274" target="_blank" rel="noopener" style="display:flex;flex-direction:column;border-radius:28px;background:var(--surface);overflow:hidden;color:var(--ink);box-shadow:0 24px 60px -44px rgba(23,19,14,0.35);transition:transform .3s cubic-bezier(.2,.8,.2,1)" style-hover="transform:translateY(-4px);color:var(--ink)">
+          <div style="aspect-ratio:16/7;background:linear-gradient(160deg,var(--t-coral-a) 0%,var(--t-coral-b) 100%);display:flex;align-items:flex-end;padding:20px 24px">
+            <span style="font-family:'Fraunces',serif;font-style:italic;font-weight:500;font-size:clamp(40px,4vw,56px);line-height:1;color:var(--coral-text)">01</span>
+          </div>
+          <div style="flex:1;display:flex;flex-direction:column;gap:10px;padding:24px 24px 28px">
+            <span style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:21px;line-height:1.25;letter-spacing:-0.01em;text-wrap:pretty">AI Agent Trust Is a Content Design Problem</span>
+            <span style="font-size:15px;line-height:1.6;color:var(--ink-soft);text-wrap:pretty">Six emerging trust patterns for AI agents, and the writing decisions that make them work.</span>
+            <span style="margin-top:auto;padding-top:12px;font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--ink-faint)">Aug 25, 2026 · Medium →</span>
+          </div>
+        </a>
+        <a href="https://precious-okoro.medium.com/agent-experience-starts-with-content-design-c246aeb612b7" target="_blank" rel="noopener" style="display:flex;flex-direction:column;border-radius:28px;background:var(--surface);overflow:hidden;color:var(--ink);box-shadow:0 24px 60px -44px rgba(23,19,14,0.35);transition:transform .3s cubic-bezier(.2,.8,.2,1)" style-hover="transform:translateY(-4px);color:var(--ink)">
+          <div style="aspect-ratio:16/7;background:linear-gradient(160deg,var(--t-mint-a) 0%,var(--t-mint-b) 100%);display:flex;align-items:flex-end;padding:20px 24px">
+            <span style="font-family:'Fraunces',serif;font-style:italic;font-weight:500;font-size:clamp(40px,4vw,56px);line-height:1;color:var(--mint-text)">02</span>
+          </div>
+          <div style="flex:1;display:flex;flex-direction:column;gap:10px;padding:24px 24px 28px">
+            <span style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:21px;line-height:1.25;letter-spacing:-0.01em;text-wrap:pretty">Agent Experience Starts With Content Design</span>
+            <span style="font-size:15px;line-height:1.6;color:var(--ink-soft);text-wrap:pretty">Why designing how AI communicates, behaves, and earns trust may become content design's most important responsibility.</span>
+            <span style="margin-top:auto;padding-top:12px;font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--ink-faint)">Jul 2026 · Medium →</span>
+          </div>
+        </a>
+        <a href="https://precious-okoro.medium.com/confidence-calibration-the-ai-design-problem-no-one-is-talking-about-d89d74c5db45" target="_blank" rel="noopener" style="display:flex;flex-direction:column;border-radius:28px;background:var(--surface);overflow:hidden;color:var(--ink);box-shadow:0 24px 60px -44px rgba(23,19,14,0.35);transition:transform .3s cubic-bezier(.2,.8,.2,1)" style-hover="transform:translateY(-4px);color:var(--ink)">
+          <div style="aspect-ratio:16/7;background:linear-gradient(160deg,var(--t-amber-a) 0%,var(--t-amber-b) 100%);display:flex;align-items:flex-end;padding:20px 24px">
+            <span style="font-family:'Fraunces',serif;font-style:italic;font-weight:500;font-size:clamp(40px,4vw,56px);line-height:1;color:var(--amber-text)">03</span>
+          </div>
+          <div style="flex:1;display:flex;flex-direction:column;gap:10px;padding:24px 24px 28px">
+            <span style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:21px;line-height:1.25;letter-spacing:-0.01em;text-wrap:pretty">Confidence Calibration: The AI Design Problem No One Is Talking About</span>
+            <span style="font-size:15px;line-height:1.6;color:var(--ink-soft);text-wrap:pretty">On the gap between how confident AI systems sound and how often they're actually right, and what that means for content and UX design.</span>
+            <span style="margin-top:auto;padding-top:12px;font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--ink-faint)">Feb 23, 2026 · Medium →</span>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <section id="side-projects" style="max-width:1200px;margin:0 auto;padding:0 32px 160px;display:flex;flex-direction:column;gap:40px">
+      <div style="display:flex;flex-direction:column;gap:16px">
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:14px;font-weight:600;letter-spacing:1.2px;text-transform:uppercase;color:var(--mint-text)">Side Projects</span>
+        <h2 style="margin:0;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(34px,4.4vw,56px);letter-spacing:-0.03em;line-height:1.05">Things I'm <span style="font-family:'Fraunces',serif;font-style:italic;font-weight:500;color:var(--accent)">building</span></h2>
+      </div>
+      <div style="display:flex;flex-direction:column;border-top:1px solid rgba(var(--ink-rgb),0.14)">
+        <div style="display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:8px 40px;padding:24px 0;border-bottom:1px solid rgba(var(--ink-rgb),0.14)">
+          <div style="flex:1 1 420px;min-width:0;display:flex;flex-direction:column;gap:6px">
+            <span style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:20px;letter-spacing:-0.01em;color:var(--ink)">Voxra</span>
+            <span style="font-size:15px;line-height:1.6;color:var(--ink-soft);max-width:60ch">An AI content system I'm currently building to govern how agents communicate.</span>
+          </div>
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--ink-faint)">In development</span>
+        </div>
+        <div style="display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:8px 40px;padding:24px 0;border-bottom:1px solid rgba(var(--ink-rgb),0.14)">
+          <div style="flex:1 1 420px;min-width:0;display:flex;flex-direction:column;gap:6px">
+            <span style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:20px;letter-spacing:-0.01em;color:var(--ink)">Editorial Standards Skill</span>
+            <span style="font-size:15px;line-height:1.6;color:var(--ink-soft);max-width:60ch">A content skill that turns editorial standards into what Claude can work with.</span>
+          </div>
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--ink-faint)">Coming soon</span>
+        </div>
+        <div style="display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:8px 40px;padding:24px 0;border-bottom:1px solid rgba(var(--ink-rgb),0.14)">
+          <div style="flex:1 1 420px;min-width:0;display:flex;flex-direction:column;gap:6px">
+            <span style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:20px;letter-spacing:-0.01em;color:var(--ink)">Content QA Skill</span>
+            <span style="font-size:15px;line-height:1.6;color:var(--ink-soft);max-width:60ch">A QA skill that checks content design copy against UX writing principles.</span>
+          </div>
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--ink-faint)">Coming soon</span>
+        </div>
+        <div style="display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:8px 40px;padding:24px 0;border-bottom:1px solid rgba(var(--ink-rgb),0.14)">
+          <div style="flex:1 1 420px;min-width:0;display:flex;flex-direction:column;gap:6px">
+            <span style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:20px;letter-spacing:-0.01em;color:var(--ink)">Agentic Content Design Resources</span>
+            <span style="font-size:15px;line-height:1.6;color:var(--ink-soft);max-width:60ch">A GitHub repo of curated resources, roadmaps and study guides on Agentic Content Design.</span>
+          </div>
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--ink-faint)">Coming soon</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="life" style="max-width:1200px;margin:0 auto;padding:0 32px 160px;display:flex;flex-direction:column;gap:56px">
+      <div style="display:flex;flex-direction:column;gap:16px;max-width:760px">
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:14px;font-weight:600;letter-spacing:1.2px;text-transform:uppercase;color:var(--coral-text)">The Human Side</span>
+        <h2 style="margin:0;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(34px,4.4vw,56px);letter-spacing:-0.03em;line-height:1.05;text-wrap:balance">Life away from products and <span style="font-family:'Fraunces',serif;font-style:italic;font-weight:500;color:var(--accent)">AI experiences</span></h2>
+      </div>
+      <div style="display:flex;flex-wrap:wrap;gap:40px 48px;align-items:center">
+        <div style="flex:3 1 480px;min-width:0;display:flex;flex-wrap:wrap;gap:22px 18px;align-items:center;padding:12px 0">
+          <span style="display:inline-flex;align-items:center;background:#1FAE6E;color:#17130E;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(26px,3.2vw,40px);letter-spacing:-0.02em;border-radius:999px;padding:14px 30px;transform:rotate(-4deg);box-shadow:0 18px 40px -26px rgba(23,19,14,0.55);transition:transform .3s cubic-bezier(.2,.8,.2,1);cursor:default" style-hover="transform:rotate(0deg) scale(1.06)">I run</span>
+          <span style="display:inline-flex;align-items:center;background:var(--ink);color:var(--paper);font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(26px,3.2vw,40px);letter-spacing:-0.02em;border-radius:999px;padding:14px 30px;transform:rotate(3deg);box-shadow:0 18px 40px -26px rgba(23,19,14,0.55);transition:transform .3s cubic-bezier(.2,.8,.2,1);cursor:default" style-hover="transform:rotate(0deg) scale(1.06)">lift weights</span>
+          <span style="display:inline-flex;align-items:center;background:#EFC670;color:#17130E;font-family:'Fraunces',serif;font-style:italic;font-weight:500;font-weight:700;font-size:clamp(26px,3.2vw,40px);letter-spacing:-0.02em;border-radius:999px;padding:14px 30px;transform:rotate(-2deg);box-shadow:0 18px 40px -26px rgba(23,19,14,0.55);transition:transform .3s cubic-bezier(.2,.8,.2,1);cursor:default" style-hover="transform:rotate(0deg) scale(1.06)">bake</span>
+          <span style="display:inline-flex;align-items:center;background:#EC6F8E;color:#17130E;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(26px,3.2vw,40px);letter-spacing:-0.02em;border-radius:999px;padding:14px 30px;transform:rotate(5deg);box-shadow:0 18px 40px -26px rgba(23,19,14,0.55);transition:transform .3s cubic-bezier(.2,.8,.2,1);cursor:default" style-hover="transform:rotate(0deg) scale(1.06)">volunteer</span>
+          <span style="display:inline-flex;align-items:center;background:var(--t-violet-a);color:var(--accent-strong);font-family:'Caveat',cursive;font-size:clamp(34px,4vw,52px);font-weight:700;font-size:clamp(26px,3.2vw,40px);letter-spacing:-0.02em;border-radius:999px;padding:14px 30px;transform:rotate(-3deg);box-shadow:0 18px 40px -26px rgba(23,19,14,0.55);transition:transform .3s cubic-bezier(.2,.8,.2,1);cursor:default" style-hover="transform:rotate(0deg) scale(1.06)">play badminton</span>
+          <span style="display:inline-flex;align-items:center;background:var(--t-amber-a);color:var(--amber-text);font-family:'Fraunces',serif;font-style:italic;font-weight:500;font-weight:700;font-size:clamp(26px,3.2vw,40px);letter-spacing:-0.02em;border-radius:999px;padding:14px 30px;transform:rotate(-3deg);box-shadow:0 18px 40px -26px rgba(23,19,14,0.55);transition:transform .3s cubic-bezier(.2,.8,.2,1);cursor:default" style-hover="transform:rotate(0deg) scale(1.06)">write books</span>
+          <span style="display:inline-flex;align-items:center;background:#3FA0E0;color:#17130E;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(26px,3.2vw,40px);letter-spacing:-0.02em;border-radius:999px;padding:14px 30px;transform:rotate(2deg);box-shadow:0 18px 40px -26px rgba(23,19,14,0.55);transition:transform .3s cubic-bezier(.2,.8,.2,1);cursor:default" style-hover="transform:rotate(0deg) scale(1.06)">& swim, too</span>
+        </div>
+        <div style="flex:2 1 400px;min-width:0;display:grid;grid-template-columns:1fr 1fr;gap:18px;align-items:start;max-width:520px">
+          <div style="transform:rotate(-3deg);margin-top:0;background:var(--surface);padding:10px 10px 0;border-radius:18px;box-shadow:0 24px 50px -30px rgba(23,19,14,0.5);display:flex;flex-direction:column;transition:transform .3s cubic-bezier(.2,.8,.2,1)" style-hover="transform:rotate(0deg) scale(1.04)">
+            <div style="aspect-ratio:4/5;width:100%"><image-slot id="life-photo-1" src="images/life-run.jpg" shape="rounded" radius="12" placeholder="Drop a photo"></image-slot></div>
+            <span style="font-family:'Caveat',cursive;font-size:22px;color:var(--ink-soft);text-align:center;padding:8px 0 10px">5.01 km in the rain</span>
+          </div>
+          <div style="transform:rotate(3deg);margin-top:40px;background:var(--surface);padding:10px 10px 0;border-radius:18px;box-shadow:0 24px 50px -30px rgba(23,19,14,0.5);display:flex;flex-direction:column;transition:transform .3s cubic-bezier(.2,.8,.2,1)" style-hover="transform:rotate(0deg) scale(1.04)">
+            <div style="aspect-ratio:4/5;width:100%"><image-slot id="life-photo-2" src="images/life-lift.jpg" shape="rounded" radius="12" placeholder="Drop a photo"></image-slot></div>
+            <span style="font-family:'Caveat',cursive;font-size:22px;color:var(--ink-soft);text-align:center;padding:8px 0 10px">lifting</span>
+          </div>
+          <div style="transform:rotate(-2deg);margin-top:-24px;background:var(--surface);padding:10px 10px 0;border-radius:18px;box-shadow:0 24px 50px -30px rgba(23,19,14,0.5);display:flex;flex-direction:column;transition:transform .3s cubic-bezier(.2,.8,.2,1)" style-hover="transform:rotate(0deg) scale(1.04)">
+            <div style="aspect-ratio:4/5;width:100%"><image-slot id="life-photo-3" src="images/life-bake.jpeg" shape="rounded" radius="12" placeholder="Drop a photo"></image-slot></div>
+            <span style="font-family:'Caveat',cursive;font-size:22px;color:var(--ink-soft);text-align:center;padding:8px 0 10px">fresh out the oven</span>
+          </div>
+          <div style="transform:rotate(2.5deg);margin-top:16px;background:var(--surface);padding:10px 10px 0;border-radius:18px;box-shadow:0 24px 50px -30px rgba(23,19,14,0.5);display:flex;flex-direction:column;transition:transform .3s cubic-bezier(.2,.8,.2,1)" style-hover="transform:rotate(0deg) scale(1.04)">
+            <div style="aspect-ratio:4/5;width:100%"><image-slot id="life-photo-4" src="images/life-found-book.png" shape="rounded" radius="12" placeholder="Drop a photo"></image-slot></div>
+            <span style="font-family:'Caveat',cursive;font-size:22px;color:var(--ink-soft);text-align:center;padding:8px 0 10px">my book, FOUND.</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+        <section id="contact" style="max-width:1200px;margin:0 auto;padding:0 32px 140px">
+      <div style="background:#5942AA;color:#FAF6ED;border-radius:40px;overflow:hidden;display:flex;flex-wrap:wrap;align-items:stretch">
+      <div style="flex:3 1 520px;min-width:0;padding:clamp(40px,6vw,88px);display:flex;flex-direction:column;justify-content:center;gap:28px;align-items:flex-start">
+        <img src="images/precious-headshot.jpg" alt="Precious Okoro" style="width:72px;height:72px;border-radius:50%;object-fit:cover;border:2px solid rgba(250,246,237,0.4)">
+        <h2 style="margin:0;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(28px,3.2vw,44px);line-height:1.18;letter-spacing:-0.025em;max-width:24ch;text-wrap:balance">Building a product that needs clearer language, better systems, or a more thoughtful AI <span style="font-family:'Fraunces',serif;font-style:italic;font-weight:500;color:#EFC670">experience</span>?</h2>
+        <p style="margin:0;max-width:52ch;font-size:17px;line-height:1.7;color:#EDE8F7;text-wrap:pretty">I'd love to hear about your team, the challenges you're solving, and where my experience in content strategy and UX can contribute.</p>
+        <div style="display:flex;gap:12px;flex-wrap:wrap">
+          <a href="https://calendly.com/thecontentdesignchief/30min" target="_blank" rel="noopener" style="background:#FAF6ED;color:#17130E;font-weight:600;font-size:15px;padding:15px 26px;border-radius:999px" style-hover="background:#EFC670;color:#17130E">Book a discovery call</a>
+          <a href="mailto:thepreciousokoro@gmail.com" style="color:#FAF6ED;font-weight:600;font-size:15px;padding:14px 25px;border-radius:999px;border:1px solid rgba(250,246,237,0.4)" style-hover="border-color:#FAF6ED;color:#FAF6ED">Email instead</a>
+        </div>
+      </div>
+      <div aria-hidden="true" style="flex:2 1 300px;min-width:0;min-height:520px;align-self:stretch;position:relative;overflow:hidden;-webkit-mask-image:linear-gradient(to bottom,transparent,#000 15%,#000 85%,transparent);mask-image:linear-gradient(to bottom,transparent,#000 15%,#000 85%,transparent)"><div style="position:absolute;inset:0;display:flex;align-items:flex-start;gap:16px;padding:0 clamp(24px,4vw,48px)">{{ reel }}</div></div>
+      </div>
+    </section>
+  </main>
+
+  <footer style="max-width:1200px;margin:0 auto;padding:40px 32px 56px;border-top:1px solid rgba(var(--ink-rgb),0.14);display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;font-size:14px;color:var(--ink-faint)">
+    <span>© 2026 Precious Okoro. Language infrastructure and content systems for products built to scale.</span>
+    <div style="display:flex;gap:24px;flex-wrap:wrap">
+      <a href="mailto:thepreciousokoro@gmail.com" style="color:var(--ink)">Email</a>
+      <a href="https://www.linkedin.com/in/okoro-onyekachi-precious/" target="_blank" rel="noopener" style="color:var(--ink)">LinkedIn</a>
+      <a href="https://calendly.com/thecontentdesignchief/30min" target="_blank" rel="noopener" style="color:var(--ink)">Book a call</a>
+    </div>
+  </footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;showProof&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Sections&quot;},&quot;showThinking&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Sections&quot;}}">
+class Component extends DCLogic {
+  themeVals() {
+    const root = document.documentElement;
+    if (!root.getAttribute('data-theme')) { let t = 'light'; try { t = localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'); } catch (e) {} root.setAttribute('data-theme', t); }
+    const dark = (this.state && this.state.theme ? this.state.theme : root.getAttribute('data-theme')) === 'dark';
+    return {
+      isDark: dark, isLight: !dark, themeLabel: dark ? 'Switch to light theme' : 'Switch to dark theme',
+      toggleTheme: () => { const t = dark ? 'light' : 'dark'; root.setAttribute('data-theme', t); try { localStorage.setItem('theme', t); } catch (e) {} this.setState({ theme: t }); }
+    };
+  }
+  state = { m: 0, p: 1, wide: typeof window === 'undefined' ? true : window.innerWidth >= 1080 };
+  componentDidMount() {
+    this.onResize = () => this.setState({ w: window.innerWidth });
+    window.addEventListener('resize', this.onResize);
+    this.onResize();
+  }
+  componentWillUnmount() { window.removeEventListener('resize', this.onResize); }
+  renderVals() {
+    const metrics = [
+      { name: 'Moniger', href: 'Moniger.dc.html', method: 'Content-first wireframing', label: '25% increase in conversions' },
+      { name: 'FastTrackUX', href: 'FastTrackUX.dc.html', method: 'Dual-audience keyword mining', label: 'Student logins nearly doubled' },
+      { name: 'Beacon', href: 'Beacon.dc.html', method: 'Single severity hierarchy', label: '62% drop in misclassification' }
+    ];
+    const pillars = [
+      { title: 'Language is infrastructure.', pre: "I don't think of content as something added to an interface after the product is designed. Language shapes ", hi: 'what people understand, what they expect, what they can do', post: ', and how the system responds.' },
+      { title: 'I think in systems.', pre: 'I look beyond individual screens to ', hi: 'patterns, states, edge cases, governance', post: ', and the structures that make content scalable.' },
+      { title: 'Intelligent products change the job.', pre: 'When software starts planning, deciding, and acting, content design expands beyond conversation. It becomes about ', hi: 'intent, delegation, transparency, confidence, recovery, and human control', post: '.' }
+    ];
+    const { m, p } = this.state;
+    const w = typeof window === 'undefined' ? 1440 : window.innerWidth;
+    const wide = w >= 1080, mode = w >= 1080 ? 'wide' : w >= 760 ? 'mid' : 'narrow';
+    const pos = [
+      { position: 'absolute', left: '3%', top: '20px', width: '330px' },
+      { position: 'absolute', right: '7%', top: '0', width: '290px' },
+      { position: 'absolute', right: '3%', bottom: '170px', width: '280px' },
+      { position: 'absolute', left: '6%', bottom: '150px', width: '320px' },
+      { position: 'absolute', left: '36%', top: '70px', width: '260px' },
+      { position: 'absolute', left: '38%', bottom: '40px', width: '300px' }
+    ];
+    const order = [0, 0, 2, 2, 0, 2], mw = [320, 280, 280, 310, 260, 290];
+    const arts = {};
+    pos.forEach((s, i) => { arts['a' + i] = mode === 'wide' ? s : { order: order[i], width: mw[i] + 'px', maxWidth: '100%', position: 'relative', marginRight: '24px' }; });
+    const cur = metrics[m], pl = pillars[p];
+    const node = i => (i === m ? '#1FAE6E' : 'currentColor');
+    const dk = document.documentElement.getAttribute('data-theme') === 'dark';
+    const txt = i => (i === m ? (dk ? '#3CC98A' : '#0E7A50') : 'currentColor');
+    const tab = i => `font-family:'IBM Plex Mono',monospace;font-size:12px;border-radius:999px;padding:6px 12px;cursor:pointer;border:1px solid ${i === p ? 'var(--ink)' : 'rgba(var(--ink-rgb),0.22)'};background:${i === p ? 'var(--ink)' : 'transparent'};color:${i === p ? 'var(--surface)' : 'var(--ink-soft)'}`;
+    const css = s => Object.fromEntries(s.split(';').filter(Boolean).map(d => { const k = d.slice(0, d.indexOf(':')).trim(); return [k.replace(/-([a-z])/g, (_, c) => c.toUpperCase()), d.slice(d.indexOf(':') + 1).trim()]; }));
+    const imgs = ['moniger-cover.png','beacon-cover.png','fasttrackux-cover.webp','moniger-hero-budgeting.png','beacon-incident-flow.png','fasttrackux-after.jpg','moniger-hero-home.png','beacon-empty-states.png'];
+    const col = (list, anim, k) => React.createElement('div', { key: k, 'data-reel': '', style: { flex: '1 1 0', minWidth: 0, height: 'max-content', display: 'flex', flexDirection: 'column', gap: 16, animation: anim } },
+      [...list, ...list, ...list, ...list].map((src, i) => React.createElement('img', { key: i, src: 'images/' + src, alt: '', loading: 'lazy', style: { width: '100%', borderRadius: 16, boxShadow: '0 20px 40px -24px rgba(23,19,14,0.6)' } })));
+    const reel = [col(imgs.filter((_, i) => i % 2 === 0), 'reelUp 76s linear infinite', 'a'), col(imgs.filter((_, i) => i % 2 === 1), 'reelDown 88s linear infinite', 'b')];
+    return { ...this.themeVals(), reel,
+      showProof: this.props.showProof ?? true,
+      showThinking: this.props.showThinking ?? true,
+      c0: node(0), c1: node(1), c2: node(2), t0: txt(0), t1: txt(1), t2: txt(2),
+      pick0: () => this.setState({ m: 0 }), pick1: () => this.setState({ m: 1 }), pick2: () => this.setState({ m: 2 }),
+      mName: cur.name, mHref: cur.href, mMethod: cur.method, mLabel: cur.label,
+      panelStyle: wide
+        ? { position: 'absolute', left: '42%', bottom: '120px', maxWidth: '400px', display: 'flex', flexDirection: 'column', gap: '12px' }
+        : { padding: '24px 32px 0', maxWidth: '520px', display: 'flex', flexDirection: 'column', gap: '12px' },
+      showArts: mode !== 'narrow',
+      thinkSectionStyle: mode === 'wide'
+        ? { position: 'relative', maxWidth: '1440px', margin: '0 auto', padding: '0 32px 160px', minHeight: '1240px' }
+        : { maxWidth: '1440px', margin: '0 auto', padding: '0 32px 160px', display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '56px 48px' },
+      ...arts,
+      thinkBodyStyle: mode === 'wide'
+        ? { position: 'relative', zIndex: 1, maxWidth: '820px', margin: '0 auto', paddingTop: '370px', display: 'flex', flexDirection: 'column', gap: '40px' }
+        : { order: 1, flexBasis: '100%', maxWidth: '860px', margin: '24px auto', display: 'flex', flexDirection: 'column', gap: '32px' },
+      tab0: () => this.setState({ p: 0 }), tab1: () => this.setState({ p: 1 }), tab2: () => this.setState({ p: 2 }),
+      tabS0: css(tab(0)), tabS1: css(tab(1)), tabS2: css(tab(2)),
+      pTitle: pl.title, pPre: pl.pre, pHi: pl.hi, pPost: pl.post
+    };
+  }
+}
+</script>
+</body>
+</html>
