@@ -443,14 +443,6 @@ header.nav.is-open .nav-mobile-panel { display: flex; }
 section.proof-strip {
   position: relative;
 }
-.proof-strip-inner { padding: 48px 0; }
-/* Built as the same 3-col/24px-gap grid as .proof-grid, not a flat
-   33/33/33 gradient, so the color breaks land exactly on the column
-   boundaries below instead of drifting off by the accumulated gap width. */
-.proof-divider { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
-.proof-divider span { display: block; height: 6px; background: var(--accent); }
-.proof-divider span:nth-child(2) { background: var(--accent-amber); }
-.proof-divider span:nth-child(3) { background: var(--accent-mint); }
 .proof-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
 .proof-item { text-align: center; text-decoration: none; display: block; transition: transform .2s ease; }
 a.proof-item:hover { transform: translateY(-4px); }
@@ -474,12 +466,36 @@ a.proof-item:hover .proof-label { color: var(--ink); }
   text-transform: uppercase;
   color: var(--ink-soft);
 }
+
+/* Color-banded proof items (index.html only) — each stat sits in a full
+   panel tinted to its case study's accent, with the named framework that
+   actually produced the number underneath, not just the bare metric. */
+.proof-item-violet,
+.proof-item-amber,
+.proof-item-mint {
+  padding: clamp(32px, 5vw, 48px) 24px;
+  border-radius: 24px;
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+.proof-item-violet:hover,
+.proof-item-amber:hover,
+.proof-item-mint:hover { transform: translateY(-4px); box-shadow: 0 16px 32px -16px rgba(var(--shadow-rgb), 0.25); }
+.proof-item-violet { background: color-mix(in srgb, var(--accent) 14%, var(--surface)); }
+.proof-item-amber { background: color-mix(in srgb, var(--accent-amber) 16%, var(--surface)); }
+.proof-item-mint { background: color-mix(in srgb, var(--accent-mint) 16%, var(--surface)); }
+.proof-method {
+  display: block;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.3px;
+  color: var(--ink-faint);
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid var(--border);
+}
+
 @media (max-width: 700px) {
-  .proof-grid { grid-template-columns: 1fr; gap: 28px; }
-  /* Stats stack to one column here, so there's no grid to align the
-     divider to — fall back to a plain equal-thirds strip instead. */
-  .proof-divider { display: flex; }
-  .proof-divider span { flex: 1; }
+  .proof-grid { grid-template-columns: 1fr; gap: 20px; }
 }
 
 /* ===== HERO ===== */
