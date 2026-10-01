@@ -74,7 +74,11 @@ input,select,textarea{font:inherit}
 @media (prefers-reduced-motion:reduce){ [data-reel]{animation:none!important} }
 
 /* ===== LAYOUT ===== */
-.wrap{max-width:1200px;margin:0 auto;padding:0 32px}
+/* padding-left/right only (not shorthand): the shorthand's 0 top/bottom would
+   beat the lower-specificity `section{padding-bottom:...}` fallback below for
+   every <section class="wrap ...">, silently zeroing their vertical spacing
+   wherever a component doesn't set its own padding-bottom inline. */
+.wrap{max-width:1200px;margin:0 auto;padding-left:32px;padding-right:32px}
 .skip-link{position:absolute;left:-999px;top:0;background:var(--ink);color:var(--surface);padding:12px 20px;border-radius:0 0 10px 0;z-index:100}
 .skip-link:focus{left:0}
 
@@ -118,7 +122,7 @@ h1,h2,h3{font-family:'Space Grotesk',sans-serif;font-weight:700;margin:0}
    border/shadow self-adjusts per theme without a separate dark-mode rule. A
    fixed, moderate radius (rather than a 999px stadium) means a 2-word phrase
    that wraps to 2 lines never balloons into an oversized capsule. */
-.highlight-pill{display:inline-block;background:#1FAE6E;color:#17130E;border-radius:clamp(10px,1.6vw,18px);padding:0.08em 0.38em 0.14em;line-height:1.08;border:3px solid var(--ink);box-shadow:5px 5px 0 0 var(--ink)}
+.highlight-pill{display:inline-block;width:fit-content;background:#1FAE6E;color:#17130E;border-radius:clamp(10px,1.6vw,18px);padding:0.08em 0.38em 0.14em;line-height:1.08;border:3px solid var(--ink);box-shadow:5px 5px 0 0 var(--ink)}
 .highlight-pill.amber{background:#D69A1A}
 .highlight-pill.violet{background:var(--accent);color:var(--surface)}
 .highlight-pill.blue{background:#3FA0E0}
@@ -202,7 +206,7 @@ mark{background:var(--t-mint-a);color:var(--ink);padding:1px 5px;border-radius:5
 .dashed-pill span{width:7px;height:7px;border-radius:50%;background:#EC6F8E}
 
 /* ===== INDUSTRIES ===== */
-.industries-row{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:20px 40px;border-top:1px solid rgba(var(--ink-rgb),0.14);padding-top:40px}
+.industries-row{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:20px 40px}
 .industry-chips{display:flex;flex-wrap:wrap;gap:10px}
 .industry-chip{display:flex;align-items:center;gap:10px;border:1px solid rgba(var(--ink-rgb),0.18);border-radius:999px;padding:10px 18px 10px 14px;font-size:15px;font-weight:500;color:var(--ink)}
 .industry-chip span{width:9px;height:9px;border-radius:50%;flex-shrink:0}
@@ -440,16 +444,23 @@ mark{background:var(--t-mint-a);color:var(--ink);padding:1px 5px;border-radius:5
 .engagement-card.amber .idx{color:var(--amber-text)}
 
 /* ===== ABOUT ===== */
-.about-hero{max-width:1200px;margin:0 auto;padding:120px 32px 100px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:56px 80px;align-items:end}
-.about-hero .heading-col{grid-column:span 2;display:flex;flex-direction:column;gap:28px;min-width:0}
+/* Image sits beside the heading (not below it) at any width ≥ the 860px
+   stack breakpoint: an explicit 2-column grid, rather than auto-fit (which
+   could open a 3rd track on wide viewports and let a span:2 child leave
+   room for its sibling on the same row instead of pushing it below). */
+.about-hero{max-width:1200px;margin:0 auto;padding:120px 32px 100px;display:grid;grid-template-columns:1.2fr 1fr;gap:56px 80px;align-items:center}
+.about-hero .heading-col{display:flex;flex-direction:column;gap:28px;min-width:0}
 .about-hero h1{font-size:clamp(40px,6vw,84px);line-height:1.04;letter-spacing:-0.035em;max-width:16ch;text-wrap:balance}
-.about-portrait{border-radius:32px;background:linear-gradient(160deg,var(--t-violet-a) 0%,var(--t-violet-b) 100%);padding:20px;box-shadow:0 30px 80px -40px rgba(107,79,214,0.55);max-width:360px}
+.about-portrait{justify-self:end;border-radius:32px;background:linear-gradient(160deg,var(--t-violet-a) 0%,var(--t-violet-b) 100%);padding:20px;box-shadow:0 30px 80px -40px rgba(107,79,214,0.55);max-width:360px;width:100%}
 .about-portrait img{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:22px}
-.about-body{max-width:1200px;margin:0 auto;padding:0 32px 140px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:56px 80px}
-.about-body-text{grid-column:span 2;display:flex;flex-direction:column;gap:24px;max-width:64ch;font-size:18px;line-height:1.75;color:var(--ink-soft);min-width:0}
+/* A single stacked column, always: the aside reads as a card beneath the
+   paragraphs, never as a sidebar beside them (a wide-enough auto-fit grid
+   used to leave room for it on the same row as the text). */
+.about-body{max-width:1200px;margin:0 auto;padding:0 32px 140px;display:flex;flex-direction:column;gap:48px}
+.about-body-text{display:flex;flex-direction:column;gap:24px;max-width:64ch;font-size:18px;line-height:1.75;color:var(--ink-soft);min-width:0}
 .about-body-text p{margin:0;text-wrap:pretty}
 .about-body-text strong{font-weight:600}
-.about-aside{align-self:start;position:sticky;top:110px;background:var(--surface);border-radius:28px;padding:36px;display:flex;flex-direction:column;gap:16px}
+.about-aside{max-width:64ch;background:var(--surface);border-radius:28px;padding:36px;display:flex;flex-direction:column;gap:16px}
 .about-aside p{margin:0;font-family:'Fraunces',serif;font-size:21px;line-height:1.5;color:var(--ink);text-wrap:pretty}
 .about-aside a{font-weight:600;font-size:15px;margin-top:8px}
 
@@ -519,8 +530,9 @@ footer.site-footer .footer-links a{color:var(--ink)}
 @media (max-width:860px){
   .project-row,.project-row.reverse{flex-direction:column}
   .project-row-media{width:100%}
-  .about-hero .heading-col,.about-body-text,.contact-hero .heading-col{grid-column:span 1}
-  .about-aside{position:static;top:auto}
+  .contact-hero .heading-col{grid-column:span 1}
+  .about-hero{grid-template-columns:1fr}
+  .about-portrait{justify-self:start}
 }
 @media (max-width:700px){
   .nav .links{gap:16px}
