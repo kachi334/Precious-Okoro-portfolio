@@ -130,7 +130,7 @@ mark{background:var(--t-mint-a);color:var(--ink);padding:1px 5px;border-radius:5
 .framework-pill{font-family:'IBM Plex Mono',monospace;font-size:11px;border-radius:999px;padding:6px 12px}
 
 /* ===== HERO (homepage) ===== */
-.hero{padding:120px 32px 140px;display:flex;flex-direction:column;align-items:flex-start;gap:36px}
+.hero{max-width:1200px;margin:0 auto;padding:120px 32px 140px;display:flex;flex-direction:column;align-items:flex-start;gap:36px}
 .hero h1{font-size:clamp(44px,7.4vw,104px);line-height:1.02;letter-spacing:-0.035em;max-width:13ch;text-wrap:balance}
 .hero-sub{max-width:58ch;font-size:clamp(17px,1.5vw,19px);line-height:1.65;color:var(--ink-soft)}
 .availability-badge{display:flex;align-items:center;gap:10px;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.5px;color:var(--mint-text);border:1px solid rgba(14,122,80,0.3);border-radius:999px;padding:7px 14px 7px 12px}
