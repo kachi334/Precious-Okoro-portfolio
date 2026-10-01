@@ -81,7 +81,14 @@ input,select,textarea{font:inherit}
 main{display:block}
 main > section,
 main > .wrap{padding-top:0}
-section{padding-bottom:0}
+/* Default bottom gap for the plain <section class="wrap"> blocks (Testimonials,
+   Writing, Side Projects, The Human Side, Work's #work list) that don't declare
+   their own padding — per the handoff spec, "sections are separated by bottom
+   padding of 140-160px." Components with their own rhythm (.hero, .proof-module,
+   .think-section, and anything with an inline padding-bottom) override this via
+   higher specificity, so this only fills the gap for sections that were falling
+   through to zero. */
+section{padding-bottom:clamp(72px,14vw,160px)}
 
 /* ===== NAV ===== */
 header.nav{position:sticky;top:0;z-index:10;background:rgba(var(--paper-rgb),0.88);backdrop-filter:blur(12px)}
@@ -506,6 +513,11 @@ footer.site-footer .footer-links a{color:var(--ink)}
 }
 @media (max-width:700px){
   .nav .links{gap:16px}
+  /* The 120px top padding on these page heroes is a fixed desktop value
+     with no built-in responsive scaling — on a short mobile viewport it
+     reads as dead space below the nav before any content appears. */
+  .hero,.about-hero,.exp-hero,.work-hero,.contact-hero{padding-top:56px}
+  .hero{padding-bottom:72px}
 }
 @media (max-width:560px){
   .wrap,.hero,.work-hero,.about-hero,.about-body,.contact-hero,.contact-body,.case-hero,.case-cover,.craft-3grid,.case-stats,.case-body-wrap,.case-cta,.exp-hero,.exp-list-wrap,.cv-panel-wrap,.proof-module,.think-section{padding-left:20px;padding-right:20px}
