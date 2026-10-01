@@ -142,11 +142,13 @@ a:focus-visible { outline: 2px solid currentColor; outline-offset: 3px; }
   display: flex;
   align-items: center;
   gap: 12px;
-  margin-bottom: 28px;
+  margin-bottom: 40px;
 }
 .section-label::after { content: ''; flex: 1; height: 2px; background: var(--ink); }
 
-section { padding: clamp(4rem, 9vw, 7rem) 0; }
+/* Spread-out editorial rhythm site-wide, matching the hero's more generous
+   whitespace — more room between sections than the original tighter rhythm. */
+section { padding: clamp(5rem, 11vw, 9rem) 0; }
 
 /* ===== DECORATIVE DIVIDER (used sparingly, at real narrative breaks only) ===== */
 .doodle-divider { display: flex; justify-content: center; padding: 8px 0 0; }
@@ -192,9 +194,9 @@ h1, h2, h3 { font-family: 'Space Grotesk', sans-serif; font-weight: 700; letter-
 .text-highlight.amber { color: var(--accent-amber-text); }
 .text-highlight.mint { color: var(--accent-mint-text); }
 
-.section-heading { font-size: clamp(2rem, 4.5vw, 2.8rem); margin-bottom: 28px; }
-.section-heading + .section-subtext { margin-top: -20px; }
-.section-subtext { font-family: 'Inter', sans-serif; color: var(--ink-soft); font-size: 1.05rem; margin-bottom: 28px; }
+.section-heading { font-size: clamp(2rem, 4.5vw, 2.8rem); margin-bottom: 40px; }
+.section-heading + .section-subtext { margin-top: -28px; }
+.section-subtext { font-family: 'Inter', sans-serif; color: var(--ink-soft); font-size: 1.05rem; margin-bottom: 40px; }
 .dot-glyph {
   display: inline-block;
   width: 0.42em;
@@ -484,14 +486,14 @@ a.proof-item:hover .proof-label { color: var(--ink); }
 /* Restrained single-column hero — no side visual. Per the redesign brief:
    "the hero should have enough visual confidence that it does not need
    decoration." Text and whitespace carry it instead of a portrait/stickers. */
-.hero { padding-top: clamp(4rem, 10vw, 8rem); padding-bottom: clamp(3rem, 6vw, 5rem); }
+.hero { padding-top: clamp(6rem, 16vw, 12rem); padding-bottom: clamp(4rem, 8vw, 6rem); }
 .hero-restrained { max-width: 68ch; }
-.hero-restrained .eyebrow { display: block; margin-bottom: 16px; }
+.hero-restrained .eyebrow { display: block; margin-bottom: 24px; }
 .hero h1 {
-  font-size: clamp(2.4rem, 5.2vw, 3.9rem);
-  line-height: 1.08;
-  max-width: 24ch;
-  margin-bottom: 24px;
+  font-size: clamp(2.8rem, 6.6vw, 5.2rem);
+  line-height: 1.12;
+  max-width: 22ch;
+  margin-bottom: 36px;
 }
 /* Mixed-weight fade across the headline clause, echoing arjun-r.com's
    bold-to-gray treatment — the pill and the italic close stay full
@@ -513,11 +515,12 @@ a.proof-item:hover .proof-label { color: var(--ink); }
 .headline-chip.chip-mint { background: var(--accent-mint); }
 .headline-chip.chip-amber { background: var(--accent-amber); }
 .hero-sub {
-  font-size: 1.1rem;
+  font-size: 1.2rem;
   color: var(--ink-soft);
   max-width: 56ch;
-  margin-bottom: 28px;
+  margin-bottom: 40px;
   font-family: 'Inter', sans-serif;
+  line-height: 1.7;
 }
 .hero-sub strong { color: var(--ink); font-weight: 700; }
 .hero-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 16px; margin-top: 8px; }
