@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<script>(function(){try{var t=localStorage.getItem('theme');if(!t){t=window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..600;1,9..144,400..600&family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);-webkit-font-smoothing:antialiased;transition:background-color .25s ease,color .25s ease}
+:root{--paper:#FAF6ED;--paper-rgb:250,246,237;--surface:#FFFCF5;--ink:#17130E;--ink-rgb:23,19,14;--ink-soft:#4A4438;--ink-faint:#6B6459;--fade:#A39C8E;--accent:#6B4FD6;--accent-strong:#5942AA;--mint-text:#0E7A50;--amber-text:#8C5E0C;--coral-text:#B23A5C;--sky-text:#1D6E96;--t-mint-a:#DDF2E6;--t-mint-b:#F1F7EE;--t-amber-a:#F7E7C4;--t-amber-b:#FBF2DF;--t-violet-a:#E4DDFA;--t-violet-b:#F1EDFB;--t-coral-a:#FBE1E7;--t-coral-b:#FDF0F2;--t-violet-chip:#ECE7FB;--t-neutral:#EFEAE0;--t-field:#F1ECE1;color-scheme:light}
+:root[data-theme="dark"]{--paper:#0A0908;--paper-rgb:10,9,8;--surface:#161411;--ink:#F0EDE6;--ink-rgb:240,237,230;--ink-soft:#B8B2A3;--ink-faint:#9A9184;--fade:#6F685D;--accent:#9B85E8;--accent-strong:#B6A6F0;--mint-text:#3CC98A;--amber-text:#E5B04A;--coral-text:#F08DA6;--sky-text:#5DB3EA;--t-mint-a:#11281D;--t-mint-b:#0D1C15;--t-amber-a:#2B2110;--t-amber-b:#1C170D;--t-violet-a:#221B3D;--t-violet-b:#17132A;--t-coral-a:#30161E;--t-coral-b:#211116;--t-violet-chip:#261F42;--t-neutral:#1C1915;--t-field:#221E19;color-scheme:dark}
+a{color:var(--accent);text-decoration:none}
+a:hover{color:var(--accent-strong)}
+button:focus-visible,a:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+</style>
+</helmet>
+
+<div style="background:var(--paper);min-height:100vh;font-family:'Inter',sans-serif">
+
+  <header style="position:sticky;top:0;z-index:10;background:rgba(var(--paper-rgb),0.88);backdrop-filter:blur(12px)">
+    <div style="max-width:1200px;margin:0 auto;padding:20px 32px;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap">
+      <a href="Homepage.dc.html" style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:17px;color:var(--ink);letter-spacing:-0.01em">Precious Okoro</a>
+      <nav style="display:flex;align-items:center;gap:28px;flex-wrap:wrap;font-size:14.5px;font-weight:500">
+        <a href="Work.dc.html" style="color:var(--ink-soft)">Projects</a>
+        <a href="About.dc.html" style="color:var(--ink-soft)">About</a>
+        <a href="Experience.dc.html" aria-current="page" style="color:var(--ink);font-weight:600;border-bottom:2px solid #1FAE6E;padding-bottom:2px">Experience</a>
+        <a href="https://precious-okoro.medium.com/" target="_blank" rel="noopener" style="color:var(--ink-soft)">Blog</a>
+        <a href="Contact.dc.html" style="color:var(--surface);background:var(--ink);padding:10px 18px;border-radius:999px" style-hover="background:var(--accent);color:var(--surface)">Work Together</a>
+        <button type="button" onClick="{{ toggleTheme }}" aria-label="{{ themeLabel }}" style="width:40px;height:40px;border-radius:50%;border:1px solid rgba(var(--ink-rgb),0.22);background:transparent;color:var(--ink);display:flex;align-items:center;justify-content:center;cursor:pointer;padding:0" style-hover="border-color:var(--ink)"><sc-if value="{{ isLight }}" hint-placeholder-val="{{ true }}"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M14 9.5A6 6 0 1 1 6.5 2 4.8 4.8 0 0 0 14 9.5Z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"></path></svg></sc-if><sc-if value="{{ isDark }}" hint-placeholder-val="{{ false }}"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="8" cy="8" r="3" stroke="currentColor" stroke-width="1.4"></circle><path d="M8 0.5V2.5M8 13.5V15.5M15.5 8H13.5M2.5 8H0.5M13.3 2.7L11.9 4.1M4.1 11.9L2.7 13.3M13.3 13.3L11.9 11.9M4.1 4.1L2.7 2.7" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"></path></svg></sc-if></button>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section style="max-width:1200px;margin:0 auto;padding:120px 32px 100px;display:flex;flex-direction:column;gap:28px">
+      <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:1px;text-transform:uppercase;color:var(--ink-faint)">Experience</span>
+      <h1 style="margin:0;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(40px,6.4vw,92px);line-height:1.03;letter-spacing:-0.035em;max-width:14ch;text-wrap:balance"><span style="color:var(--fade);font-weight:500">A track record of</span> <span style="display:inline-block;background:#D69A1A;color:#17130E;border-radius:999px;padding:0 0.32em 0.06em;line-height:1.08">shaping</span> <span style="font-family:'Fraunces',serif;font-style:italic;font-weight:500;color:var(--accent);letter-spacing:-0.02em">better experiences</span></h1>
+    </section>
+
+    <section style="max-width:1200px;margin:0 auto;padding:0 32px 160px">
+      <div style="display:flex;flex-direction:column;border-top:1px solid rgba(var(--ink-rgb),0.14)">
+        <sc-for list="{{ roles }}" as="r" hint-placeholder-count="5">
+          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:16px 48px;padding:44px 0;border-bottom:1px solid rgba(var(--ink-rgb),0.14)">
+            <div style="display:flex;flex-direction:column;gap:8px">
+              <span style="font-family:'IBM Plex Mono',monospace;font-size:13px;color:var(--ink)">{{ r.period }}</span>
+              <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:1px;text-transform:uppercase;color:var(--ink-faint)">{{ r.place }}</span>
+            </div>
+            <div style="grid-column:span 2;display:flex;flex-direction:column;gap:12px;min-width:0">
+              <div style="display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 14px">
+                <h2 style="margin:0;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(22px,2.2vw,28px);letter-spacing:-0.02em;line-height:1.2">{{ r.role }}</h2>
+                <sc-if value="{{ r.note }}" hint-placeholder-val="{{ false }}">
+                  <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.5px;text-transform:uppercase;color:var(--ink-faint)">{{ r.note }}</span>
+                </sc-if>
+              </div>
+              <span style="align-self:flex-start;font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:600;color:{{ r.orgColor }};background:{{ r.orgBg }};border-radius:999px;padding:5px 12px">{{ r.org }}</span>
+              <ul style="list-style:none;margin:6px 0 0;padding:0;display:flex;flex-direction:column;gap:10px;max-width:62ch">
+                <sc-for list="{{ r.points }}" as="pt" hint-placeholder-count="1">
+                  <li style="display:flex;gap:12px;font-size:16px;line-height:1.65;color:var(--ink-soft);text-wrap:pretty"><span style="color:var(--mint-text);font-family:'IBM Plex Mono',monospace">✓</span><span>{{ pt }}</span></li>
+                </sc-for>
+              </ul>
+            </div>
+          </div>
+        </sc-for>
+      </div>
+    </section>
+
+    <section style="max-width:1200px;margin:0 auto;padding:0 32px 140px">
+      <div style="border-radius:32px;background:linear-gradient(160deg,var(--t-mint-a) 0%,var(--t-mint-b) 100%);box-shadow:0 30px 80px -45px rgba(31,174,110,0.6);padding:clamp(36px,6vw,72px);display:flex;justify-content:space-between;align-items:flex-end;gap:32px;flex-wrap:wrap">
+        <div style="display:flex;flex-direction:column;gap:16px;max-width:52ch">
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:1px;text-transform:uppercase;color:var(--mint-text)">CV</span>
+          <h2 style="margin:0;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(30px,3.6vw,46px);letter-spacing:-0.03em;line-height:1.08">The full picture, at a <span style="font-family:'Fraunces',serif;font-style:italic;font-weight:500;color:var(--mint-text)">glance</span></h2>
+          <p style="margin:0;font-size:16px;line-height:1.7;color:var(--ink-soft)">A curated overview of my experience, tools, and impact, built for recruiters and hiring managers who want a clear picture of how I think, build, and contribute.</p>
+        </div>
+        <a href="https://drive.google.com/file/d/1vUFLsPQ8jqnZ1dyAEbJ3Di_BiytynCpB/view?usp=sharing" target="_blank" rel="noopener" style="background:var(--ink);color:var(--surface);font-weight:600;font-size:15px;padding:15px 26px;border-radius:999px" style-hover="background:var(--accent);color:var(--surface)">Download CV →</a>
+      </div>
+    </section>
+  </main>
+
+  <footer style="max-width:1200px;margin:0 auto;padding:40px 32px 56px;border-top:1px solid rgba(var(--ink-rgb),0.14);display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;font-size:14px;color:var(--ink-faint)">
+    <span>© 2026 Precious Okoro. Language infrastructure and content systems for products built to scale.</span>
+    <div style="display:flex;gap:24px;flex-wrap:wrap">
+      <a href="mailto:thepreciousokoro@gmail.com" style="color:var(--ink)">Email</a>
+      <a href="https://www.linkedin.com/in/okoro-onyekachi-precious/" target="_blank" rel="noopener" style="color:var(--ink)">LinkedIn</a>
+      <a href="https://calendly.com/thecontentdesignchief/30min" target="_blank" rel="noopener" style="color:var(--ink)">Book a call</a>
+    </div>
+  </footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  themeVals() {
+    const root = document.documentElement;
+    if (!root.getAttribute('data-theme')) { let t = 'light'; try { t = localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'); } catch (e) {} root.setAttribute('data-theme', t); }
+    const dark = (this.state && this.state.theme ? this.state.theme : root.getAttribute('data-theme')) === 'dark';
+    return {
+      isDark: dark, isLight: !dark, themeLabel: dark ? 'Switch to light theme' : 'Switch to dark theme',
+      toggleTheme: () => { const t = dark ? 'light' : 'dark'; root.setAttribute('data-theme', t); try { localStorage.setItem('theme', t); } catch (e) {} this.setState({ theme: t }); }
+    };
+  }
+  renderVals() {
+    const v = { orgColor: 'var(--accent-strong)', orgBg: 'var(--t-violet-chip)' }, m = { orgColor: 'var(--mint-text)', orgBg: 'var(--t-mint-a)' }, a = { orgColor: 'var(--amber-text)', orgBg: 'var(--t-amber-a)' }, c = { orgColor: 'var(--coral-text)', orgBg: 'var(--t-coral-a)' };
+    return { ...this.themeVals(),
+      roles: [
+        { period: 'Dec 2024 – Jan 2026', place: 'Houston, USA', role: 'Content Design & UX Strategy Lead', org: 'Culangex', points: ['Defined and scaled an end-to-end content strategy and design system, cutting content production time 35% and lifting user comprehension 28% across web, mobile, and gaming surfaces', 'Created a content design system and wrote game UX writing and microcopy directly in Figma'], ...m },
+        { period: 'Jan 2022 – Feb 2026', place: 'Remote', role: 'Lead Content Designer & UX Content Strategist', org: 'Moniger', points: ['Increased conversions 25% and reduced onboarding drop-off 8% through content strategy and research-driven UX writing', 'Built help documentation and a knowledge base mapped to each stage of the user journey', 'Managed a team of designers and writers'], ...v },
+        { period: 'Feb 2022 – 2024', place: 'Remote', role: 'Content Strategist', org: 'Babelos', points: ['Built the content strategy for all digital-facing touchpoints, unifying voice and messaging across channels and growing organic reach through an editorial pipeline', 'Managed a team of designers and writers'], ...c },
+        { period: 'Sept 2022 – Jul 2023', place: 'Bronx, NY', role: 'Product Marketing Manager', note: '(Part-time)', org: 'Dinesurf', points: ['Grew web app signups 30%, cut time-to-value 15%, and lifted registration rate 20% through streamlined information architecture and conversion-focused messaging'], ...a },
+        { period: 'Jan 2019 – Present', place: 'Remote', role: 'Freelance Content Strategist', org: 'Independent', points: ['Designs conversation and content for AI chatbots and LLM-powered product features, bridging UX writing, content design, and prompt engineering, including Voxra, an AI content system currently in development to govern how agents communicate'], ...v }
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>

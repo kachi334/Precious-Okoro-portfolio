@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<script>(function(){try{var t=localStorage.getItem('theme');if(!t){t=window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..600;1,9..144,400..600&family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);-webkit-font-smoothing:antialiased;transition:background-color .25s ease,color .25s ease}
+:root{--paper:#FAF6ED;--paper-rgb:250,246,237;--surface:#FFFCF5;--ink:#17130E;--ink-rgb:23,19,14;--ink-soft:#4A4438;--ink-faint:#6B6459;--fade:#A39C8E;--accent:#6B4FD6;--accent-strong:#5942AA;--mint-text:#0E7A50;--amber-text:#8C5E0C;--coral-text:#B23A5C;--sky-text:#1D6E96;--t-mint-a:#DDF2E6;--t-mint-b:#F1F7EE;--t-amber-a:#F7E7C4;--t-amber-b:#FBF2DF;--t-violet-a:#E4DDFA;--t-violet-b:#F1EDFB;--t-coral-a:#FBE1E7;--t-coral-b:#FDF0F2;--t-violet-chip:#ECE7FB;--t-neutral:#EFEAE0;--t-field:#F1ECE1;color-scheme:light}
+:root[data-theme="dark"]{--paper:#0A0908;--paper-rgb:10,9,8;--surface:#161411;--ink:#F0EDE6;--ink-rgb:240,237,230;--ink-soft:#B8B2A3;--ink-faint:#9A9184;--fade:#6F685D;--accent:#9B85E8;--accent-strong:#B6A6F0;--mint-text:#3CC98A;--amber-text:#E5B04A;--coral-text:#F08DA6;--sky-text:#5DB3EA;--t-mint-a:#11281D;--t-mint-b:#0D1C15;--t-amber-a:#2B2110;--t-amber-b:#1C170D;--t-violet-a:#221B3D;--t-violet-b:#17132A;--t-coral-a:#30161E;--t-coral-b:#211116;--t-violet-chip:#261F42;--t-neutral:#1C1915;--t-field:#221E19;color-scheme:dark}
+a{color:var(--accent);text-decoration:none}
+a:hover{color:var(--accent-strong)}
+button:focus-visible,a:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+img{display:block;max-width:100%}
+</style>
+</helmet>
+
+<div style="background:var(--paper);min-height:100vh;font-family:'Inter',sans-serif">
+
+  <header style="position:sticky;top:0;z-index:10;background:rgba(var(--paper-rgb),0.88);backdrop-filter:blur(12px)">
+    <div style="max-width:1200px;margin:0 auto;padding:20px 32px;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap">
+      <a href="Homepage.dc.html" style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:17px;color:var(--ink);letter-spacing:-0.01em">Precious Okoro</a>
+      <nav style="display:flex;align-items:center;gap:28px;flex-wrap:wrap;font-size:14.5px;font-weight:500">
+        <a href="Work.dc.html" aria-current="page" style="color:var(--ink);font-weight:600;border-bottom:2px solid #1FAE6E;padding-bottom:2px">Projects</a>
+        <a href="About.dc.html" style="color:var(--ink-soft)">About</a>
+        <a href="Experience.dc.html" style="color:var(--ink-soft)">Experience</a>
+        <a href="https://precious-okoro.medium.com/" target="_blank" rel="noopener" style="color:var(--ink-soft)">Blog</a>
+        <a href="Contact.dc.html" style="color:var(--surface);background:var(--ink);padding:10px 18px;border-radius:999px" style-hover="background:var(--accent);color:var(--surface)">Work Together</a>
+        <button type="button" onClick="{{ toggleTheme }}" aria-label="{{ themeLabel }}" style="width:40px;height:40px;border-radius:50%;border:1px solid rgba(var(--ink-rgb),0.22);background:transparent;color:var(--ink);display:flex;align-items:center;justify-content:center;cursor:pointer;padding:0" style-hover="border-color:var(--ink)"><sc-if value="{{ isLight }}" hint-placeholder-val="{{ true }}"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M14 9.5A6 6 0 1 1 6.5 2 4.8 4.8 0 0 0 14 9.5Z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"></path></svg></sc-if><sc-if value="{{ isDark }}" hint-placeholder-val="{{ false }}"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="8" cy="8" r="3" stroke="currentColor" stroke-width="1.4"></circle><path d="M8 0.5V2.5M8 13.5V15.5M15.5 8H13.5M2.5 8H0.5M13.3 2.7L11.9 4.1M4.1 11.9L2.7 13.3M13.3 13.3L11.9 11.9M4.1 4.1L2.7 2.7" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"></path></svg></sc-if></button>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section style="max-width:1200px;margin:0 auto;padding:72px 32px 80px;display:flex;flex-direction:column;gap:28px">
+      <a href="Work.dc.html" style="font-size:14.5px;font-weight:600;color:var(--ink-soft)">← Back to Projects</a>
+      <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--accent);margin-top:24px">Beacon · Enterprise SaaS · 2025 | Crisis Content Design</span>
+      <h1 style="margin:0;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(40px,6.4vw,88px);line-height:1.03;letter-spacing:-0.035em;max-width:14ch;text-wrap:balance">The Word <span style="color:var(--fade);font-weight:500">an Engineer</span> <span style="display:inline-block;background:var(--accent);color:var(--surface);border-radius:999px;padding:0 0.32em 0.06em;line-height:1.08">Trusts</span> <span style="font-family:'Fraunces',serif;font-style:italic;font-weight:500;color:var(--accent);letter-spacing:-0.02em">at 3 AM</span></h1>
+      <p style="margin:0;max-width:56ch;font-family:'Fraunces',serif;font-style:italic;font-size:clamp(19px,1.8vw,23px);line-height:1.5;color:var(--ink-soft)">A tool used during a company's worst moments cannot ask its users to decode it first.</p>
+
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:24px;border-top:1px solid rgba(var(--ink-rgb),0.14);padding-top:28px;margin-top:20px;max-width:720px">
+        <div style="display:flex;flex-direction:column;gap:6px"><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:1px;text-transform:uppercase;color:var(--ink-faint)">Role</span><span style="font-weight:600;font-size:15px">Content Designer</span></div>
+        <div style="display:flex;flex-direction:column;gap:6px"><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:1px;text-transform:uppercase;color:var(--ink-faint)">Timeline</span><span style="font-weight:600;font-size:15px">2025</span></div>
+        <div style="display:flex;flex-direction:column;gap:6px"><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:1px;text-transform:uppercase;color:var(--ink-faint)">Industry</span><span style="font-weight:600;font-size:15px">Enterprise SaaS</span></div>
+      </div>
+      <div style="display:flex;flex-wrap:wrap;gap:32px">
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:1px;text-transform:uppercase;color:var(--ink-faint)">Skills Applied</span>
+          <div style="display:flex;flex-wrap:wrap;gap:8px">
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;border:1px solid rgba(var(--ink-rgb),0.22);border-radius:999px;padding:5px 12px;color:var(--ink-soft)">Content Design</span>
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;border:1px solid rgba(var(--ink-rgb),0.22);border-radius:999px;padding:5px 12px;color:var(--ink-soft)">UX Writing</span>
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;border:1px solid rgba(var(--ink-rgb),0.22);border-radius:999px;padding:5px 12px;color:var(--ink-soft)">Crisis Communication</span>
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;border:1px solid rgba(var(--ink-rgb),0.22);border-radius:999px;padding:5px 12px;color:var(--ink-soft)">Comprehension Testing</span>
+          </div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:1px;text-transform:uppercase;color:var(--ink-faint)">Frameworks Applied</span>
+          <div style="display:flex;flex-wrap:wrap;gap:8px">
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;background:var(--t-violet-chip);border-radius:999px;padding:6px 12px;color:var(--accent-strong)">Content System Architecture</span>
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;background:var(--t-violet-chip);border-radius:999px;padding:6px 12px;color:var(--accent-strong)">Verb Comprehension Testing</span>
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;background:var(--t-violet-chip);border-radius:999px;padding:6px 12px;color:var(--accent-strong)">Single Severity Hierarchy</span>
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;background:var(--t-violet-chip);border-radius:999px;padding:6px 12px;color:var(--accent-strong)">50-Word Notification Cap</span>
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;background:var(--t-violet-chip);border-radius:999px;padding:6px 12px;color:var(--accent-strong)">Guidance-Not-Scolding Principle</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section style="max-width:1200px;margin:0 auto;padding:0 32px 100px">
+      <div style="border-radius:36px;background:linear-gradient(160deg,var(--t-violet-a) 0%,var(--t-violet-b) 100%);padding:clamp(24px,5vw,72px);box-shadow:0 40px 100px -50px rgba(107,79,214,0.6)">
+        <img src="images/beacon-cover.png" alt="Beacon product landing page, an incident OS for enterprise engineering teams" style="width:100%;border-radius:20px">
+      </div>
+    </section>
+
+    <section style="max-width:1200px;margin:0 auto;padding:0 32px 120px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:40px 56px">
+      <div style="display:flex;flex-direction:column;gap:12px;border-top:2px solid var(--accent);padding-top:24px"><span style="font-family:'IBM Plex Mono',monospace;font-size:13px;color:var(--accent)">01</span><h3 style="margin:0;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:21px">Design Problem</h3><p style="margin:0;font-size:15.5px;line-height:1.7;color:var(--ink-soft)">Fifteen inconsistent severity labels and corporate-speak were slowing P0 response by 40% and triggering real anxiety in on-call engineers.</p></div>
+      <div style="display:flex;flex-direction:column;gap:12px;border-top:2px solid var(--accent);padding-top:24px"><span style="font-family:'IBM Plex Mono',monospace;font-size:13px;color:var(--accent)">02</span><h3 style="margin:0;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:21px">My Role</h3><p style="margin:0;font-size:15.5px;line-height:1.7;color:var(--ink-soft)">Content design across the full incident journey, from severity taxonomy to crisis microcopy to post-mortem.</p></div>
+      <div style="display:flex;flex-direction:column;gap:12px;border-top:2px solid var(--accent);padding-top:24px"><span style="font-family:'IBM Plex Mono',monospace;font-size:13px;color:var(--accent)">03</span><h3 style="margin:0;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:21px">What I Designed</h3><p style="margin:0;font-size:15.5px;line-height:1.7;color:var(--ink-soft)">A content system for incident response: a tested severity hierarchy, a verb protocol for high-pressure actions, a 50-word notification limit, and scripted copy for every failure state, governed by one principle instead of fifteen.</p></div>
+    </section>
+
+    <section style="max-width:1200px;margin:0 auto;padding:0 32px 140px">
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));border-top:1px solid rgba(var(--ink-rgb),0.14)">
+        <div style="padding:36px 32px 0 0;display:flex;flex-direction:column;gap:10px"><span style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(48px,5vw,64px);letter-spacing:-0.03em;line-height:1">94%</span><span style="font-size:15px;font-weight:500">Comprehension on the shipped button label</span></div>
+        <div style="padding:36px 32px 0 0;display:flex;flex-direction:column;gap:10px"><span style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(48px,5vw,64px);letter-spacing:-0.03em;line-height:1">40%</span><span style="font-size:15px;font-weight:500">Faster severity identification</span></div>
+        <div style="padding:36px 32px 0 0;display:flex;flex-direction:column;gap:10px"><span style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(48px,5vw,64px);letter-spacing:-0.03em;line-height:1">62%</span><span style="font-size:15px;font-weight:500">Drop in severity misclassification</span></div>
+      </div>
+    </section>
+
+    <div style="max-width:1200px;margin:0 auto;padding:0 32px;display:flex;flex-direction:column;gap:120px">
+
+      <section style="display:flex;flex-direction:column;gap:48px">
+        <div style="display:flex;flex-wrap:wrap;gap:20px 64px">
+          <span style="flex:1 1 180px;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:1px;text-transform:uppercase;color:var(--ink-faint);padding-top:10px">The Problem</span>
+          <div style="flex:4 1 480px;min-width:0;display:flex;flex-direction:column;gap:20px;max-width:68ch">
+            <h2 style="margin:0;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(26px,2.8vw,36px);line-height:1.15;letter-spacing:-0.02em">Fifteen ways to say the same thing</h2>
+            <p style="margin:0;font-size:17px;line-height:1.75;color:var(--ink-soft);text-wrap:pretty">Beacon is an incident management platform built for IT operations teams responding to critical system outages. Research going into the redesign found engineers resolving P0 incidents <mark style="background:var(--t-violet-chip);color:var(--ink);padding:1px 5px;border-radius:5px">40% slower than they should</mark>, weighed down by corporate-speak and inconsistent severity labels.</p>
+            <p style="margin:0;font-size:17px;line-height:1.75;color:var(--ink-soft);text-wrap:pretty">Nearly three in four on-call engineers reported real anxiety triggered by the product's own alert notifications. New hires needed two to three weeks just to learn the interface, and executives could not translate technical alerts into business impact without someone walking them through it.</p>
+          </div>
+        </div>
+        <figure style="margin:0;display:flex;flex-direction:column;gap:12px"><div style="border-radius:32px;background:var(--surface);padding:clamp(16px,3vw,40px)"><img src="images/beacon-research-insights.png" alt="Research findings showing the top five user pain points for Beacon, including context switching overload and communication friction" style="width:100%;border-radius:14px"></div><figcaption style="font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:var(--ink-faint)">Stakeholder interview findings that shaped the brief</figcaption></figure>
+      </section>
+
+      <section style="display:flex;flex-wrap:wrap;gap:20px 64px">
+        <span style="flex:1 1 180px"></span>
+        <figure style="flex:4 1 480px;min-width:0;max-width:68ch;margin:0;background:#17130E;color:#FAF6ED;border-radius:28px;padding:clamp(28px,3.5vw,44px);display:flex;flex-direction:column;gap:24px">
+          <blockquote style="margin:0;font-family:'Fraunces',serif;font-size:clamp(20px,2vw,26px);line-height:1.45;text-wrap:pretty">“When I get paged at 3 AM, I shouldn't have to decode what the tool is telling me. I need to know what's broken and what to do next.”</blockquote>
+          <figcaption style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#C9C3B6">Senior SRE, Series B Startup</figcaption>
+        </figure>
+      </section>
+
+      <section style="display:flex;flex-direction:column;gap:56px">
+        <div style="display:flex;flex-wrap:wrap;gap:20px 64px">
+          <span style="flex:1 1 180px;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:1px;text-transform:uppercase;color:var(--ink-faint);padding-top:10px">The Process</span>
+          <div style="flex:4 1 480px;min-width:0;display:flex;flex-direction:column;gap:20px;max-width:68ch">
+            <h2 style="margin:0;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(26px,2.8vw,36px);line-height:1.15;letter-spacing:-0.02em">The verb decided who trusted the button</h2>
+            <p style="margin:0;font-size:17px;line-height:1.75;color:var(--ink-soft);text-wrap:pretty">That reframed the brief: this was not a visual redesign that needed better copy. It was a content problem wearing a UI. The obvious fix, new screens and new components, was set aside on purpose: engineers under pressure needed the interface they already knew to say less and mean more, not another surface to learn.</p>
+            <p style="margin:0;font-size:17px;line-height:1.75;color:var(--ink-soft);text-wrap:pretty">Three personas, mapped across the full incident journey from detection to post-mortem, and a content audit of more than 200 inconsistent UI strings showed exactly where that content problem lived: fifteen different ways to describe severity, error messages that blamed users instead of guiding them, and no inline help anywhere in the product. Every fix that followed had to earn its place through testing, not intuition.</p>
+          </div>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:24px">
+          <figure style="margin:0;display:flex;flex-direction:column;gap:12px"><div style="border-radius:28px;background:linear-gradient(160deg,var(--t-violet-a) 0%,var(--t-violet-b) 100%);padding:clamp(16px,2.5vw,28px);box-shadow:0 30px 70px -45px rgba(107,79,214,0.6)"><img src="images/beacon-personas.png" alt="Three Beacon user personas: an on-call engineer, an incident commander, and a VP of engineering, each with their own goals and pain points" style="width:100%;border-radius:14px"></div><figcaption style="font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:var(--ink-faint)">Personas across the incident chain of command</figcaption></figure>
+          <figure style="margin:0;display:flex;flex-direction:column;gap:12px"><div style="border-radius:28px;background:linear-gradient(160deg,var(--t-violet-a) 0%,var(--t-violet-b) 100%);padding:clamp(16px,2.5vw,28px);box-shadow:0 30px 70px -45px rgba(107,79,214,0.6)"><img src="images/beacon-journey-map.png" alt="Beacon incident journey map spanning detection, triage, response, resolution, and post-mortem, with actions, emotions, and pain points at each stage" style="width:100%;border-radius:14px"></div><figcaption style="font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:var(--ink-faint)">Mapping the full incident journey, stage by stage</figcaption></figure>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:20px">
+          <div style="background:var(--surface);border-radius:28px;padding:32px;display:flex;flex-direction:column;gap:12px"><span style="font-family:'IBM Plex Mono',monospace;font-size:13px;color:var(--accent)">01</span><h3 style="margin:0;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:20px">Test the Verb, Not the Guess</h3><p style="margin:0;font-size:15px;line-height:1.7;color:var(--ink-soft)">"Acknowledge" beat "Accept" and "I'm on it" in comprehension testing at 94%, against 68 to 71% for the alternatives.</p></div>
+          <div style="background:var(--surface);border-radius:28px;padding:32px;display:flex;flex-direction:column;gap:12px"><span style="font-family:'IBM Plex Mono',monospace;font-size:13px;color:var(--accent)">02</span><h3 style="margin:0;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:20px">Make Severity Legible at a Glance</h3><p style="margin:0;font-size:15px;line-height:1.7;color:var(--ink-soft)">A single "P0 - Critical" style hierarchy replaced fifteen inconsistent severity labels.</p></div>
+          <div style="background:var(--surface);border-radius:28px;padding:32px;display:flex;flex-direction:column;gap:12px"><span style="font-family:'IBM Plex Mono',monospace;font-size:13px;color:var(--accent)">03</span><h3 style="margin:0;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:20px">Enforce a Word Limit</h3><p style="margin:0;font-size:15px;line-height:1.7;color:var(--ink-soft)">Every system notification was capped at 50 words. During a live outage, engineers do not have time to read. They have time to scan.</p></div>
+        </div>
+        <div style="display:flex;flex-wrap:wrap;gap:20px 64px">
+          <span style="flex:1 1 180px"></span>
+          <div style="flex:4 1 480px;min-width:0;display:flex;flex-direction:column;gap:32px;max-width:68ch">
+            <p style="margin:0;font-size:17px;line-height:1.75;color:var(--ink-soft);text-wrap:pretty">Two other verbs did not make it. "Accept" read as agreement, not action, so engineers hesitated over what accepting an incident actually committed them to. "I'm on it" felt reassuring but vague under pressure, the kind of phrase that sounds fine until someone needs to know whether help is actually coming. Only "Acknowledge" tested clearly across both meanings, which is why it shipped and the other two did not.</p>
+            <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,160px),1fr));gap:16px">
+              <div style="border:1px solid rgba(var(--ink-rgb),0.14);border-radius:24px;padding:24px;display:flex;flex-direction:column;gap:8px"><span style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:18px;color:var(--ink-soft)">"Accept"</span><span style="font-family:'IBM Plex Mono',monospace;font-weight:600;font-size:30px;color:var(--ink-faint)">68%</span><span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:1px;text-transform:uppercase;color:var(--ink-faint)">Rejected</span></div>
+              <div style="border:1px solid rgba(var(--ink-rgb),0.14);border-radius:24px;padding:24px;display:flex;flex-direction:column;gap:8px"><span style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:18px;color:var(--ink-soft)">"I'm on it"</span><span style="font-family:'IBM Plex Mono',monospace;font-weight:600;font-size:30px;color:var(--ink-faint)">71%</span><span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:1px;text-transform:uppercase;color:var(--ink-faint)">Rejected</span></div>
+              <div style="background:linear-gradient(160deg,var(--t-violet-a) 0%,var(--t-violet-b) 100%);border-radius:24px;padding:24px;display:flex;flex-direction:column;gap:8px;box-shadow:0 24px 60px -36px rgba(107,79,214,0.7)"><span style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:18px;color:var(--ink)">"Acknowledge"</span><span style="font-family:'IBM Plex Mono',monospace;font-weight:600;font-size:30px;color:var(--accent-strong)">94%</span><span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:1px;text-transform:uppercase;color:var(--mint-text)">Shipped</span></div>
+            </div>
+            <p style="margin:0;font-size:17px;line-height:1.75;color:var(--ink-soft);text-wrap:pretty">Each decision on its own is a small content choice. Together, they form the content system Beacon runs on: less to interpret, less to misread, less standing between an engineer and the fix.</p>
+          </div>
+        </div>
+      </section>
+
+      <section style="display:flex;flex-direction:column;gap:48px">
+        <div style="display:flex;flex-wrap:wrap;gap:20px 64px">
+          <span style="flex:1 1 180px;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:1px;text-transform:uppercase;color:var(--ink-faint);padding-top:4px">Designing the Declaration Flow</span>
+          <div style="flex:4 1 480px;min-width:0;display:flex;flex-direction:column;gap:20px;max-width:68ch">
+            <p style="margin:0;font-size:17px;line-height:1.75;color:var(--ink-soft);text-wrap:pretty">Every incident starts the same way: someone has to declare it, under pressure, in seconds. A single comprehensive form would have captured more information than the moment could afford, so the three-step declaration flow uses progressive disclosure to hide anything non-essential until the base incident is registered, smart defaults pre-filled from telemetry to cut manual entry, and inline reasoning so responders trust why a field is required instead of fighting it.</p>
+            <p style="margin:0;font-size:17px;line-height:1.75;color:var(--ink-soft);text-wrap:pretty">That same discipline carries into the notifications the flow triggers. A push alert and a stakeholder email drawing from the same incident record, written for two different reading speeds: one line to scan while running, one paragraph to read while deciding what to tell the business. Neither was designed to look better than the other. Both were designed so the fastest path through the record was also the safest one.</p>
+          </div>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:24px">
+          <figure style="margin:0;display:flex;flex-direction:column;gap:12px"><div style="border-radius:28px;background:linear-gradient(160deg,var(--t-violet-a) 0%,var(--t-violet-b) 100%);padding:clamp(16px,2.5vw,28px);box-shadow:0 30px 70px -45px rgba(107,79,214,0.6)"><img src="images/beacon-incident-flow.png" alt="Beacon three-step incident declaration flow with content design annotations covering progressive disclosure, smart defaults, and error prevention" style="width:100%;border-radius:14px"></div><figcaption style="font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:var(--ink-faint)">The declaration flow, with the content reasoning behind it</figcaption></figure>
+          <figure style="margin:0;display:flex;flex-direction:column;gap:12px"><div style="border-radius:28px;background:linear-gradient(160deg,var(--t-violet-a) 0%,var(--t-violet-b) 100%);padding:clamp(16px,2.5vw,28px);box-shadow:0 30px 70px -45px rgba(107,79,214,0.6)"><img src="images/beacon-notification-templates.png" alt="Beacon notification templates showing a push notification and a stakeholder email update for the same incident" style="width:100%;border-radius:14px"></div><figcaption style="font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:var(--ink-faint)">One incident, two audiences, two reading speeds</figcaption></figure>
+        </div>
+      </section>
+
+      <section style="display:flex;flex-direction:column;gap:48px">
+        <div style="display:flex;flex-wrap:wrap;gap:20px 64px">
+          <span style="flex:1 1 180px;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:1px;text-transform:uppercase;color:var(--ink-faint);padding-top:10px">Content in Every State</span>
+          <div style="flex:4 1 480px;min-width:0;display:flex;flex-direction:column;gap:20px;max-width:68ch">
+            <h2 style="margin:0;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(26px,2.8vw,36px);line-height:1.15;letter-spacing:-0.02em">A quiet system reads as reassurance</h2>
+            <p style="margin:0;font-size:17px;line-height:1.75;color:var(--ink-soft);text-wrap:pretty">A content system built for calm has to hold up when things go wrong twice over: the product itself failing mid-incident, five P0s firing at once, a junior engineer declaring their first-ever incident under pressure. A generic fallback message would have shipped faster. It would also have taught engineers to distrust the system the one time it mattered most, so each of those scenarios got its own scripted copy, tested against the same principles shaping the rest of the product.</p>
+            <p style="margin:0;font-size:17px;line-height:1.75;color:var(--ink-soft);text-wrap:pretty">Empty states and validation messages got the same care. A clear system reads as reassurance, not silence. An error reads as guidance, not a scolding.</p>
+          </div>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:24px">
+          <figure style="margin:0;display:flex;flex-direction:column;gap:12px"><div style="border-radius:28px;background:linear-gradient(160deg,var(--t-violet-a) 0%,var(--t-violet-b) 100%);padding:clamp(16px,2.5vw,28px);box-shadow:0 30px 70px -45px rgba(107,79,214,0.6)"><img src="images/beacon-edge-case-copy.png" alt="Beacon edge case copy for crisis scenarios, including system failure during a P0 incident" style="width:100%;border-radius:14px"></div><figcaption style="font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:var(--ink-faint)">Scripted copy for worst-case scenarios</figcaption></figure>
+          <figure style="margin:0;display:flex;flex-direction:column;gap:12px"><div style="border-radius:28px;background:linear-gradient(160deg,var(--t-violet-a) 0%,var(--t-violet-b) 100%);padding:clamp(16px,2.5vw,28px);box-shadow:0 30px 70px -45px rgba(107,79,214,0.6)"><img src="images/beacon-empty-states.png" alt="Beacon empty states and validation microcopy" style="width:100%;border-radius:14px"></div><figcaption style="font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:var(--ink-faint)">Empty states and validation, guidance not scolding</figcaption></figure>
+        </div>
+        <div style="display:flex;flex-wrap:wrap;gap:20px 64px">
+          <span style="flex:1 1 180px"></span>
+          <p style="flex:4 1 480px;min-width:0;max-width:68ch;margin:0;font-size:17px;line-height:1.75;color:var(--ink-soft);text-wrap:pretty">The same generic-versus-Beacon comparison ran across error states, critical alerts, and form microcopy, checking that the "guidance, not scolding" principle held everywhere, not just in the scenarios built to showcase it.</p>
+        </div>
+        <figure style="margin:0;display:flex;flex-direction:column;gap:12px"><div style="border-radius:32px;background:var(--surface);padding:clamp(16px,3vw,40px)"><img src="images/beacon-before-after.png" alt="Before and after comparison of generic incident tool copy versus Beacon's guided copy for error validation and critical alerts" style="width:100%;border-radius:14px"></div><figcaption style="font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:var(--ink-faint)">Generic tool copy versus Beacon copy, side by side</figcaption></figure>
+      </section>
+
+      <section style="display:flex;flex-wrap:wrap;gap:20px 64px">
+        <span style="flex:1 1 180px;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:1px;text-transform:uppercase;color:var(--ink-faint);padding-top:10px">The Result</span>
+        <div style="flex:4 1 480px;min-width:0;display:flex;flex-direction:column;gap:20px;max-width:68ch">
+          <h2 style="margin:0;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(26px,2.8vw,36px);line-height:1.15;letter-spacing:-0.02em">Neither number came from a redesign</h2>
+          <p style="margin:0;font-size:17px;line-height:1.75;color:var(--ink-soft);text-wrap:pretty">The numbers leading this page came directly out of that process. Testing the verb people actually understood, not the one that sounded right, got "Acknowledge" to 94% comprehension. Collapsing fifteen severity labels into one legible hierarchy cut misclassification 62% and got engineers to the right call 40% faster. Neither number came from a redesign. Both came from treating language as the interface, governed by one content system instead of a collection of one-off fixes.</p>
+        </div>
+      </section>
+
+      <section style="display:flex;flex-wrap:wrap;gap:20px 64px">
+        <span style="flex:1 1 180px;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:1px;text-transform:uppercase;color:var(--ink-faint);padding-top:10px">Takeaway</span>
+        <p style="flex:4 1 480px;min-width:0;max-width:32ch;margin:0;font-family:'Fraunces',serif;font-size:clamp(24px,2.6vw,34px);line-height:1.35;color:var(--ink);text-wrap:pretty">One message cannot serve three audiences. An engineer, an incident commander, and a VP need different information about the same outage, and the fix was never to write more. It was learning to write for the right person.</p>
+      </section>
+
+      <nav style="display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;border-top:1px solid rgba(var(--ink-rgb),0.14);padding-top:32px">
+        <a href="FastTrackUX.dc.html" style="font-weight:600;font-size:15px;color:var(--accent)">← Previous case study: FastTrackUX</a>
+        <a href="Work.dc.html" style="font-weight:600;font-size:15px;color:var(--ink-soft)">Back to Projects →</a>
+      </nav>
+    </div>
+
+    <section style="max-width:1200px;margin:0 auto;padding:100px 32px 140px">
+      <div style="background:#5942AA;color:#FAF6ED;border-radius:40px;padding:clamp(40px,7vw,88px);display:flex;flex-direction:column;gap:24px;align-items:flex-start">
+        <h2 style="margin:0;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(28px,3.6vw,46px);line-height:1.1;letter-spacing:-0.03em;max-width:22ch;text-wrap:balance">Building a tool people rely on in a <span style="font-family:'Fraunces',serif;font-style:italic;font-weight:500;color:#EFC670">crisis</span>?</h2>
+        <p style="margin:0;max-width:52ch;font-size:17px;line-height:1.65;color:#EDE8F7">I'd love to hear about your team and where content strategy could help.</p>
+        <a href="Contact.dc.html" style="background:#FAF6ED;color:#17130E;font-weight:600;font-size:15px;padding:15px 26px;border-radius:999px" style-hover="background:#EFC670;color:#17130E">Let's work together →</a>
+      </div>
+    </section>
+  </main>
+
+  <footer style="max-width:1200px;margin:0 auto;padding:40px 32px 56px;border-top:1px solid rgba(var(--ink-rgb),0.14);display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;font-size:14px;color:var(--ink-faint)">
+    <span>© 2026 Precious Okoro. Language infrastructure and content systems for products built to scale.</span>
+    <div style="display:flex;gap:24px;flex-wrap:wrap">
+      <a href="mailto:thepreciousokoro@gmail.com" style="color:var(--ink)">Email</a>
+      <a href="https://www.linkedin.com/in/okoro-onyekachi-precious/" target="_blank" rel="noopener" style="color:var(--ink)">LinkedIn</a>
+      <a href="https://calendly.com/thecontentdesignchief/30min" target="_blank" rel="noopener" style="color:var(--ink)">Book a call</a>
+    </div>
+  </footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  themeVals() {
+    const root = document.documentElement;
+    if (!root.getAttribute('data-theme')) { let t = 'light'; try { t = localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'); } catch (e) {} root.setAttribute('data-theme', t); }
+    const dark = (this.state && this.state.theme ? this.state.theme : root.getAttribute('data-theme')) === 'dark';
+    return {
+      isDark: dark, isLight: !dark, themeLabel: dark ? 'Switch to light theme' : 'Switch to dark theme',
+      toggleTheme: () => { const t = dark ? 'light' : 'dark'; root.setAttribute('data-theme', t); try { localStorage.setItem('theme', t); } catch (e) {} this.setState({ theme: t }); }
+    };
+  }
+  renderVals() { return { ...this.themeVals() }; }
+}
+</script>
+</body>
+</html>

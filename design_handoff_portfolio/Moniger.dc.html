@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<script>(function(){try{var t=localStorage.getItem('theme');if(!t){t=window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..600;1,9..144,400..600&family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);-webkit-font-smoothing:antialiased;transition:background-color .25s ease,color .25s ease}
+:root{--paper:#FAF6ED;--paper-rgb:250,246,237;--surface:#FFFCF5;--ink:#17130E;--ink-rgb:23,19,14;--ink-soft:#4A4438;--ink-faint:#6B6459;--fade:#A39C8E;--accent:#6B4FD6;--accent-strong:#5942AA;--mint-text:#0E7A50;--amber-text:#8C5E0C;--coral-text:#B23A5C;--sky-text:#1D6E96;--t-mint-a:#DDF2E6;--t-mint-b:#F1F7EE;--t-amber-a:#F7E7C4;--t-amber-b:#FBF2DF;--t-violet-a:#E4DDFA;--t-violet-b:#F1EDFB;--t-coral-a:#FBE1E7;--t-coral-b:#FDF0F2;--t-violet-chip:#ECE7FB;--t-neutral:#EFEAE0;--t-field:#F1ECE1;color-scheme:light}
+:root[data-theme="dark"]{--paper:#0A0908;--paper-rgb:10,9,8;--surface:#161411;--ink:#F0EDE6;--ink-rgb:240,237,230;--ink-soft:#B8B2A3;--ink-faint:#9A9184;--fade:#6F685D;--accent:#9B85E8;--accent-strong:#B6A6F0;--mint-text:#3CC98A;--amber-text:#E5B04A;--coral-text:#F08DA6;--sky-text:#5DB3EA;--t-mint-a:#11281D;--t-mint-b:#0D1C15;--t-amber-a:#2B2110;--t-amber-b:#1C170D;--t-violet-a:#221B3D;--t-violet-b:#17132A;--t-coral-a:#30161E;--t-coral-b:#211116;--t-violet-chip:#261F42;--t-neutral:#1C1915;--t-field:#221E19;color-scheme:dark}
+a{color:var(--accent);text-decoration:none}
+a:hover{color:var(--accent-strong)}
+button:focus-visible,a:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+img{display:block;max-width:100%}
+</style>
+</helmet>
+
+<div style="background:var(--paper);min-height:100vh;font-family:'Inter',sans-serif">
+
+  <header style="position:sticky;top:0;z-index:10;background:rgba(var(--paper-rgb),0.88);backdrop-filter:blur(12px)">
+    <div style="max-width:1200px;margin:0 auto;padding:20px 32px;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap">
+      <a href="Homepage.dc.html" style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:17px;color:var(--ink);letter-spacing:-0.01em">Precious Okoro</a>
+      <nav style="display:flex;align-items:center;gap:28px;flex-wrap:wrap;font-size:14.5px;font-weight:500">
+        <a href="Work.dc.html" aria-current="page" style="color:var(--ink);font-weight:600;border-bottom:2px solid #1FAE6E;padding-bottom:2px">Projects</a>
+        <a href="About.dc.html" style="color:var(--ink-soft)">About</a>
+        <a href="Experience.dc.html" style="color:var(--ink-soft)">Experience</a>
+        <a href="https://precious-okoro.medium.com/" target="_blank" rel="noopener" style="color:var(--ink-soft)">Blog</a>
+        <a href="Contact.dc.html" style="color:var(--surface);background:var(--ink);padding:10px 18px;border-radius:999px" style-hover="background:var(--accent);color:var(--surface)">Work Together</a>
+        <button type="button" onClick="{{ toggleTheme }}" aria-label="{{ themeLabel }}" style="width:40px;height:40px;border-radius:50%;border:1px solid rgba(var(--ink-rgb),0.22);background:transparent;color:var(--ink);display:flex;align-items:center;justify-content:center;cursor:pointer;padding:0" style-hover="border-color:var(--ink)"><sc-if value="{{ isLight }}" hint-placeholder-val="{{ true }}"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M14 9.5A6 6 0 1 1 6.5 2 4.8 4.8 0 0 0 14 9.5Z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"></path></svg></sc-if><sc-if value="{{ isDark }}" hint-placeholder-val="{{ false }}"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="8" cy="8" r="3" stroke="currentColor" stroke-width="1.4"></circle><path d="M8 0.5V2.5M8 13.5V15.5M15.5 8H13.5M2.5 8H0.5M13.3 2.7L11.9 4.1M4.1 11.9L2.7 13.3M13.3 13.3L11.9 11.9M4.1 4.1L2.7 2.7" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"></path></svg></sc-if></button>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section style="max-width:1200px;margin:0 auto;padding:72px 32px 80px;display:flex;flex-direction:column;gap:28px">
+      <a href="Work.dc.html" style="font-size:14.5px;font-weight:600;color:var(--ink-soft)">← Back to Projects</a>
+      <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--mint-text);margin-top:24px">Moniger · Fintech · 2023–2026 | Financial Content Systems</span>
+      <h1 style="margin:0;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(40px,6.4vw,88px);line-height:1.03;letter-spacing:-0.035em;max-width:15ch;text-wrap:balance">Making a <span style="color:var(--fade);font-weight:500">Multi-Bank Product Sound Like</span> <span style="display:inline-block;background:#1FAE6E;color:#17130E;border-radius:999px;padding:0 0.32em 0.06em;line-height:1.08">One</span> <span style="font-family:'Fraunces',serif;font-style:italic;font-weight:500;color:var(--mint-text);letter-spacing:-0.02em">Bank</span></h1>
+      <p style="margin:0;max-width:56ch;font-family:'Fraunces',serif;font-style:italic;font-size:clamp(19px,1.8vw,23px);line-height:1.5;color:var(--ink-soft);text-wrap:pretty">The product solved a real problem. The risk was explaining it in language dense enough to sound credible and simple enough to earn trust before anyone linked an account.</p>
+
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:24px;border-top:1px solid rgba(var(--ink-rgb),0.14);padding-top:28px;margin-top:20px">
+        <div style="display:flex;flex-direction:column;gap:6px"><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:1px;text-transform:uppercase;color:var(--ink-faint)">Role</span><span style="font-weight:600;font-size:15px">Lead Content Designer &amp; UX Content Strategist</span></div>
+        <div style="display:flex;flex-direction:column;gap:6px"><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:1px;text-transform:uppercase;color:var(--ink-faint)">Timeline</span><span style="font-weight:600;font-size:15px">2023 – 2026</span></div>
+        <div style="display:flex;flex-direction:column;gap:6px"><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:1px;text-transform:uppercase;color:var(--ink-faint)">Industry</span><span style="font-weight:600;font-size:15px">Fintech</span></div>
+        <div style="display:flex;flex-direction:column;gap:6px"><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:1px;text-transform:uppercase;color:var(--ink-faint)">Tools</span><span style="font-weight:600;font-size:15px">Figma, Google Docs, Miro</span></div>
+      </div>
+      <div style="display:flex;flex-wrap:wrap;gap:32px">
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:1px;text-transform:uppercase;color:var(--ink-faint)">Skills Applied</span>
+          <div style="display:flex;flex-wrap:wrap;gap:8px">
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;border:1px solid rgba(var(--ink-rgb),0.22);border-radius:999px;padding:5px 12px;color:var(--ink-soft)">Content Strategy</span>
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;border:1px solid rgba(var(--ink-rgb),0.22);border-radius:999px;padding:5px 12px;color:var(--ink-soft)">UX Writing</span>
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;border:1px solid rgba(var(--ink-rgb),0.22);border-radius:999px;padding:5px 12px;color:var(--ink-soft)">Content Systems</span>
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;border:1px solid rgba(var(--ink-rgb),0.22);border-radius:999px;padding:5px 12px;color:var(--ink-soft)">Voice &amp; Tone</span>
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;border:1px solid rgba(var(--ink-rgb),0.22);border-radius:999px;padding:5px 12px;color:var(--ink-soft)">Documentation</span>
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;border:1px solid rgba(var(--ink-rgb),0.22);border-radius:999px;padding:5px 12px;color:var(--ink-soft)">Knowledge Bases</span>
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;border:1px solid rgba(var(--ink-rgb),0.22);border-radius:999px;padding:5px 12px;color:var(--ink-soft)">Team Leadership</span>
+          </div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:1px;text-transform:uppercase;color:var(--ink-faint)">Frameworks Applied</span>
+          <div style="display:flex;flex-wrap:wrap;gap:8px">
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;background:var(--t-mint-a);border-radius:999px;padding:6px 12px;color:var(--mint-text)">Content-First Wireframing</span>
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;background:var(--t-mint-a);border-radius:999px;padding:6px 12px;color:var(--mint-text)">Closed Card-Sort IA</span>
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;background:var(--t-mint-a);border-radius:999px;padding:6px 12px;color:var(--mint-text)">Voice Governance via Style Guide</span>
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;background:var(--t-mint-a);border-radius:999px;padding:6px 12px;color:var(--mint-text)">Journey-Mapped Knowledge Base</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section style="max-width:1200px;margin:0 auto;padding:0 32px 100px">
+      <div style="border-radius:36px;background:linear-gradient(160deg,var(--t-mint-a) 0%,var(--t-mint-b) 100%);padding:clamp(24px,5vw,72px);box-shadow:0 40px 100px -50px rgba(31,174,110,0.6)">
+        <img src="images/moniger-cover.png" alt="Moniger app home screen showing net worth, linked bank accounts, and recent transactions" style="width:100%;border-radius:20px">
+      </div>
+    </section>
+
+    <section style="max-width:1200px;margin:0 auto;padding:0 32px 120px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:40px 56px">
+      <div style="display:flex;flex-direction:column;gap:12px;border-top:2px solid #1FAE6E;padding-top:24px"><span style="font-family:'IBM Plex Mono',monospace;font-size:13px;color:var(--mint-text)">01</span><h3 style="margin:0;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:21px">Design Problem</h3><p style="margin:0;font-size:15.5px;line-height:1.7;color:var(--ink-soft)">Users arrived already overwhelmed, manually tracking accounts across banks with no consolidated picture of their money.</p></div>
+      <div style="display:flex;flex-direction:column;gap:12px;border-top:2px solid #1FAE6E;padding-top:24px"><span style="font-family:'IBM Plex Mono',monospace;font-size:13px;color:var(--mint-text)">02</span><h3 style="margin:0;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:21px">My Role</h3><p style="margin:0;font-size:15.5px;line-height:1.7;color:var(--ink-soft)">Content strategy and design across mobile, web, and support, for 2+ years, managing a team of designers and writers.</p></div>
+      <div style="display:flex;flex-direction:column;gap:12px;border-top:2px solid #1FAE6E;padding-top:24px"><span style="font-family:'IBM Plex Mono',monospace;font-size:13px;color:var(--mint-text)">03</span><h3 style="margin:0;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:21px">What I Designed</h3><p style="margin:0;font-size:15.5px;line-height:1.7;color:var(--ink-soft)">A voice built from users' own words, a content-first design process, a style guide that held as the product scaled, and a knowledge base mapped to every stage of the user journey.</p></div>
+    </section>
+
+    <section style="max-width:1200px;margin:0 auto;padding:0 32px 140px">
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));border-top:1px solid rgba(var(--ink-rgb),0.14)">
+        <div style="padding:36px 32px 0 0;display:flex;flex-direction:column;gap:10px"><span style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(48px,5vw,64px);letter-spacing:-0.03em;line-height:1">25%</span><span style="font-size:15px;font-weight:500">Increase in conversions</span></div>
+        <div style="padding:36px 32px 0 0;display:flex;flex-direction:column;gap:10px"><span style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(48px,5vw,64px);letter-spacing:-0.03em;line-height:1">8%</span><span style="font-size:15px;font-weight:500">Reduction in onboarding drop-off</span></div>
+        <div style="padding:36px 32px 0 0;display:flex;flex-direction:column;gap:10px"><span style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(48px,5vw,64px);letter-spacing:-0.03em;line-height:1">2+</span><span style="font-size:15px;font-weight:500">Years of content-first engagement</span></div>
+      </div>
+    </section>
+
+    <div style="max-width:1200px;margin:0 auto;padding:0 32px;display:flex;flex-direction:column;gap:120px">
+
+      <section style="display:flex;flex-wrap:wrap;gap:20px 64px">
+        <span style="flex:1 1 180px;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:1px;text-transform:uppercase;color:var(--ink-faint);padding-top:10px">The Problem</span>
+        <div style="flex:4 1 480px;min-width:0;display:flex;flex-direction:column;gap:20px;max-width:68ch">
+          <h2 style="margin:0;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(26px,2.8vw,36px);line-height:1.15;letter-spacing:-0.02em">Overwhelmed before they ever linked an account</h2>
+          <p style="margin:0;font-size:17px;line-height:1.75;color:var(--ink-soft);text-wrap:pretty">Moniger simplifies financial management, letting users link multiple bank accounts, track budgets, and manage subscriptions from a single view. Most people arrived at the product already overwhelmed, manually tracking accounts across different banks with no consolidated picture of their money.</p>
+        </div>
+      </section>
+
+      <section style="display:flex;flex-direction:column;gap:56px">
+        <div style="display:flex;flex-wrap:wrap;gap:20px 64px">
+          <span style="flex:1 1 180px;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:1px;text-transform:uppercase;color:var(--ink-faint);padding-top:10px">The Process</span>
+          <div style="flex:4 1 480px;min-width:0;display:flex;flex-direction:column;gap:20px;max-width:68ch">
+            <h2 style="margin:0;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(26px,2.8vw,36px);line-height:1.15;letter-spacing:-0.02em">The words came from the users, not the org chart</h2>
+            <p style="margin:0;font-size:17px;line-height:1.75;color:var(--ink-soft);text-wrap:pretty">Getting there took more than a copy pass. Every touchpoint needed to earn a level of trust that financial products cannot fake, so the process started with listening rather than drafting.</p>
+            <p style="margin:0;font-size:17px;line-height:1.75;color:var(--ink-soft);text-wrap:pretty">Interviews and surveys with people already managing multiple bank accounts surfaced the exact words they used for their pain points, words that became the product's actual vocabulary instead of internal financial terminology. That research shaped three decisions that carried through every release since.</p>
+            <p style="margin:0;font-size:17px;line-height:1.75;color:var(--ink-soft);text-wrap:pretty">The default order, wireframes first and copy fitted in after, was rejected early: it locks screens around space for words no one has verified belong there. Copy went first instead, so every screen was sized to what actually needed to be understood.</p>
+          </div>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:20px">
+          <div style="background:var(--surface);border-radius:28px;padding:32px;display:flex;flex-direction:column;gap:12px"><span style="font-family:'IBM Plex Mono',monospace;font-size:13px;color:var(--mint-text)">01</span><h3 style="margin:0;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:20px">Anchor Copy in Real Language</h3><p style="margin:0;font-size:15px;line-height:1.7;color:var(--ink-soft)">The words people used to describe their own pain points, not internal terminology, became the product's vocabulary.</p></div>
+          <div style="background:var(--surface);border-radius:28px;padding:32px;display:flex;flex-direction:column;gap:12px"><span style="font-family:'IBM Plex Mono',monospace;font-size:13px;color:var(--mint-text)">02</span><h3 style="margin:0;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:20px">Let Content Lead the Design</h3><p style="margin:0;font-size:15px;line-height:1.7;color:var(--ink-soft)">Copy shaped the design team's wireframes and prototypes, not the reverse. Every screen was built around how the information needed to be understood first.</p></div>
+          <div style="background:var(--surface);border-radius:28px;padding:32px;display:flex;flex-direction:column;gap:12px"><span style="font-family:'IBM Plex Mono',monospace;font-size:13px;color:var(--mint-text)">03</span><h3 style="margin:0;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:20px">Govern the Voice, Not Just the Words</h3><p style="margin:0;font-size:15px;line-height:1.7;color:var(--ink-soft)">A content style guide and A/B-tested copy gave the team a system for tone, voice, and messaging that held up as new features shipped.</p></div>
+        </div>
+        <div style="display:flex;flex-wrap:wrap;gap:20px 64px">
+          <span style="flex:1 1 180px"></span>
+          <p style="flex:4 1 480px;min-width:0;max-width:68ch;margin:0;font-size:17px;line-height:1.75;color:var(--ink-soft);text-wrap:pretty">None of those decisions worked in isolation. A style guide without content-first wireframes would have governed the wrong words. Research without a system to protect it would have faded by the second feature release. Together, they meant the product could grow without the voice drifting.</p>
+        </div>
+      </section>
+
+      <section style="display:flex;flex-wrap:wrap;gap:20px 64px">
+        <span style="flex:1 1 180px;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:1px;text-transform:uppercase;color:var(--ink-faint);padding-top:10px">The System, at Three Levels</span>
+        <div style="flex:4 1 480px;min-width:0;display:flex;flex-direction:column;gap:20px;max-width:68ch">
+          <h2 style="margin:0;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(26px,2.8vw,36px);line-height:1.15;letter-spacing:-0.02em">One vocabulary, applied at three different sizes</h2>
+          <p style="margin:0;font-size:17px;line-height:1.75;color:var(--ink-soft);text-wrap:pretty">A word decision made once does not survive a product that ships every two weeks. The work had to hold at three levels, each answering a different question.</p>
+          <ul style="list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:16px;font-size:16px;line-height:1.7;color:var(--ink-soft)">
+            <li style="display:flex;gap:14px"><span style="color:#1FAE6E;font-weight:700">●</span><span><strong style="color:var(--ink)">Foundation.</strong> How should Moniger sound, and what should its financial terms mean? Voice principles and a vocabulary built from users' own words, not internal banking language.</span></li>
+            <li style="display:flex;gap:14px"><span style="color:#1FAE6E;font-weight:700">●</span><span><strong style="color:var(--ink)">Pattern.</strong> How should a class of screens behave? A style guide and content-first design process that gave every notification, error, and confirmation the same underlying structure.</span></li>
+            <li style="display:flex;gap:14px"><span style="color:#1FAE6E;font-weight:700">●</span><span><strong style="color:var(--ink)">Journey.</strong> How should the patterns hold across a real task? Web pages, mobile onboarding, and a help center, built end to end from the same foundation.</span></li>
+          </ul>
+        </div>
+      </section>
+
+      <section style="display:flex;flex-wrap:wrap;gap:20px 64px">
+        <span style="flex:1 1 180px;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:1px;text-transform:uppercase;color:var(--ink-faint);padding-top:10px">System Workflow</span>
+        <div style="flex:4 1 480px;min-width:0;display:flex;flex-direction:column;gap:20px;max-width:68ch">
+          <h2 style="margin:0;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(26px,2.8vw,36px);line-height:1.15;letter-spacing:-0.02em">From a user's own words to a system that outlasted me</h2>
+          <div style="display:flex;flex-direction:column;border-top:1px solid rgba(var(--ink-rgb),0.14)">
+            <div style="display:flex;gap:20px;padding:20px 0;border-bottom:1px solid rgba(var(--ink-rgb),0.14)"><span style="font-family:'IBM Plex Mono',monospace;font-size:13px;color:var(--mint-text);padding-top:3px">01</span><p style="margin:0;font-size:16px;line-height:1.7;color:var(--ink-soft)"><strong style="color:var(--ink)">Research.</strong> Interviews and surveys with people already managing multiple bank accounts → a vocabulary the product could stand on instead of internal terminology.</p></div>
+            <div style="display:flex;gap:20px;padding:20px 0;border-bottom:1px solid rgba(var(--ink-rgb),0.14)"><span style="font-family:'IBM Plex Mono',monospace;font-size:13px;color:var(--mint-text);padding-top:3px">02</span><p style="margin:0;font-size:16px;line-height:1.7;color:var(--ink-soft)"><strong style="color:var(--ink)">Content-First Design.</strong> Copy shaped wireframes before visual design touched them → screens sized to what actually needed to be understood.</p></div>
+            <div style="display:flex;gap:20px;padding:20px 0;border-bottom:1px solid rgba(var(--ink-rgb),0.14)"><span style="font-family:'IBM Plex Mono',monospace;font-size:13px;color:var(--mint-text);padding-top:3px">03</span><p style="margin:0;font-size:16px;line-height:1.7;color:var(--ink-soft)"><strong style="color:var(--ink)">Pattern and Governance.</strong> A style guide plus A/B-tested copy became the shared reference for tone, voice, and messaging → one voice the team could apply without me in the room.</p></div>
+            <div style="display:flex;gap:20px;padding:20px 0;border-bottom:1px solid rgba(var(--ink-rgb),0.14)"><span style="font-family:'IBM Plex Mono',monospace;font-size:13px;color:var(--mint-text);padding-top:3px">04</span><p style="margin:0;font-size:16px;line-height:1.7;color:var(--ink-soft)"><strong style="color:var(--ink)">Documentation.</strong> Help center and blog content turned shipped decisions into infrastructure → content the team could sustain past the first release.</p></div>
+          </div>
+          <p style="margin:0;font-size:17px;line-height:1.75;color:var(--ink-soft);text-wrap:pretty">A challenged line returns to the standard and the evidence behind it, not only to the sentence that was questioned. That loop is what held the voice together for two years, not any single decision inside it.</p>
+        </div>
+      </section>
+
+      <section style="display:flex;flex-wrap:wrap;gap:20px 64px">
+        <span style="flex:1 1 180px;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:1px;text-transform:uppercase;color:var(--ink-faint);padding-top:10px">When the Content Was Challenged</span>
+        <div style="flex:4 1 480px;min-width:0;display:flex;flex-direction:column;gap:20px;max-width:68ch">
+          <h2 style="margin:0;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(26px,2.8vw,36px);line-height:1.15;letter-spacing:-0.02em">The style guide won the argument, not instinct</h2>
+          <p style="margin:0;font-size:17px;line-height:1.75;color:var(--ink-soft);text-wrap:pretty">That system was tested early, not just trusted. A product manager and product designer once pushed back on a piece of copy, certain it would not land with users. Instead of defending it on instinct, the case got made with evidence: the research behind the words, content testing data, and the alternative phrasing that had already been tried and had not worked. An A/B test settled it. The original copy won.</p>
+        </div>
+      </section>
+
+      <section style="display:flex;flex-direction:column;gap:48px">
+        <div style="display:flex;flex-wrap:wrap;gap:20px 64px">
+          <span style="flex:1 1 180px;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:1px;text-transform:uppercase;color:var(--ink-faint);padding-top:4px">The Website</span>
+          <div style="flex:4 1 480px;min-width:0;display:flex;flex-direction:column;gap:20px;max-width:68ch">
+            <p style="margin:0;font-size:17px;line-height:1.75;color:var(--ink-soft);text-wrap:pretty">Every functional website depends on one thing in its hero sections: a simplified voice. Across Moniger's web pages, home, virtual cards, budgeting, finance manager, subscriptions, and account aggregation, the goal was <mark style="background:var(--t-mint-a);color:var(--ink);padding:1px 5px;border-radius:5px">clear, consistent microcopy</mark> pulled from research, not guesswork.</p>
+            <p style="margin:0;font-size:17px;line-height:1.75;color:var(--ink-soft);text-wrap:pretty">Before that copy touched a single wireframe, a closed card-sorting exercise defined the content hierarchy, so the information architecture reflected how users actually grouped these features, not how the org chart did.</p>
+          </div>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:24px">
+          <figure style="margin:0;display:flex;flex-direction:column;gap:12px"><div style="border-radius:28px;background:linear-gradient(160deg,var(--t-mint-a) 0%,var(--t-mint-b) 100%);padding:clamp(16px,2.5vw,28px);box-shadow:0 30px 70px -45px rgba(31,174,110,0.6)"><img src="images/moniger-hero-home.png" alt="Moniger website home page hero section" style="width:100%;border-radius:14px"></div><figcaption style="font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:var(--ink-faint)">Hero section, home page</figcaption></figure>
+          <figure style="margin:0;display:flex;flex-direction:column;gap:12px"><div style="border-radius:28px;background:linear-gradient(160deg,var(--t-mint-a) 0%,var(--t-mint-b) 100%);padding:clamp(16px,2.5vw,28px);box-shadow:0 30px 70px -45px rgba(31,174,110,0.6)"><img src="images/moniger-hero-budgeting.png" alt="Moniger website budgeting page hero section" style="width:100%;border-radius:14px"></div><figcaption style="font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:var(--ink-faint)">Hero section, budgeting page</figcaption></figure>
+        </div>
+        <div style="border-radius:32px;background:var(--surface);padding:clamp(16px,3vw,40px)"><img src="images/moniger-ia-diagram.png" alt="Moniger information architecture and content hierarchy diagram" style="width:100%;border-radius:14px"></div>
+      </section>
+
+      <section style="display:flex;flex-direction:column;gap:48px">
+        <div style="display:flex;flex-wrap:wrap;gap:20px 64px">
+          <span style="flex:1 1 180px;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:1px;text-transform:uppercase;color:var(--ink-faint);padding-top:4px">The Mobile App</span>
+          <div style="flex:4 1 480px;min-width:0;display:flex;flex-direction:column;gap:20px;max-width:68ch">
+            <p style="margin:0;font-size:17px;line-height:1.75;color:var(--ink-soft);text-wrap:pretty">The mobile app carried real complexity: accounts, budgets, and subscriptions, all needing one consistent flow. A splash screen and the Nickel Tour approach to onboarding, a multi-step progress indicator, always showed users exactly where they stood.</p>
+            <p style="margin:0;font-size:17px;line-height:1.75;color:var(--ink-soft);text-wrap:pretty">Research surfaced two distinct segments: people juggling multiple bank accounts, and people who wanted to track spending on the go without opening a spreadsheet. Every piece of copy was tested against both before it shipped.</p>
+          </div>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:24px">
+          <figure style="margin:0;display:flex;flex-direction:column;gap:12px"><div style="border-radius:28px;background:linear-gradient(160deg,var(--t-mint-a) 0%,var(--t-mint-b) 100%);padding:clamp(24px,4vw,56px);box-shadow:0 30px 70px -45px rgba(31,174,110,0.6);display:flex;justify-content:center"><img src="images/moniger-splash.jpg" alt="Moniger app splash screen" style="width:100%;max-width:280px;border-radius:24px"></div><figcaption style="font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:var(--ink-faint)">Splash screen</figcaption></figure>
+          <figure style="margin:0;display:flex;flex-direction:column;gap:12px"><div style="border-radius:28px;background:linear-gradient(160deg,var(--t-mint-a) 0%,var(--t-mint-b) 100%);padding:clamp(24px,4vw,56px);box-shadow:0 30px 70px -45px rgba(31,174,110,0.6);display:flex;justify-content:center"><img src="images/moniger-onboarding-1.jpg" alt="Moniger app onboarding flow with multi-step progress indicator" style="width:100%;max-width:280px;border-radius:24px"></div><figcaption style="font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:var(--ink-faint)">Onboarding, Nickel Tour approach</figcaption></figure>
+        </div>
+      </section>
+
+      <section style="display:flex;flex-direction:column;gap:48px">
+        <div style="display:flex;flex-wrap:wrap;gap:20px 64px">
+          <span style="flex:1 1 180px;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:1px;text-transform:uppercase;color:var(--ink-faint);padding-top:10px">Documentation &amp; Knowledge Base</span>
+          <div style="flex:4 1 480px;min-width:0;display:flex;flex-direction:column;gap:20px;max-width:68ch">
+            <h2 style="margin:0;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(26px,2.8vw,36px);line-height:1.15;letter-spacing:-0.02em">Every stage of the journey has an <span style="font-family:'Fraunces',serif;font-style:italic;font-weight:500;color:var(--mint-text)">answer waiting</span></h2>
+            <p style="margin:0;font-size:17px;line-height:1.75;color:var(--ink-soft);text-wrap:pretty">The engagement went beyond shipping copy for a single release. A single person holding the voice together by memory does not survive a second year of feature releases, so the deliverable had to be infrastructure that let Moniger's team keep creating strong content without me in the room. Help center documentation was mapped to each stage of the user journey, from account setup and bank linking to budgeting and subscription management, so users could resolve questions the moment they hit them. Blog content extended that same positioning beyond the app itself.</p>
+          </div>
+        </div>
+        <div style="border-radius:32px;background:linear-gradient(160deg,var(--t-mint-a) 0%,var(--t-mint-b) 100%);box-shadow:0 30px 80px -50px rgba(31,174,110,0.6);padding:clamp(24px,4vw,48px);display:flex;flex-direction:column;gap:20px">
+          <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap">
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:1px;text-transform:uppercase;color:var(--mint-text)">User journey → knowledge base</span>
+            <span style="font-family:'Caveat',cursive;font-size:24px;color:var(--mint-text);transform:rotate(-2deg)">one stage, one place to look</span>
+          </div>
+          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr));gap:14px">
+            <div style="display:flex;flex-direction:column;gap:10px">
+              <div style="display:flex;align-items:center;gap:10px"><span style="width:28px;height:28px;border-radius:50%;background:#1FAE6E;color:#17130E;font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:600;display:flex;align-items:center;justify-content:center">1</span><span style="font-weight:600;font-size:15px;color:var(--ink)">Account setup</span></div>
+              <span style="font-family:'IBM Plex Mono',monospace;font-size:16px;color:var(--mint-text);padding-left:9px">↓</span>
+              <div style="background:var(--surface);border-radius:18px;padding:16px 18px;display:flex;flex-direction:column;gap:8px;box-shadow:0 14px 30px -22px rgba(23,19,14,0.4)">
+                <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.5px;text-transform:uppercase;color:var(--ink-faint)">Help center</span>
+                <span style="font-size:14.5px;font-weight:600;color:var(--ink)">Getting started</span>
+                <div style="display:flex;gap:6px;flex-wrap:wrap"><span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;background:var(--t-mint-a);color:var(--mint-text);border-radius:999px;padding:3px 9px">Docs</span><span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;background:var(--t-mint-a);color:var(--mint-text);border-radius:999px;padding:3px 9px">Knowledge base</span></div>
+              </div>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:10px">
+              <div style="display:flex;align-items:center;gap:10px"><span style="width:28px;height:28px;border-radius:50%;background:#1FAE6E;color:#17130E;font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:600;display:flex;align-items:center;justify-content:center">2</span><span style="font-weight:600;font-size:15px;color:var(--ink)">Bank linking</span></div>
+              <span style="font-family:'IBM Plex Mono',monospace;font-size:16px;color:var(--mint-text);padding-left:9px">↓</span>
+              <div style="background:var(--surface);border-radius:18px;padding:16px 18px;display:flex;flex-direction:column;gap:8px;box-shadow:0 14px 30px -22px rgba(23,19,14,0.4)">
+                <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.5px;text-transform:uppercase;color:var(--ink-faint)">Help center</span>
+                <span style="font-size:14.5px;font-weight:600;color:var(--ink)">Connecting accounts</span>
+                <div style="display:flex;gap:6px;flex-wrap:wrap"><span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;background:var(--t-mint-a);color:var(--mint-text);border-radius:999px;padding:3px 9px">Docs</span><span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;background:var(--t-mint-a);color:var(--mint-text);border-radius:999px;padding:3px 9px">Knowledge base</span></div>
+              </div>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:10px">
+              <div style="display:flex;align-items:center;gap:10px"><span style="width:28px;height:28px;border-radius:50%;background:#1FAE6E;color:#17130E;font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:600;display:flex;align-items:center;justify-content:center">3</span><span style="font-weight:600;font-size:15px;color:var(--ink)">Budgeting</span></div>
+              <span style="font-family:'IBM Plex Mono',monospace;font-size:16px;color:var(--mint-text);padding-left:9px">↓</span>
+              <div style="background:var(--surface);border-radius:18px;padding:16px 18px;display:flex;flex-direction:column;gap:8px;box-shadow:0 14px 30px -22px rgba(23,19,14,0.4)">
+                <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.5px;text-transform:uppercase;color:var(--ink-faint)">Help center</span>
+                <span style="font-size:14.5px;font-weight:600;color:var(--ink)">Tracking spend</span>
+                <div style="display:flex;gap:6px;flex-wrap:wrap"><span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;background:var(--t-mint-a);color:var(--mint-text);border-radius:999px;padding:3px 9px">Docs</span><span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;background:var(--t-mint-a);color:var(--mint-text);border-radius:999px;padding:3px 9px">Knowledge base</span></div>
+              </div>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:10px">
+              <div style="display:flex;align-items:center;gap:10px"><span style="width:28px;height:28px;border-radius:50%;background:#1FAE6E;color:#17130E;font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:600;display:flex;align-items:center;justify-content:center">4</span><span style="font-weight:600;font-size:15px;color:var(--ink)">Subscription management</span></div>
+              <span style="font-family:'IBM Plex Mono',monospace;font-size:16px;color:var(--mint-text);padding-left:9px">↓</span>
+              <div style="background:var(--surface);border-radius:18px;padding:16px 18px;display:flex;flex-direction:column;gap:8px;box-shadow:0 14px 30px -22px rgba(23,19,14,0.4)">
+                <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.5px;text-transform:uppercase;color:var(--ink-faint)">Help center</span>
+                <span style="font-size:14.5px;font-weight:600;color:var(--ink)">Managing subscriptions</span>
+                <div style="display:flex;gap:6px;flex-wrap:wrap"><span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;background:var(--t-mint-a);color:var(--mint-text);border-radius:999px;padding:3px 9px">Docs</span><span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;background:var(--t-mint-a);color:var(--mint-text);border-radius:999px;padding:3px 9px">Knowledge base</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section style="display:flex;flex-wrap:wrap;gap:20px 64px">
+        <span style="flex:1 1 180px;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:1px;text-transform:uppercase;color:var(--ink-faint);padding-top:4px">What Shipped</span>
+        <ul style="flex:4 1 480px;min-width:0;max-width:68ch;list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:16px;font-size:16px;line-height:1.7;color:var(--ink-soft)">
+          <li style="display:flex;gap:14px"><span style="color:var(--mint-text);font-family:'IBM Plex Mono',monospace">✓</span><span><strong style="color:var(--ink)">Consistent microcopy</strong> across home, virtual cards, budgeting, finance manager, subscriptions, and account aggregation pages, built on a content-first information architecture.</span></li>
+          <li style="display:flex;gap:14px"><span style="color:var(--mint-text);font-family:'IBM Plex Mono',monospace">✓</span><span><strong style="color:var(--ink)">A mobile onboarding flow</strong>, including a splash screen and the Nickel Tour approach, tested against two distinct user segments before release.</span></li>
+          <li style="display:flex;gap:14px"><span style="color:var(--mint-text);font-family:'IBM Plex Mono',monospace">✓</span><span><strong style="color:var(--ink)">A self-serve help center and knowledge base</strong> mapped to the full user journey, from account setup and bank linking to budgeting and subscriptions.</span></li>
+          <li style="display:flex;gap:14px"><span style="color:var(--mint-text);font-family:'IBM Plex Mono',monospace">✓</span><span><strong style="color:var(--ink)">Supporting blog content</strong> extending the product's positioning beyond the app itself.</span></li>
+          <li style="display:flex;gap:14px"><span style="color:var(--mint-text);font-family:'IBM Plex Mono',monospace">✓</span><span><strong style="color:var(--ink)">A content system and style guide</strong> governing tone, voice, and messaging across mobile, web, and support, built to outlast any single release.</span></li>
+        </ul>
+      </section>
+
+      <section style="display:flex;flex-wrap:wrap;gap:20px 64px">
+        <span style="flex:1 1 180px;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:1px;text-transform:uppercase;color:var(--ink-faint);padding-top:10px">The Result</span>
+        <div style="flex:4 1 480px;min-width:0;display:flex;flex-direction:column;gap:20px;max-width:68ch">
+          <h2 style="margin:0;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(26px,2.8vw,36px);line-height:1.15;letter-spacing:-0.02em">The system held for two years</h2>
+          <p style="margin:0;font-size:17px;line-height:1.75;color:var(--ink-soft);text-wrap:pretty">That system held. Two years in, the numbers leading this page, a 25% increase in conversions and an 8% reduction in onboarding drop-off, came from the same discipline: research first, content-first wireframes, and a style guide that kept the voice consistent long after the first release shipped.</p>
+        </div>
+      </section>
+
+      <section style="display:flex;flex-wrap:wrap;gap:20px 64px">
+        <span style="flex:1 1 180px;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:1px;text-transform:uppercase;color:var(--ink-faint);padding-top:10px">Takeaway</span>
+        <p style="flex:4 1 480px;min-width:0;max-width:30ch;margin:0;font-family:'Fraunces',serif;font-size:clamp(24px,2.6vw,34px);line-height:1.35;color:var(--ink);text-wrap:pretty">Complexity in a product does not have to become complexity in the copy. On Moniger, the words carried the weight so the interface never had to.</p>
+      </section>
+
+      <nav style="display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;border-top:1px solid rgba(var(--ink-rgb),0.14);padding-top:32px">
+        <a href="Work.dc.html" style="font-weight:600;font-size:15px;color:var(--ink-soft)">← Back to Projects</a>
+        <a href="FastTrackUX.dc.html" style="font-weight:600;font-size:15px;color:var(--accent)">Next case study: FastTrackUX →</a>
+      </nav>
+    </div>
+
+    <section style="max-width:1200px;margin:0 auto;padding:100px 32px 140px">
+      <div style="background:#5942AA;color:#FAF6ED;border-radius:40px;padding:clamp(40px,7vw,88px);display:flex;flex-direction:column;gap:24px;align-items:flex-start">
+        <h2 style="margin:0;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(28px,3.6vw,46px);line-height:1.1;letter-spacing:-0.03em;max-width:22ch;text-wrap:balance">Building a product with a similarly complex story to tell<span style="font-family:'Fraunces',serif;font-style:italic;color:#EFC670">?</span></h2>
+        <p style="margin:0;max-width:52ch;font-size:17px;line-height:1.65;color:#EDE8F7">I'd love to hear about your team and where content strategy could help.</p>
+        <a href="Contact.dc.html" style="background:#FAF6ED;color:#17130E;font-weight:600;font-size:15px;padding:15px 26px;border-radius:999px" style-hover="background:#EFC670;color:#17130E">Let's work together →</a>
+      </div>
+    </section>
+  </main>
+
+  <footer style="max-width:1200px;margin:0 auto;padding:40px 32px 56px;border-top:1px solid rgba(var(--ink-rgb),0.14);display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;font-size:14px;color:var(--ink-faint)">
+    <span>© 2026 Precious Okoro. Language infrastructure and content systems for products built to scale.</span>
+    <div style="display:flex;gap:24px;flex-wrap:wrap">
+      <a href="mailto:thepreciousokoro@gmail.com" style="color:var(--ink)">Email</a>
+      <a href="https://www.linkedin.com/in/okoro-onyekachi-precious/" target="_blank" rel="noopener" style="color:var(--ink)">LinkedIn</a>
+      <a href="https://calendly.com/thecontentdesignchief/30min" target="_blank" rel="noopener" style="color:var(--ink)">Book a call</a>
+    </div>
+  </footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  themeVals() {
+    const root = document.documentElement;
+    if (!root.getAttribute('data-theme')) { let t = 'light'; try { t = localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'); } catch (e) {} root.setAttribute('data-theme', t); }
+    const dark = (this.state && this.state.theme ? this.state.theme : root.getAttribute('data-theme')) === 'dark';
+    return {
+      isDark: dark, isLight: !dark, themeLabel: dark ? 'Switch to light theme' : 'Switch to dark theme',
+      toggleTheme: () => { const t = dark ? 'light' : 'dark'; root.setAttribute('data-theme', t); try { localStorage.setItem('theme', t); } catch (e) {} this.setState({ theme: t }); }
+    };
+  }
+  renderVals() { return { ...this.themeVals() }; }
+}
+</script>
+</body>
+</html>
