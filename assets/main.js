@@ -15,65 +15,69 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
-  var timelineItems = document.querySelectorAll('.timeline-item');
-  if (timelineItems.length) {
-    var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if (reduceMotion || !('IntersectionObserver' in window)) {
-      timelineItems.forEach(function (item) { item.classList.add('is-visible'); });
-    } else {
-      var timelineObserver = new IntersectionObserver(function (entries) {
-        entries.forEach(function (entry) {
-          if (entry.isIntersecting) {
-            var index = Array.prototype.indexOf.call(timelineItems, entry.target);
-            setTimeout(function () { entry.target.classList.add('is-visible'); }, index * 90);
-            timelineObserver.unobserve(entry.target);
-          }
-        });
-      }, { threshold: 0.2, rootMargin: '0px 0px -40px 0px' });
-      timelineItems.forEach(function (item) { timelineObserver.observe(item); });
+  // ===== Proof / metrics module (homepage) =====
+  var proofModule = document.querySelector('.proof-module');
+  if (proofModule) {
+    var nodes = proofModule.querySelectorAll('.proof-node');
+    var panel = proofModule.querySelector('.proof-panel');
+    var panelMethod = panel ? panel.querySelector('.proof-method-label') : null;
+    var panelLabel = panel ? panel.querySelector('.proof-label-text') : null;
+    var panelLink = panel ? panel.querySelector('.proof-case-link') : null;
+    var panelLinkName = panelLink ? panelLink.querySelector('.proof-case-name') : null;
+
+    function selectMetric(index) {
+      nodes.forEach(function (node, i) {
+        node.classList.toggle('is-active', i === index);
+      });
+      var data = nodes[index];
+      if (!data) return;
+      var method = data.getAttribute('data-method');
+      var label = data.getAttribute('data-label');
+      var href = data.getAttribute('data-href');
+      var name = data.getAttribute('data-name');
+      if (panelMethod) panelMethod.textContent = method + '… ';
+      if (panelLabel) panelLabel.textContent = label;
+      if (panelLink) panelLink.setAttribute('href', href);
+      if (panelLinkName) panelLinkName.textContent = name;
     }
+
+    nodes.forEach(function (node, i) {
+      node.addEventListener('click', function () { selectMetric(i); });
+      node.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); selectMetric(i); }
+      });
+    });
+    selectMetric(0);
   }
 
-  var nav = document.querySelector('header.nav');
-  var toggle = document.querySelector('.nav-toggle');
-  if (!nav || !toggle) return;
-
-  toggle.addEventListener('click', function () {
-    var isOpen = nav.classList.toggle('is-open');
-    toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
-  });
-
-  document.querySelectorAll('.nav-mobile-panel a').forEach(function (link) {
-    link.addEventListener('click', function () {
-      nav.classList.remove('is-open');
-      toggle.setAttribute('aria-expanded', 'false');
+  // ===== How I Think tabs (homepage) =====
+  var thinkSection = document.querySelector('.think-section');
+  if (thinkSection) {
+    var tabs = thinkSection.querySelectorAll('.think-tab');
+    var titleEl = thinkSection.querySelector('.think-body h2');
+    var detailEl = thinkSection.querySelector('.pillar-detail');
+    var pillars = [
+      { title: 'Language is infrastructure.', pre: "I don’t think of content as something added to an interface after the product is designed. Language shapes ", hi: 'what people understand, what they expect, what they can do', post: ', and how the system responds.' },
+      { title: 'I think in systems.', pre: 'I look beyond individual screens to ', hi: 'patterns, states, edge cases, governance', post: ', and the structures that make content scalable.' },
+      { title: 'Intelligent products change the job.', pre: 'When software starts planning, deciding, and acting, content design expands beyond conversation. It becomes about ', hi: 'intent, delegation, transparency, confidence, recovery, and human control', post: '.' }
+    ];
+    function selectPillar(index) {
+      tabs.forEach(function (tab, i) { tab.classList.toggle('active', i === index); });
+      var p = pillars[index];
+      if (!p) return;
+      if (titleEl) titleEl.textContent = p.title;
+      if (detailEl) {
+        detailEl.innerHTML = '';
+        detailEl.appendChild(document.createTextNode(p.pre));
+        var mark = document.createElement('mark');
+        mark.textContent = p.hi;
+        detailEl.appendChild(mark);
+        detailEl.appendChild(document.createTextNode(p.post));
+      }
+    }
+    tabs.forEach(function (tab, i) {
+      tab.addEventListener('click', function () { selectPillar(i); });
     });
-  });
-
-  var contactForm = document.getElementById('contact-form');
-  if (contactForm) {
-    contactForm.addEventListener('submit', function (e) {
-      e.preventDefault();
-      var name = contactForm.elements['name'].value.trim();
-      var email = contactForm.elements['email'].value.trim();
-      var org = contactForm.elements['organization'].value.trim();
-      var aboutSelect = contactForm.elements['about'];
-      var about = aboutSelect.value;
-      var message = contactForm.elements['message'].value.trim();
-
-      var subject = 'New message from ' + name + (about ? ' — ' + about : '');
-      var body = [
-        'Name: ' + name,
-        'Email: ' + email,
-        'Organization: ' + (org || '—'),
-        'About: ' + (about || '—'),
-        '',
-        message
-      ].join('\n');
-
-      window.location.href = 'mailto:thepreciousokoro@gmail.com'
-        + '?subject=' + encodeURIComponent(subject)
-        + '&body=' + encodeURIComponent(body);
-    });
+    selectPillar(1);
   }
 });
