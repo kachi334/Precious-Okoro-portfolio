@@ -153,7 +153,8 @@ mark{background:var(--t-mint-a);color:var(--ink);padding:1px 5px;border-radius:5
 
 /* ===== HERO (homepage) ===== */
 .hero{max-width:1200px;margin:0 auto;padding:120px 32px 140px;display:flex;flex-direction:column;align-items:flex-start;gap:36px}
-.hero h1{font-size:clamp(36px,5.4vw,76px);line-height:1.08;letter-spacing:-0.03em;max-width:15ch;text-wrap:balance}
+.hero-greeting{font-family:'Caveat',cursive;font-size:clamp(22px,2.2vw,28px);color:var(--ink-faint)}
+.hero h1{font-size:clamp(32px,4.6vw,64px);line-height:1.08;letter-spacing:-0.03em;max-width:15ch;text-wrap:balance}
 .hero h1 .reveal-item{display:inline-block}
 
 /* Scroll-triggered reveal: plain CSS transition toggled by a tiny
@@ -178,7 +179,7 @@ mark{background:var(--t-mint-a);color:var(--ink);padding:1px 5px;border-radius:5
 /* ===== PROOF / METRICS MODULE ===== */
 .proof-module{position:relative;max-width:1440px;margin:0 auto;padding:40px 32px clamp(72px,14vw,160px);overflow:hidden}
 .proof-heading{display:flex;flex-direction:column;gap:14px;margin-bottom:24px}
-.proof-heading h2{font-size:clamp(36px,5.4vw,76px);line-height:1;letter-spacing:-0.04em;max-width:9ch}
+.proof-heading h2{font-size:clamp(32px,4.6vw,64px);line-height:1;letter-spacing:-0.04em;max-width:9ch}
 .proof-chart{width:100%;height:auto;display:block;overflow:visible;color:var(--ink)}
 .proof-chart .proof-node{cursor:pointer;--node-stroke-color:var(--ink);--node-text-color:var(--ink)}
 .proof-chart .proof-node.is-active{--node-stroke-color:#1FAE6E;--node-text-color:var(--mint-text)}
@@ -234,7 +235,7 @@ mark{background:var(--t-mint-a);color:var(--ink);padding:1px 5px;border-radius:5
 .think-tab:hover{border-color:var(--ink);color:var(--ink);transform:translateY(-2px)}
 .think-tab.active{border-color:var(--ink);background:var(--ink);color:var(--surface)}
 .think-tab-hint{font-family:'Caveat',cursive;font-size:21px;color:var(--ink-faint)}
-.think-body h2{font-size:clamp(44px,7vw,104px);line-height:1;letter-spacing:-0.045em;text-wrap:balance}
+.think-body h2{font-size:clamp(32px,4.6vw,64px);line-height:1.05;letter-spacing:-0.035em;text-wrap:balance}
 .think-body p.pillar-detail{margin:16px 0 0;max-width:560px;font-size:clamp(18px,1.8vw,24px);line-height:1.45;letter-spacing:-0.01em;color:var(--fade)}
 .think-body p.pillar-detail mark{background:#1FAE6E;color:#17130E;padding:0 4px}
 
@@ -300,7 +301,7 @@ mark{background:var(--t-mint-a);color:var(--ink);padding:1px 5px;border-radius:5
 .side-project-row .sp-status{font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--ink-faint)}
 
 /* ===== THE HUMAN SIDE ===== */
-.human-side-row{display:flex;flex-wrap:wrap;gap:40px 48px;align-items:center}
+.human-side-row{display:flex;flex-wrap:wrap;gap:40px 48px;align-items:start}
 .life-tags{flex:3 1 480px;min-width:0;display:flex;flex-wrap:wrap;gap:22px 18px;align-items:center;padding:12px 0}
 .life-tag{display:inline-flex;align-items:center;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(26px,3.2vw,40px);letter-spacing:-0.02em;border-radius:999px;padding:14px 30px;box-shadow:0 18px 40px -26px rgba(23,19,14,0.55);transition:transform .3s cubic-bezier(.2,.8,.2,1);cursor:default}
 .life-tag:hover{transform:rotate(0deg) scale(1.06)}
@@ -337,7 +338,7 @@ mark{background:var(--t-mint-a);color:var(--ink);padding:1px 5px;border-radius:5
 .case-hero{max-width:1200px;margin:0 auto;padding:72px 32px 80px;display:flex;flex-direction:column;gap:28px}
 .case-hero .back-link{font-size:14.5px;font-weight:600;color:var(--ink-soft)}
 .case-hero .meta-line{font-family:'IBM Plex Mono',monospace;font-size:12px;margin-top:24px}
-.case-hero h1{font-size:clamp(40px,6.4vw,88px);line-height:1.03;letter-spacing:-0.035em;max-width:15ch;text-wrap:balance}
+.case-hero h1{font-size:clamp(32px,4.6vw,64px);line-height:1.08;letter-spacing:-0.03em;max-width:15ch;text-wrap:balance}
 .case-hero .insight{margin:0;max-width:56ch;font-family:'Fraunces',serif;font-style:italic;font-size:clamp(19px,1.8vw,23px);line-height:1.5;color:var(--ink-soft)}
 .case-meta-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:24px;border-top:1px solid rgba(var(--ink-rgb),0.14);padding-top:28px;margin-top:20px}
 .case-meta-grid .item{display:flex;flex-direction:column;gap:6px}
@@ -492,7 +493,7 @@ mark{background:var(--t-mint-a);color:var(--ink);padding:1px 5px;border-radius:5
 
 /* ===== EXPERIENCE ===== */
 .exp-hero{max-width:1200px;margin:0 auto;padding:120px 32px 100px;display:flex;flex-direction:column;gap:28px}
-.exp-hero h1{font-size:clamp(40px,6.4vw,92px);line-height:1.03;letter-spacing:-0.035em;max-width:14ch;text-wrap:balance}
+.exp-hero h1{font-size:clamp(32px,4.6vw,64px);line-height:1.08;letter-spacing:-0.03em;max-width:14ch;text-wrap:balance}
 .exp-list-wrap{max-width:1200px;margin:0 auto;padding:0 32px 160px}
 .exp-list{display:flex;flex-direction:column;border-top:1px solid rgba(var(--ink-rgb),0.14)}
 .exp-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:16px 48px;padding:44px 0;border-bottom:1px solid rgba(var(--ink-rgb),0.14)}
@@ -516,13 +517,13 @@ mark{background:var(--t-mint-a);color:var(--ink);padding:1px 5px;border-radius:5
 /* ===== WORK.HTML HEADER ===== */
 .work-hero{max-width:1200px;margin:0 auto;padding:120px 32px 120px;display:flex;flex-direction:column;gap:28px}
 .work-hero-row{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap}
-.work-hero h1{font-size:clamp(48px,8vw,112px);line-height:1;letter-spacing:-0.04em}
+.work-hero h1{font-size:clamp(32px,4.6vw,64px);line-height:1.08;letter-spacing:-0.03em}
 .work-count{font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--ink-faint);padding-bottom:12px}
 
 /* ===== CONTACT PAGE ===== */
 .contact-hero{max-width:1200px;margin:0 auto;padding:120px 32px 100px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr));gap:40px 80px;align-items:end}
 .contact-hero .heading-col{grid-column:span 2;display:flex;flex-direction:column;gap:28px;min-width:0}
-.contact-hero h1{font-size:clamp(44px,7vw,100px);line-height:1.02;letter-spacing:-0.035em;text-wrap:balance}
+.contact-hero h1{font-size:clamp(32px,4.6vw,64px);line-height:1.08;letter-spacing:-0.03em;text-wrap:balance}
 .contact-hero h1 em{font-family:'Fraunces',serif;font-style:italic;color:var(--accent)}
 .contact-hero > p{margin:0;font-size:18px;line-height:1.7;color:var(--ink-soft);max-width:40ch}
 
