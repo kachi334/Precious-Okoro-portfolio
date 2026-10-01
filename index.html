@@ -65,28 +65,41 @@
     </div>
   </section>
 
-  <!-- SOCIAL PROOF METRICS: each stat banded in its case study's accent
-       color and named by the actual framework that produced it, pulled
-       straight from that case study's "Frameworks Applied" — not generic
-       stat-strip copy. -->
-  <section class="wrap proof-strip">
-    <h2 class="sr-only">Impact by the numbers</h2>
-    <div class="proof-grid">
-      <div class="proof-item proof-item-violet">
-        <span class="proof-number">25%</span>
-        <span class="proof-label">Increase in conversions · Moniger</span>
-        <span class="proof-method">Content-first wireframing</span>
+  <!-- SOCIAL PROOF METRICS: full-bleed banded sandwich (divider bars > mint
+       band > violet band holding the stats > mint band > divider bars),
+       matching the referenced layout. Each stat still names the actual
+       framework that produced it, pulled from that case study's own
+       "Frameworks Applied" — not generic stat-strip copy. -->
+  <section class="proof-strip">
+    <div class="wrap">
+      <div class="proof-divider" aria-hidden="true"><span></span><span></span><span></span></div>
+    </div>
+    <div class="proof-band-outer">
+      <div class="proof-band-inner">
+        <div class="wrap">
+          <h2 class="sr-only">Impact by the numbers</h2>
+          <div class="proof-grid">
+            <div class="proof-item">
+              <span class="proof-number">25%</span>
+              <span class="proof-label">Increase in conversions · Moniger</span>
+              <span class="proof-method">Content-first wireframing</span>
+            </div>
+            <div class="proof-item">
+              <span class="proof-number">~2×</span>
+              <span class="proof-label">Student logins · FastTrackUX</span>
+              <span class="proof-method">Dual-audience keyword mining</span>
+            </div>
+            <div class="proof-item">
+              <span class="proof-number">62%</span>
+              <span class="proof-label">Drop in misclassification · Beacon</span>
+              <span class="proof-method">Single severity hierarchy</span>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="proof-item proof-item-amber">
-        <span class="proof-number">~2×</span>
-        <span class="proof-label">Student logins · FastTrackUX</span>
-        <span class="proof-method">Dual-audience keyword mining</span>
-      </div>
-      <div class="proof-item proof-item-mint">
-        <span class="proof-number">62%</span>
-        <span class="proof-label">Drop in misclassification · Beacon</span>
-        <span class="proof-method">Single severity hierarchy</span>
-      </div>
+    </div>
+    <div class="wrap">
+      <div class="proof-divider" aria-hidden="true"><span></span><span></span><span></span></div>
     </div>
   </section>
 

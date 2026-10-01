@@ -442,7 +442,23 @@ header.nav.is-open .nav-mobile-panel { display: flex; }
 /* ===== SOCIAL PROOF METRICS ===== */
 section.proof-strip {
   position: relative;
+  padding: 0;
 }
+/* Built as the same 3-col/24px-gap grid as .proof-grid, not a flat
+   33/33/33 gradient, so the color breaks land exactly on the column
+   boundaries below instead of drifting off by the accumulated gap width. */
+.proof-divider { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; padding: 20px 0; }
+.proof-divider span { display: block; height: 6px; background: var(--accent); }
+.proof-divider span:nth-child(2) { background: var(--accent-amber); }
+.proof-divider span:nth-child(3) { background: var(--accent-mint); }
+
+/* Full-bleed banded sandwich — mint padding band around a violet band
+   holding the stats, breaking out of .wrap's max-width (the section itself
+   carries no .wrap, only the content inside each band does), bookended by
+   the divider bars above. */
+.proof-band-outer { background: color-mix(in srgb, var(--accent-mint) 12%, var(--paper)); padding: clamp(1.5rem, 3vw, 2.5rem) 0; }
+.proof-band-inner { background: color-mix(in srgb, var(--accent) 10%, var(--paper)); padding: clamp(2.5rem, 5vw, 4rem) 0; }
+
 .proof-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
 .proof-item { text-align: center; text-decoration: none; display: block; transition: transform .2s ease; }
 a.proof-item:hover { transform: translateY(-4px); }
@@ -467,22 +483,8 @@ a.proof-item:hover .proof-label { color: var(--ink); }
   color: var(--ink-soft);
 }
 
-/* Color-banded proof items (index.html only) — each stat sits in a full
-   panel tinted to its case study's accent, with the named framework that
-   actually produced the number underneath, not just the bare metric. */
-.proof-item-violet,
-.proof-item-amber,
-.proof-item-mint {
-  padding: clamp(32px, 5vw, 48px) 24px;
-  border-radius: 24px;
-  transition: transform .2s ease, box-shadow .2s ease;
-}
-.proof-item-violet:hover,
-.proof-item-amber:hover,
-.proof-item-mint:hover { transform: translateY(-4px); box-shadow: 0 16px 32px -16px rgba(var(--shadow-rgb), 0.25); }
-.proof-item-violet { background: color-mix(in srgb, var(--accent) 14%, var(--surface)); }
-.proof-item-amber { background: color-mix(in srgb, var(--accent-amber) 16%, var(--surface)); }
-.proof-item-mint { background: color-mix(in srgb, var(--accent-mint) 16%, var(--surface)); }
+/* Named framework underneath each stat — no card boundary needed here, the
+   stats sit directly on the shared violet band. */
 .proof-method {
   display: block;
   font-family: 'IBM Plex Mono', monospace;
@@ -490,12 +492,10 @@ a.proof-item:hover .proof-label { color: var(--ink); }
   letter-spacing: 0.3px;
   color: var(--ink-faint);
   margin-top: 10px;
-  padding-top: 10px;
-  border-top: 1px solid var(--border);
 }
 
 @media (max-width: 700px) {
-  .proof-grid { grid-template-columns: 1fr; gap: 20px; }
+  .proof-grid { grid-template-columns: 1fr; gap: 32px; }
 }
 
 /* ===== HERO ===== */
