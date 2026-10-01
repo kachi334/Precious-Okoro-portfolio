@@ -50,6 +50,7 @@
    token values so their fixed internal contrast never shifts with theme. */
 :root[data-theme="dark"] .dark-block,
 :root[data-theme="dark"] .violet-block,
+:root[data-theme="dark"] .contact-panel,
 :root[data-theme="dark"] .mint-block,
 :root[data-theme="dark"] .client-deck {
   --paper: #FAF6ED;
@@ -482,22 +483,24 @@ a.proof-item:hover .proof-label { color: var(--ink); }
 }
 
 /* ===== HERO ===== */
-.hero { padding-top: clamp(4rem, 10vw, 8rem); }
-.hero-grid {
-  display: grid;
-  grid-template-columns: 1fr 1.1fr;
-  grid-template-areas: "intro visual" "actions visual";
-  gap: 56px;
-  align-items: center;
-}
-.hero-intro { grid-area: intro; }
-.hero-actions { grid-area: actions; }
-.hero-intro .eyebrow { display: block; margin-bottom: 16px; }
+/* Restrained single-column hero — no side visual. Per the redesign brief:
+   "the hero should have enough visual confidence that it does not need
+   decoration." Text and whitespace carry it instead of a portrait/stickers. */
+.hero { padding-top: clamp(4rem, 10vw, 8rem); padding-bottom: clamp(3rem, 6vw, 5rem); }
+.hero-restrained { max-width: 68ch; }
+.hero-restrained .eyebrow { display: block; margin-bottom: 16px; }
 .hero h1 {
   font-size: clamp(2.4rem, 5.2vw, 3.9rem);
   line-height: 1.08;
   max-width: 24ch;
   margin-bottom: 24px;
+}
+/* Mixed-weight fade across the headline clause, echoing arjun-r.com's
+   bold-to-gray treatment — the pill and the italic close stay full
+   emphasis, this middle clause recedes instead of competing with them. */
+.headline-fade {
+  color: var(--ink-faint);
+  font-weight: 600;
 }
 .headline-chip {
   display: inline-block;
@@ -519,55 +522,7 @@ a.proof-item:hover .proof-label { color: var(--ink); }
   font-family: 'Inter', sans-serif;
 }
 .hero-sub strong { color: var(--ink); font-weight: 700; }
-.hero-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 16px; margin-top: 32px; margin-bottom: 56px; }
-
-.hero-visual {
-  position: relative;
-  min-height: 680px;
-}
-
-/* Portrait frame reuses .image-block's border + hatch fallback so a broken
-   image degrades the same way every other photo on the site does; the
-   stadium radius plus the dot-grid card behind it is what stands in for the
-   reference design's floating-cutout photo, without needing a background-
-   removed asset we don't have. */
-.hero-portrait-frame {
-  height: 100%;
-  min-height: 680px;
-  border-radius: 999px;
-  background-color: var(--surface);
-  background-image: radial-gradient(var(--border) 1.4px, transparent 1.4px);
-  background-size: 20px 20px;
-}
-/* Scattered sticker badges stand in for the reference's skill callouts,
-   reusing the .headline-chip convention of pinned-dark text on a raw accent
-   background: --accent-mint/amber/coral are decorative-only tokens that only
-   clear contrast with dark text, and var(--ink) would flip to near-white in
-   dark theme and fail against them. */
-.hero-sticker {
-  position: absolute;
-  z-index: 3;
-  font-family: 'IBM Plex Mono', monospace;
-  font-weight: 600;
-  font-size: 11.5px;
-  letter-spacing: 0.3px;
-  padding: 9px 16px;
-  border: 1.5px solid var(--ink);
-  border-radius: 999px;
-  color: #17130E;
-  box-shadow: 3px 3px 0 rgba(var(--shadow-rgb), 0.14);
-  transition: transform .2s ease;
-}
-.hero-sticker:hover { transform: translateY(-3px) rotate(0deg) !important; }
-/* --accent-deep is the pre-tuned large-surface violet (~6.9:1 with --paper
-   text) — using raw --accent here would repeat the same contrast mistake
-   the other accents' comments already warn about. Rotation held to 2-3deg
-   (vs. the earlier 4-6deg) for the calmer, single-pill-highlight feel of
-   the arjun/mena mix rather than a loud scattered-sticker look. */
-.sticker-violet { top: 6%; left: -4%; background: var(--accent-deep); color: var(--paper); transform: rotate(-3deg); }
-.sticker-mint { top: 18%; right: -6%; background: var(--accent-mint); transform: rotate(2deg); }
-.sticker-amber { bottom: 22%; left: -7%; background: var(--accent-amber); transform: rotate(-2deg); }
-.sticker-coral { bottom: 4%; right: -4%; background: var(--accent-coral); transform: rotate(3deg); }
+.hero-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 16px; margin-top: 8px; }
 
 .client-deck { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; margin-top: 40px; }
 .client-card {
@@ -627,29 +582,8 @@ a.proof-item:hover .proof-label { color: var(--ink); }
   .client-card { aspect-ratio: auto; min-height: 220px; }
 }
 
-@media (max-width: 900px) {
-  .hero-grid {
-    grid-template-columns: 1fr;
-    grid-template-areas: "intro" "visual" "actions";
-    gap: 32px;
-  }
-  .hero-visual { min-height: 520px; }
-  .hero-portrait-frame { min-height: 520px; }
-  /* Negative left/right insets on the stickers are tuned for the extra
-     breathing room a two-column layout gives the visual; pull them back
-     toward the frame here so they don't clip against the .wrap edge once
-     the column goes full-width. */
-  .hero-sticker { font-size: 10.5px; padding: 7px 11px; }
-  .sticker-violet { left: 2%; }
-  .sticker-mint { right: 0%; }
-  .sticker-amber { left: 1%; }
-  .sticker-coral { right: 2%; }
-}
 @media (max-width: 480px) {
-  .hero-visual { min-height: 380px; }
-  .hero-portrait-frame { min-height: 380px; }
   .headline-chip { border-width: 2px; padding: 2px 12px; }
-  .hero-sticker { font-size: 9.5px; padding: 6px 9px; }
 }
 
 .insight-box {
@@ -772,25 +706,47 @@ a.proof-item:hover .proof-label { color: var(--ink); }
 }
 
 
+/* ===== HOW I THINK — quiet, typography-led, no cards ===== */
+.how-i-think { max-width: 76ch; }
+.think-pillar { display: flex; gap: 28px; padding: 36px 0; border-bottom: 1px solid var(--border); }
+.think-pillar:last-child { border-bottom: none; }
+.think-number { font-family: 'IBM Plex Mono', monospace; font-size: 13px; color: var(--accent); flex-shrink: 0; padding-top: 6px; }
+.think-pillar h3 { font-size: clamp(1.4rem, 2.6vw, 1.8rem); margin-bottom: 12px; }
+.think-pillar p { color: var(--ink-soft); font-family: 'Inter', sans-serif; font-size: 15.5px; line-height: 1.75; max-width: 58ch; }
+@media (max-width: 560px) {
+  .think-pillar { gap: 16px; padding: 24px 0; }
+}
+
 /* ===== PROJECTS ===== */
 .projects-head { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 12px; margin-bottom: 40px; }
 .projects-head h1, .projects-head h2 { font-size: clamp(2rem, 4.5vw, 2.8rem); }
 .project-count { font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: var(--ink-faint); }
 
+/* Alternating large soft-rounded cards, modeled on arjun-r.com's project
+   rows: a big colored-glow card carries the visual weight, paired with a
+   plain-spoken one-line description. Kept her existing eyebrow/tags/CTA
+   content and accent-per-card color coding rather than stripping it the
+   way the reference does, per "keep my colors and tags". */
 .project-feature {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 56px;
+  gap: 64px;
   align-items: center;
-  margin-bottom: 88px;
+  margin-bottom: 140px;
   scroll-margin-top: 100px;
 }
 .project-feature:last-child { margin-bottom: 0; }
 .project-feature:nth-of-type(even) .project-feature-media { order: 2; }
-.project-feature-media .image-block { height: 360px; border: 3px solid var(--ink); box-shadow: 8px 8px 0 rgba(var(--shadow-rgb), 0.15); }
-.project-feature:nth-of-type(1) .image-block { border-color: var(--accent); }
-.project-feature:nth-of-type(2) .image-block { border-color: var(--accent-amber); }
-.project-feature:nth-of-type(3) .image-block { border-color: var(--accent-mint); }
+.project-feature-media .image-block {
+  height: 380px;
+  border: none;
+  border-radius: 32px;
+  box-shadow: 0 24px 48px -16px rgba(var(--shadow-rgb), 0.28);
+}
+.project-feature:nth-of-type(1) .image-block { background: color-mix(in srgb, var(--accent) 16%, var(--surface)); }
+.project-feature:nth-of-type(2) .image-block { background: color-mix(in srgb, var(--accent-amber) 18%, var(--surface)); }
+.project-feature:nth-of-type(3) .image-block { background: color-mix(in srgb, var(--accent-mint) 18%, var(--surface)); }
+.project-feature-media .image-block img { border-radius: 32px; }
 .project-feature-body .eyebrow { display: block; margin-bottom: 12px; }
 .project-feature-body h3 { font-size: clamp(1.8rem, 3.2vw, 2.4rem); margin-bottom: 16px; line-height: 1.15; }
 .project-feature-body p.desc { color: var(--ink-soft); font-family: 'Inter', sans-serif; font-size: 15px; line-height: 1.7; margin-bottom: 22px; max-width: 50ch; }
@@ -800,9 +756,35 @@ a.proof-item:hover .proof-label { color: var(--ink); }
 .project-link:hover { text-decoration: underline; transform: translateX(4px); }
 
 @media (max-width: 860px) {
-  .project-feature { grid-template-columns: 1fr; gap: 24px; margin-bottom: 56px; }
+  .project-feature { grid-template-columns: 1fr; gap: 24px; margin-bottom: 72px; }
   .project-feature:nth-of-type(even) .project-feature-media { order: 0; }
-  .project-feature-media .image-block { height: 260px; }
+  .project-feature-media .image-block { height: 260px; border-radius: 24px; }
+  .project-feature-media .image-block img { border-radius: 24px; }
+}
+
+/* Two more project compositions so "Selected Work" has rhythm instead of
+   three identical cards, per the redesign brief ("do not create a
+   repetitive grid of identical cards"). */
+@media (min-width: 861px) {
+  /* FastTrackUX: full-width stacked break — image on top, text below,
+     centered and narrower, a magazine-style pause between the two
+     side-by-side rows around it. */
+  .project-feature-stacked {
+    grid-template-columns: 1fr;
+    max-width: 62ch;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+  }
+  .project-feature-stacked .project-feature-media { order: 0; }
+  .project-feature-stacked .image-block { height: 320px; }
+  .project-feature-stacked .project-tags,
+  .project-feature-stacked .project-feature-body .eyebrow { justify-content: center; display: flex; }
+  .project-feature-stacked .project-feature-body p.desc { max-width: 52ch; margin-left: auto; margin-right: auto; }
+
+  /* Beacon: compact — smaller image, text carries more of the weight. */
+  .project-feature-compact { grid-template-columns: 0.8fr 1.2fr; }
+  .project-feature-compact .image-block { height: 300px; }
 }
 
 /* ===== CASE STUDY DETAIL ===== */
@@ -1029,6 +1011,29 @@ a.proof-item:hover .proof-label { color: var(--ink); }
 .testimonial-card .attribution .client-name { font-weight: 700; color: var(--accent); }
 @media (max-width: 700px) { .testimonial-grid { grid-template-columns: 1fr; } }
 
+/* Quiet variant for index.html — off the full-bleed amber-block wash, a
+   plain surface card with a thin top-border accent as punctuation instead
+   of a color-washed background, matching the redesign brief's "accent
+   colors as punctuation, not wallpaper" rule. */
+.testimonial-quiet { padding-top: clamp(2.5rem, 5vw, 3.5rem); padding-bottom: clamp(2.5rem, 5vw, 3.5rem); }
+.testimonial-card-quiet {
+  background: var(--surface);
+  border-radius: 20px;
+  transform: none;
+  box-shadow: none;
+}
+.testimonial-card-quiet:hover { transform: translateY(-3px); box-shadow: 0 16px 32px -16px rgba(var(--shadow-rgb), 0.22); }
+
+/* ===== PERSON PLACEHOLDER — visibly provisional until real content lands ===== */
+.placeholder-note {
+  border: 1.5px dashed var(--border);
+  border-radius: 16px;
+  padding: 28px;
+  background: color-mix(in srgb, var(--accent-sky) 6%, var(--surface));
+}
+.placeholder-note p { color: var(--ink-soft); font-family: 'Inter', sans-serif; font-size: 14.5px; line-height: 1.7; }
+.placeholder-note strong { color: var(--ink); }
+
 /* ===== CV ===== */
 .cv-block {
   position: relative;
@@ -1078,6 +1083,30 @@ a.proof-item:hover .proof-label { color: var(--ink); }
 .contact-grid h2 { font-size: clamp(2rem, 4.5vw, 2.9rem); margin-bottom: 20px; max-width: 16ch; }
 .contact-grid > div:first-child p { color: var(--ink-soft); margin-bottom: 16px; max-width: 48ch; font-family: 'Inter', sans-serif; }
 .contact-actions { display: flex; align-items: center; gap: 20px; margin-top: 28px; flex-wrap: wrap; }
+
+/* Contact panel — the one deliberate, contained color moment on the
+   homepage per the redesign brief ("one or two accent color moments" are
+   fine; a full-bleed violet section everywhere is not). Reuses
+   .contact-grid's layout and .violet-block's light-on-dark text overrides,
+   scoped to this card instead of the whole section. */
+.contact-panel {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 56px;
+  background: var(--accent-deep);
+  border-radius: 32px;
+  padding: clamp(32px, 5vw, 64px);
+}
+.contact-panel h2 { font-size: clamp(2rem, 4.5vw, 2.9rem); margin-bottom: 20px; max-width: 20ch; color: var(--paper); }
+.contact-panel > div:first-child p { color: color-mix(in srgb, var(--paper) 85%, var(--accent-deep) 15%); margin-bottom: 16px; max-width: 48ch; font-family: 'Inter', sans-serif; }
+.contact-panel .accent-serif { color: var(--accent-amber-on-violet); }
+.contact-panel .btn-primary { background: var(--paper); color: var(--ink); border-color: var(--paper); }
+.contact-panel .btn-primary:hover { background: var(--accent-amber); border-color: var(--accent-amber); color: var(--ink); }
+.contact-panel .btn-ghost { color: var(--paper); border-color: var(--paper); }
+.contact-panel .btn-ghost:hover { background: var(--paper); color: var(--accent-deep); }
+@media (max-width: 760px) {
+  .contact-panel { grid-template-columns: 1fr; border-radius: 24px; }
+}
 
 /* Contact card is its own light "postcard" island regardless of what block wraps
    it (dark or violet) — playful tilt + offset shadow, a per-row color mark cycling

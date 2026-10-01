@@ -52,24 +52,16 @@
 
 <main id="main">
 
-  <!-- HERO -->
-  <section class="hero wrap hero-grid">
-    <div class="hero-intro">
-      <div class="availability-badge"><span class="status-dot"></span>Available for new engagements</div>
-      <div class="eyebrow">Content Design · Language Systems · AI Experience</div>
-      <h1>Designing content <span class="headline-chip chip-mint">systems</span> that help products <span class="accent-serif">scale</span></h1>
-      <p class="hero-sub">I build the language infrastructure behind products, shaping how they communicate, guide decisions, and behave across markets, interfaces, and intelligent systems — shipped content systems for <strong>Moniger</strong>, <strong>Beacon</strong>, and <strong>FastTrackUX</strong>.</p>
-    </div>
+  <!-- HERO: restrained, single column, no decorative visual — the headline
+       and whitespace carry the confidence instead of a portrait or stickers. -->
+  <section class="hero wrap hero-restrained">
+    <div class="availability-badge"><span class="status-dot"></span>Available for new engagements</div>
+    <div class="eyebrow">Content Design · Language Systems · AI Experience</div>
+    <h1>Designing content <span class="headline-chip chip-mint">systems</span> <span class="headline-fade">that help products</span> <span class="accent-serif">scale</span></h1>
+    <p class="hero-sub">I build the language infrastructure behind products, shaping how they communicate, guide decisions, and behave across markets, interfaces, and intelligent systems — shipped content systems for <strong>Moniger</strong>, <strong>Beacon</strong>, and <strong>FastTrackUX</strong>.</p>
     <div class="hero-actions">
       <a class="btn btn-primary" href="#work">View Case Studies</a>
       <a class="btn btn-ghost" href="#contact">Let's Work Together</a>
-    </div>
-    <div class="hero-visual hero-portrait">
-      <div class="hero-portrait-frame image-block" aria-hidden="true"></div>
-      <span class="hero-sticker sticker-violet">Agent Experience</span>
-      <span class="hero-sticker sticker-mint">Context Design</span>
-      <span class="hero-sticker sticker-amber">UX Writing</span>
-      <span class="hero-sticker sticker-coral">Agentic Content Design</span>
     </div>
   </section>
 
@@ -96,11 +88,10 @@
     <div class="proof-divider" aria-hidden="true"><span></span><span></span><span></span></div>
   </section>
 
-  <!-- FEATURED WORK -->
+  <!-- 01 / SELECTED WORK — three distinct compositions, not a repeated card -->
   <section class="wrap" id="work">
-    <div class="section-label">Proof Points</div>
-    <h2 class="section-heading">Proof <span class="accent-serif">points</span></h2>
-    <p class="section-subtext">Designed for people and products.</p>
+    <div class="section-label">01 / Selected Work</div>
+    <h2 class="section-heading">Things I've helped make <span class="accent-serif">clearer</span></h2>
 
     <article class="project-feature" id="moniger">
       <div class="project-feature-media">
@@ -110,7 +101,7 @@
       </div>
       <div class="project-feature-body">
         <span class="eyebrow">Lead Content Designer · 2023–2026 · Financial Content Systems</span>
-        <h3>Moniger <span class="accent-serif">mobile app and website.</span></h3>
+        <h3>I helped a multi-bank fintech product sound like <span class="accent-serif">one bank</span> — and conversions rose 25%.</h3>
         <p class="desc">Communicating a complex multi-bank financial product without jargon, a 2+ year content-first engagement across mobile app, website, and support content.</p>
         <div class="project-tags">
           <span>Content Strategy</span><span>UX Writing</span><span>Fintech</span><span>Mobile</span>
@@ -119,7 +110,7 @@
       </div>
     </article>
 
-    <article class="project-feature" id="fasttrackux">
+    <article class="project-feature project-feature-stacked" id="fasttrackux">
       <div class="project-feature-media">
         <div class="image-block">
           <img src="images/fasttrackux-cover.webp" alt="FastTrackUX landing page redesign" onerror="this.style.display='none'">
@@ -127,8 +118,8 @@
       </div>
       <div class="project-feature-body">
         <span class="eyebrow">Content Designer · 2024 · Dual-Audience Content Strategy</span>
-        <h3>FastTrackUX <span class="accent-serif">landing page.</span></h3>
-        <p class="desc">A research-led landing page redesign that nearly doubled student logins, bridging two very different audiences in one voice.</p>
+        <h3>I rebuilt one landing page to speak to <span class="accent-serif">two</span> different audiences — student logins nearly doubled.</h3>
+        <p class="desc">A research-led landing page redesign bridging two very different audiences in one voice.</p>
         <div class="project-tags">
           <span>UX Writing</span><span>Landing Page</span><span>Edtech</span><span>Conversion</span>
         </div>
@@ -136,7 +127,7 @@
       </div>
     </article>
 
-    <article class="project-feature" id="beacon">
+    <article class="project-feature project-feature-compact" id="beacon">
       <div class="project-feature-media">
         <div class="image-block">
           <img src="images/beacon-cover.png" alt="Beacon product landing page, an incident OS for enterprise engineering teams" onerror="this.style.display='none'">
@@ -144,8 +135,8 @@
       </div>
       <div class="project-feature-body">
         <span class="eyebrow">Lead Content Designer · 2025 · Crisis Content Design</span>
-        <h3>Beacon <span class="accent-serif">incident platform.</span></h3>
-        <p class="desc">Content design for an enterprise incident platform, cutting severity misclassification 62% for engineers working under real pressure.</p>
+        <h3>I cut incident misclassification 62% by replacing fifteen labels with <span class="accent-serif">one</span> engineers could trust at 3 AM.</h3>
+        <p class="desc">Content design for an enterprise incident platform, built for engineers working under real pressure.</p>
         <div class="project-tags">
           <span>Content Design</span><span>UX Writing</span><span>Enterprise SaaS</span><span>Crisis Communication</span>
         </div>
@@ -158,85 +149,36 @@
     </div>
   </section>
 
-  <!-- FOR TEAMS: agentic content design offer, backs up the "AI Experience" hero claim -->
-  <section class="wrap" id="for-teams">
-    <div class="section-label">For Teams</div>
-    <h2 class="section-heading">Building an AI <span class="accent-serif">product</span>?<span class="dot-glyph"></span></h2>
-    <p class="section-subtext" style="max-width: 60ch;">I help teams design the language and behavioral systems behind AI products and agents.</p>
-    <p style="max-width: 68ch; color: var(--ink-soft); font-family: 'Inter', sans-serif; font-size: 15.5px; line-height: 1.7; margin-bottom: 28px;">From tool descriptions and structured outputs to intent, autonomy, errors, recovery, and user-facing communication, I help teams make AI experiences clearer, more useful, and easier to trust.</p>
-    <a class="btn-link" href="contact.html" style="padding-left: 0; margin-bottom: 8px; display: inline-block;">Let's talk about your product →</a>
-
-    <div class="craft-grid">
-      <div class="craft-item">
-        <span class="step-number">01</span>
-        <h3>Agentic Content Design — Discovery</h3>
-        <p>For teams early in the process who need to work through how their agent should behave and communicate.</p>
+  <!-- 02 / HOW I THINK — quiet, typography-led, no cards -->
+  <section class="wrap how-i-think" id="how-i-think">
+    <div class="section-label">02 / How I Think</div>
+    <div class="think-pillar">
+      <span class="think-number">01</span>
+      <div>
+        <h3>Language is infrastructure.</h3>
+        <p>I don't think of content as something added to an interface after the product is designed. Language shapes what people understand, what they expect, what they can do, and how the system responds.</p>
       </div>
-      <div class="craft-item">
-        <span class="step-number">02</span>
-        <h3>Agentic Content Design — Audit</h3>
-        <p>For existing AI products that need their content, behavior, and communication reviewed.</p>
+    </div>
+    <div class="think-pillar">
+      <span class="think-number">02</span>
+      <div>
+        <h3>I think in systems.</h3>
+        <p>I look beyond individual screens to patterns, states, edge cases, governance, and the structures that make content scalable.</p>
       </div>
-      <div class="craft-item">
-        <span class="step-number">03</span>
-        <h3>Agentic Content Design — Systems</h3>
-        <p>For teams that need the language infrastructure behind their product actually designed and documented.</p>
+    </div>
+    <div class="think-pillar">
+      <span class="think-number">03</span>
+      <div>
+        <h3>Intelligent products change the job.</h3>
+        <p>When software starts planning, deciding, and acting, content design expands beyond conversation. It becomes about intent, delegation, transparency, confidence, recovery, and human control.</p>
       </div>
     </div>
   </section>
 
-  <!-- ABOUT TEASER: condensed intro only, full bio/pillars/tools live on about.html -->
-  <section class="wrap about-teaser">
-    <div class="section-label">About</div>
-    <div class="about-head">
-      <div class="avatar-block image-block">
-        <img src="images/precious-headshot.jpg" alt="Precious Okoro" onerror="this.style.display='none'">
-        <div class="image-block-label">Add headshot<code>images/precious-headshot.jpg</code></div>
-      </div>
-      <h2>Hi, I'm Precious. Here's how I <span class="accent-serif">think</span> about the work<span class="dot-glyph"></span></h2>
-    </div>
-    <div class="about-intro">
-      <p>I'm a <span class="text-highlight">Senior Content Strategist</span> and <span class="text-highlight">Content Designer</span>. For 6+ years, I've built and scaled content systems for B2B SaaS, fintech, edtech, and AI products, working with high-growth product teams since 2019.</p>
-    </div>
-    <a class="btn-link" href="about.html" style="padding-left: 0;">Learn more about me →</a>
-  </section>
-
-  <!-- WRITING -->
-  <section class="wrap" id="writing">
-    <div class="section-label">Writing</div>
-    <h2 class="section-heading">Essays worth your <span class="accent-serif">time</span></h2>
-    <div class="writing-grid">
-      <div class="writing-card">
-        <span class="splat splat-amber" aria-hidden="true"></span>
-        <span class="eyebrow">Medium · Aug 25, 2026</span>
-        <h3>AI Agent Trust Is a Content Design Problem</h3>
-        <p>Six emerging trust patterns for AI agents, and the writing decisions that make them work.</p>
-        <a class="project-link" href="https://precious-okoro.medium.com/ai-agent-trust-is-a-content-design-problem-6ca43235e274" target="_blank" rel="noopener">Read the essay →</a>
-      </div>
-      <div class="writing-card">
-        <span class="splat splat-mint" aria-hidden="true"></span>
-        <span class="eyebrow">Medium · Jul 2026</span>
-        <h3>Agent Experience Starts With Content Design</h3>
-        <p>Why designing how AI communicates, behaves, and earns trust may become content design's most important responsibility.</p>
-        <a class="project-link" href="https://precious-okoro.medium.com/agent-experience-starts-with-content-design-c246aeb612b7" target="_blank" rel="noopener">Read the essay →</a>
-      </div>
-      <div class="writing-card">
-        <span class="splat splat-violet" aria-hidden="true"></span>
-        <span class="eyebrow">Medium · Feb 23, 2026</span>
-        <h3>Confidence Calibration: The AI Design Problem No One Is Talking About</h3>
-        <p>On the gap between how confident AI systems sound and how often they're actually right, and what that means for content and UX design.</p>
-        <a class="project-link" href="https://precious-okoro.medium.com/confidence-calibration-the-ai-design-problem-no-one-is-talking-about-d89d74c5db45" target="_blank" rel="noopener">Read the essay →</a>
-      </div>
-    </div>
-    <a class="btn-link" href="https://precious-okoro.medium.com/" target="_blank" rel="noopener" style="margin-top: 24px; padding-left: 0;">View all articles on Medium →</a>
-  </section>
-
-  <!-- EXPERIENCE TEASER -->
+  <!-- 03 / THE RECEIPTS — experience, de-emphasizing logos per brief -->
   <section class="wrap">
-    <div class="section-label">Experience</div>
-    <div class="exp-head">
-      <h2>A track record of <span class="accent-serif gold">shaping</span> better experiences</h2>
-    </div>
+    <div class="section-label">03 / The Receipts</div>
+    <h2 class="section-heading">6+ years designing content, products, and <span class="accent-serif">systems</span></h2>
 
     <div class="timeline">
       <div class="timeline-item">
@@ -279,99 +221,79 @@
     <a class="btn-link" href="experience.html" style="margin-top: 24px; padding-left: 0;">See full track record →</a>
   </section>
 
-  <!-- TESTIMONIALS -->
-  <div class="amber-block">
-    <section class="wrap">
-      <div class="section-label">Words From Clients</div>
-      <h2 class="section-heading">Words From <span class="accent-serif">Clients</span></h2>
-      <div class="testimonial-grid">
-        <div class="testimonial-card">
-          <p class="quote">Precious has a rare ability to take abstract vision and turn it into emotionally resonant, beautifully crafted copy. Her writing doesn't just explain; it connects, inspires, and stays with you.</p>
-          <span class="attribution"><span class="client-name">Chioma Chinwuko</span>, CEO/Founder at Oduko</span>
-        </div>
-        <div class="testimonial-card">
-          <p class="quote">As a designer myself, I am extremely impressed by how much Precious knows about UX design. Her thorough understanding of UX theories and methodologies allowed us to collaborate seamlessly and make great design decisions quickly.</p>
-          <span class="attribution"><span class="client-name">Aliena Cai</span>, CEO at Aliena LLC · FastTrackUX</span>
-        </div>
+  <!-- TESTIMONIALS — quiet proof strip, off the full-bleed amber wash -->
+  <section class="wrap testimonial-quiet">
+    <div class="section-label">Words From Clients</div>
+    <div class="testimonial-grid">
+      <div class="testimonial-card testimonial-card-quiet">
+        <p class="quote">Precious has a rare ability to take abstract vision and turn it into emotionally resonant, beautifully crafted copy. Her writing doesn't just explain; it connects, inspires, and stays with you.</p>
+        <span class="attribution"><span class="client-name">Chioma Chinwuko</span>, CEO/Founder at Oduko</span>
       </div>
-    </section>
-  </div>
-
-  <!-- CV: kept in sync with experience.html's CV block -->
-  <section class="wrap">
-    <div class="section-label">CV</div>
-    <div class="cv-block">
-      <span class="splat splat-violet" aria-hidden="true"></span>
-      <div>
-        <h2>The full picture, at a <span class="accent-serif">glance</span><span class="dot-glyph"></span></h2>
-        <p>A curated overview of my experience, tools, and impact, built for recruiters and hiring managers who want a clear picture of how I think, build, and contribute.</p>
+      <div class="testimonial-card testimonial-card-quiet">
+        <p class="quote">As a designer myself, I am extremely impressed by how much Precious knows about UX design. Her thorough understanding of UX theories and methodologies allowed us to collaborate seamlessly and make great design decisions quickly.</p>
+        <span class="attribution"><span class="client-name">Aliena Cai</span>, CEO at Aliena LLC · FastTrackUX</span>
       </div>
-      <a class="btn btn-primary" href="https://drive.google.com/file/d/1vUFLsPQ8jqnZ1dyAEbJ3Di_BiytynCpB/view?usp=sharing" target="_blank" rel="noopener">Download CV →</a>
     </div>
   </section>
 
-  <!-- FAQ -->
-  <div class="mint-block">
-    <section class="wrap" id="faq">
-      <div class="faq-grid">
-        <div>
-          <div class="section-label">FAQs</div>
-          <h2>Questions, <span class="accent-serif">answered</span><span class="dot-glyph"></span></h2>
-        </div>
-        <div class="faq-list">
-          <details class="faq-item" open>
-            <summary><span>What kinds of teams do you work with?</span><span class="faq-icon" aria-hidden="true">↓</span></summary>
-            <p class="faq-answer">Mostly B2B SaaS, fintech, and edtech product teams, from early-stage startups to enterprise. If you're building something that needs clear, user-centered content, we're probably a good fit.</p>
-          </details>
-          <details class="faq-item">
-            <summary><span>What's your typical turnaround time?</span><span class="faq-icon" aria-hidden="true">↓</span></summary>
-            <p class="faq-answer">Most engagements open with a 2–4 week discovery and audit phase, then move into ongoing collaboration based on scope. You'll always have a clear timeline before we kick off.</p>
-          </details>
-          <details class="faq-item">
-            <summary><span>Do you work with remote or international teams?</span><span class="faq-icon" aria-hidden="true">↓</span></summary>
-            <p class="faq-answer">Yes. I've worked fully remote with teams across the US, UK, and Africa, and I'm comfortable adapting to your team's time zone and tools.</p>
-          </details>
-          <details class="faq-item">
-            <summary><span>Do you only write copy, or do you build systems too?</span><span class="faq-icon" aria-hidden="true">↓</span></summary>
-            <p class="faq-answer">Both. I write and edit copy, but the real value is in the content systems, governance, and workflows that let your team keep creating good content without me in the room.</p>
-          </details>
-          <details class="faq-item">
-            <summary><span>How do we get started?</span><span class="faq-icon" aria-hidden="true">↓</span></summary>
-            <p class="faq-answer">Book a discovery call. We'll talk through your goals, and I'll follow up with a proposal and scope tailored to your project.</p>
-          </details>
-        </div>
+  <!-- 04 / WRITING -->
+  <section class="wrap" id="writing">
+    <div class="section-label">04 / Writing</div>
+    <h2 class="section-heading">Things I'm thinking <span class="accent-serif">about</span></h2>
+    <div class="writing-grid">
+      <div class="writing-card">
+        <span class="splat splat-amber" aria-hidden="true"></span>
+        <span class="eyebrow">Medium · Aug 25, 2026</span>
+        <h3>AI Agent Trust Is a Content Design Problem</h3>
+        <p>Six emerging trust patterns for AI agents, and the writing decisions that make them work.</p>
+        <a class="project-link" href="https://precious-okoro.medium.com/ai-agent-trust-is-a-content-design-problem-6ca43235e274" target="_blank" rel="noopener">Read the essay →</a>
       </div>
-    </section>
-  </div>
+      <div class="writing-card">
+        <span class="splat splat-mint" aria-hidden="true"></span>
+        <span class="eyebrow">Medium · Jul 2026</span>
+        <h3>Agent Experience Starts With Content Design</h3>
+        <p>Why designing how AI communicates, behaves, and earns trust may become content design's most important responsibility.</p>
+        <a class="project-link" href="https://precious-okoro.medium.com/agent-experience-starts-with-content-design-c246aeb612b7" target="_blank" rel="noopener">Read the essay →</a>
+      </div>
+      <div class="writing-card">
+        <span class="splat splat-violet" aria-hidden="true"></span>
+        <span class="eyebrow">Medium · Feb 23, 2026</span>
+        <h3>Confidence Calibration: The AI Design Problem No One Is Talking About</h3>
+        <p>On the gap between how confident AI systems sound and how often they're actually right, and what that means for content and UX design.</p>
+        <a class="project-link" href="https://precious-okoro.medium.com/confidence-calibration-the-ai-design-problem-no-one-is-talking-about-d89d74c5db45" target="_blank" rel="noopener">Read the essay →</a>
+      </div>
+    </div>
+    <a class="btn-link" href="https://precious-okoro.medium.com/" target="_blank" rel="noopener" style="margin-top: 24px; padding-left: 0;">View all articles on Medium →</a>
+  </section>
 
-  <!-- CONTACT -->
-  <div class="doodle-divider" aria-hidden="true">
-    <svg viewBox="0 0 130 18" xmlns="http://www.w3.org/2000/svg">
-      <path d="M2 9 Q 17 -1, 32 9 T 62 9 T 92 9 T 120 9"/>
-      <circle cx="126" cy="9" r="3"/>
-    </svg>
-  </div>
-  <div class="violet-block home-contact">
-    <section class="wrap" id="contact">
-      <div class="section-label">Contact</div>
-      <div class="contact-grid">
-        <div>
-          <h2>Building a product team that needs a strategic systems <span class="accent-serif">thinker</span>?</h2>
-          <p>I'd love to hear about your team, the challenges you're solving, and where my experience in content strategy and UX can contribute.</p>
-          <div class="contact-actions">
-            <a class="btn btn-primary" href="https://calendly.com/thecontentdesignchief/30min" target="_blank" rel="noopener">Book a discovery call</a>
-            <a class="btn btn-ghost" href="mailto:thepreciousokoro@gmail.com">Email instead</a>
-          </div>
-        </div>
-        <div class="contact-list">
-          <span class="splat splat-amber" aria-hidden="true"></span>
-          <a href="mailto:thepreciousokoro@gmail.com"><span class="label">Email</span><span>thepreciousokoro@gmail.com</span></a>
-          <a href="https://www.linkedin.com/in/okoro-onyekachi-precious/" target="_blank" rel="noopener"><span class="label">LinkedIn</span><span>okoro-onyekachi-precious</span></a>
-          <a href="https://calendly.com/thecontentdesignchief/30min" target="_blank" rel="noopener"><span class="label">Calendly</span><span>Book a slot</span></a>
+  <!-- 05 / THE PERSON BEHIND THE WORK — PLACEHOLDER, needs real content from Precious -->
+  <section class="wrap person-placeholder" id="person">
+    <div class="section-label">05 / The Person Behind the Work</div>
+    <h2 class="section-heading">There's a person <span class="accent-serif">here</span>, too</h2>
+    <div class="placeholder-note">
+      <p><strong>Placeholder — replace before shipping.</strong> Add 2–3 real personal interests (the brief mentioned books, theology, running, lifting, cooking, baking, games, travel) in a sentence or two each. Keep it small — this section's job is "there's a person here," not a full lifestyle page.</p>
+    </div>
+  </section>
+
+  <!-- 06 / LET'S TALK — off the full-bleed violet wash; one contained accent panel instead -->
+  <section class="wrap" id="contact">
+    <div class="section-label">06 / Let's Talk</div>
+    <div class="contact-panel">
+      <div>
+        <h2>Building a product that needs clearer language, better systems, or a more thoughtful AI <span class="accent-serif">experience</span>?</h2>
+        <p>I'd love to hear about your team, the challenges you're solving, and where my experience in content strategy and UX can contribute.</p>
+        <div class="contact-actions">
+          <a class="btn btn-primary" href="https://calendly.com/thecontentdesignchief/30min" target="_blank" rel="noopener">Book a discovery call</a>
+          <a class="btn btn-ghost" href="mailto:thepreciousokoro@gmail.com">Email instead</a>
         </div>
       </div>
-    </section>
-  </div>
+      <div class="contact-list">
+        <a href="mailto:thepreciousokoro@gmail.com"><span class="label">Email</span><span>thepreciousokoro@gmail.com</span></a>
+        <a href="https://www.linkedin.com/in/okoro-onyekachi-precious/" target="_blank" rel="noopener"><span class="label">LinkedIn</span><span>okoro-onyekachi-precious</span></a>
+        <a href="https://calendly.com/thecontentdesignchief/30min" target="_blank" rel="noopener"><span class="label">Calendly</span><span>Book a slot</span></a>
+      </div>
+    </div>
+  </section>
 
 </main>
 
