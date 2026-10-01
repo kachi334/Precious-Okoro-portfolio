@@ -239,7 +239,11 @@ mark{background:var(--t-mint-a);color:var(--ink);padding:1px 5px;border-radius:5
 .think-body p.pillar-detail{margin:16px 0 0;max-width:560px;font-size:clamp(18px,1.8vw,24px);line-height:1.45;letter-spacing:-0.01em;color:var(--fade)}
 .think-body p.pillar-detail mark{background:#1FAE6E;color:#17130E;padding:0 4px}
 
-.think-art{position:relative;border:1.5px solid var(--ink);padding:14px}
+.think-art{position:relative;border:1.5px solid var(--ink);padding:14px;transition:opacity .5s ease,transform .5s ease}
+.think-art.is-faded{opacity:0;transform:translateY(16px)}
+@media (prefers-reduced-motion:reduce){
+  .think-art.is-faded{opacity:1;transform:none}
+}
 .think-art::before,.think-art::after,.think-art .corner-bl,.think-art .corner-br{content:'';position:absolute;width:9px;height:9px;background:var(--ink)}
 .think-art::before{left:-5px;top:-5px}
 .think-art::after{right:-5px;top:-5px}
