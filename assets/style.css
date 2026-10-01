@@ -230,8 +230,10 @@ mark{background:var(--t-mint-a);color:var(--ink);padding:1px 5px;border-radius:5
 .think-section{max-width:1440px;margin:0 auto;padding:0 32px clamp(72px,14vw,160px)}
 .think-label-row{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:24px}
 .think-label-row .eyebrow{margin-right:8px}
-.think-tab{font-family:'IBM Plex Mono',monospace;font-size:12px;border-radius:999px;padding:6px 12px;cursor:pointer;border:1px solid rgba(var(--ink-rgb),0.22);background:transparent;color:var(--ink-soft)}
+.think-tab{font-family:'IBM Plex Mono',monospace;font-size:14px;font-weight:600;border-radius:999px;padding:9px 18px;cursor:pointer;border:1px solid rgba(var(--ink-rgb),0.22);background:transparent;color:var(--ink-soft);transition:border-color .15s ease,color .15s ease,transform .15s ease}
+.think-tab:hover{border-color:var(--ink);color:var(--ink);transform:translateY(-2px)}
 .think-tab.active{border-color:var(--ink);background:var(--ink);color:var(--surface)}
+.think-tab-hint{font-family:'Caveat',cursive;font-size:21px;color:var(--ink-faint)}
 .think-body h2{font-size:clamp(44px,7vw,104px);line-height:1;letter-spacing:-0.045em;text-wrap:balance}
 .think-body p.pillar-detail{margin:16px 0 0;max-width:560px;font-size:clamp(18px,1.8vw,24px);line-height:1.45;letter-spacing:-0.01em;color:var(--fade)}
 .think-body p.pillar-detail mark{background:#1FAE6E;color:#17130E;padding:0 4px}
@@ -469,8 +471,8 @@ mark{background:var(--t-mint-a);color:var(--ink);padding:1px 5px;border-radius:5
 .about-hero{max-width:1200px;margin:0 auto;padding:120px 32px 100px;display:grid;grid-template-columns:1.2fr 1fr;gap:56px 80px;align-items:center}
 .about-hero .heading-col{display:flex;flex-direction:column;gap:28px;min-width:0}
 .about-hero h1{font-size:clamp(30px,3.6vw,56px);line-height:1.1;letter-spacing:-0.03em;max-width:17ch;text-wrap:balance}
-.about-portrait{justify-self:end;border-radius:32px;background:linear-gradient(160deg,var(--t-violet-a) 0%,var(--t-violet-b) 100%);padding:20px;box-shadow:0 30px 80px -40px rgba(107,79,214,0.55);max-width:360px;width:100%}
-.about-portrait img{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:22px}
+.about-portrait{justify-self:end;width:100%;height:100%}
+.about-portrait img{width:100%;height:100%;aspect-ratio:4/5;object-fit:cover;border-radius:20px}
 /* A single stacked column, always: the aside reads as a card beneath the
    paragraphs, never as a sidebar beside them (a wide-enough auto-fit grid
    used to leave room for it on the same row as the text). */
