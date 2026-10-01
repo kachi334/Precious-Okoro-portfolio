@@ -99,7 +99,8 @@ header.nav{position:sticky;top:0;z-index:10;background:rgba(var(--paper-rgb),0.8
 .nav-inner{max-width:1200px;margin:0 auto;padding:20px 32px;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
 .wordmark{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:17px;color:var(--ink);letter-spacing:-0.01em}
 .nav .links{display:flex;align-items:center;gap:28px;flex-wrap:wrap;font-size:14.5px;font-weight:500}
-.nav .links > a{color:var(--ink-soft)}
+.nav .links > a{color:var(--ink-soft);transition:color .15s ease}
+.nav .links > a:not(.nav-cta):hover{color:var(--ink)}
 .nav .links > a.active{color:var(--ink);font-weight:600;border-bottom:2px solid #1FAE6E;padding-bottom:2px}
 .nav .links > a.nav-cta{color:var(--surface);background:var(--ink);padding:10px 18px;border-radius:999px;transition:background .15s ease}
 .nav .links > a.nav-cta:hover{background:var(--accent);color:var(--surface)}
@@ -132,7 +133,9 @@ mark{background:var(--t-mint-a);color:var(--ink);padding:1px 5px;border-radius:5
 .section-h2{font-size:clamp(34px,4.4vw,56px);letter-spacing:-0.03em;line-height:1.05}
 
 /* ===== BUTTONS ===== */
-.btn{display:inline-flex;align-items:center;gap:8px;font-weight:600;font-size:15px;padding:15px 26px;border-radius:999px;border:none;cursor:pointer;transition:background .15s ease,color .15s ease,border-color .15s ease}
+.btn{display:inline-flex;align-items:center;gap:8px;font-weight:600;font-size:15px;padding:15px 26px;border-radius:999px;border:none;cursor:pointer;transition:background .15s ease,color .15s ease,border-color .15s ease,transform .15s ease}
+.btn:hover{transform:translateY(-2px)}
+.btn:active{transform:translateY(0)}
 .btn-primary{background:var(--accent);color:var(--surface)}
 .btn-primary:hover{background:var(--accent-strong);color:var(--surface)}
 .btn-ghost{background:transparent;color:var(--ink);padding:14px 25px;border:1px solid rgba(var(--ink-rgb),0.25)}
@@ -144,13 +147,23 @@ mark{background:var(--t-mint-a);color:var(--ink);padding:1px 5px;border-radius:5
 
 /* ===== TAG PILLS ===== */
 .tag-row{display:flex;flex-wrap:wrap;gap:8px}
-.tag-pill{font-family:'IBM Plex Mono',monospace;font-size:11px;border:1px solid rgba(var(--ink-rgb),0.22);border-radius:999px;padding:5px 12px;color:var(--ink-soft)}
+.tag-pill{font-family:'IBM Plex Mono',monospace;font-size:11px;border:1px solid rgba(var(--ink-rgb),0.22);border-radius:999px;padding:5px 12px;color:var(--ink-soft);transition:border-color .15s ease,color .15s ease}
+.tag-pill:hover{border-color:var(--ink);color:var(--ink)}
 .framework-pill{font-family:'IBM Plex Mono',monospace;font-size:11px;border-radius:999px;padding:6px 12px}
 
 /* ===== HERO (homepage) ===== */
 .hero{max-width:1200px;margin:0 auto;padding:120px 32px 140px;display:flex;flex-direction:column;align-items:flex-start;gap:36px}
-.hero h1{font-size:clamp(44px,7.4vw,104px);line-height:1.02;letter-spacing:-0.035em;max-width:13ch;text-wrap:balance}
+.hero h1{font-size:clamp(36px,5.4vw,76px);line-height:1.08;letter-spacing:-0.03em;max-width:15ch;text-wrap:balance}
 .hero h1 .reveal-item{display:inline-block}
+
+/* Scroll-triggered reveal: plain CSS transition toggled by a tiny
+   IntersectionObserver (assets/scroll-reveal.js) — no animation library,
+   so it costs nothing beyond what the browser already ships with. */
+.reveal-on-scroll{opacity:0;transform:translateY(28px);transition:opacity .7s cubic-bezier(.2,.8,.2,1),transform .7s cubic-bezier(.2,.8,.2,1)}
+.reveal-on-scroll.is-visible{opacity:1;transform:translateY(0)}
+@media (prefers-reduced-motion:reduce){
+  .reveal-on-scroll{opacity:1;transform:none;transition:none}
+}
 .hero-sub{max-width:58ch;font-size:clamp(17px,1.5vw,19px);line-height:1.65;color:var(--ink-soft)}
 .availability-badge{display:flex;align-items:center;gap:10px;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.5px;color:var(--mint-text);border:1px solid rgba(14,122,80,0.3);border-radius:999px;padding:7px 14px 7px 12px}
 .status-dot{width:7px;height:7px;border-radius:50%;background:#1FAE6E;box-shadow:0 0 0 4px rgba(31,174,110,0.18)}
@@ -209,7 +222,8 @@ mark{background:var(--t-mint-a);color:var(--ink);padding:1px 5px;border-radius:5
 /* ===== INDUSTRIES ===== */
 .industries-row{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:20px 40px}
 .industry-chips{display:flex;flex-wrap:wrap;gap:10px}
-.industry-chip{display:flex;align-items:center;gap:10px;border:1px solid rgba(var(--ink-rgb),0.18);border-radius:999px;padding:10px 18px 10px 14px;font-size:15px;font-weight:500;color:var(--ink)}
+.industry-chip{display:flex;align-items:center;gap:10px;border:1px solid rgba(var(--ink-rgb),0.18);border-radius:999px;padding:10px 18px 10px 14px;font-size:15px;font-weight:500;color:var(--ink);transition:transform .2s cubic-bezier(.2,.8,.2,1),border-color .2s ease}
+.industry-chip:hover{transform:translateY(-3px);border-color:var(--ink)}
 .industry-chip span{width:9px;height:9px;border-radius:50%;flex-shrink:0}
 
 /* ===== HOW I THINK ===== */
@@ -253,7 +267,8 @@ mark{background:var(--t-mint-a);color:var(--ink);padding:1px 5px;border-radius:5
 /* ===== TESTIMONIALS ===== */
 .testimonial-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:24px}
 .testimonial-grid.narrow{grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr))}
-.testimonial-fig{margin:0;background:var(--surface);border-radius:28px;padding:clamp(28px,3.5vw,44px);display:flex;flex-direction:column;justify-content:space-between;gap:36px}
+.testimonial-fig{margin:0;background:var(--surface);border-radius:28px;padding:clamp(28px,3.5vw,44px);display:flex;flex-direction:column;justify-content:space-between;gap:36px;transition:transform .3s cubic-bezier(.2,.8,.2,1),box-shadow .3s ease;box-shadow:0 2px 4px rgba(23,19,14,0.04),0 14px 28px -10px rgba(23,19,14,0.12),0 36px 64px -28px rgba(23,19,14,0.16)}
+.testimonial-fig:hover{transform:translateY(-6px);box-shadow:0 2px 4px rgba(23,19,14,0.05),0 18px 36px -10px rgba(23,19,14,0.16),0 44px 80px -24px rgba(23,19,14,0.24)}
 .testimonial-fig blockquote{margin:0;font-family:'Fraunces',serif;font-size:clamp(19px,1.7vw,22px);line-height:1.5;color:var(--ink);text-wrap:pretty}
 .testimonial-fig figcaption{display:flex;flex-direction:column;gap:4px}
 .testimonial-fig figcaption .name{font-weight:600;font-size:15px;color:var(--ink)}
@@ -275,7 +290,8 @@ mark{background:var(--t-mint-a);color:var(--ink);padding:1px 5px;border-radius:5
 
 /* ===== SIDE PROJECTS ===== */
 .side-project-list{display:flex;flex-direction:column;border-top:1px solid rgba(var(--ink-rgb),0.14)}
-.side-project-row{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:8px 40px;padding:24px 0;border-bottom:1px solid rgba(var(--ink-rgb),0.14);color:inherit}
+.side-project-row{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:8px 40px;padding:24px 0;border-bottom:1px solid rgba(var(--ink-rgb),0.14);color:inherit;transition:padding-left .2s ease}
+.side-project-row:hover{padding-left:10px}
 .side-project-row .sp-body{flex:1 1 420px;min-width:0;display:flex;flex-direction:column;gap:6px}
 .side-project-row .sp-body .sp-name{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:20px;letter-spacing:-0.01em;color:var(--ink)}
 .side-project-row .sp-body .sp-desc{font-size:15px;line-height:1.6;color:var(--ink-soft);max-width:60ch}
@@ -431,7 +447,8 @@ mark{background:var(--t-mint-a);color:var(--ink);padding:1px 5px;border-radius:5
 
 /* ===== ADDITIONAL ENGAGEMENTS (Work.html) ===== */
 .engagement-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:24px}
-.engagement-card{border-radius:28px;padding:36px;display:flex;flex-direction:column;gap:56px;justify-content:space-between}
+.engagement-card{border-radius:28px;padding:36px;display:flex;flex-direction:column;gap:56px;justify-content:space-between;transition:transform .3s cubic-bezier(.2,.8,.2,1)}
+.engagement-card:hover{transform:translateY(-4px)}
 .engagement-card .idx{font-family:'IBM Plex Mono',monospace;font-size:12px}
 .engagement-card .body{display:flex;flex-direction:column;gap:10px}
 .engagement-card .cat{font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:var(--ink-faint);letter-spacing:0.3px}
@@ -451,7 +468,7 @@ mark{background:var(--t-mint-a);color:var(--ink);padding:1px 5px;border-radius:5
    room for its sibling on the same row instead of pushing it below). */
 .about-hero{max-width:1200px;margin:0 auto;padding:120px 32px 100px;display:grid;grid-template-columns:1.2fr 1fr;gap:56px 80px;align-items:center}
 .about-hero .heading-col{display:flex;flex-direction:column;gap:28px;min-width:0}
-.about-hero h1{font-size:clamp(40px,6vw,84px);line-height:1.04;letter-spacing:-0.035em;max-width:16ch;text-wrap:balance}
+.about-hero h1{font-size:clamp(30px,3.6vw,56px);line-height:1.1;letter-spacing:-0.03em;max-width:17ch;text-wrap:balance}
 .about-portrait{justify-self:end;border-radius:32px;background:linear-gradient(160deg,var(--t-violet-a) 0%,var(--t-violet-b) 100%);padding:20px;box-shadow:0 30px 80px -40px rgba(107,79,214,0.55);max-width:360px;width:100%}
 .about-portrait img{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:22px}
 /* A single stacked column, always: the aside reads as a card beneath the
