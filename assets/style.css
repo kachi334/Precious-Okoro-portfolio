@@ -1,6 +1,6 @@
 :root {
-  --paper: #F5F3FC;
-  --surface: #FBFAFE;
+  --paper: #FAF6ED;
+  --surface: #FFFCF5;
   --ink: #17130E;
   --ink-soft: #4A4438;
   --ink-faint: #6B6459;     /* darkened from #8A8172 — old value failed WCAG AA (3.44:1) */
@@ -52,8 +52,8 @@
 :root[data-theme="dark"] .violet-block,
 :root[data-theme="dark"] .mint-block,
 :root[data-theme="dark"] .client-deck {
-  --paper: #F5F3FC;
-  --surface: #FBFAFE;
+  --paper: #FAF6ED;
+  --surface: #FFFCF5;
   --ink: #17130E;
   --ink-soft: #4A4438;
   --ink-faint: #6B6459;
@@ -223,7 +223,7 @@ h1, h2, h3 { font-family: 'Space Grotesk', sans-serif; font-weight: 700; letter-
   text-transform: uppercase;
   padding: 14px 22px;
   border: 1.5px solid var(--ink);
-  border-radius: 4px;
+  border-radius: 999px;
   text-decoration: none;
   white-space: nowrap;
   transition: background .15s ease, color .15s ease, border-color .15s ease, transform .15s ease, box-shadow .15s ease;
@@ -398,6 +398,9 @@ header.nav.is-open .nav-mobile-panel { display: flex; }
   text-transform: uppercase;
   color: var(--ink-soft);
   margin-bottom: 24px;
+  padding: 8px 16px;
+  border: 1.5px solid var(--border);
+  border-radius: 999px;
 }
 .status-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--accent-mint); flex-shrink: 0; box-shadow: 0 0 0 3px rgba(31,174,110,0.15); }
 @media (prefers-reduced-motion: no-preference) {
@@ -498,9 +501,9 @@ a.proof-item:hover .proof-label { color: var(--ink); }
 }
 .headline-chip {
   display: inline-block;
-  padding: 0 10px;
+  padding: 2px 16px;
   border: 2.5px solid var(--ink);
-  border-radius: 6px;
+  border-radius: 999px;
   box-shadow: 3px 3px 0 rgba(var(--shadow-rgb), 0.15);
   color: #17130E; /* pinned dark: sits on raw --accent-mint/--accent-amber, which
                       are decorative-only and only pass contrast with dark text.
@@ -515,71 +518,56 @@ a.proof-item:hover .proof-label { color: var(--ink); }
   margin-bottom: 28px;
   font-family: 'Inter', sans-serif;
 }
-.hero-trust { display: flex; flex-direction: column; gap: 6px; margin-bottom: 24px; }
-.hero-trust .eyebrow { margin-bottom: 0; }
-.hero-trust-names { font-family: 'Inter', sans-serif; font-weight: 700; font-size: 15px; color: var(--ink); }
-.hero-skill-tags { margin-bottom: 0; }
+.hero-sub strong { color: var(--ink); font-weight: 700; }
 .hero-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 16px; margin-top: 32px; margin-bottom: 56px; }
 
 .hero-visual {
   position: relative;
   min-height: 680px;
 }
-.hero-visual-badge {
+
+/* Portrait frame reuses .image-block's border + hatch fallback so a broken
+   image degrades the same way every other photo on the site does; the
+   stadium radius plus the dot-grid card behind it is what stands in for the
+   reference design's floating-cutout photo, without needing a background-
+   removed asset we don't have. */
+.hero-portrait-frame {
+  height: 100%;
+  min-height: 680px;
+  border-radius: 999px;
+  background-color: var(--surface);
+  background-image: radial-gradient(var(--border) 1.4px, transparent 1.4px);
+  background-size: 20px 20px;
+}
+/* Scattered sticker badges stand in for the reference's skill callouts,
+   reusing the .headline-chip convention of pinned-dark text on a raw accent
+   background: --accent-mint/amber/coral are decorative-only tokens that only
+   clear contrast with dark text, and var(--ink) would flip to near-white in
+   dark theme and fail against them. */
+.hero-sticker {
   position: absolute;
-  top: 20px;
-  left: 20px;
   z-index: 3;
   font-family: 'IBM Plex Mono', monospace;
-  font-size: 10.5px;
-  letter-spacing: 0.8px;
-  text-transform: uppercase;
-  background: var(--ink);
-  color: var(--paper);
-  padding: 8px 14px;
+  font-weight: 600;
+  font-size: 11.5px;
+  letter-spacing: 0.3px;
+  padding: 9px 16px;
   border: 1.5px solid var(--ink);
+  border-radius: 999px;
+  color: #17130E;
+  box-shadow: 3px 3px 0 rgba(var(--shadow-rgb), 0.14);
+  transition: transform .2s ease;
 }
-.hero-slide {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 26px 0 30px;
-  opacity: 0;
-  transition: opacity .6s ease;
-  pointer-events: none;
-}
-.hero-slide.is-active { opacity: 1; pointer-events: auto; }
-.hero-slide img {
-  max-width: 100%;
-  max-height: 100%;
-  width: auto;
-  height: auto;
-  object-fit: contain;
-  filter: drop-shadow(0 20px 30px rgba(var(--shadow-rgb), 0.18));
-}
-.hero-slider-controls { position: absolute; bottom: 20px; right: 20px; z-index: 3; display: flex; gap: 8px; }
-.hero-slider-btn {
-  width: 32px;
-  height: 32px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: 1.5px solid var(--ink);
-  background: var(--surface);
-  color: var(--ink);
-  cursor: pointer;
-  font-family: 'IBM Plex Mono', monospace;
-  font-size: 13px;
-  transition: background .15s ease, color .15s ease;
-}
-.hero-slider-btn:hover { background: var(--ink); color: var(--paper); }
-.hero-slider-btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
-.hero-slider-dots { position: absolute; bottom: 20px; left: 20px; z-index: 3; display: flex; gap: 8px; }
-.hero-dot { width: 9px; height: 9px; border-radius: 50%; border: 1.5px solid var(--ink); background: var(--surface); cursor: pointer; padding: 0; }
-.hero-dot.is-active { background: var(--accent); border-color: var(--accent); }
-.hero-dot:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.hero-sticker:hover { transform: translateY(-3px) rotate(0deg) !important; }
+/* --accent-deep is the pre-tuned large-surface violet (~6.9:1 with --paper
+   text) — using raw --accent here would repeat the same contrast mistake
+   the other accents' comments already warn about. Rotation held to 2-3deg
+   (vs. the earlier 4-6deg) for the calmer, single-pill-highlight feel of
+   the arjun/mena mix rather than a loud scattered-sticker look. */
+.sticker-violet { top: 6%; left: -4%; background: var(--accent-deep); color: var(--paper); transform: rotate(-3deg); }
+.sticker-mint { top: 18%; right: -6%; background: var(--accent-mint); transform: rotate(2deg); }
+.sticker-amber { bottom: 22%; left: -7%; background: var(--accent-amber); transform: rotate(-2deg); }
+.sticker-coral { bottom: 4%; right: -4%; background: var(--accent-coral); transform: rotate(3deg); }
 
 .client-deck { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; margin-top: 40px; }
 .client-card {
@@ -646,12 +634,22 @@ a.proof-item:hover .proof-label { color: var(--ink); }
     gap: 32px;
   }
   .hero-visual { min-height: 520px; }
+  .hero-portrait-frame { min-height: 520px; }
+  /* Negative left/right insets on the stickers are tuned for the extra
+     breathing room a two-column layout gives the visual; pull them back
+     toward the frame here so they don't clip against the .wrap edge once
+     the column goes full-width. */
+  .hero-sticker { font-size: 10.5px; padding: 7px 11px; }
+  .sticker-violet { left: 2%; }
+  .sticker-mint { right: 0%; }
+  .sticker-amber { left: 1%; }
+  .sticker-coral { right: 2%; }
 }
 @media (max-width: 480px) {
-  .hero-visual { min-height: 440px; }
-  .hero-slide { padding: 26px 4px 30px; }
-  .headline-chip { border-width: 2px; padding: 0 6px; }
-  .hero-trust-names { font-size: 14px; }
+  .hero-visual { min-height: 380px; }
+  .hero-portrait-frame { min-height: 380px; }
+  .headline-chip { border-width: 2px; padding: 2px 12px; }
+  .hero-sticker { font-size: 9.5px; padding: 6px 9px; }
 }
 
 .insight-box {
@@ -689,7 +687,7 @@ a.proof-item:hover .proof-label { color: var(--ink); }
 
 .about-page-grid { display: grid; grid-template-columns: 1.3fr 1fr; grid-template-areas: "content visual"; gap: 56px; align-items: start; }
 .about-content { grid-area: content; }
-.about-content h2 { font-size: clamp(2rem, 4.5vw, 2.8rem); margin: 20px 0 24px; max-width: 26ch; }
+.about-content h1 { font-size: clamp(2rem, 4.5vw, 2.8rem); margin: 20px 0 24px; max-width: 26ch; }
 .about-visual { grid-area: visual; }
 .about-visual img {
   width: 100%;
@@ -773,71 +771,10 @@ a.proof-item:hover .proof-label { color: var(--ink); }
   .craft-grid { grid-template-columns: 1fr; }
 }
 
-/* ===== HELP BLOCK (soft violet wash — bookends the violet Contact block at the
-   close of the page, at much lower intensity so Contact still reads as the
-   saturated finale) ===== */
-.help-block {
-  background: color-mix(in srgb, var(--accent) 8%, var(--paper));
-  margin: 40px 0;
-}
-
-/* ===== HOW I CAN HELP ===== */
-/* Five-color cycle (violet/amber/mint/coral/sky) across the 6 cards — card 6
-   repeats violet, but it's diagonal from card 1 in the grid so it never reads
-   as a duplicate. Border-top, background tint, mark, and bullets all share
-   one accent per card so the color-coding stays legible at a glance. */
-/* Flex, not grid: the card count doesn't always divide evenly by 3, and
-   flex-wrap + justify-content:center lets an incomplete last row center
-   itself instead of a fixed 3-col grid leaving a blank trailing slot. */
-.help-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 24px; }
-.help-card {
-  flex: 0 1 280px;
-  max-width: 340px;
-  padding: 28px;
-  border: 1.5px solid var(--border);
-  border-top: 4px solid var(--accent);
-  background: color-mix(in srgb, var(--accent) 10%, var(--paper));
-  transform: rotate(-1deg);
-  box-shadow: 6px 6px 0 rgba(var(--shadow-rgb), 0.15);
-  transition: transform .25s ease, box-shadow .25s ease;
-}
-.help-card:nth-child(even) { transform: rotate(1deg); }
-.help-card:nth-child(2) { border-top-color: var(--accent-amber); background: color-mix(in srgb, var(--accent-amber) 12%, var(--paper)); }
-.help-card:nth-child(3) { border-top-color: var(--accent-mint); background: color-mix(in srgb, var(--accent-mint) 12%, var(--paper)); }
-.help-card:nth-child(4) { border-top-color: var(--accent-coral); background: color-mix(in srgb, var(--accent-coral) 12%, var(--paper)); }
-.help-card:nth-child(5) { border-top-color: var(--accent-sky); background: color-mix(in srgb, var(--accent-sky) 12%, var(--paper)); }
-.help-card:hover { transform: rotate(0deg) translateY(-4px); box-shadow: 8px 8px 0 rgba(var(--shadow-rgb), 0.2); }
-.help-card h3 {
-  display: flex;
-  align-items: flex-start;
-  font-size: 1.35rem;
-  line-height: 1.25;
-  margin-bottom: 14px;
-}
-.help-card h3 .help-mark { margin-top: 0.3em; }
-.help-card p { font-size: 14.5px; line-height: 1.6; color: var(--ink-soft); font-family: 'Inter', sans-serif; margin-bottom: 18px; }
-.help-mark { display: inline-block; width: 15px; height: 15px; margin-right: 12px; flex-shrink: 0; background: var(--accent); }
-.help-card:nth-child(2) .help-mark { background: var(--accent-amber); }
-.help-card:nth-child(3) .help-mark { background: var(--accent-mint); }
-.help-card:nth-child(4) .help-mark { background: var(--accent-coral); }
-.help-card:nth-child(5) .help-mark { background: var(--accent-sky); }
-.help-card ul { list-style: none; font-family: 'Inter', sans-serif; font-size: 15px; font-weight: 600; color: var(--ink); display: flex; flex-direction: column; gap: 12px; }
-.help-card li { position: relative; padding-left: 20px; }
-.help-card li::before { content: ''; position: absolute; left: 0; top: 0.45em; width: 8px; height: 8px; background: var(--accent); }
-.help-card:nth-child(2) li::before { background: var(--accent-amber); }
-.help-card:nth-child(3) li::before { background: var(--accent-mint); }
-.help-card:nth-child(4) li::before { background: var(--accent-coral); }
-.help-card:nth-child(5) li::before { background: var(--accent-sky); }
-@media (max-width: 860px) {
-  .help-card { flex-basis: 45%; }
-}
-@media (max-width: 560px) {
-  .help-card { flex-basis: 100%; max-width: none; }
-}
 
 /* ===== PROJECTS ===== */
 .projects-head { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 12px; margin-bottom: 40px; }
-.projects-head h2 { font-size: clamp(2rem, 4.5vw, 2.8rem); }
+.projects-head h1, .projects-head h2 { font-size: clamp(2rem, 4.5vw, 2.8rem); }
 .project-count { font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: var(--ink-faint); }
 
 .project-feature {
@@ -858,7 +795,7 @@ a.proof-item:hover .proof-label { color: var(--ink); }
 .project-feature-body h3 { font-size: clamp(1.8rem, 3.2vw, 2.4rem); margin-bottom: 16px; line-height: 1.15; }
 .project-feature-body p.desc { color: var(--ink-soft); font-family: 'Inter', sans-serif; font-size: 15px; line-height: 1.7; margin-bottom: 22px; max-width: 50ch; }
 .project-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 24px; }
-.project-tags span { font-family: 'IBM Plex Mono', monospace; font-size: 10.5px; letter-spacing: 0.5px; border: 1px solid var(--border); padding: 5px 10px; color: var(--ink-soft); }
+.project-tags span { font-family: 'IBM Plex Mono', monospace; font-size: 10.5px; letter-spacing: 0.5px; border: 1px solid var(--border); border-radius: 999px; padding: 5px 12px; color: var(--ink-soft); }
 .project-link { font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.5px; text-transform: uppercase; text-decoration: none; color: var(--accent); display: inline-flex; align-items: center; gap: 6px; transition: transform .2s ease; }
 .project-link:hover { text-decoration: underline; transform: translateX(4px); }
 
@@ -980,7 +917,7 @@ a.proof-item:hover .proof-label { color: var(--ink); }
 }
 
 /* ===== EXPERIENCE TIMELINE (tree/branch structure) ===== */
-.exp-head h2 { font-size: clamp(2rem, 4.5vw, 2.8rem); margin-bottom: 48px; }
+.exp-head h1 { font-size: clamp(2rem, 4.5vw, 2.8rem); margin-bottom: 48px; }
 
 .timeline { position: relative; margin-top: 8px; }
 .timeline::before {
@@ -1202,7 +1139,7 @@ a.proof-item:hover .proof-label { color: var(--ink); }
 /* ===== CONTACT: PERSONAL HERO + FORM ===== */
 .contact-hero { padding-top: clamp(3rem, 7vw, 5rem); }
 .contact-intro-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 40px; align-items: end; margin-top: 16px; }
-.contact-intro-grid h2 { margin: 0; font-size: clamp(2.2rem, 5.5vw, 3.4rem); max-width: 14ch; }
+.contact-intro-grid h1 { margin: 0; font-size: clamp(2.2rem, 5.5vw, 3.4rem); max-width: 14ch; }
 .contact-intro-text { color: var(--ink-soft); font-family: 'Inter', sans-serif; font-size: 15.5px; line-height: 1.7; max-width: 46ch; margin: 0; }
 .contact-divider { border: none; border-top: 1.5px solid var(--border); margin: clamp(2.5rem, 6vw, 4rem) 0 0; }
 

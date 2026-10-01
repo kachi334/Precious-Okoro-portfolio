@@ -50,54 +50,6 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
 
-  function initSlider(slider) {
-    var slides = slider.querySelectorAll('.hero-slide');
-    var dots = slider.querySelectorAll('.hero-dot');
-    var badge = slider.querySelector('.hero-visual-badge');
-    var pauseBtn = slider.querySelector('.hero-slider-pause');
-    var prevBtn = slider.querySelector('.hero-slider-prev');
-    var nextBtn = slider.querySelector('.hero-slider-next');
-    var current = 0;
-    var timer = null;
-    var isPaused = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-    function showSlide(index) {
-      current = (index + slides.length) % slides.length;
-      slides.forEach(function (slide, i) { slide.classList.toggle('is-active', i === current); });
-      dots.forEach(function (dot, i) { dot.classList.toggle('is-active', i === current); });
-      if (badge && slides[current].dataset.badge) { badge.textContent = slides[current].dataset.badge; }
-    }
-
-    function startTimer() {
-      stopTimer();
-      if (isPaused) return;
-      timer = setInterval(function () { showSlide(current + 1); }, 4500);
-    }
-
-    function stopTimer() {
-      if (timer) { clearInterval(timer); timer = null; }
-    }
-
-    dots.forEach(function (dot, i) {
-      dot.addEventListener('click', function () { showSlide(i); startTimer(); });
-    });
-    if (prevBtn) prevBtn.addEventListener('click', function () { showSlide(current - 1); startTimer(); });
-    if (nextBtn) nextBtn.addEventListener('click', function () { showSlide(current + 1); startTimer(); });
-    if (pauseBtn) {
-      pauseBtn.setAttribute('aria-pressed', isPaused ? 'true' : 'false');
-      pauseBtn.addEventListener('click', function () {
-        isPaused = !isPaused;
-        pauseBtn.setAttribute('aria-label', isPaused ? 'Resume slideshow' : 'Pause slideshow');
-        pauseBtn.setAttribute('aria-pressed', isPaused ? 'true' : 'false');
-        if (isPaused) stopTimer(); else startTimer();
-      });
-    }
-
-    startTimer();
-  }
-
-  document.querySelectorAll('.hero-slider').forEach(initSlider);
-
   var contactForm = document.getElementById('contact-form');
   if (contactForm) {
     contactForm.addEventListener('submit', function (e) {
