@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<script>(function(){try{var t=localStorage.getItem('theme');if(!t){t=window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
+<script>(function(){try{var t=localStorage.getItem('theme');if(!t){t='dark';}document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Precious Okoro · Content Design &amp; Language Infrastructure</title>
 <meta name="description" content="Precious Okoro. Content strategy, UX writing, and content systems for AI products and startups that are serious about craft.">
@@ -197,7 +197,7 @@
 
   <!-- HOW I THINK -->
   <section class="think-section">
-    <div class="think-art" style="left:3%;top:20px;width:330px;border-color:var(--accent)">
+    <div class="think-art" style="left:2%;top:20px;width:clamp(260px,24vw,330px);border-color:var(--accent)">
       <span class="corner-bl"></span><span class="corner-br"></span>
       <div class="think-art-inner" style="padding:18px;gap:14px">
         <div style="display:flex;align-items:center;gap:10px"><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:600;background:var(--t-coral-a);color:var(--coral-text);border-radius:999px;padding:4px 10px">P0 - Critical</span><span style="font-size:13px;color:var(--ink-soft)">Incident declared</span></div>
@@ -206,7 +206,7 @@
       <div class="think-art-tag" style="right:-34px;bottom:-26px"><svg width="22" height="22" viewBox="0 0 22 22" style="margin-top:-12px"><path d="M2,2 L20,9 L11,11 L9,20 Z" fill="#6B4FD6"/></svg><span style="background:var(--accent);color:var(--surface)">Components</span></div>
     </div>
 
-    <div class="think-art" style="right:7%;top:0;width:290px;border-color:var(--ink)">
+    <div class="think-art" style="right:2%;top:0;width:clamp(240px,21vw,290px);border-color:var(--ink)">
       <span class="corner-bl"></span><span class="corner-br"></span>
       <div class="think-art-inner" style="padding:6px 16px">
         <div style="display:flex;justify-content:space-between;gap:10px;padding:10px 0;border-bottom:1px solid rgba(var(--ink-rgb),0.1)"><span style="font-size:13.5px;font-weight:600">Foundation</span><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--ink-faint)">Voice + vocabulary</span></div>
@@ -217,7 +217,7 @@
       <div class="think-art-tag" style="right:-40px;bottom:-26px"><svg width="22" height="22" viewBox="0 0 22 22" style="margin-top:-12px"><path d="M2,2 L20,9 L11,11 L9,20 Z" fill="currentColor"/></svg><span style="background:var(--ink);color:var(--surface)">Content system</span></div>
     </div>
 
-    <div class="think-art" style="right:3%;bottom:170px;width:280px;border-color:#D69A1A">
+    <div class="think-art" style="right:2%;bottom:150px;width:clamp(230px,20vw,280px);border-color:#D69A1A">
       <span class="corner-bl"></span><span class="corner-br"></span>
       <div class="think-art-inner" style="padding:6px 16px">
         <div style="display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid rgba(var(--ink-rgb),0.1)"><span style="font-size:13.5px;font-weight:700">✓ Acknowledge</span><span style="font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:600;color:var(--mint-text)">94%</span></div>
@@ -227,7 +227,7 @@
       <div class="think-art-tag" style="left:30px;bottom:-26px"><svg width="22" height="22" viewBox="0 0 22 22" style="margin-top:-12px"><path d="M2,2 L20,9 L11,11 L9,20 Z" fill="#D69A1A"/></svg><span style="background:#D69A1A;color:#17130E">Verb test</span></div>
     </div>
 
-    <div class="think-art" style="left:6%;bottom:150px;width:320px;border-color:#3FA0E0">
+    <div class="think-art" style="left:4%;bottom:130px;width:clamp(260px,23vw,320px);border-color:#3FA0E0">
       <span class="corner-bl"></span><span class="corner-br"></span>
       <div class="think-art-inner" style="padding:16px;gap:12px">
         <div style="display:flex;justify-content:space-between"><span style="font-size:13.5px;font-weight:700">Error message</span><span style="font-size:12px;color:var(--fade)">Component</span></div>
@@ -238,7 +238,7 @@
       <div class="think-art-tag" style="right:-48px;top:-22px"><svg width="22" height="22" viewBox="0 0 22 22" style="margin-top:-12px"><path d="M2,2 L20,9 L11,11 L9,20 Z" fill="#1D6E96"/></svg><span style="background:var(--sky-text);color:var(--surface)">States</span></div>
     </div>
 
-    <div class="think-art" style="left:36%;top:70px;width:260px;border-color:#1FAE6E">
+    <div class="think-art" style="left:39%;top:70px;width:clamp(230px,19vw,260px);border-color:#1FAE6E">
       <span class="corner-bl"></span><span class="corner-br"></span>
       <div class="think-art-inner" style="padding:6px 16px">
         <div style="display:flex;flex-direction:column;gap:3px;padding:10px 0;border-bottom:1px solid rgba(var(--ink-rgb),0.1)"><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--mint-text)">severity.p0</span><span style="font-size:13.5px;font-weight:600">P0 - Critical</span></div>
@@ -248,7 +248,7 @@
       <div class="think-art-tag" style="right:-30px;bottom:-26px"><svg width="22" height="22" viewBox="0 0 22 22" style="margin-top:-12px"><path d="M2,2 L20,9 L11,11 L9,20 Z" fill="#1FAE6E"/></svg><span style="background:#1FAE6E;color:#17130E">Language infrastructure</span></div>
     </div>
 
-    <div class="think-art" style="left:38%;bottom:40px;width:300px;border-color:#EC6F8E">
+    <div class="think-art" style="left:39%;bottom:110px;width:clamp(250px,22vw,300px);border-color:#EC6F8E">
       <span class="corner-bl"></span><span class="corner-br"></span>
       <div class="think-art-inner" style="padding:16px;gap:12px">
         <div style="display:flex;align-items:center;gap:8px"><span style="width:22px;height:22px;border-radius:50%;background:var(--ink);color:var(--surface);font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center">✦</span><span style="font-size:13.5px;font-weight:700">Agent</span><span style="font-size:12px;color:var(--fade)">wants to act</span></div>
