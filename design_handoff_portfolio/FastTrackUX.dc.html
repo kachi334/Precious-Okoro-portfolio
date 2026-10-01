@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<script>(function(){try{var t=localStorage.getItem('theme');if(!t){t=window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..600;1,9..144,400..600&family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);-webkit-font-smoothing:antialiased;transition:background-color .25s ease,color .25s ease}
+:root{--paper:#FAF6ED;--paper-rgb:250,246,237;--surface:#FFFCF5;--ink:#17130E;--ink-rgb:23,19,14;--ink-soft:#4A4438;--ink-faint:#6B6459;--fade:#A39C8E;--accent:#6B4FD6;--accent-strong:#5942AA;--mint-text:#0E7A50;--amber-text:#8C5E0C;--coral-text:#B23A5C;--sky-text:#1D6E96;--t-mint-a:#DDF2E6;--t-mint-b:#F1F7EE;--t-amber-a:#F7E7C4;--t-amber-b:#FBF2DF;--t-violet-a:#E4DDFA;--t-violet-b:#F1EDFB;--t-coral-a:#FBE1E7;--t-coral-b:#FDF0F2;--t-violet-chip:#ECE7FB;--t-neutral:#EFEAE0;--t-field:#F1ECE1;color-scheme:light}
+:root[data-theme="dark"]{--paper:#0A0908;--paper-rgb:10,9,8;--surface:#161411;--ink:#F0EDE6;--ink-rgb:240,237,230;--ink-soft:#B8B2A3;--ink-faint:#9A9184;--fade:#6F685D;--accent:#9B85E8;--accent-strong:#B6A6F0;--mint-text:#3CC98A;--amber-text:#E5B04A;--coral-text:#F08DA6;--sky-text:#5DB3EA;--t-mint-a:#11281D;--t-mint-b:#0D1C15;--t-amber-a:#2B2110;--t-amber-b:#1C170D;--t-violet-a:#221B3D;--t-violet-b:#17132A;--t-coral-a:#30161E;--t-coral-b:#211116;--t-violet-chip:#261F42;--t-neutral:#1C1915;--t-field:#221E19;color-scheme:dark}
+a{color:var(--accent);text-decoration:none}
+a:hover{color:var(--accent-strong)}
+button:focus-visible,a:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+img{display:block;max-width:100%}
+</style>
+</helmet>
+
+<div style="background:var(--paper);min-height:100vh;font-family:'Inter',sans-serif">
+
+  <header style="position:sticky;top:0;z-index:10;background:rgba(var(--paper-rgb),0.88);backdrop-filter:blur(12px)">
+    <div style="max-width:1200px;margin:0 auto;padding:20px 32px;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap">
+      <a href="Homepage.dc.html" style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:17px;color:var(--ink);letter-spacing:-0.01em">Precious Okoro</a>
+      <nav style="display:flex;align-items:center;gap:28px;flex-wrap:wrap;font-size:14.5px;font-weight:500">
+        <a href="Work.dc.html" aria-current="page" style="color:var(--ink);font-weight:600;border-bottom:2px solid #1FAE6E;padding-bottom:2px">Projects</a>
+        <a href="About.dc.html" style="color:var(--ink-soft)">About</a>
+        <a href="Experience.dc.html" style="color:var(--ink-soft)">Experience</a>
+        <a href="https://precious-okoro.medium.com/" target="_blank" rel="noopener" style="color:var(--ink-soft)">Blog</a>
+        <a href="Contact.dc.html" style="color:var(--surface);background:var(--ink);padding:10px 18px;border-radius:999px" style-hover="background:var(--accent);color:var(--surface)">Work Together</a>
+        <button type="button" onClick="{{ toggleTheme }}" aria-label="{{ themeLabel }}" style="width:40px;height:40px;border-radius:50%;border:1px solid rgba(var(--ink-rgb),0.22);background:transparent;color:var(--ink);display:flex;align-items:center;justify-content:center;cursor:pointer;padding:0" style-hover="border-color:var(--ink)"><sc-if value="{{ isLight }}" hint-placeholder-val="{{ true }}"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M14 9.5A6 6 0 1 1 6.5 2 4.8 4.8 0 0 0 14 9.5Z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"></path></svg></sc-if><sc-if value="{{ isDark }}" hint-placeholder-val="{{ false }}"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="8" cy="8" r="3" stroke="currentColor" stroke-width="1.4"></circle><path d="M8 0.5V2.5M8 13.5V15.5M15.5 8H13.5M2.5 8H0.5M13.3 2.7L11.9 4.1M4.1 11.9L2.7 13.3M13.3 13.3L11.9 11.9M4.1 4.1L2.7 2.7" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"></path></svg></sc-if></button>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section style="max-width:1200px;margin:0 auto;padding:72px 32px 80px;display:flex;flex-direction:column;gap:28px">
+      <a href="Work.dc.html" style="font-size:14.5px;font-weight:600;color:var(--ink-soft)">← Back to Projects</a>
+      <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--amber-text);margin-top:24px">FastTrackUX · Edtech · 2024 | Dual-Audience Content Strategy</span>
+      <h1 style="margin:0;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(40px,6.4vw,88px);line-height:1.03;letter-spacing:-0.035em;max-width:15ch;text-wrap:balance">Writing One Headline <span style="color:var(--fade);font-weight:500">for</span> <span style="display:inline-block;background:#D69A1A;color:#17130E;border-radius:999px;padding:0 0.32em 0.06em;line-height:1.08">Two</span> <span style="font-family:'Fraunces',serif;font-style:italic;font-weight:500;color:var(--amber-text);letter-spacing:-0.02em">Different Students</span></h1>
+      <p style="margin:0;max-width:56ch;font-family:'Fraunces',serif;font-style:italic;font-size:clamp(19px,1.8vw,23px);line-height:1.5;color:var(--ink-soft)">The page was not just unclear. It was speaking to no one in particular.</p>
+
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:24px;border-top:1px solid rgba(var(--ink-rgb),0.14);padding-top:28px;margin-top:20px">
+        <div style="display:flex;flex-direction:column;gap:6px"><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:1px;text-transform:uppercase;color:var(--ink-faint)">Role</span><span style="font-weight:600;font-size:15px">UX Copywriter</span></div>
+        <div style="display:flex;flex-direction:column;gap:6px"><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:1px;text-transform:uppercase;color:var(--ink-faint)">Timeline</span><span style="font-weight:600;font-size:15px">2024</span></div>
+        <div style="display:flex;flex-direction:column;gap:6px"><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:1px;text-transform:uppercase;color:var(--ink-faint)">Industry</span><span style="font-weight:600;font-size:15px">Edtech</span></div>
+        <div style="display:flex;flex-direction:column;gap:6px"><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:1px;text-transform:uppercase;color:var(--ink-faint)">Tools</span><span style="font-weight:600;font-size:15px">Figma, Hotjar, Miro</span></div>
+      </div>
+      <div style="display:flex;flex-wrap:wrap;gap:32px">
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:1px;text-transform:uppercase;color:var(--ink-faint)">Skills Applied</span>
+          <div style="display:flex;flex-wrap:wrap;gap:8px">
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;border:1px solid rgba(var(--ink-rgb),0.22);border-radius:999px;padding:5px 12px;color:var(--ink-soft)">UX Writing</span>
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;border:1px solid rgba(var(--ink-rgb),0.22);border-radius:999px;padding:5px 12px;color:var(--ink-soft)">Landing Page Strategy</span>
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;border:1px solid rgba(var(--ink-rgb),0.22);border-radius:999px;padding:5px 12px;color:var(--ink-soft)">Conversion Copy</span>
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;border:1px solid rgba(var(--ink-rgb),0.22);border-radius:999px;padding:5px 12px;color:var(--ink-soft)">User Research</span>
+          </div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:1px;text-transform:uppercase;color:var(--ink-faint)">Frameworks Applied</span>
+          <div style="display:flex;flex-wrap:wrap;gap:8px">
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;background:var(--t-amber-a);border-radius:999px;padding:6px 12px;color:var(--amber-text)">Dual-Audience Keyword Mining</span>
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;background:var(--t-amber-a);border-radius:999px;padding:6px 12px;color:var(--amber-text)">Ship-Raw-Then-Test Loop</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section style="max-width:1200px;margin:0 auto;padding:0 32px 100px">
+      <div style="border-radius:36px;background:linear-gradient(160deg,var(--t-amber-a) 0%,var(--t-amber-b) 100%);padding:clamp(24px,5vw,72px);box-shadow:0 40px 100px -50px rgba(214,154,26,0.65)">
+        <img src="images/fasttrackux-cover.webp" alt="FastTrackUX landing page redesign" style="width:100%;border-radius:20px">
+      </div>
+    </section>
+
+    <section style="max-width:1200px;margin:0 auto;padding:0 32px 120px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:40px 56px">
+      <div style="display:flex;flex-direction:column;gap:12px;border-top:2px solid #D69A1A;padding-top:24px"><span style="font-family:'IBM Plex Mono',monospace;font-size:13px;color:var(--amber-text)">01</span><h3 style="margin:0;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:21px">Design Problem</h3><p style="margin:0;font-size:15.5px;line-height:1.7;color:var(--ink-soft)">10% of visitors couldn't tell if this was a business or someone's personal project; 29% said the copy was missing the words that would have made them stay.</p></div>
+      <div style="display:flex;flex-direction:column;gap:12px;border-top:2px solid #D69A1A;padding-top:24px"><span style="font-family:'IBM Plex Mono',monospace;font-size:13px;color:var(--amber-text)">02</span><h3 style="margin:0;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:21px">My Role</h3><p style="margin:0;font-size:15.5px;line-height:1.7;color:var(--ink-soft)">UX copywriter, working research through to shipped microcopy alongside the design team.</p></div>
+      <div style="display:flex;flex-direction:column;gap:12px;border-top:2px solid #D69A1A;padding-top:24px"><span style="font-family:'IBM Plex Mono',monospace;font-size:13px;color:var(--amber-text)">03</span><h3 style="margin:0;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:21px">What I Designed</h3><p style="margin:0;font-size:15.5px;line-height:1.7;color:var(--ink-soft)">A single hero built around one shared goal both audiences already wanted.</p></div>
+    </section>
+
+    <section style="max-width:1200px;margin:0 auto;padding:0 32px 140px">
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));border-top:1px solid rgba(var(--ink-rgb),0.14);max-width:720px">
+        <div style="padding:36px 32px 0 0;display:flex;flex-direction:column;gap:10px"><span style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(48px,5vw,64px);letter-spacing:-0.03em;line-height:1">~2×</span><span style="font-size:15px;font-weight:500">Student logins (21 → 41)</span></div>
+        <div style="padding:36px 32px 0 0;display:flex;flex-direction:column;gap:10px"><span style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(48px,5vw,64px);letter-spacing:-0.03em;line-height:1">4.2K</span><span style="font-size:15px;font-weight:500">Unique visitors, up from 2.2K</span></div>
+      </div>
+    </section>
+
+    <div style="max-width:1200px;margin:0 auto;padding:0 32px;display:flex;flex-direction:column;gap:120px">
+
+      <section style="display:flex;flex-wrap:wrap;gap:20px 64px">
+        <span style="flex:1 1 180px;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:1px;text-transform:uppercase;color:var(--ink-faint);padding-top:10px">The Problem</span>
+        <div style="flex:4 1 480px;min-width:0;display:flex;flex-direction:column;gap:20px;max-width:68ch">
+          <h2 style="margin:0;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(26px,2.8vw,36px);line-height:1.15;letter-spacing:-0.02em">Ten percent couldn't tell what this was</h2>
+          <p style="margin:0;font-size:17px;line-height:1.75;color:var(--ink-soft);text-wrap:pretty">FastTrackUX teaches product and UX design through recorded lessons, for complete beginners and working professionals alike. The existing landing page read as personal, closer to an individual's portfolio than a business, and it did not reflect the platform's actual authority. It was not converting.</p>
+          <p style="margin:0;font-size:17px;line-height:1.75;color:var(--ink-soft);text-wrap:pretty">The harder constraint sat underneath that surface complaint: the page had to speak to <mark style="background:var(--t-amber-a);color:var(--ink);padding:1px 5px;border-radius:5px">two distinct audiences in one voice</mark>, without oversimplifying for one group or losing the other in jargon.</p>
+          <p style="margin:0;font-size:17px;line-height:1.75;color:var(--ink-soft);text-wrap:pretty">Research confirmed both problems at once. Ten percent of visitors were not sure if they were looking at a business or someone's personal project. Twenty-nine percent said the copy was missing the exact keywords that would have prompted them to explore further. The page was not just unclear. It was speaking to no one in particular.</p>
+        </div>
+      </section>
+
+      <section style="display:flex;flex-direction:column;gap:56px">
+        <div style="display:flex;flex-wrap:wrap;gap:20px 64px">
+          <span style="flex:1 1 180px;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:1px;text-transform:uppercase;color:var(--ink-faint);padding-top:10px">The Process</span>
+          <div style="flex:4 1 480px;min-width:0;display:flex;flex-direction:column;gap:20px;max-width:68ch">
+            <h2 style="margin:0;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(26px,2.8vw,36px);line-height:1.15;letter-spacing:-0.02em">The words were already out there, unused</h2>
+            <p style="margin:0;font-size:17px;line-height:1.75;color:var(--ink-soft);text-wrap:pretty">Fixing a landing page that speaks to no one starts with finding out who it needs to speak to, and in what words. That meant treating the audience split as a research question before it became a copy problem.</p>
+            <p style="margin:0;font-size:17px;line-height:1.75;color:var(--ink-soft);text-wrap:pretty">User interviews and surveys, run alongside the design team and analyzed in Lyssna, replaced assumption with evidence before a single word changed. Affinity and empathy maps, plus a keyword pass in FigJam, surfaced the precise words students used to describe their goals and frustrations, not the words the platform had been using to describe itself. That research produced three decisions that shaped everything downstream.</p>
+          </div>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:24px">
+          <figure style="margin:0;display:flex;flex-direction:column;gap:12px"><div style="border-radius:28px;background:linear-gradient(160deg,var(--t-amber-a) 0%,var(--t-amber-b) 100%);padding:clamp(16px,2.5vw,28px);box-shadow:0 30px 70px -45px rgba(214,154,26,0.65)"><img src="images/fasttrackux-research-board.png" alt="FastTrackUX research board with affinity-mapped findings on learner goals, demographics, and design education background" style="width:100%;border-radius:14px"></div><figcaption style="font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:var(--ink-faint)">Research synthesis board</figcaption></figure>
+          <figure style="margin:0;display:flex;flex-direction:column;gap:12px"><div style="border-radius:28px;background:linear-gradient(160deg,var(--t-amber-a) 0%,var(--t-amber-b) 100%);padding:clamp(16px,2.5vw,28px);box-shadow:0 30px 70px -45px rgba(214,154,26,0.65)"><img src="images/fasttrackux-sitemap.png" alt="Rapid site mapping and information architecture for the FastTrackUX website" style="width:100%;border-radius:14px"></div><figcaption style="font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:var(--ink-faint)">Site mapping for the redesign</figcaption></figure>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:20px">
+          <div style="background:var(--surface);border-radius:28px;padding:32px;display:flex;flex-direction:column;gap:12px"><span style="font-family:'IBM Plex Mono',monospace;font-size:13px;color:var(--amber-text)">01</span><h3 style="margin:0;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:20px">Research Before Rewriting</h3><p style="margin:0;font-size:15px;line-height:1.7;color:var(--ink-soft)">User interviews and surveys replaced assumption with evidence before a single word changed.</p></div>
+          <div style="background:var(--surface);border-radius:28px;padding:32px;display:flex;flex-direction:column;gap:12px"><span style="font-family:'IBM Plex Mono',monospace;font-size:13px;color:var(--amber-text)">02</span><h3 style="margin:0;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:20px">Mine the Exact Language Users Used</h3><p style="margin:0;font-size:15px;line-height:1.7;color:var(--ink-soft)">Affinity and empathy maps, plus a keyword pass in FigJam, surfaced the precise words students used to describe their goals and frustrations.</p></div>
+          <div style="background:var(--surface);border-radius:28px;padding:32px;display:flex;flex-direction:column;gap:12px"><span style="font-family:'IBM Plex Mono',monospace;font-size:13px;color:var(--amber-text)">03</span><h3 style="margin:0;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:20px">Ship Raw, Then Refine With Data</h3><p style="margin:0;font-size:15px;line-height:1.7;color:var(--ink-soft)">Microcopy went out true to research first, then moved through A/B testing rounds with a live feedback loop.</p></div>
+        </div>
+        <div style="display:flex;flex-wrap:wrap;gap:20px 64px">
+          <span style="flex:1 1 180px"></span>
+          <div style="flex:4 1 480px;min-width:0;display:flex;flex-direction:column;gap:20px;max-width:68ch">
+            <p style="margin:0;font-size:17px;line-height:1.75;color:var(--ink-soft);text-wrap:pretty">Shipping polished copy first was the safer-looking choice, and it was set aside on purpose: polish this early would have hidden which words were actually landing behind our own editing instincts. Research-true copy went out raw, and A/B testing decided what earned a second draft.</p>
+            <p style="margin:0;font-size:17px;line-height:1.75;color:var(--ink-soft);text-wrap:pretty">Those three decisions came together most visibly in the hero section, the first thing any visitor sees and the place the research findings landed hardest. Two headlines, one per audience, was the obvious fix and the wrong one: it would have forced every visitor to self-sort before they had decided to trust the page at all. The rebuilt hero used the keywords users had asked for, cut the sentence clusters that had confused them, and centered one title bridging both audiences around a shared goal instead: "UX Design in Big Tech." The CTA invited exploration instead of forcing a checkout-page decision.</p>
+          </div>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:24px">
+          <figure style="margin:0;display:flex;flex-direction:column;gap:12px"><div style="border-radius:28px;background:var(--t-neutral);padding:clamp(16px,2.5vw,28px)"><img src="images/fasttrackux-before.jpg" alt="FastTrackUX website before the content and design redesign" style="width:100%;border-radius:14px"></div><figcaption style="font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:var(--ink-faint)">Before</figcaption></figure>
+          <figure style="margin:0;display:flex;flex-direction:column;gap:12px"><div style="border-radius:28px;background:linear-gradient(160deg,var(--t-amber-a) 0%,var(--t-amber-b) 100%);padding:clamp(16px,2.5vw,28px);box-shadow:0 30px 70px -45px rgba(214,154,26,0.65)"><img src="images/fasttrackux-after.jpg" alt="FastTrackUX website after the content and design redesign" style="width:100%;border-radius:14px"></div><figcaption style="font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:var(--amber-text)">After</figcaption></figure>
+        </div>
+      </section>
+
+      <section style="display:flex;flex-wrap:wrap;gap:20px 64px">
+        <span style="flex:1 1 180px"></span>
+        <figure style="flex:4 1 480px;min-width:0;max-width:68ch;margin:0;background:var(--surface);border-radius:28px;padding:clamp(28px,3.5vw,44px);display:flex;flex-direction:column;gap:28px">
+          <blockquote style="margin:0;font-family:'Fraunces',serif;font-size:clamp(19px,1.7vw,22px);line-height:1.5;color:var(--ink);text-wrap:pretty">“As a designer myself, I am extremely impressed by how much Precious knows about UX design. Her thorough understanding of UX theories and methodologies allowed us to collaborate seamlessly and make great design decisions quickly.”</blockquote>
+          <figcaption style="display:flex;flex-direction:column;gap:4px"><span style="font-weight:600;font-size:15px">Aliena Cai</span><span style="font-size:14px;color:var(--ink-faint)">CEO at Aliena LLC · FastTrackUX</span></figcaption>
+        </figure>
+      </section>
+
+      <section style="display:flex;flex-direction:column;gap:48px">
+        <div style="display:flex;flex-wrap:wrap;gap:20px 64px">
+          <span style="flex:1 1 180px;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:1px;text-transform:uppercase;color:var(--ink-faint);padding-top:10px">The Result</span>
+          <div style="flex:4 1 480px;min-width:0;display:flex;flex-direction:column;gap:20px;max-width:68ch">
+            <h2 style="margin:0;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(26px,2.8vw,36px);line-height:1.15;letter-spacing:-0.02em">One page finally spoke to someone</h2>
+            <p style="margin:0;font-size:17px;line-height:1.75;color:var(--ink-soft);text-wrap:pretty">The redesign shipped, and the numbers leading this page are what followed: student logins nearly doubled, unique visitors nearly doubled, and for the first time, one page was doing the job of two.</p>
+            <div style="display:flex;gap:14px;font-size:16px;color:var(--ink);font-weight:500"><span style="color:var(--mint-text);font-family:'IBM Plex Mono',monospace">✓</span><span>One headline serving two distinct audiences</span></div>
+          </div>
+        </div>
+        <div style="border-radius:32px;background:var(--surface);padding:clamp(16px,3vw,40px)"><img src="images/fasttrackux-results.png" alt="FastTrackUX conversion results after the redesign" style="width:100%;border-radius:14px"></div>
+      </section>
+
+      <section style="display:flex;flex-wrap:wrap;gap:20px 64px">
+        <span style="flex:1 1 180px;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:1px;text-transform:uppercase;color:var(--ink-faint);padding-top:10px">Takeaway</span>
+        <p style="flex:4 1 480px;min-width:0;max-width:32ch;margin:0;font-family:'Fraunces',serif;font-size:clamp(24px,2.6vw,34px);line-height:1.35;color:var(--ink);text-wrap:pretty">When a product serves two audiences, the fix is rarely two versions of the copy. It is finding the one true thing both audiences already want and building the page around it.</p>
+      </section>
+
+      <nav style="display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;border-top:1px solid rgba(var(--ink-rgb),0.14);padding-top:32px">
+        <a href="Moniger.dc.html" style="font-weight:600;font-size:15px;color:var(--accent)">← Previous case study: Moniger</a>
+        <a href="Beacon.dc.html" style="font-weight:600;font-size:15px;color:var(--accent)">Next case study: Beacon →</a>
+      </nav>
+    </div>
+
+    <section style="max-width:1200px;margin:0 auto;padding:100px 32px 140px">
+      <div style="background:#5942AA;color:#FAF6ED;border-radius:40px;padding:clamp(40px,7vw,88px);display:flex;flex-direction:column;gap:24px;align-items:flex-start">
+        <h2 style="margin:0;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(28px,3.6vw,46px);line-height:1.1;letter-spacing:-0.03em;max-width:22ch;text-wrap:balance">Have a conversion problem that needs a content-first <span style="font-family:'Fraunces',serif;font-style:italic;font-weight:500;color:#EFC670">fix</span>?</h2>
+        <p style="margin:0;max-width:52ch;font-size:17px;line-height:1.65;color:#EDE8F7">I'd love to hear about your team and where content strategy could help.</p>
+        <a href="Contact.dc.html" style="background:#FAF6ED;color:#17130E;font-weight:600;font-size:15px;padding:15px 26px;border-radius:999px" style-hover="background:#EFC670;color:#17130E">Let's work together →</a>
+      </div>
+    </section>
+  </main>
+
+  <footer style="max-width:1200px;margin:0 auto;padding:40px 32px 56px;border-top:1px solid rgba(var(--ink-rgb),0.14);display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;font-size:14px;color:var(--ink-faint)">
+    <span>© 2026 Precious Okoro. Language infrastructure and content systems for products built to scale.</span>
+    <div style="display:flex;gap:24px;flex-wrap:wrap">
+      <a href="mailto:thepreciousokoro@gmail.com" style="color:var(--ink)">Email</a>
+      <a href="https://www.linkedin.com/in/okoro-onyekachi-precious/" target="_blank" rel="noopener" style="color:var(--ink)">LinkedIn</a>
+      <a href="https://calendly.com/thecontentdesignchief/30min" target="_blank" rel="noopener" style="color:var(--ink)">Book a call</a>
+    </div>
+  </footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  themeVals() {
+    const root = document.documentElement;
+    if (!root.getAttribute('data-theme')) { let t = 'light'; try { t = localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'); } catch (e) {} root.setAttribute('data-theme', t); }
+    const dark = (this.state && this.state.theme ? this.state.theme : root.getAttribute('data-theme')) === 'dark';
+    return {
+      isDark: dark, isLight: !dark, themeLabel: dark ? 'Switch to light theme' : 'Switch to dark theme',
+      toggleTheme: () => { const t = dark ? 'light' : 'dark'; root.setAttribute('data-theme', t); try { localStorage.setItem('theme', t); } catch (e) {} this.setState({ theme: t }); }
+    };
+  }
+  renderVals() { return { ...this.themeVals() }; }
+}
+</script>
+</body>
+</html>
