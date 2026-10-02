@@ -177,30 +177,8 @@ mark{background:var(--t-mint-a);color:var(--ink);padding:1px 5px;border-radius:5
 .laurel.right{transform:scaleX(-1)}
 .hero-actions{display:flex;gap:12px;flex-wrap:wrap}
 
-/* ===== PROOF / METRICS MODULE ===== */
-.proof-module{position:relative;max-width:1440px;margin:0 auto;padding:40px 32px clamp(72px,14vw,160px);overflow:hidden}
-.proof-heading{display:flex;flex-direction:column;gap:14px;margin-bottom:24px}
-.proof-heading h2{font-size:clamp(32px,4.6vw,64px);line-height:1;letter-spacing:-0.04em;max-width:9ch}
-.proof-chart{width:100%;height:auto;display:block;overflow:visible;color:var(--ink)}
-.proof-chart .proof-node{cursor:pointer;--node-stroke-color:var(--ink);--node-text-color:var(--ink)}
-.proof-chart .proof-node.is-active{--node-stroke-color:#1FAE6E;--node-text-color:var(--mint-text)}
-/* The node is a keyboard-focusable <g> (tabindex+role=button) with a large
-   invisible hit-circle, so the browser's default focus rectangle outlines
-   that whole hit-area, not the visible ring — looks like a stray box.
-   Recolor the ring itself instead, via the same CSS vars .is-active uses. */
-.proof-chart .proof-node:focus{outline:none}
-.proof-chart .proof-node:focus-visible{outline:none;--node-stroke-color:var(--accent);--node-text-color:var(--accent)}
-.proof-chart .proof-node text.proof-stat{font-family:'Caveat',cursive;font-size:104px;font-weight:700}
-.proof-chart .proof-node text.proof-name{font-family:'Caveat',cursive;font-size:40px;font-weight:500;fill:#6B6459}
-.proof-panel{display:flex;flex-direction:column;gap:12px;max-width:420px;margin-top:24px}
-.proof-panel p{margin:0;font-size:clamp(18px,1.7vw,22px);line-height:1.45;letter-spacing:-0.01em;color:var(--ink)}
-.proof-panel .proof-method-label{color:var(--fade)}
-.proof-panel a{font-weight:600;font-size:15px}
-@media (min-width:1080px){
-  .proof-heading{position:absolute;top:40px;left:max(32px,calc((100% - 1136px) / 2));z-index:2;margin-bottom:0}
-  .proof-chart{margin-top:120px}
-  .proof-panel{position:absolute;left:42%;bottom:120px}
-}
+.hero-proof-line{max-width:60ch;font-size:clamp(15px,1.2vw,17px);line-height:1.6;color:var(--ink-faint);margin-top:4px}
+.hero-proof-line strong{font-weight:700}
 
 /* ===== PROJECT FEATURE ROWS (homepage Selected Work / Work.html) ===== */
 .work-list{display:flex;flex-direction:column;gap:140px}
@@ -607,5 +585,5 @@ footer.site-footer .footer-links a{color:var(--ink)}
   .hero{padding-bottom:72px}
 }
 @media (max-width:560px){
-  .wrap,.hero,.work-hero,.about-hero,.about-body,.contact-hero,.contact-body,.case-hero,.case-cover,.craft-3grid,.case-stats,.case-body-wrap,.case-cta,.exp-hero,.exp-list-wrap,.cv-panel-wrap,.proof-module,.think-section{padding-left:20px;padding-right:20px}
+  .wrap,.hero,.work-hero,.about-hero,.about-body,.contact-hero,.contact-body,.case-hero,.case-cover,.craft-3grid,.case-stats,.case-body-wrap,.case-cta,.exp-hero,.exp-list-wrap,.cv-panel-wrap,.think-section{padding-left:20px;padding-right:20px}
 }

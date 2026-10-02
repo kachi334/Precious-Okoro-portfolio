@@ -15,41 +15,6 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
-  // ===== Proof / metrics module (homepage) =====
-  var proofModule = document.querySelector('.proof-module');
-  if (proofModule) {
-    var nodes = proofModule.querySelectorAll('.proof-node');
-    var panel = proofModule.querySelector('.proof-panel');
-    var panelMethod = panel ? panel.querySelector('.proof-method-label') : null;
-    var panelLabel = panel ? panel.querySelector('.proof-label-text') : null;
-    var panelLink = panel ? panel.querySelector('.proof-case-link') : null;
-    var panelLinkName = panelLink ? panelLink.querySelector('.proof-case-name') : null;
-
-    function selectMetric(index) {
-      nodes.forEach(function (node, i) {
-        node.classList.toggle('is-active', i === index);
-      });
-      var data = nodes[index];
-      if (!data) return;
-      var method = data.getAttribute('data-method');
-      var label = data.getAttribute('data-label');
-      var href = data.getAttribute('data-href');
-      var name = data.getAttribute('data-name');
-      if (panelMethod) panelMethod.textContent = method + '… ';
-      if (panelLabel) panelLabel.textContent = label;
-      if (panelLink) panelLink.setAttribute('href', href);
-      if (panelLinkName) panelLinkName.textContent = name;
-    }
-
-    nodes.forEach(function (node, i) {
-      node.addEventListener('click', function () { selectMetric(i); });
-      node.addEventListener('keydown', function (e) {
-        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); selectMetric(i); }
-      });
-    });
-    selectMetric(0);
-  }
-
   // ===== How I Think tabs (homepage) =====
   var thinkSection = document.querySelector('.think-section');
   if (thinkSection) {
