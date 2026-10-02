@@ -454,6 +454,9 @@ mark{background:var(--t-mint-a);color:var(--ink);padding:1px 5px;border-radius:5
 .exp-hero h1{font-size:clamp(32px,4.6vw,64px);line-height:1.08;letter-spacing:-0.03em;max-width:14ch;text-wrap:balance}
 .exp-profile-text{max-width:70ch;font-size:clamp(17px,1.4vw,19px);line-height:1.65;color:var(--ink-soft);margin-top:-8px}
 .exp-profile-text strong{font-weight:700}
+.exp-stat-blobs{display:flex;flex-wrap:wrap;gap:10px;margin-top:-6px}
+.stat-blob{display:flex;align-items:center;gap:8px;font-size:14px;font-weight:500;color:var(--ink-soft);border:1px solid rgba(var(--ink-rgb),0.18);border-radius:999px;padding:8px 16px 8px 12px}
+.stat-blob .dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
 .exp-list-wrap{max-width:1200px;margin:0 auto;padding:0 32px 160px}
 .exp-list{display:flex;flex-direction:column;border-top:1px solid rgba(var(--ink-rgb),0.14)}
 .exp-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:16px 48px;padding:44px 0;border-bottom:1px solid rgba(var(--ink-rgb),0.14)}
@@ -471,13 +474,8 @@ mark{background:var(--t-mint-a);color:var(--ink);padding:1px 5px;border-radius:5
 .exp-points .chk{color:var(--mint-text);font-family:'IBM Plex Mono',monospace;flex-shrink:0}
 /* ===== SELECTED PROJECTS (Experience page) ===== */
 .exp-projects-wrap{max-width:1200px;margin:0 auto;padding:48px 32px 48px;display:flex;flex-direction:column;gap:24px;border-top:1px solid rgba(var(--ink-rgb),0.14)}
+.exp-projects-wrap.no-border{border-top:none;padding-top:0}
 .exp-projects-list{display:flex;flex-direction:column;gap:22px}
-/* ===== SKILLS & TOOLS (Experience page) ===== */
-.exp-skills-wrap{max-width:1200px;margin:0 auto;padding:0 32px 120px;display:flex;flex-direction:column;gap:28px}
-.exp-skills-groups{display:flex;flex-direction:column;gap:22px}
-.exp-skill-group{display:flex;flex-wrap:wrap;align-items:baseline;gap:8px 20px}
-.exp-skill-group-label{flex:0 0 180px;font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:600;letter-spacing:0.5px;color:var(--ink-faint)}
-.exp-skill-tags{display:flex;flex-wrap:wrap;gap:8px;flex:1 1 400px}
 
 /* ===== FRAMEWORKS & METHODS (Experience page) ===== */
 .exp-frameworks-wrap{max-width:1200px;margin:0 auto;padding:48px 32px 140px;display:flex;flex-direction:column;gap:28px;border-top:1px solid rgba(var(--ink-rgb),0.14)}
@@ -562,5 +560,5 @@ footer.site-footer .footer-links a{color:var(--ink)}
   .hero{padding-bottom:72px}
 }
 @media (max-width:560px){
-  .wrap,.hero,.work-hero,.about-hero,.about-body,.contact-hero,.contact-body,.case-hero,.case-cover,.craft-3grid,.case-stats,.case-body-wrap,.case-cta,.exp-hero,.exp-list-wrap,.exp-projects-wrap,.exp-skills-wrap,.exp-frameworks-wrap,.think-section{padding-left:20px;padding-right:20px}
+  .wrap,.hero,.work-hero,.about-hero,.about-body,.contact-hero,.contact-body,.case-hero,.case-cover,.craft-3grid,.case-stats,.case-body-wrap,.case-cta,.exp-hero,.exp-list-wrap,.exp-projects-wrap,.exp-frameworks-wrap,.think-section{padding-left:20px;padding-right:20px}
 }
