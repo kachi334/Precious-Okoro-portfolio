@@ -354,6 +354,14 @@ mark{background:var(--t-mint-a);color:var(--ink);padding:1px 5px;border-radius:5
 .mini-card h3{font-size:20px}
 .mini-card p{margin:0;font-size:16px;line-height:1.7;color:var(--ink-soft)}
 
+/* Per-case accent: each case study's numbered markers pick up its own
+   theme color instead of the generic default, so the whole page reads as
+   one consistent palette (mint for Moniger, amber for FastTrackUX, sky
+   for Payr; Beacon's violet already is the default accent). */
+.case-body-wrap.mint .workflow-row .num,.case-body-wrap.mint .mini-card .num{color:var(--mint-text)}
+.case-body-wrap.amber .workflow-row .num,.case-body-wrap.amber .mini-card .num{color:var(--amber-text)}
+.case-body-wrap.sky .workflow-row .num,.case-body-wrap.sky .mini-card .num{color:var(--sky-text)}
+
 .figure-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:24px}
 .case-figure{margin:0;display:flex;flex-direction:column;gap:12px}
 .case-figure .panel{border-radius:28px;padding:clamp(8px,1.3vw,16px)}
