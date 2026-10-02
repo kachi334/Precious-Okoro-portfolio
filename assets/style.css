@@ -183,6 +183,12 @@ mark{background:var(--t-mint-a);color:var(--ink);padding:1px 5px;border-radius:5
 .proof-chart{width:100%;height:auto;display:block;overflow:visible;color:var(--ink)}
 .proof-chart .proof-node{cursor:pointer;--node-stroke-color:var(--ink);--node-text-color:var(--ink)}
 .proof-chart .proof-node.is-active{--node-stroke-color:#1FAE6E;--node-text-color:var(--mint-text)}
+/* The node is a keyboard-focusable <g> (tabindex+role=button) with a large
+   invisible hit-circle, so the browser's default focus rectangle outlines
+   that whole hit-area, not the visible ring — looks like a stray box.
+   Recolor the ring itself instead, via the same CSS vars .is-active uses. */
+.proof-chart .proof-node:focus{outline:none}
+.proof-chart .proof-node:focus-visible{outline:none;--node-stroke-color:var(--accent);--node-text-color:var(--accent)}
 .proof-chart .proof-node text.proof-stat{font-family:'Caveat',cursive;font-size:104px;font-weight:700}
 .proof-chart .proof-node text.proof-name{font-family:'Caveat',cursive;font-size:40px;font-weight:500;fill:#6B6459}
 .proof-panel{display:flex;flex-direction:column;gap:12px;max-width:420px;margin-top:24px}
