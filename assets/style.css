@@ -480,6 +480,7 @@ mark{background:var(--t-mint-a);color:var(--ink);padding:1px 5px;border-radius:5
 .exp-frameworks-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:32px 40px}
 .exp-edu-item{display:flex;flex-direction:column;gap:4px}
 .exp-edu-item h3{font-size:19px;letter-spacing:-0.01em}
+.exp-project-cat{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.3px;color:var(--ink-faint)}
 .exp-edu-meta{font-size:14px;color:var(--ink-faint)}
 
 /* ===== WORK.HTML HEADER ===== */
