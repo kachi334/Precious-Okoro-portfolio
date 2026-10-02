@@ -496,9 +496,13 @@ mark{background:var(--t-mint-a);color:var(--ink);padding:1px 5px;border-radius:5
 .exp-row-title h2{font-size:clamp(22px,2.2vw,28px);letter-spacing:-0.02em;line-height:1.2}
 .exp-row-title .note{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.5px;text-transform:uppercase;color:var(--ink-faint)}
 .exp-org-pill{align-self:flex-start;font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:600;border-radius:999px;padding:5px 12px}
+.exp-row-sub{font-size:14px;font-style:italic;color:var(--ink-faint);margin-top:-2px}
 .exp-points{list-style:none;margin:6px 0 0;padding:0;display:flex;flex-direction:column;gap:10px;max-width:62ch}
 .exp-points li{display:flex;gap:12px;font-size:17px;line-height:1.65;color:var(--ink-soft);text-wrap:pretty}
 .exp-points .chk{color:var(--mint-text);font-family:'IBM Plex Mono',monospace;flex-shrink:0}
+/* ===== SELECTED PROJECTS (Experience page) ===== */
+.exp-projects-wrap{max-width:1200px;margin:0 auto;padding:48px 32px 48px;display:flex;flex-direction:column;gap:24px;border-top:1px solid rgba(var(--ink-rgb),0.14)}
+.exp-projects-list{display:flex;flex-direction:column;gap:22px}
 /* ===== SKILLS & TOOLS (Experience page) ===== */
 .exp-skills-wrap{max-width:1200px;margin:0 auto;padding:0 32px 120px;display:flex;flex-direction:column;gap:28px}
 .exp-skills-groups{display:flex;flex-direction:column;gap:22px}
@@ -598,5 +602,5 @@ footer.site-footer .footer-links a{color:var(--ink)}
   .hero{padding-bottom:72px}
 }
 @media (max-width:560px){
-  .wrap,.hero,.work-hero,.about-hero,.about-body,.contact-hero,.contact-body,.case-hero,.case-cover,.craft-3grid,.case-stats,.case-body-wrap,.case-cta,.exp-hero,.exp-list-wrap,.exp-skills-wrap,.exp-edu-wrap,.think-section{padding-left:20px;padding-right:20px}
+  .wrap,.hero,.work-hero,.about-hero,.about-body,.contact-hero,.contact-body,.case-hero,.case-cover,.craft-3grid,.case-stats,.case-body-wrap,.case-cta,.exp-hero,.exp-list-wrap,.exp-projects-wrap,.exp-skills-wrap,.exp-edu-wrap,.think-section{padding-left:20px;padding-right:20px}
 }
