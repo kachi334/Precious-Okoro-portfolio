@@ -166,7 +166,8 @@ mark{background:var(--t-mint-a);color:var(--ink);padding:1px 5px;border-radius:5
   .reveal-on-scroll{opacity:1;transform:none;transition:none}
 }
 .hero-sub{max-width:58ch;font-size:clamp(18px,1.6vw,20px);line-height:1.65;color:var(--ink-soft)}
-.availability-badge{display:flex;align-items:center;gap:10px;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.5px;color:var(--mint-text);border:1px solid rgba(14,122,80,0.3);border-radius:999px;padding:7px 14px 7px 12px}
+.availability-badge{display:flex;align-items:center;gap:8px;font-family:'IBM Plex Mono',monospace;font-size:13px;font-weight:600;letter-spacing:0.3px;color:#6FE3A3;background:#0E1F15;border:1px solid rgba(111,227,163,0.35);border-radius:999px;padding:9px 18px 9px 15px}
+.availability-badge .badge-icon{font-size:15px;line-height:1}
 .status-dot{width:7px;height:7px;border-radius:50%;background:#1FAE6E;box-shadow:0 0 0 4px rgba(31,174,110,0.18)}
 .clients-row{display:flex;flex-direction:column;gap:12px}
 .clients-row .clients-label{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:1px;text-transform:uppercase;color:var(--ink-faint)}
