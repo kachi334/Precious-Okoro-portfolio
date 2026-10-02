@@ -177,9 +177,6 @@ mark{background:var(--t-mint-a);color:var(--ink);padding:1px 5px;border-radius:5
 .laurel.right{transform:scaleX(-1)}
 .hero-actions{display:flex;gap:12px;flex-wrap:wrap}
 
-.hero-proof-line{max-width:60ch;font-size:clamp(15px,1.2vw,17px);line-height:1.6;color:var(--ink-faint);margin-top:4px}
-.hero-proof-line strong{font-weight:700}
-
 /* ===== PROJECT FEATURE ROWS (homepage Selected Work / Work.html) ===== */
 .work-list{display:flex;flex-direction:column;gap:140px}
 .project-row{display:flex;flex-wrap:wrap;align-items:center;gap:56px}
