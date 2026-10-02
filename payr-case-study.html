@@ -4,15 +4,15 @@
 <meta charset="UTF-8">
 <script>(function(){try{var t=localStorage.getItem('theme');if(!t){t='dark';}document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Payr Concept: Designing When an AI Agent Earns the Right to Move Your Money · Precious Okoro</title>
+<title>Payr Concept: Designing When an AI Agent Earns the Right to Act · Precious Okoro</title>
 <meta name="description" content="An independent concept project exploring Agent Behavior & Trust and Action Language Design for an AI savings agent that can move money inside limits.">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Payr Concept: Designing When an AI Agent Earns the Right to Move Your Money">
+<meta property="og:title" content="Payr Concept: Designing When an AI Agent Earns the Right to Act">
 <meta property="og:description" content="An independent concept project exploring Agent Behavior & Trust and Action Language Design for an AI savings agent that can move money inside limits.">
 <meta property="og:image" content="images/payr-intro.png">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Payr Concept: Designing When an AI Agent Earns the Right to Move Your Money">
+<meta name="twitter:title" content="Payr Concept: Designing When an AI Agent Earns the Right to Act">
 <meta name="twitter:description" content="An independent concept project exploring Agent Behavior & Trust and Action Language Design for an AI savings agent that can move money inside limits.">
 <meta name="twitter:image" content="images/payr-intro.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -120,7 +120,7 @@
         <span class="eyebrow label-col">The Trust Mechanic</span>
         <div class="body-col">
           <h2>The agent only acts inside a line someone else drew</h2>
-          <p>The resolved mechanic: the agent can only move money without asking if the user has already granted a capped standing permission, something like "auto-save windfalls up to $1,000 once my bills are covered." No standing permission means no autonomous move, no matter how confident the math is.</p>
+          <p>I resolved the mechanic around one rule: the agent can only move money without asking if the user has already granted a capped standing permission, something like "auto-save windfalls up to $1,000 once my bills are covered." No standing permission means no autonomous move, no matter how confident the math is.</p>
           <div class="workflow-list">
             <div class="workflow-row"><span class="num">01</span><p><strong>Within the cap, one clear goal.</strong> $800 is under the $1,000 limit, only Emergency Fund is active → acts, then discloses.</p></div>
             <div class="workflow-row"><span class="num">02</span><p><strong>Within the cap, two eligible goals.</strong> $800 is under the limit, but Emergency Fund and a Lagos trip could both claim it → asks which goal, offers a split.</p></div>
@@ -145,7 +145,7 @@
         <span class="eyebrow label-col">The Voice System</span>
         <div class="body-col">
           <h2>Voice had to carry the boundary, not just the brand</h2>
-          <p>The persona is warm, plain-spoken and accountable: a friend who is good with money and has access to your account, not a mascot and not a compliance notice. Three response states carry the voice day to day, with a fourth reserved for anything serious, overdraft risk, suspected fraud, where casualness drops entirely:</p>
+          <p>I designed the persona to be warm, plain-spoken and accountable: a friend who is good with money and has access to your account, not a mascot and not a compliance notice. Three response states carry the voice day to day, with a fourth reserved for anything serious, overdraft risk, suspected fraud, where casualness drops entirely:</p>
           <ul class="level-list">
             <li><span class="dot">●</span><span><strong>Confident.</strong> "Hey Precious, I moved $800 into your Emergency Fund. You told me I could auto-save up to $1,000 from extra deposits once your bills are covered. This was under that limit. Undo it in one tap if this is wrong, and tell me so I do better next time."</span></li>
             <li><span class="dot">●</span><span><strong>Uncertain.</strong> "Hey Precious, you have $800 left after your bills. It could go to Emergency Fund or your Lagos trip. I don't know which matters more right now. I can split it, send more to Emergency Fund, or send it all to Lagos."</span></li>
@@ -202,7 +202,7 @@
       <span class="eyebrow label-col">The System Prompt</span>
       <div class="body-col">
         <h2>The system prompt turned the voice into enforceable logic</h2>
-        <p>Eight sections, each locking down one part of the behavior. Written as conditions where possible, the same way guardrail triggers get written, not as prose the model has to interpret freshly every time.</p>
+        <p>I wrote eight sections, each locking down one part of the behavior, as conditions where possible, the same way guardrail triggers get written, not as prose the model has to interpret freshly every time.</p>
         <div class="workflow-list">
           <div class="workflow-row"><span class="num">01</span><p><strong>Identity &amp; persona.</strong> Voice rules, greeting logic, the serious-situation register.</p></div>
           <div class="workflow-row"><span class="num">02</span><p><strong>Scope &amp; authority.</strong> Which accounts, which permission, the cap as a hard variable.</p></div>
@@ -242,7 +242,7 @@
         <span class="eyebrow label-col">Stress-Testing the Design</span>
         <div class="body-col">
           <h2>Mapping untested triggers caught a real bug in the design</h2>
-          <p>The guardrail spec has ten rows: things the agent must never do, and the exact triggers for human handoff. Three of those triggers, fraud, an explicit request for a human, and a repeated undo, had no scripted flow behind them. Instead of writing three more conversations, the four existing flows were checked for whether they could compose to cover the gap. Two composed cleanly. The third exposed a mistake.</p>
+          <p>The guardrail spec has ten rows: things the agent must never do, and the exact triggers for human handoff. Three of those triggers, fraud, an explicit request for a human, and a repeated undo, had no scripted flow behind them. Instead of writing three more conversations, I checked whether the four existing flows could compose to cover the gap. Two composed cleanly. The third exposed a mistake.</p>
           <div class="mini-card" style="background:var(--t-amber-a)">
             <span class="num" style="color:var(--amber-text)">Bug Found</span>
             <p style="color:var(--ink)">Section 06 originally sent a repeated undo, the same auto-save pattern reversed twice, to human escalation. Mapping it against the error-recovery flow's own shape showed that was overreach: the agent can turn that permission off and ask the user to reset it directly, with no human needed. It moved to section 07 instead, and the hard-fail list below changed with it.</p>
