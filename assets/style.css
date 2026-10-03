@@ -568,7 +568,7 @@ footer.site-footer .footer-links a{color:var(--ink)}
 /* ===== RESPONSIVE ===== */
 @media (max-width:860px){
   .project-row,.project-row.reverse{flex-direction:column}
-  .project-row-media{width:100%}
+  .project-row-media{width:100%;flex-basis:auto}
   .contact-hero .heading-col{grid-column:span 1}
   .about-hero{grid-template-columns:1fr}
   .about-portrait{justify-self:start}
