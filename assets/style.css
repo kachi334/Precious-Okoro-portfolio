@@ -99,7 +99,8 @@ section{padding-bottom:clamp(72px,14vw,160px)}
 /* ===== NAV ===== */
 header.nav{position:sticky;top:0;z-index:10;background:rgba(var(--paper-rgb),0.88);backdrop-filter:blur(12px)}
 .nav-inner{max-width:1200px;margin:0 auto;padding:20px 32px;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
-.wordmark{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:17px;color:var(--ink);letter-spacing:-0.01em}
+.wordmark{display:inline-flex;align-items:center;gap:10px;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:17px;color:var(--ink);letter-spacing:-0.01em}
+.wordmark img{width:30px;height:30px;flex-shrink:0}
 .nav .links{display:flex;align-items:center;gap:28px;flex-wrap:wrap;font-size:14.5px;font-weight:500}
 .nav .links > a{color:var(--ink-soft);transition:color .15s ease}
 .nav .links > a:not(.nav-cta):hover{color:var(--ink)}
