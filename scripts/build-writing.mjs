@@ -1,4 +1,4 @@
-import {readFile, writeFile} from 'node:fs/promises'
+import {readFile, writeFile, cp, mkdir, rm, readdir} from 'node:fs/promises'
 import path from 'node:path'
 import {fileURLToPath} from 'node:url'
 
@@ -277,4 +277,23 @@ async function main() {
   console.log(`[writing] built ${sanityEntries.length} Sanity post(s), index has ${entries.length} entries`)
 }
 
-main()
+const PUBLISHED_DIRS = ['assets', 'images', 'writing']
+const PUBLISHED_FILES = ['sitemap.xml', 'robots.txt', 'llms.txt']
+
+async function publish() {
+  const out = path.join(ROOT, 'public')
+  await rm(out, {recursive: true, force: true})
+  await mkdir(out, {recursive: true})
+  for (const file of (await readdir(ROOT)).filter((f) => f.endsWith('.html') || PUBLISHED_FILES.includes(f))) {
+    await cp(path.join(ROOT, file), path.join(out, file))
+  }
+  for (const dir of PUBLISHED_DIRS) {
+    await cp(path.join(ROOT, dir), path.join(out, dir), {
+      recursive: true,
+      filter: (src) => !src.endsWith('legacy.json'),
+    })
+  }
+}
+
+await main()
+await publish()
