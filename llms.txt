@@ -1,0 +1,24 @@
+# Precious Okoro
+
+> Precious Okoro is a senior content designer and conversation designer. She builds the language infrastructure behind products: content systems, knowledge bases, UX writing, and the conversation and trust design behind AI agents. Her work spans fintech, SaaS, edtech, and intelligent systems.
+
+## Case studies
+
+- [Moniger: content system for a multi-bank fintech app](https://www.preciousokoro.site/moniger): a content-first system that lifted conversions 25% and reduced onboarding drop-off 8%.
+- [FastTrackUX: research-led content for two audiences](https://www.preciousokoro.site/fasttrackux): student logins nearly doubled after a single shared hero.
+- [Beacon: a single incident taxonomy for engineering teams](https://www.preciousokoro.site/beacon): misclassification dropped 62% after consolidating severity labels.
+- [Payr: a concept for AI agent trust and action language](https://www.preciousokoro.site/payr-case-study): a conversation and trust design project for an AI savings agent.
+
+## Writing
+
+- [Writing index](https://www.preciousokoro.site/writing)
+- [AI Agent Trust Is a Content Design Problem](https://www.preciousokoro.site/writing/ai-agent-trust-is-a-content-design-problem)
+- [Agent Experience Starts With Content Design](https://www.preciousokoro.site/writing/agent-experience-starts-with-content-design)
+- [Confidence Calibration: The AI Design Problem No One Is Talking About](https://www.preciousokoro.site/writing/confidence-calibration-the-ai-design-problem-no-one-is-talking-about)
+
+## About
+
+- [Projects](https://www.preciousokoro.site/work)
+- [CV](https://www.preciousokoro.site/cv)
+- [About](https://www.preciousokoro.site/about)
+- [Contact](https://www.preciousokoro.site/contact)
