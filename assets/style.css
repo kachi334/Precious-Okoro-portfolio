@@ -411,7 +411,9 @@ mark{background:var(--t-mint-a);color:var(--ink);padding:1px 5px;border-radius:5
 .journey-panel-head{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
 .journey-panel-head .label{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:1px;text-transform:uppercase;color:var(--mint-text)}
 .journey-panel-head .note{font-family:'Caveat',cursive;font-size:24px;color:var(--mint-text);transform:rotate(-2deg)}
-.journey-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr));gap:14px}
+.journey-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));align-items:start;gap:14px}
+@media (max-width:900px){.journey-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:560px){.journey-grid{grid-template-columns:1fr}}
 .journey-step{display:flex;flex-direction:column;gap:10px}
 .journey-step-head{display:flex;align-items:center;gap:10px}
 .journey-step-head .num{width:28px;height:28px;border-radius:50%;background:#1FAE6E;color:#17130E;font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:600;display:flex;align-items:center;justify-content:center;flex-shrink:0}
