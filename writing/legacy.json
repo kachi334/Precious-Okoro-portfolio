@@ -1,0 +1,51 @@
+[
+  {
+    "slug": "ai-agent-trust-is-a-content-design-problem",
+    "date": "Aug 25, 2026",
+    "iso": "2026-08-25",
+    "title": "AI Agent Trust Is a Content Design Problem",
+    "summary": "Six emerging trust patterns for AI agents, and the writing decisions that make them work."
+  },
+  {
+    "slug": "why-i-stopped-calling-myself-a-content-designer",
+    "date": "Aug 11, 2026",
+    "iso": "2026-08-11",
+    "title": "Why I Stopped Calling Myself a Content Designer",
+    "summary": "I stayed in a job longer than I should have."
+  },
+  {
+    "slug": "trust-design-how-ai-should-communicate-confidence-uncertainty-and-limits",
+    "date": "Jul 31, 2026",
+    "iso": "2026-07-31",
+    "title": "Trust Design: How AI Should Communicate Confidence, Uncertainty, and Limits",
+    "summary": "That decision affects far more than the UI. It shapes whether people trust what comes next. The default move is to reach for a percentage."
+  },
+  {
+    "slug": "content-design-isnt-dying-it-s-being-promoted-into-ai-experience-strategy",
+    "date": "Jul 20, 2026",
+    "iso": "2026-07-20",
+    "title": "Content Design Isn’t Dying. It’s Being Promoted Into AI Experience Strategy",
+    "summary": "In the autumn of 2022, a man named Jake Moffatt booked a flight to attend his grandmother’s funeral."
+  },
+  {
+    "slug": "youve-already-done-80-of-agentic-content-design-here-s-the-other-20",
+    "date": "Jul 17, 2026",
+    "iso": "2026-07-17",
+    "title": "You’ve Already Done 80% of Agentic Content Design. Here’s the Other 20%",
+    "summary": "I’m building a tool right now that turns my editorial standards into software. It reviews writing against my rules before the writing ships."
+  },
+  {
+    "slug": "agent-experience-starts-with-content-design",
+    "date": "Jul 17, 2026",
+    "iso": "2026-07-17",
+    "title": "Agent Experience Starts With Content Design",
+    "summary": "Why designing how AI communicates, behaves, and earns trust may become content design's most important responsibility."
+  },
+  {
+    "slug": "confidence-calibration-the-ai-design-problem-no-one-is-talking-about",
+    "date": "Feb 23, 2026",
+    "iso": "2026-02-23",
+    "title": "Confidence Calibration: The AI Design Problem No One Is Talking About",
+    "summary": "On the gap between how confident AI systems sound and how often they're actually right, and what that means for content and UX design."
+  }
+]
