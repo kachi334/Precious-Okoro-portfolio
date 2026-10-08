@@ -108,6 +108,7 @@ const NAV = `<header class="nav">
       <a href="/about">About</a>
       <a href="/cv">CV</a>
       <a href="/writing" class="active" aria-current="page">Writing</a>
+      <a href="/features">Features</a>
       <a href="/contact" class="nav-cta">Work Together</a>
       <button class="theme-toggle" type="button" aria-label="Switch to dark theme">
         <svg class="icon-sun" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M14 9.5A6 6 0 1 1 6.5 2 4.8 4.8 0 0 0 14 9.5Z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/></svg>
@@ -263,7 +264,7 @@ async function main() {
 
   await writeFile(path.join(ROOT, 'writing.html'), indexPage(entries))
 
-  const staticPages = ['/', '/work', '/about', '/cv', '/contact', '/writing', '/moniger', '/fasttrackux', '/beacon', '/payr-case-study']
+  const staticPages = ['/', '/work', '/about', '/cv', '/contact', '/writing', '/features', '/moniger', '/fasttrackux', '/beacon', '/payr-case-study']
   const writingPages = entries.map((e) => `/writing/${e.slug}`)
   const today = new Date().toISOString().slice(0, 10)
   const urls = [...staticPages, ...writingPages]
