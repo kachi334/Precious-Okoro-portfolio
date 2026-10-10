@@ -462,6 +462,15 @@ mark{background:var(--t-mint-a);color:var(--ink);padding:1px 5px;border-radius:5
 .about-hero h1{font-size:clamp(30px,3.6vw,56px);line-height:1.1;letter-spacing:-0.03em;max-width:17ch;text-wrap:balance}
 .about-portrait{justify-self:end;width:100%;height:100%}
 .about-portrait img{width:100%;height:100%;aspect-ratio:4/5;object-fit:cover;border-radius:20px}
+
+/* ===== ABOUT PORTRAIT SLIDESHOW ===== */
+.about-slideshow{position:relative}
+.about-slideshow img{position:absolute;inset:0;opacity:0;transition:opacity 1s ease}
+.about-slideshow img.is-active{position:relative;opacity:1}
+.slideshow-dots{position:absolute;left:0;right:0;bottom:16px;display:flex;justify-content:center;gap:8px;z-index:2}
+.slideshow-dots button{width:8px;height:8px;padding:0;border-radius:50%;border:none;background:rgba(250,246,237,0.45);cursor:pointer;transition:background .2s ease,transform .2s ease}
+.slideshow-dots button.is-active{background:#FAF6ED;transform:scale(1.3)}
+.slideshow-dots button:hover{background:#FAF6ED}
 /* A single stacked column, always: the aside reads as a card beneath the
    paragraphs, never as a sidebar beside them (a wide-enough auto-fit grid
    used to leave room for it on the same row as the text). */
