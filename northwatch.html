@@ -15,11 +15,11 @@
 <meta property="og:type" content="article">
 <meta property="og:title" content="Northwatch Concept: Designing When an AI Security Copilot Earns the Right to Act">
 <meta property="og:description" content="An independent concept project exploring Agent Behavior & Trust and incident severity language for an AI security copilot that can act on live threats inside a SOC.">
-<meta property="og:image" content="https://www.preciousokoro.site/images/precious-headshot.jpg">
+<meta property="og:image" content="https://www.preciousokoro.site/images/northwatch-cover.png">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Northwatch Concept: Designing When an AI Security Copilot Earns the Right to Act">
 <meta name="twitter:description" content="An independent concept project exploring Agent Behavior & Trust and incident severity language for an AI security copilot that can act on live threats inside a SOC.">
-<meta name="twitter:image" content="https://www.preciousokoro.site/images/precious-headshot.jpg">
+<meta name="twitter:image" content="https://www.preciousokoro.site/images/northwatch-cover.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..600;1,9..144,400..600&family=Manrope:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&family=IBM+Plex+Mono:wght@400;500;600&family=Caveat:wght@500;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/style.css">
@@ -82,6 +82,12 @@
           <span class="framework-pill" style="background:var(--t-ember-a);color:var(--ember-text)">Hard-Fail Rubric</span>
         </div>
       </div>
+    </div>
+  </section>
+
+  <section class="case-cover">
+    <div class="case-cover-panel ember">
+      <img src="images/northwatch-cover.png" alt="Northwatch alert panel showing a confident-state alert: a blocked credential-stuffing login, 94% confidence, Tier 2 asset, with an undo action">
     </div>
   </section>
 
@@ -152,6 +158,14 @@
           <p style="font-weight:600;color:var(--ink)">Confidence decided how sure the model was. Asset tier decided whether that confidence was ever actually its call to make.</p>
         </div>
       </div>
+      <div class="figure-grid" style="grid-template-columns:1fr;max-width:900px;margin:0 auto">
+        <figure class="case-figure">
+          <div class="panel ember">
+            <img src="images/northwatch-tiermap.png" alt="Northwatch tier map panel showing Tier 0, Tier 1, and Tier 2 assets, each with its own authority level">
+          </div>
+          <figcaption>The tier map lives in the asset inventory, not in the model's judgment, the actual authority boundary the rest of the system is built around.</figcaption>
+        </figure>
+      </div>
     </section>
 
     <section class="case-section stack56">
@@ -182,19 +196,35 @@
       </div>
     </section>
 
-    <section class="case-section">
-      <span class="eyebrow label-col">The Alert Flows</span>
-      <div class="body-col">
-        <h2>Five flows, each one testing a different edge of the authority model</h2>
-        <p>Five alerts do the real work, and together they cover every state the voice system defines:</p>
-        <ul class="level-list">
-          <li><span class="dot">●</span><span><strong>Clean match, Tier 2.</strong> Credential-stuffing signature, high confidence, low-tier account. The copilot blocks the IP and discloses it plainly, undo included.</span></li>
-          <li><span class="dot">●</span><span><strong>Contain and ask, Tier 1.</strong> Phishing-triggered malware on an employee laptop. The copilot isolates the device but asks before touching anything that looks like forensic evidence.</span></li>
-          <li><span class="dot">●</span><span><strong>Escalate only, Tier 0.</strong> Lateral movement toward a domain controller. Even at high confidence, this is a hard stop, and the copilot says so instead of guessing.</span></li>
-          <li><span class="dot">●</span><span><strong>Gets it wrong, recovers.</strong> A false positive on a legitimate batch job forces a reversal, owned in one line, with the signature correction stated.</span></li>
-          <li><span class="dot">●</span><span><strong>Genuine uncertainty.</strong> An access pattern with no clean signature either way. The copilot states exactly what it knows and doesn't know, and hands the judgment call to Dara instead of guessing in either direction.</span></li>
-        </ul>
-        <p style="font-weight:600;color:var(--ink)">The fourth flow mattered most. A copilot that can't be shown recovering from its own mistake hasn't actually earned any trust yet.</p>
+    <section class="case-section stack56">
+      <div class="case-section" style="gap:20px 64px">
+        <span class="eyebrow label-col">The Alert Flows</span>
+        <div class="body-col">
+          <h2>Five flows, each one testing a different edge of the authority model</h2>
+          <p>Five alerts do the real work, and together they cover every state the voice system defines:</p>
+          <ul class="level-list">
+            <li><span class="dot">●</span><span><strong>Clean match, Tier 2.</strong> Credential-stuffing signature, high confidence, low-tier account. The copilot blocks the IP and discloses it plainly, undo included.</span></li>
+            <li><span class="dot">●</span><span><strong>Contain and ask, Tier 1.</strong> Phishing-triggered malware on an employee laptop. The copilot isolates the device but asks before touching anything that looks like forensic evidence.</span></li>
+            <li><span class="dot">●</span><span><strong>Escalate only, Tier 0.</strong> Lateral movement toward a domain controller. Even at high confidence, this is a hard stop, and the copilot says so instead of guessing.</span></li>
+            <li><span class="dot">●</span><span><strong>Gets it wrong, recovers.</strong> A false positive on a legitimate batch job forces a reversal, owned in one line, with the signature correction stated.</span></li>
+            <li><span class="dot">●</span><span><strong>Genuine uncertainty.</strong> An access pattern with no clean signature either way. The copilot states exactly what it knows and doesn't know, and hands the judgment call to Dara instead of guessing in either direction.</span></li>
+          </ul>
+          <p style="font-weight:600;color:var(--ink)">The fourth flow mattered most. A copilot that can't be shown recovering from its own mistake hasn't actually earned any trust yet.</p>
+        </div>
+      </div>
+      <div class="figure-grid">
+        <figure class="case-figure">
+          <div class="panel ember">
+            <img src="images/northwatch-contain-ask.png" alt="Northwatch alert panel showing a contained laptop, asking the analyst whether to quarantine a file or hold it for forensics">
+          </div>
+          <figcaption>The contain-and-ask flow, isolating what's reversible and asking before anything that could destroy evidence.</figcaption>
+        </figure>
+        <figure class="case-figure">
+          <div class="panel ember">
+            <img src="images/northwatch-uncertain.png" alt="Northwatch alert panel showing a genuinely uncertain access pattern, stating what it knows and doesn't know and asking Dara to confirm">
+          </div>
+          <figcaption>The uncertainty flow, naming the ambiguity directly instead of guessing in either direction.</figcaption>
+        </figure>
       </div>
     </section>
 
@@ -248,6 +278,14 @@
           </div>
           <p style="font-weight:600;color:var(--ink)">The mapping exercise was not just documentation. It is what found the bug.</p>
         </div>
+      </div>
+      <div class="figure-grid" style="grid-template-columns:1fr;max-width:900px;margin:0 auto">
+        <figure class="case-figure">
+          <div class="panel ember">
+            <img src="images/northwatch-correction.png" alt="Northwatch activity log showing a correction: a server isolated by mistake, then restored, with the signature tuned afterward">
+          </div>
+          <figcaption>The correction flow, shown as an activity log entry rather than a chat bubble: real systems log a correction, they don't just apologize mid-conversation.</figcaption>
+        </figure>
       </div>
     </section>
 
