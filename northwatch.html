@@ -121,6 +121,20 @@
         <div class="mini-card"><span class="num">Build</span><p>Built the system prompt and the guardrail spec as one locked pair, not two documents that could quietly drift apart.</p></div>
         <div class="mini-card"><span class="num">Pressure-test</span><p>Mapped every guardrail trigger against the five flows to see what broke before a real analyst would find it.</p></div>
       </div>
+      <div class="figure-grid">
+        <figure class="case-figure">
+          <div class="panel neutral">
+            <img src="images/northwatch-miro-taxonomy.png" alt="Miro board sorting raw alert types into the three asset tiers and an uncertain cluster for signatures with no clean match">
+          </div>
+          <figcaption>Map: sorting raw alert types into the tier map during the first workshop pass.</figcaption>
+        </figure>
+        <figure class="case-figure">
+          <div class="panel neutral">
+            <img src="images/northwatch-miro-decision-logic.png" alt="Miro board flowcharting the authority decision logic from confidence and signature verification down to the three tier outcomes">
+          </div>
+          <figcaption>Draft and build: the decision logic that became section 04 of the system prompt.</figcaption>
+        </figure>
+      </div>
     </section>
 
     <section class="case-section stack56">
@@ -279,7 +293,13 @@
           <p style="font-weight:600;color:var(--ink)">The mapping exercise was not just documentation. It is what found the bug.</p>
         </div>
       </div>
-      <div class="figure-grid" style="grid-template-columns:1fr;max-width:900px;margin:0 auto">
+      <div class="figure-grid">
+        <figure class="case-figure">
+          <div class="panel neutral">
+            <img src="images/northwatch-miro-stress-matrix.png" alt="Miro board matrix mapping all nine guardrail rows against the five alert flows, with one cell flagged for moving after the stress test">
+          </div>
+          <figcaption>Pressure-test: the matrix that mapped guardrails against flows and surfaced the gap.</figcaption>
+        </figure>
         <figure class="case-figure">
           <div class="panel ember">
             <img src="images/northwatch-correction.png" alt="Northwatch activity log showing a correction: a server isolated by mistake, then restored, with the signature tuned afterward">
