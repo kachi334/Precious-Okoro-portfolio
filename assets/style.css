@@ -457,7 +457,7 @@ mark{background:var(--t-mint-a);color:var(--ink);padding:1px 5px;border-radius:5
 .offer-card{border-radius:32px;padding:clamp(28px,3.5vw,44px);display:flex;flex-direction:column;gap:20px}
 .offer-card.sky{background:linear-gradient(160deg,var(--t-sky-a) 0%,var(--t-sky-b) 100%);box-shadow:0 30px 70px -45px rgba(63,160,224,0.4)}
 .offer-card.violet{background:linear-gradient(160deg,var(--t-violet-a) 0%,var(--t-violet-b) 100%);box-shadow:0 30px 70px -45px rgba(107,79,214,0.4)}
-.offer-card .offer-badge{font-family:'IBM Plex Mono',monospace;font-size:11.5px;font-weight:600;letter-spacing:1px;text-transform:uppercase;padding:6px 14px;border-radius:999px;background:rgba(255,255,255,0.55);align-self:flex-start}
+.offer-card .offer-badge{font-family:'IBM Plex Mono',monospace;font-size:11.5px;font-weight:600;letter-spacing:1px;text-transform:uppercase;padding:6px 14px;border-radius:999px;background:var(--surface);align-self:flex-start}
 .offer-card.sky .offer-badge{color:var(--sky-text)}
 .offer-card.violet .offer-badge{color:var(--accent-strong)}
 .offer-card h3{font-size:26px;letter-spacing:-0.02em;margin:0}
