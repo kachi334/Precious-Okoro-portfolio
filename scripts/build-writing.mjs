@@ -271,7 +271,7 @@ async function main() {
 
   await writeFile(path.join(ROOT, 'writing.html'), indexPage(entries))
 
-  const staticPages = ['/', '/work', '/about', '/cv', '/contact', '/writing', '/features', '/moniger', '/fasttrackux', '/beacon', '/payr-case-study', '/northwatch']
+  const staticPages = ['/', '/work', '/about', '/cv', '/contact', '/writing', '/features', '/moniger', '/fasttrackux', '/beacon', '/payr-case-study', '/northwatch', '/mentorship']
   const writingPages = entries.map((e) => `/writing/${e.slug}`)
   const today = new Date().toISOString().slice(0, 10)
   const urls = [...staticPages, ...writingPages]
