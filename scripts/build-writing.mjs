@@ -143,6 +143,30 @@ function postPage(post, bodyHtml, date, image) {
   const t = esc(post.title)
   const d = esc(post.summary || '')
   const ogImage = image || `${BASE}/images/precious-headshot.jpg`
+  const iso = post.publishedAt.slice(0, 10)
+  const jsonLd = JSON.stringify(
+    {
+      '@context': 'https://schema.org',
+      '@type': 'BlogPosting',
+      '@id': `${url}#blogposting`,
+      url,
+      headline: post.title,
+      description: post.summary || '',
+      image: ogImage,
+      datePublished: iso,
+      dateModified: iso,
+      author: {
+        '@type': 'Person',
+        '@id': `${BASE}/#person`,
+        name: 'Precious Okoro',
+        url: `${BASE}/`,
+      },
+      publisher: {'@id': `${BASE}/#person`},
+      mainEntityOfPage: url,
+    },
+    null,
+    2
+  )
   return `<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -162,6 +186,9 @@ ${ICONS}
 <meta name="twitter:title" content="${t}">
 <meta name="twitter:description" content="${d}">
 <meta name="twitter:image" content="${esc(ogImage)}">
+<script type="application/ld+json">
+${jsonLd}
+</script>
 ${FONTS}
 </head>
 <body>

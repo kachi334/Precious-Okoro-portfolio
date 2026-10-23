@@ -330,7 +330,7 @@ mark{background:var(--t-mint-a);color:var(--ink);padding:1px 5px;border-radius:5
 .craft-3grid{max-width:1200px;margin:0 auto;padding:0 32px 120px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:40px 56px}
 .craft-3grid .craft-item{display:flex;flex-direction:column;gap:12px;padding-top:24px;border-top:2px solid var(--accent)}
 .craft-3grid .craft-item .num{font-family:'IBM Plex Mono',monospace;font-size:13px;color:var(--accent)}
-.craft-3grid .craft-item h3{font-size:21px}
+.craft-3grid .craft-item h2{font-size:21px}
 .craft-3grid .craft-item p{margin:0;font-size:15.5px;line-height:1.7;color:var(--ink-soft)}
 
 .case-stats{max-width:1200px;margin:0 auto;padding:0 32px 140px}
