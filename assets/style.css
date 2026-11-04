@@ -467,6 +467,9 @@ mark{background:var(--t-mint-a);color:var(--ink);padding:1px 5px;border-radius:5
 .engagement-card.mint .idx,.engagement-card.mint .cat{color:var(--mint-text)}
 .engagement-card.amber{background:linear-gradient(160deg,var(--t-amber-a) 0%,var(--t-amber-b) 100%);box-shadow:0 30px 70px -45px rgba(214,154,26,0.4)}
 .engagement-card.amber .idx,.engagement-card.amber .cat{color:var(--amber-text)}
+.engagement-card.violet{background:linear-gradient(160deg,var(--t-violet-a) 0%,var(--t-violet-b) 100%);box-shadow:0 30px 70px -45px rgba(107,79,214,0.4)}
+.engagement-card.violet .idx,.engagement-card.violet .cat{color:var(--accent)}
+a.engagement-card{color:inherit;text-decoration:none}
 
 /* ===== ABOUT ===== */
 /* Image sits beside the heading (not below it) at any width ≥ the 860px

@@ -21,6 +21,10 @@
 - [Agent Experience Starts With Content Design](https://www.preciousokoro.site/writing/agent-experience-starts-with-content-design)
 - [Confidence Calibration: The AI Design Problem No One Is Talking About](https://www.preciousokoro.site/writing/confidence-calibration-the-ai-design-problem-no-one-is-talking-about)
 
+## Content Writing
+
+- [Content writing samples](https://www.preciousokoro.site/content-writing): blog posts, guest bylines, and long-form articles across fintech, SaaS, edtech, and AI.
+
 ## About
 
 - [Projects](https://www.preciousokoro.site/work)
