@@ -90,14 +90,13 @@
       <div>
         <span class="label eyebrow">Skills Applied</span>
         <div class="tag-row">
-          <span class="tag-pill">Content Design</span><span class="tag-pill">UX Writing</span><span class="tag-pill">Crisis Communication</span><span class="tag-pill">Comprehension Testing</span>
+          <span class="tag-pill">Content Design</span><span class="tag-pill">UX Writing</span><span class="tag-pill">Crisis Communication</span>
         </div>
       </div>
       <div>
         <span class="label eyebrow">Frameworks Applied</span>
         <div class="tag-row">
           <span class="framework-pill" style="background:var(--t-violet-chip);color:var(--accent-strong)">Content System Architecture</span>
-          <span class="framework-pill" style="background:var(--t-violet-chip);color:var(--accent-strong)">Verb Comprehension Testing</span>
           <span class="framework-pill" style="background:var(--t-violet-chip);color:var(--accent-strong)">Single Severity Hierarchy</span>
           <span class="framework-pill" style="background:var(--t-violet-chip);color:var(--accent-strong)">50-Word Notification Cap</span>
           <span class="framework-pill" style="background:var(--t-violet-chip);color:var(--accent-strong)">Guidance-Not-Scolding Principle</span>
@@ -113,17 +112,9 @@
   </section>
 
   <section class="craft-3grid">
-    <div class="craft-item"><span class="num">01</span><h2>Design Problem</h2><p>Fifteen inconsistent severity labels and corporate-speak were slowing P0 response by 40% and triggering real anxiety in on-call engineers.</p></div>
+    <div class="craft-item"><span class="num">01</span><h2>Design Problem</h2><p>Fifteen inconsistent severity labels and corporate-speak were slowing P0 response and triggering real anxiety in on-call engineers.</p></div>
     <div class="craft-item"><span class="num">02</span><h2>My Role</h2><p>Solo concept work: content design across the full incident journey, from severity taxonomy to crisis microcopy to post-mortem.</p></div>
     <div class="craft-item"><span class="num">03</span><h2>What I Designed</h2><p>A content system for incident response: a tested severity hierarchy, a verb protocol for high-pressure actions, a 50-word notification limit, and scripted copy for every failure state, governed by one principle instead of fifteen.</p></div>
-  </section>
-
-  <section class="case-stats">
-    <div class="case-stats-grid">
-      <div class="stat"><span class="num">94%</span><span class="label">Comprehension on the winning button label</span></div>
-      <div class="stat"><span class="num">40%</span><span class="label">Faster severity identification</span></div>
-      <div class="stat"><span class="num">62%</span><span class="label">Drop in severity misclassification</span></div>
-    </div>
   </section>
 
   <div class="case-body-wrap">
@@ -133,20 +124,12 @@
         <span class="eyebrow label-col">The Problem</span>
         <div class="body-col">
           <h2>Fifteen ways to say the same thing</h2>
-          <p>Beacon is an incident management platform built for IT operations teams responding to critical system outages. Research going into the redesign found engineers resolving P0 incidents <mark style="background:var(--t-violet-chip)">40% slower than they should</mark>, weighed down by corporate-speak and inconsistent severity labels.</p>
-          <p>Nearly three in four on-call engineers reported real anxiety triggered by the product's own alert notifications. New hires needed two to three weeks just to learn the interface, and executives could not translate technical alerts into business impact without someone walking them through it.</p>
+          <p>Beacon is an incident management platform built for IT operations teams responding to critical system outages. The fifteen severity labels in active use meant an engineer had to mentally translate a label before they could act on it, <mark style="background:var(--t-violet-chip)">slowing P0 response exactly when seconds mattered</mark>.</p>
+          <p>An on-call engineer already under pressure shouldn't have to decode their own tools on top of it. A new hire has to learn fifteen inconsistent labels before they can trust what an alert is actually telling them, and an executive reading the same alert has no way to translate it into business impact without someone translating it for them.</p>
         </div>
       </div>
-      <figure class="case-figure"><div class="panel" style="background:var(--surface);padding:clamp(16px,3vw,40px);border-radius:32px"><img src="images/beacon-research-insights.png" alt="Research findings showing the top five user pain points for Beacon, including context switching overload and communication friction"></div><figcaption>Stakeholder interview findings that shaped the brief</figcaption></figure>
+      <figure class="case-figure"><div class="panel" style="background:var(--surface);padding:clamp(16px,3vw,40px);border-radius:32px"><img src="images/beacon-research-insights.png" alt="A pain-point map sketched during the concept's early framing, including context switching overload and communication friction"></div><figcaption>Mapping the pain points that shaped the brief</figcaption></figure>
       <figure class="case-figure"><div class="panel" style="background:var(--surface);padding:clamp(16px,3vw,40px);border-radius:32px"><img src="images/beacon-miro-severity-taxonomy.png" alt="Miro board sorting fifteen raw severity labels into a single P0 through P3 hierarchy"></div><figcaption>Four teams, four different severity vocabularies, sorted into one hierarchy</figcaption></figure>
-    </section>
-
-    <section class="case-section">
-      <span class="label-col"></span>
-      <figure class="case-quote-card dark body-col" style="max-width:68ch">
-        <blockquote>&ldquo;When I get paged at 3 AM, I shouldn't have to decode what the tool is telling me. I need to know what's broken and what to do next.&rdquo;</blockquote>
-        <figcaption>Senior SRE, Series B Startup</figcaption>
-      </figure>
     </section>
 
     <section class="case-section stack56">
@@ -171,7 +154,7 @@
         </figure>
       </div>
       <div class="mini-card-grid">
-        <div class="mini-card"><span class="num">01</span><h3>Test the Verb, Not the Guess</h3><p>"Acknowledge" beat "Accept" and "I'm on it" in comprehension testing at 94%, against 68 to 71% for the alternatives.</p></div>
+        <div class="mini-card"><span class="num">01</span><h3>Test the Verb, Not the Guess</h3><p>"Acknowledge" was the clearest of three candidates in how it reads under pressure: direct, unambiguous, and easy to act on without a second read.</p></div>
         <div class="mini-card"><span class="num">02</span><h3>Make Severity Legible at a Glance</h3><p>A single "P0 - Critical" style hierarchy replaced fifteen inconsistent severity labels.</p></div>
         <div class="mini-card"><span class="num">03</span><h3>Enforce a Word Limit</h3><p>Every system notification was capped at 50 words. During a live outage, engineers do not have time to read. They have time to scan.</p></div>
       </div>
@@ -180,14 +163,14 @@
         <div class="body-col">
           <p>Two other verbs did not make it. "Accept" read as agreement, not action, so engineers hesitated over what accepting an incident actually committed them to. "I'm on it" felt reassuring but vague under pressure, the kind of phrase that sounds fine until someone needs to know whether help is actually coming. Only "Acknowledge" tested clearly across both meanings, so it's the one the rest of the system is built around.</p>
           <div class="verb-test-grid">
-            <div class="verb-test-card"><span class="word">"Accept"</span><span class="pct">68%</span><span class="status">Rejected</span></div>
-            <div class="verb-test-card"><span class="word">"I'm on it"</span><span class="pct">71%</span><span class="status">Rejected</span></div>
-            <div class="verb-test-card winner"><span class="word">"Acknowledge"</span><span class="pct">94%</span><span class="status">Selected</span></div>
+            <div class="verb-test-card"><span class="word">"Accept"</span><span class="status">Rejected</span></div>
+            <div class="verb-test-card"><span class="word">"I'm on it"</span><span class="status">Rejected</span></div>
+            <div class="verb-test-card winner"><span class="word">"Acknowledge"</span><span class="status">Selected</span></div>
           </div>
           <p>Each decision on its own is a small content choice. Together, they form the content system Beacon runs on: less to interpret, less to misread, less standing between an engineer and the fix.</p>
         </div>
       </div>
-      <div class="case-support-panel"><img src="images/beacon-miro-verb-testing.png" alt="Miro board comparing comprehension test results for Accept, I'm on it, and Acknowledge, with Acknowledge circled as the winner"></div>
+      <div class="case-support-panel"><img src="images/beacon-miro-verb-testing.png" alt="Miro board comparing Accept, I'm on it, and Acknowledge, with Acknowledge circled as the selected verb"></div>
     </section>
 
     <section class="case-section stack56">
@@ -228,8 +211,8 @@
       <div class="case-section" style="gap:20px 64px">
         <span class="eyebrow label-col">The Result</span>
         <div class="body-col">
-          <h2>Neither number came from a redesign</h2>
-          <p>The numbers leading this page came directly out of that process. Testing the verb people actually understood, not the one that sounded right, got "Acknowledge" to 94% comprehension. Collapsing fifteen severity labels into one legible hierarchy cut misclassification 62% and got engineers to the right call 40% faster. Neither number came from a redesign. Both came from treating language as the interface, governed by one content system instead of a collection of one-off fixes.</p>
+          <h2>Neither decision came from a redesign</h2>
+          <p>Every decision on this page came out of that same process: choosing the verb people would actually understand under pressure instead of the one that sounded right, and collapsing fifteen severity labels into one legible hierarchy instead of patching each one individually. Neither came from a visual redesign. Both came from treating language as the interface, governed by one content system instead of a collection of one-off fixes.</p>
         </div>
       </div>
       <div class="case-support-panel"><img src="images/beacon-miro-principle-mapping.png" alt="Miro board mapping the severity hierarchy, the acknowledgment verb, the 50-word cap, and error tone back to one principle: guidance, not scolding"></div>
