@@ -6,7 +6,10 @@
 
 - [Moniger: content system for a multi-bank fintech app](https://www.preciousokoro.site/moniger): a content-first system that lifted conversions 25% and reduced onboarding drop-off 8%.
 - [FastTrackUX: research-led content for two audiences](https://www.preciousokoro.site/fasttrackux): student logins nearly doubled after a single shared hero.
-- [Beacon: a single incident taxonomy for engineering teams](https://www.preciousokoro.site/beacon): misclassification dropped 62% after consolidating severity labels.
+
+## Independent concept projects
+
+- [Beacon: a single incident taxonomy for engineering teams](https://www.preciousokoro.site/beacon): an independent concept project consolidating fifteen severity labels into one tested hierarchy.
 - [Payr: a concept for AI agent trust and action language](https://www.preciousokoro.site/payr-case-study): a conversation and trust design project for an AI savings agent.
 - [Northwatch: teaching an AI security copilot when not to act](https://www.preciousokoro.site/northwatch): incident severity language and an authority model for an AI security copilot operating inside a SOC.
 
