@@ -114,7 +114,7 @@
   <section class="craft-3grid">
     <div class="craft-item"><span class="num">01</span><h2>Design Problem</h2><p>Fifteen inconsistent severity labels and corporate-speak were slowing P0 response and triggering real anxiety in on-call engineers.</p></div>
     <div class="craft-item"><span class="num">02</span><h2>My Role</h2><p>Solo concept work: content design across the full incident journey, from severity taxonomy to crisis microcopy to post-mortem.</p></div>
-    <div class="craft-item"><span class="num">03</span><h2>What I Designed</h2><p>A content system for incident response: a tested severity hierarchy, a verb protocol for high-pressure actions, a 50-word notification limit, and scripted copy for every failure state, governed by one principle instead of fifteen.</p></div>
+    <div class="craft-item"><span class="num">03</span><h2>What I Designed</h2><p>A content system for incident response: a single severity hierarchy, a verb protocol for high-pressure actions, a 50-word notification limit, and scripted copy for every failure state, governed by one principle instead of fifteen.</p></div>
   </section>
 
   <div class="case-body-wrap">
@@ -138,7 +138,7 @@
         <div class="body-col">
           <h2>The verb decided who trusted the button</h2>
           <p>That reframed the brief: this was not a visual redesign that needed better copy. It was a content problem wearing a UI. I set aside the obvious fix, new screens and new components, on purpose: engineers under pressure needed the interface they already knew to say less and mean more, not another surface to learn.</p>
-          <p>Three personas, mapped across the full incident journey from detection to post-mortem, and a content audit of more than 200 inconsistent UI strings showed exactly where that content problem lived: fifteen different ways to describe severity, error messages that blamed users instead of guiding them, and no inline help anywhere in the product. Every fix that followed had to earn its place through testing, not intuition.</p>
+          <p>Three personas, mapped across the full incident journey from detection to post-mortem, and a content audit of more than 200 inconsistent UI strings showed exactly where that content problem lived: fifteen different ways to describe severity, error messages that blamed users instead of guiding them, and no inline help anywhere in the product. Every fix that followed had to earn its place against that audit, not intuition.</p>
         </div>
       </div>
       <div class="figure-grid">
@@ -154,14 +154,14 @@
         </figure>
       </div>
       <div class="mini-card-grid">
-        <div class="mini-card"><span class="num">01</span><h3>Test the Verb, Not the Guess</h3><p>"Acknowledge" was the clearest of three candidates in how it reads under pressure: direct, unambiguous, and easy to act on without a second read.</p></div>
+        <div class="mini-card"><span class="num">01</span><h3>Choose the Verb, Not the Guess</h3><p>"Acknowledge" was the clearest of three candidates in how it reads under pressure: direct, unambiguous, and easy to act on without a second read.</p></div>
         <div class="mini-card"><span class="num">02</span><h3>Make Severity Legible at a Glance</h3><p>A single "P0 - Critical" style hierarchy replaced fifteen inconsistent severity labels.</p></div>
         <div class="mini-card"><span class="num">03</span><h3>Enforce a Word Limit</h3><p>Every system notification was capped at 50 words. During a live outage, engineers do not have time to read. They have time to scan.</p></div>
       </div>
       <div class="case-section" style="gap:20px 64px">
         <span class="label-col"></span>
         <div class="body-col">
-          <p>Two other verbs did not make it. "Accept" read as agreement, not action, so engineers hesitated over what accepting an incident actually committed them to. "I'm on it" felt reassuring but vague under pressure, the kind of phrase that sounds fine until someone needs to know whether help is actually coming. Only "Acknowledge" tested clearly across both meanings, so it's the one the rest of the system is built around.</p>
+          <p>Two other verbs did not make it. "Accept" read as agreement, not action, so engineers hesitated over what accepting an incident actually committed them to. "I'm on it" felt reassuring but vague under pressure, the kind of phrase that sounds fine until someone needs to know whether help is actually coming. Only "Acknowledge" held up across both meanings, so it's the one the rest of the system is built around.</p>
           <div class="verb-test-grid">
             <div class="verb-test-card"><span class="word">"Accept"</span><span class="status">Rejected</span></div>
             <div class="verb-test-card"><span class="word">"I'm on it"</span><span class="status">Rejected</span></div>
@@ -192,7 +192,7 @@
         <span class="eyebrow label-col">Content in Every State</span>
         <div class="body-col">
           <h2>A quiet system reads as reassurance</h2>
-          <p>A content system built for calm has to hold up when things go wrong twice over: the product itself failing mid-incident, five P0s firing at once, a junior engineer declaring their first-ever incident under pressure. A generic fallback message would have shipped faster. It would also have taught engineers to distrust the system the one time it mattered most, so each of those scenarios got its own scripted copy, tested against the same principles shaping the rest of the product.</p>
+          <p>A content system built for calm has to hold up when things go wrong twice over: the product itself failing mid-incident, five P0s firing at once, a junior engineer declaring their first-ever incident under pressure. A generic fallback message would have shipped faster. It would also have taught engineers to distrust the system the one time it mattered most, so each of those scenarios got its own scripted copy, held to the same principles shaping the rest of the product.</p>
           <p>Empty states and validation messages got the same care. A clear system reads as reassurance, not silence. An error reads as guidance, not a scolding.</p>
         </div>
       </div>
