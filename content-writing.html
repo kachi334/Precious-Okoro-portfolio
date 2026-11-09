@@ -22,96 +22,142 @@
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Instrument+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/assets/style.css">
 <style>
-/* Writing & Editorial: a deliberate departure from the rest of the site's design
-   system. Dark, editorial, restrained. One accent only: blue, verified for contrast
-   on every background it touches (ink #0A0A0B: 6.1:1, card #141416: 5.7:1). This page
-   is dark-only for now; the light-theme variant of this blue (#1D4ED8 on white, 6.7:1)
-   is reserved for when a light pass on this page gets built. Shared chrome (header,
-   footer) is retuned here so it reads as part of the same page rather than clashing. */
-:root,
+/* Writing & Editorial: its own design system, separate from the Content Design
+   nav/theme. One accent (blue), two verified pairs: #5B8DEF on dark (6.1:1 on
+   #0A0A0B, 5.7:1 on card), #1D4ED8 on light (6.7:1 on white). Light theme is
+   true white, never cream. This page has its own nav (no Projects/About/CV/
+   Features), reusing the site's nav chrome and toggle wiring. */
+:root{
+  --cw-bg:#FFFFFF;
+  --cw-card:#F6F6F7;
+  --cw-card-alt:#F0F0F1;
+  --cw-card-alt-hover:#EAEAEC;
+  --cw-border:#E7E7E9;
+  --cw-border-strong:#DADADC;
+  --cw-border-pill:#D4D4D7;
+  --cw-ink:#15151A;
+  --cw-soft:#55555A;
+  --cw-soft2:#5F5E59;
+  --cw-muted:#4A4945;
+  --cw-faint:#8A8882;
+  --cw-accent:#1D4ED8;
+  --cw-accent-rgb:29,78,216;
+  --cw-invert-bg:#15151A;
+  --cw-invert-text:#FFFFFF;
+  --cw-invert-hover:#000000;
+
+  --paper:#FFFFFF;--paper-rgb:255,255,255;
+  --surface:#F6F6F7;
+  --ink:#15151A;--ink-rgb:21,21,26;
+  --ink-soft:#4A4945;
+  --ink-faint:#8A8882;
+  --fade:#8A8882;
+  --accent:#1D4ED8;
+  --accent-strong:#1540B0;
+}
 :root[data-theme="dark"]{
+  --cw-bg:#0A0A0B;
+  --cw-card:#101012;
+  --cw-card-alt:#19191C;
+  --cw-card-alt-hover:#1D1D20;
+  --cw-border:#1C1C1F;
+  --cw-border-strong:#28282C;
+  --cw-border-pill:#2A2A2E;
+  --cw-ink:#EDEAE2;
+  --cw-soft:#8E8B85;
+  --cw-soft2:#9C988F;
+  --cw-muted:#B5B1A8;
+  --cw-faint:#6B6862;
+  --cw-accent:#5B8DEF;
+  --cw-accent-rgb:91,141,239;
+  --cw-invert-bg:#EDEAE2;
+  --cw-invert-text:#0A0A0B;
+  --cw-invert-hover:#FFFFFF;
+
   --paper:#0A0A0B;--paper-rgb:10,10,11;
-  --surface:#141416;
+  --surface:#101012;
   --ink:#EDEAE2;--ink-rgb:237,234,226;
   --ink-soft:#B5B1A8;
-  --ink-faint:#8E8B85;
+  --ink-faint:#6B6862;
   --fade:#6B6862;
   --accent:#5B8DEF;
   --accent-strong:#7AA0F2;
 }
-body{font-family:'Instrument Sans',sans-serif}
-.nav .wordmark{font-family:'Instrument Sans',sans-serif;font-weight:700}
-footer.site-footer{max-width:1120px}
+body{font-family:'Instrument Sans',sans-serif;background:var(--cw-bg);color:var(--cw-ink)}
+main,header.nav,footer.site-footer{background:var(--cw-bg)}
+.nav .wordmark{font-family:'Instrument Sans',sans-serif;font-weight:700;color:var(--cw-ink)}
+footer.site-footer{max-width:1120px;color:var(--cw-faint)}
+footer.site-footer a{color:var(--cw-soft)}
 
 .cw{max-width:1120px;margin:0 auto;padding:0 32px}
-.cw-sec{padding:72px 0;border-top:1px solid #1C1C1F}
-.cw-eyebrow{display:block;font-family:'IBM Plex Mono',monospace;font-size:11.5px;font-weight:500;letter-spacing:1.5px;text-transform:uppercase;color:#8E8B85;margin-bottom:16px}
-.cw-h2{font-family:'Instrument Serif',serif;font-style:normal;font-weight:400;font-size:clamp(28px,3.8vw,38px);line-height:1.2;letter-spacing:-0.01em;margin:0 0 16px;max-width:22ch;color:#EDEAE2}
-.cw-intro{font-size:15px;line-height:1.7;color:#8E8B85;margin:0 0 36px;max-width:60ch}
-.cw-block{background:#101012;border:1px solid #1C1C1F;border-radius:16px;padding:24px;transition:border-color .2s ease}
-.cw-block:hover{border-color:#28282C}
-.cw-block h3{font-family:'Instrument Sans',sans-serif;font-weight:700;font-size:16px;margin:0 0 10px;color:#EDEAE2}
+.cw-sec{padding:72px 0;border-top:1px solid var(--cw-border)}
+.cw-eyebrow{display:block;font-family:'IBM Plex Mono',monospace;font-size:11.5px;font-weight:500;letter-spacing:1.5px;text-transform:uppercase;color:var(--cw-soft);margin-bottom:16px}
+.cw-h2{font-family:'Instrument Serif',serif;font-style:normal;font-weight:400;font-size:clamp(28px,3.8vw,38px);line-height:1.2;letter-spacing:-0.01em;margin:0 0 16px;max-width:22ch;color:var(--cw-ink)}
+.cw-intro{font-size:15px;line-height:1.7;color:var(--cw-soft);margin:0 0 36px;max-width:60ch}
+.cw-block{background:var(--cw-card);border:1px solid var(--cw-border);border-radius:16px;padding:24px;transition:border-color .2s ease}
+.cw-block:hover{border-color:var(--cw-border-strong)}
+.cw-block h3{font-family:'Instrument Sans',sans-serif;font-weight:700;font-size:16px;margin:0 0 10px;color:var(--cw-ink)}
 .cw-block ul{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:6px}
-.cw-block li{font-size:13.5px;color:#9C988F;line-height:1.5}
-.cw-block p{font-size:13.5px;color:#9C988F;margin:0;line-height:1.5}
+.cw-block li{font-size:13.5px;color:var(--cw-soft2);line-height:1.5}
+.cw-block p{font-size:13.5px;color:var(--cw-soft2);margin:0;line-height:1.5}
 .cw-grid2{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
 .cw-grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
 .cw-grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
-.cw-pill{display:inline-flex;align-items:center;font-size:12px;font-weight:500;color:#B5B1A8;border:1px solid #2A2A2E;border-radius:999px;padding:7px 15px;cursor:pointer;transition:border-color .2s ease,background .2s ease,color .2s ease}
-.cw-pill:hover{border-color:#5B8DEF}
-.cw-pill.active{background:#EDEAE2;color:#0A0A0B;border-color:#EDEAE2;font-weight:700}
+.cw-pill{display:inline-flex;align-items:center;font-size:12px;font-weight:500;color:var(--cw-muted);border:1px solid var(--cw-border-pill);border-radius:999px;padding:7px 15px;cursor:pointer;transition:border-color .2s ease,background .2s ease,color .2s ease}
+.cw-pill:hover{border-color:var(--cw-accent)}
+.cw-pill.active{background:var(--cw-invert-bg);color:var(--cw-invert-text);border-color:var(--cw-invert-bg);font-weight:700}
 .cw-btn-primary,.cw-btn-ghost{display:inline-flex;align-items:center;gap:6px;font-weight:700;font-size:13px;padding:12px 22px;border-radius:999px;transition:transform .15s ease,background .15s ease,border-color .15s ease}
-.cw-btn-primary{background:#EDEAE2;color:#0A0A0B}
-.cw-btn-primary:hover{background:#FFFFFF;transform:translateY(-2px);color:#0A0A0B}
-.cw-btn-ghost{background:#19191C;border:1px solid #28282C;color:#EDEAE2;font-weight:600}
-.cw-btn-ghost:hover{border-color:#5B8DEF;background:#1D1D20}
+.cw-btn-primary{background:var(--cw-invert-bg);color:var(--cw-invert-text)}
+.cw-btn-primary:hover{background:var(--cw-invert-hover);transform:translateY(-2px)}
+.cw-btn-ghost{background:var(--cw-card-alt);border:1px solid var(--cw-border-strong);color:var(--cw-ink);font-weight:600}
+.cw-btn-ghost:hover{border-color:var(--cw-accent);background:var(--cw-card-alt-hover)}
 
-.cw-tag-strip{font-family:'IBM Plex Mono',monospace;font-size:11px;color:#6B6862}
+.cw-tag-strip{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--cw-faint)}
 
-.cw-svc-card{background:#101012;border:1px solid #1C1C1F;border-radius:18px;padding:26px;display:flex;flex-direction:column;gap:10px;transition:transform .25s cubic-bezier(.2,.8,.2,1),border-color .2s ease,box-shadow .25s ease}
-.cw-svc-card:hover{transform:translateY(-4px);border-color:#5B8DEF;box-shadow:0 24px 50px -28px rgba(91,141,239,0.4)}
-.cw-svc-card .num{font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:#5B8DEF}
-.cw-svc-card h3{font-family:'Instrument Sans',sans-serif;font-weight:700;font-size:17px;margin:0;color:#EDEAE2}
+.cw-svc-card{background:var(--cw-card);border:1px solid var(--cw-border);border-radius:18px;padding:26px;display:flex;flex-direction:column;gap:10px;transition:transform .25s cubic-bezier(.2,.8,.2,1),border-color .2s ease,box-shadow .25s ease}
+.cw-svc-card:hover{transform:translateY(-4px);border-color:var(--cw-accent);box-shadow:0 24px 50px -28px rgba(var(--cw-accent-rgb),0.4)}
+.cw-svc-card .num{font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:var(--cw-accent)}
+.cw-svc-card h3{font-family:'Instrument Sans',sans-serif;font-weight:700;font-size:17px;margin:0;color:var(--cw-ink)}
 .cw-svc-card ul{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:6px}
-.cw-svc-card li{font-size:13px;color:#9C988F;line-height:1.5}
+.cw-svc-card li{font-size:13px;color:var(--cw-soft2);line-height:1.5}
 
 .cw-cs-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-bottom:28px}
-.cw-cs-card{border:1.5px dashed #2A2A2E;border-radius:18px;padding:28px;display:flex;flex-direction:column;gap:10px;min-height:180px;justify-content:space-between}
-.cw-cs-card .cw-cs-num{font-family:'IBM Plex Mono',monospace;font-size:11px;color:#6B6862}
-.cw-cs-card h3{font-family:'Instrument Sans',sans-serif;font-weight:700;font-size:15px;margin:0;color:#8E8B85}
-.cw-cs-card .cw-cs-status{display:inline-flex;align-self:flex-start;font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.4px;text-transform:uppercase;color:#6B6862;border:1px solid #2A2A2E;border-radius:999px;padding:5px 12px}
+.cw-cs-card{border:1.5px dashed var(--cw-border-pill);border-radius:18px;padding:28px;display:flex;flex-direction:column;gap:10px;min-height:180px;justify-content:space-between}
+.cw-cs-card .cw-cs-num{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--cw-faint)}
+.cw-cs-card h3{font-family:'Instrument Sans',sans-serif;font-weight:700;font-size:15px;margin:0;color:var(--cw-soft)}
+.cw-cs-card .cw-cs-status{display:inline-flex;align-self:flex-start;font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.4px;text-transform:uppercase;color:var(--cw-faint);border:1px solid var(--cw-border-pill);border-radius:999px;padding:5px 12px}
 
-.cw-card{background:#141416;border:1px solid #28282C;border-radius:20px;padding:22px;transition:transform .25s cubic-bezier(.2,.8,.2,1),box-shadow .25s ease,border-color .25s ease;display:block}
-.cw-card:hover{transform:translateY(-6px);border-color:#5B8DEF;box-shadow:0 24px 50px -24px rgba(91,141,239,0.35)}
-.cw-card .cw-tag{font-size:11px;color:#5B8DEF;font-weight:600;letter-spacing:0.5px;text-transform:uppercase}
-.cw-card h3{font-size:16.5px;margin:10px 0 6px;color:#EDEAE2;transition:color .2s ease}
-.cw-card p{font-size:13px;color:#8E8B85;margin:0;line-height:1.5}
-.cw-card img{width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:12px;margin-bottom:14px;background:#19191C}
-.cw-card .cw-text-cover{aspect-ratio:16/9;border-radius:12px;margin-bottom:14px;background:#19191C;display:flex;align-items:center;justify-content:center;padding:20px;text-align:center}
-.cw-card .cw-text-cover p{font-family:'Caveat',cursive;font-size:22px;color:#B5B1A8;margin:0}
-.cw-card .cw-arrow{display:inline-block;font-size:12.5px;color:#B5B1A8;margin-top:12px;transition:transform .25s cubic-bezier(.2,.8,.2,1),color .25s ease}
-.cw-card:hover .cw-arrow{transform:translate(4px,-3px);color:#EDEAE2}
+.cw-card{background:var(--cw-card);border:1px solid var(--cw-border-strong);border-radius:20px;padding:22px;transition:transform .25s cubic-bezier(.2,.8,.2,1),box-shadow .25s ease,border-color .25s ease;display:block}
+.cw-card:hover{transform:translateY(-6px);border-color:var(--cw-accent);box-shadow:0 24px 50px -24px rgba(var(--cw-accent-rgb),0.35)}
+.cw-card .cw-tag{font-size:11px;color:var(--cw-accent);font-weight:600;letter-spacing:0.5px;text-transform:uppercase}
+.cw-card h3{font-size:16.5px;margin:10px 0 6px;color:var(--cw-ink);transition:color .2s ease}
+.cw-card p{font-size:13px;color:var(--cw-soft);margin:0;line-height:1.5}
+.cw-card img{width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:12px;margin-bottom:14px;background:var(--cw-card-alt)}
+.cw-card .cw-text-cover{aspect-ratio:16/9;border-radius:12px;margin-bottom:14px;background:var(--cw-card-alt);display:flex;align-items:center;justify-content:center;padding:20px;text-align:center}
+.cw-card .cw-text-cover p{font-family:'Caveat',cursive;font-size:22px;color:var(--cw-muted);margin:0}
+.cw-card .cw-arrow{display:inline-block;font-size:12.5px;color:var(--cw-muted);margin-top:12px;transition:transform .25s cubic-bezier(.2,.8,.2,1),color .25s ease}
+.cw-card:hover .cw-arrow{transform:translate(4px,-3px);color:var(--cw-ink)}
 .cw-samples{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:20px;margin-bottom:28px}
 
 .cw-trustrow{display:flex;flex-wrap:wrap;align-items:baseline;gap:14px 28px}
-.cw-trustrow .cw-names{display:flex;flex-wrap:wrap;gap:10px 26px;font-weight:700;font-size:16px;color:#B5B1A8}
+.cw-trustrow .cw-names{display:flex;flex-wrap:wrap;gap:10px 26px;font-weight:700;font-size:16px;color:var(--cw-muted)}
 
 .cw-testi{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:20px}
-.cw-testi figure{background:#101012;border:1px solid #1C1C1F;border-radius:18px;padding:28px;margin:0}
-.cw-testi blockquote{margin:0 0 16px;font-size:15px;line-height:1.65;color:#B5B1A8}
-.cw-testi figcaption .name{display:block;font-weight:700;color:#EDEAE2;font-size:14px}
-.cw-testi figcaption .role{display:block;color:#6B6862;font-size:12.5px;margin-top:2px}
+.cw-testi figure{background:var(--cw-card);border:1px solid var(--cw-border);border-radius:18px;padding:28px;margin:0}
+.cw-testi blockquote{margin:0 0 16px;font-size:15px;line-height:1.65;color:var(--cw-muted)}
+.cw-testi figcaption .name{display:block;font-weight:700;color:var(--cw-ink);font-size:14px}
+.cw-testi figcaption .role{display:block;color:var(--cw-faint);font-size:12.5px;margin-top:2px}
 
-.cw-faqrow{border-bottom:1px solid #1C1C1F}
-.cw-faqq{display:flex;justify-content:space-between;align-items:center;gap:16px;width:100%;padding:20px 0;font-weight:700;font-size:15px;color:#EDEAE2;background:none;border:none;text-align:left;cursor:pointer;font-family:inherit}
-.cw-faqicon{font-size:20px;color:#8E8B85;transition:transform .25s ease;flex-shrink:0}
-.cw-faqicon.open{transform:rotate(45deg);color:#5B8DEF}
+.cw-faqrow{border-bottom:1px solid var(--cw-border)}
+.cw-faqq{display:flex;justify-content:space-between;align-items:center;gap:16px;width:100%;padding:20px 0;font-weight:700;font-size:15px;color:var(--cw-ink);background:none;border:none;text-align:left;cursor:pointer;font-family:inherit}
+.cw-faqicon{font-size:20px;color:var(--cw-soft);transition:transform .25s ease;flex-shrink:0}
+.cw-faqicon.open{transform:rotate(45deg);color:var(--cw-accent)}
 .cw-faqa{max-height:0;overflow:hidden;transition:max-height .3s ease}
 .cw-faqa.open{max-height:200px}
-.cw-faqa p{font-size:13.5px;color:#9C988F;margin:0 0 20px;line-height:1.6;max-width:70ch}
+.cw-faqa p{font-size:13.5px;color:var(--cw-soft2);margin:0 0 20px;line-height:1.6;max-width:70ch}
 
 .cw-navlink{position:relative}
-.cw-navlink::after{content:"";position:absolute;left:0;right:0;bottom:-4px;height:1px;background:#EDEAE2;transform:scaleX(0);transform-origin:left;transition:transform .25s cubic-bezier(.2,.8,.2,1)}
+.cw-navlink::after{content:"";position:absolute;left:0;right:0;bottom:-4px;height:1px;background:var(--cw-ink);transform:scaleX(0);transform-origin:left;transition:transform .25s cubic-bezier(.2,.8,.2,1)}
 .cw-navlink:hover::after{transform:scaleX(1)}
 
 .cw-hero-sec{padding:56px 32px 0}
@@ -142,12 +188,11 @@ footer.site-footer{max-width:1120px}
   <div class="nav-inner">
     <a href="/" class="wordmark"><img src="/images/nav-avatar.png" alt="" width="30" height="30">Precious Okoro</a>
     <nav class="links">
-      <a href="/work" class="cw-navlink">Projects</a>
-      <a href="/about" class="cw-navlink">About</a>
-      <a href="/cv" class="cw-navlink">CV</a>
-      <a href="/writing" class="cw-navlink">Writing</a>
-      <a href="/features" class="cw-navlink">Features</a>
-      <a href="/contact" class="nav-cta">Work Together</a>
+      <a href="#services" class="cw-navlink">What I Do</a>
+      <a href="#case-studies" class="cw-navlink">Case Studies</a>
+      <a href="#samples" class="cw-navlink">Writing</a>
+      <a href="#faq" class="cw-navlink">FAQ</a>
+      <a href="/contact" class="nav-cta">Work with me</a>
     </nav>
     <div class="nav-controls">
       <button class="theme-toggle" type="button" aria-label="Switch to dark theme">
@@ -167,30 +212,30 @@ footer.site-footer{max-width:1120px}
   <section class="cw cw-hero-sec">
     <span class="cw-eyebrow" style="margin-bottom:20px">B2B SaaS Content &middot; Content Marketing &middot; Editorial Strategy &middot; Issue No. 01</span>
     <div class="cw-hero">
-      <h1 style="font-family:'Instrument Serif',serif;font-style:normal;font-weight:400;font-size:clamp(34px,5.2vw,62px);line-height:1.12;letter-spacing:-0.015em;margin:0;color:#EDEAE2;max-width:16ch">I make complex products, technologies, and ideas worth understanding.</h1>
+      <h1 style="font-family:'Instrument Serif',serif;font-style:normal;font-weight:400;font-size:clamp(34px,5.2vw,62px);line-height:1.12;letter-spacing:-0.015em;margin:0;color:var(--cw-ink);max-width:16ch">I make complex products, technologies, and ideas worth understanding.</h1>
       <div class="cw-hero-photo">
-        <div style="position:absolute;width:300px;height:300px;border-radius:999px;background:radial-gradient(circle,rgba(91,141,239,0.3) 0%,rgba(91,141,239,0) 70%);filter:blur(8px)"></div>
-        <img src="/images/precious-headshot.jpg" alt="Precious Okoro" style="position:relative;width:240px;height:240px;border-radius:999px;object-fit:cover;border:2px solid #28282C">
+        <div style="position:absolute;width:300px;height:300px;border-radius:999px;background:radial-gradient(circle,rgba(var(--cw-accent-rgb),0.3) 0%,rgba(var(--cw-accent-rgb),0) 70%);filter:blur(8px)"></div>
+        <img src="/images/precious-headshot.jpg" alt="Precious Okoro" style="position:relative;width:240px;height:240px;border-radius:999px;object-fit:cover;border:2px solid var(--cw-border-strong)">
       </div>
     </div>
     <div class="cw-hero-row">
-      <p style="font-size:15.5px;line-height:1.7;color:#8E8B85;margin:0;max-width:48ch">I write research-led content for SaaS and technology companies. From thought leadership and technical explainers to SEO articles and product education, I turn complex subjects into content people can understand, trust, and act on.</p>
+      <p style="font-size:15.5px;line-height:1.7;color:var(--cw-soft);margin:0;max-width:48ch">I write research-led content for SaaS and technology companies. From thought leadership and technical explainers to SEO articles and product education, I turn complex subjects into content people can understand, trust, and act on.</p>
       <div style="display:flex;gap:10px;flex-wrap:wrap">
         <a href="#samples" class="cw-btn-primary">Explore my writing &#8599;</a>
         <a href="/contact" class="cw-btn-ghost">Work with me</a>
       </div>
     </div>
-    <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:28px;padding-top:20px;border-top:1px solid #1C1C1F">
+    <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:28px;padding-top:20px;border-top:1px solid var(--cw-border)">
       <span class="cw-tag-strip">B2B SAAS &middot; AI &amp; TECHNOLOGY &middot; FINTECH &middot; EDTECH &middot; ENTERPRISE SOFTWARE</span>
     </div>
-    <a href="/writing" class="cw-navlink" style="font-size:13px;color:#8E8B85;margin-top:14px;display:inline-block">Looking for essays on content design and AI instead? &rarr;</a>
+    <a href="/writing" class="cw-navlink" style="font-size:13px;color:var(--cw-soft);margin-top:14px;display:inline-block">Looking for essays on content design and AI instead? &rarr;</a>
   </section>
 
   <section class="cw cw-sec" style="margin-top:48px">
     <span class="cw-eyebrow">Beyond The Words</span>
     <h2 class="cw-h2">Good content starts with understanding.</h2>
     <p class="cw-intro">The product. The audience. The problem. The reason the content needs to exist.</p>
-    <p style="font-weight:700;font-size:clamp(18px,2.2vw,22px);line-height:1.55;max-width:52ch;margin:0;color:#EDEAE2">With 6+ years across content design, editorial development, UX writing, and content strategy, I bring a product-minded approach to writing. I care about the argument, the research, and what the reader takes away, not just the word count.</p>
+    <p style="font-weight:700;font-size:clamp(18px,2.2vw,22px);line-height:1.55;max-width:52ch;margin:0;color:var(--cw-ink)">With 6+ years across content design, editorial development, UX writing, and content strategy, I bring a product-minded approach to writing. I care about the argument, the research, and what the reader takes away, not just the word count.</p>
   </section>
 
   <section class="cw cw-sec">
@@ -200,7 +245,7 @@ footer.site-footer{max-width:1120px}
     </div>
   </section>
 
-  <section class="cw cw-sec">
+  <section class="cw cw-sec" id="services">
     <span class="cw-eyebrow">What I Do</span>
     <h2 class="cw-h2">Content built around what your business needs to communicate.</h2>
     <div class="cw-grid4">
@@ -236,7 +281,7 @@ footer.site-footer{max-width:1120px}
       <div class="cw-block"><h3>AEO &mdash; Answer Engine Optimization</h3><ul><li>Question-led content</li><li>Answer-focused structure</li><li>FAQ and knowledge architecture</li><li>Clear, extractable explanations</li></ul></div>
       <div class="cw-block"><h3>GEO &mdash; Generative Engine Optimization</h3><ul><li>Research-backed content</li><li>Topical and entity relevance</li><li>Authoritative source development</li><li>AI search visibility assessment</li></ul></div>
     </div>
-    <p style="font-weight:600;font-size:16px;margin:36px 0 0;color:#EDEAE2">The goal: useful content that remains discoverable as search evolves.</p>
+    <p style="font-weight:600;font-size:16px;margin:36px 0 0;color:var(--cw-ink)">The goal: useful content that remains discoverable as search evolves.</p>
   </section>
 
   <section class="cw cw-sec">
@@ -320,7 +365,7 @@ footer.site-footer{max-width:1120px}
         <span class="cw-arrow">Read the piece &#8599;</span>
       </a>
     </div>
-    <p style="font-size:13.5px;color:#6B6862;margin:0 0 24px">Each article displays its category, industry, format, funnel stage, publication date, and reading time.</p>
+    <p style="font-size:13.5px;color:var(--cw-faint);margin:0 0 24px">Each article displays its category, industry, format, funnel stage, publication date, and reading time.</p>
     <a href="/writing" class="cw-btn-primary">Explore all writing &#8599;</a>
   </section>
 
@@ -328,17 +373,17 @@ footer.site-footer{max-width:1120px}
     <span class="cw-eyebrow">How I Work</span>
     <h2 class="cw-h2">Research first. Writing follows.</h2>
     <div class="cw-grid4" style="margin-top:8px">
-      <div class="cw-block"><span style="font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:#5B8DEF">01</span><h3 style="margin-top:8px">Research</h3><p>Understand the audience, product, industry, competitive landscape, and questions that matter.</p></div>
-      <div class="cw-block"><span style="font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:#5B8DEF">02</span><h3 style="margin-top:8px">Strategy</h3><p>Define the content's purpose, positioning, search intent, editorial angle, and intended outcome.</p></div>
-      <div class="cw-block"><span style="font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:#5B8DEF">03</span><h3 style="margin-top:8px">Execution</h3><p>Translate complex information into useful, engaging, well-structured content.</p></div>
-      <div class="cw-block"><span style="font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:#5B8DEF">04</span><h3 style="margin-top:8px">Systems</h3><p>Ensure content contributes to a consistent communication experience and supports broader business objectives.</p></div>
+      <div class="cw-block"><span style="font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:var(--cw-accent)">01</span><h3 style="margin-top:8px">Research</h3><p>Understand the audience, product, industry, competitive landscape, and questions that matter.</p></div>
+      <div class="cw-block"><span style="font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:var(--cw-accent)">02</span><h3 style="margin-top:8px">Strategy</h3><p>Define the content's purpose, positioning, search intent, editorial angle, and intended outcome.</p></div>
+      <div class="cw-block"><span style="font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:var(--cw-accent)">03</span><h3 style="margin-top:8px">Execution</h3><p>Translate complex information into useful, engaging, well-structured content.</p></div>
+      <div class="cw-block"><span style="font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:var(--cw-accent)">04</span><h3 style="margin-top:8px">Systems</h3><p>Ensure content contributes to a consistent communication experience and supports broader business objectives.</p></div>
     </div>
   </section>
 
   <section class="cw cw-sec">
     <span class="cw-eyebrow">A Product-Minded Writer</span>
     <h2 class="cw-h2">I understand the product behind the content.</h2>
-    <p class="cw-intro">That comes from years working inside content design and product teams, not just editorial. <a href="/work" style="color:#EDEAE2;text-decoration:underline">See it in the case studies &#8599;</a></p>
+    <p class="cw-intro">That comes from years working inside content design and product teams, not just editorial. <a href="/work" style="color:var(--cw-ink);text-decoration:underline">See it in the case studies &#8599;</a></p>
     <div class="cw-grid2">
       <div class="cw-block"><h3>Product understanding</h3><p>I can make complex features and concepts accessible.</p></div>
       <div class="cw-block"><h3>Strategic thinking</h3><p>I connect individual pieces to wider content goals.</p></div>
@@ -370,7 +415,7 @@ footer.site-footer{max-width:1120px}
     <a href="/about" class="cw-btn-ghost">More about me</a>
   </section>
 
-  <section class="cw cw-sec">
+  <section class="cw cw-sec" id="faq">
     <span class="cw-eyebrow">Before We Get Started</span>
     <h2 class="cw-h2" style="max-width:none">A few things you might want to know.</h2>
     <div style="display:flex;flex-direction:column;margin-top:24px">
