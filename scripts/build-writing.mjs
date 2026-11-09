@@ -273,7 +273,7 @@ ${NAV}
   <section class="work-hero" style="padding-bottom:40px">
     <span class="eyebrow">Writing</span>
     <h1><span class="fade">Things I'm thinking</span> <span class="accent-italic">about</span></h1>
-    <a href="/content-writing" class="btn-link accent" style="margin-top:4px">Looking for content writing samples instead? →</a>
+    <a href="/content-writing" class="btn-link accent" style="margin-top:4px">Looking for B2B SaaS writing &amp; editorial work instead? →</a>
   </section>
 ${featuredBlock}
   <section class="wrap writing-list-wrap">
