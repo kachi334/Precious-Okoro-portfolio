@@ -19,14 +19,15 @@
 <meta name="twitter:card" content="summary">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..600;1,9..144,400..600&family=Manrope:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&family=IBM+Plex+Mono:wght@400;500;600&family=Caveat:wght@500;700&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Instrument+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/assets/style.css">
 <style>
 /* Writing & Editorial: its own design system, separate from the Content Design
    nav/theme. One accent (blue), two verified pairs: #5B8DEF on dark (6.1:1 on
    #0A0A0B, 5.7:1 on card), #1D4ED8 on light (6.7:1 on white). Light theme is
    true white, never cream. This page has its own nav (no Projects/About/CV/
-   Features), reusing the site's nav chrome and toggle wiring. */
+   Features), reusing the site's nav chrome and toggle wiring. Body/UI font is
+   Geist, labels/mono is Geist Mono, headlines stay Instrument Serif. */
 :root{
   --cw-bg:#FFFFFF;
   --cw-card:#F6F6F7;
@@ -83,20 +84,20 @@
   --accent:#5B8DEF;
   --accent-strong:#7AA0F2;
 }
-body{font-family:'Instrument Sans',sans-serif;background:var(--cw-bg);color:var(--cw-ink)}
+body{font-family:'Geist',sans-serif;background:var(--cw-bg);color:var(--cw-ink)}
 main,header.nav,footer.site-footer{background:var(--cw-bg)}
-.nav .wordmark{font-family:'Instrument Sans',sans-serif;font-weight:700;color:var(--cw-ink)}
+.nav .wordmark{font-family:'Geist',sans-serif;font-weight:700;color:var(--cw-ink)}
 footer.site-footer{max-width:1120px;color:var(--cw-faint)}
 footer.site-footer a{color:var(--cw-soft)}
 
 .cw{max-width:1120px;margin:0 auto;padding:0 32px}
 .cw-sec{padding:72px 0;border-top:1px solid var(--cw-border)}
-.cw-eyebrow{display:block;font-family:'IBM Plex Mono',monospace;font-size:11.5px;font-weight:500;letter-spacing:1.5px;text-transform:uppercase;color:var(--cw-soft);margin-bottom:16px}
+.cw-eyebrow{display:block;font-family:'Geist Mono',monospace;font-size:11.5px;font-weight:500;letter-spacing:1.5px;text-transform:uppercase;color:var(--cw-soft);margin-bottom:16px}
 .cw-h2{font-family:'Instrument Serif',serif;font-style:normal;font-weight:400;font-size:clamp(28px,3.8vw,38px);line-height:1.2;letter-spacing:-0.01em;margin:0 0 16px;max-width:22ch;color:var(--cw-ink)}
 .cw-intro{font-size:15px;line-height:1.7;color:var(--cw-soft);margin:0 0 36px;max-width:60ch}
 .cw-block{background:var(--cw-card);border:1px solid var(--cw-border);border-radius:16px;padding:24px;transition:border-color .2s ease}
 .cw-block:hover{border-color:var(--cw-border-strong)}
-.cw-block h3{font-family:'Instrument Sans',sans-serif;font-weight:700;font-size:16px;margin:0 0 10px;color:var(--cw-ink)}
+.cw-block h3{font-family:'Geist',sans-serif;font-weight:700;font-size:16px;margin:0 0 10px;color:var(--cw-ink)}
 .cw-block ul{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:6px}
 .cw-block li{font-size:13.5px;color:var(--cw-soft2);line-height:1.5}
 .cw-block p{font-size:13.5px;color:var(--cw-soft2);margin:0;line-height:1.5}
@@ -112,20 +113,20 @@ footer.site-footer a{color:var(--cw-soft)}
 .cw-btn-ghost{background:var(--cw-card-alt);border:1px solid var(--cw-border-strong);color:var(--cw-ink);font-weight:600}
 .cw-btn-ghost:hover{border-color:var(--cw-accent);background:var(--cw-card-alt-hover)}
 
-.cw-tag-strip{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--cw-faint)}
+.cw-tag-strip{font-family:'Geist Mono',monospace;font-size:11px;color:var(--cw-faint)}
 
 .cw-svc-card{background:var(--cw-card);border:1px solid var(--cw-border);border-radius:18px;padding:26px;display:flex;flex-direction:column;gap:10px;transition:transform .25s cubic-bezier(.2,.8,.2,1),border-color .2s ease,box-shadow .25s ease}
 .cw-svc-card:hover{transform:translateY(-4px);border-color:var(--cw-accent);box-shadow:0 24px 50px -28px rgba(var(--cw-accent-rgb),0.4)}
-.cw-svc-card .num{font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:var(--cw-accent)}
-.cw-svc-card h3{font-family:'Instrument Sans',sans-serif;font-weight:700;font-size:17px;margin:0;color:var(--cw-ink)}
+.cw-svc-card .num{font-family:'Geist Mono',monospace;font-size:11.5px;color:var(--cw-accent)}
+.cw-svc-card h3{font-family:'Geist',sans-serif;font-weight:700;font-size:17px;margin:0;color:var(--cw-ink)}
 .cw-svc-card ul{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:6px}
 .cw-svc-card li{font-size:13px;color:var(--cw-soft2);line-height:1.5}
 
 .cw-cs-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-bottom:28px}
 .cw-cs-card{border:1.5px dashed var(--cw-border-pill);border-radius:18px;padding:28px;display:flex;flex-direction:column;gap:10px;min-height:180px;justify-content:space-between}
-.cw-cs-card .cw-cs-num{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--cw-faint)}
-.cw-cs-card h3{font-family:'Instrument Sans',sans-serif;font-weight:700;font-size:15px;margin:0;color:var(--cw-soft)}
-.cw-cs-card .cw-cs-status{display:inline-flex;align-self:flex-start;font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.4px;text-transform:uppercase;color:var(--cw-faint);border:1px solid var(--cw-border-pill);border-radius:999px;padding:5px 12px}
+.cw-cs-card .cw-cs-num{font-family:'Geist Mono',monospace;font-size:11px;color:var(--cw-faint)}
+.cw-cs-card h3{font-family:'Geist',sans-serif;font-weight:700;font-size:15px;margin:0;color:var(--cw-soft)}
+.cw-cs-card .cw-cs-status{display:inline-flex;align-self:flex-start;font-family:'Geist Mono',monospace;font-size:10.5px;letter-spacing:0.4px;text-transform:uppercase;color:var(--cw-faint);border:1px solid var(--cw-border-pill);border-radius:999px;padding:5px 12px}
 
 .cw-card{background:var(--cw-card);border:1px solid var(--cw-border-strong);border-radius:20px;padding:22px;transition:transform .25s cubic-bezier(.2,.8,.2,1),box-shadow .25s ease,border-color .25s ease;display:block}
 .cw-card:hover{transform:translateY(-6px);border-color:var(--cw-accent);box-shadow:0 24px 50px -24px rgba(var(--cw-accent-rgb),0.35)}
@@ -158,7 +159,7 @@ footer.site-footer a{color:var(--cw-soft)}
 
 .cw-fit-list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:14px}
 .cw-fit-list li{display:flex;gap:12px;align-items:flex-start;font-size:14px;line-height:1.55;color:var(--cw-soft2)}
-.cw-fit-mark{flex-shrink:0;font-family:'IBM Plex Mono',monospace;font-size:13px;font-weight:600;width:18px}
+.cw-fit-mark{flex-shrink:0;font-family:'Geist Mono',monospace;font-size:13px;font-weight:600;width:18px}
 .cw-fit-mark.yes{color:var(--cw-accent)}
 .cw-fit-mark.no{color:var(--cw-faint)}
 
@@ -243,7 +244,31 @@ footer.site-footer a{color:var(--cw-soft)}
     <a href="/writing" class="cw-navlink" style="font-size:13px;color:var(--cw-soft);margin-top:14px;display:inline-block">Looking for essays on content design and AI instead? &rarr;</a>
   </section>
 
-  <section class="cw cw-sec" style="margin-top:48px">
+  <section class="cw cw-sec" style="margin-top:48px" id="case-studies">
+    <span class="cw-eyebrow">Selected Case Studies</span>
+    <h2 class="cw-h2">Where the writing meets the product.</h2>
+    <p class="cw-intro">Full write-ups of writing and content-strategy engagements are in progress. In the meantime, the case studies below cover completed product and content design work.</p>
+    <div class="cw-cs-grid">
+      <div class="cw-cs-card">
+        <span class="cw-cs-num">01</span>
+        <h3>Case Study</h3>
+        <span class="cw-cs-status">Coming Soon</span>
+      </div>
+      <div class="cw-cs-card">
+        <span class="cw-cs-num">02</span>
+        <h3>Case Study</h3>
+        <span class="cw-cs-status">Coming Soon</span>
+      </div>
+      <div class="cw-cs-card">
+        <span class="cw-cs-num">03</span>
+        <h3>Case Study</h3>
+        <span class="cw-cs-status">Coming Soon</span>
+      </div>
+    </div>
+    <a href="/work" class="cw-btn-ghost">See completed case studies &#8599;</a>
+  </section>
+
+  <section class="cw cw-sec">
     <div class="cw-trustrow">
       <span class="cw-eyebrow" style="margin:0;white-space:nowrap">Writing Trusted By Teams At</span>
       <div class="cw-names"><span>Moniger</span><span>Babelos</span><span>Ditto Words</span><span>Culangex</span></div>
@@ -259,20 +284,6 @@ footer.site-footer a{color:var(--cw-soft)}
         <figcaption><span class="name">Chioma Chinwuko</span><span class="role">CEO/Founder at Oduko</span></figcaption>
       </figure>
     </div>
-  </section>
-
-  <section class="cw cw-sec">
-    <span class="cw-eyebrow">The Person Behind The Words</span>
-    <h2 class="cw-h2">I'm Precious Okoro. I work where language, technology, and business meet.</h2>
-    <p class="cw-intro">I'm a content strategist, content designer, and writer with 6+ years of experience across digital products, technology, and editorial. I've worked with teams in fintech, SaaS, education, language technology, and AI, building content practices, shaping product experiences, and making complex information easier to understand.</p>
-    <p style="font-weight:700;font-size:clamp(18px,2.2vw,22px);line-height:1.55;max-width:52ch;margin:0 0 36px;color:var(--cw-ink)">That experience shapes how I write. I care about the argument, the research, and what the reader takes away, not just the word count.</p>
-    <div class="cw-grid4">
-      <div class="cw-block"><h3>Product understanding</h3><p>I can make complex features and concepts accessible.</p></div>
-      <div class="cw-block"><h3>Strategic thinking</h3><p>I connect individual pieces to wider content goals.</p></div>
-      <div class="cw-block"><h3>Reader experience</h3><p>I structure information around what people need to know.</p></div>
-      <div class="cw-block"><h3>Business context</h3><p>I understand the outcomes content is expected to support.</p></div>
-    </div>
-    <a href="/about" class="cw-btn-ghost" style="margin-top:36px">More about me</a>
   </section>
 
   <section class="cw cw-sec">
@@ -391,38 +402,14 @@ footer.site-footer a{color:var(--cw-soft)}
     <a href="/writing" class="cw-btn-primary">Explore all writing &#8599;</a>
   </section>
 
-  <section class="cw cw-sec" id="case-studies">
-    <span class="cw-eyebrow">Selected Case Studies</span>
-    <h2 class="cw-h2">Where the writing meets the product.</h2>
-    <p class="cw-intro">Full write-ups of writing and content-strategy engagements are in progress. In the meantime, the case studies below cover completed product and content design work.</p>
-    <div class="cw-cs-grid">
-      <div class="cw-cs-card">
-        <span class="cw-cs-num">01</span>
-        <h3>Case Study</h3>
-        <span class="cw-cs-status">Coming Soon</span>
-      </div>
-      <div class="cw-cs-card">
-        <span class="cw-cs-num">02</span>
-        <h3>Case Study</h3>
-        <span class="cw-cs-status">Coming Soon</span>
-      </div>
-      <div class="cw-cs-card">
-        <span class="cw-cs-num">03</span>
-        <h3>Case Study</h3>
-        <span class="cw-cs-status">Coming Soon</span>
-      </div>
-    </div>
-    <a href="/work" class="cw-btn-ghost">See completed case studies &#8599;</a>
-  </section>
-
   <section class="cw cw-sec">
     <span class="cw-eyebrow">How I Work</span>
     <h2 class="cw-h2">Research first. Writing follows.</h2>
     <div class="cw-grid4" style="margin-top:8px">
-      <div class="cw-block"><span style="font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:var(--cw-accent)">01</span><h3 style="margin-top:8px">Research</h3><p>Understand the audience, product, industry, competitive landscape, and questions that matter. The brief reflects what your audience actually needs to know, not assumptions.</p></div>
-      <div class="cw-block"><span style="font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:var(--cw-accent)">02</span><h3 style="margin-top:8px">Strategy</h3><p>Define the content's purpose, positioning, search intent, editorial angle, and intended outcome. Every piece has a clear job before a word gets written.</p></div>
-      <div class="cw-block"><span style="font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:var(--cw-accent)">03</span><h3 style="margin-top:8px">Execution</h3><p>Translate complex information into useful, engaging, well-structured content. The result is usable, not just published.</p></div>
-      <div class="cw-block"><span style="font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:var(--cw-accent)">04</span><h3 style="margin-top:8px">Systems</h3><p>Ensure content contributes to a consistent communication experience and supports broader business objectives. Results compound instead of resetting with every new piece.</p></div>
+      <div class="cw-block"><span style="font-family:'Geist Mono',monospace;font-size:11.5px;color:var(--cw-accent)">01</span><h3 style="margin-top:8px">Research</h3><p>Understand the audience, product, industry, competitive landscape, and questions that matter. The brief reflects what your audience actually needs to know, not assumptions.</p></div>
+      <div class="cw-block"><span style="font-family:'Geist Mono',monospace;font-size:11.5px;color:var(--cw-accent)">02</span><h3 style="margin-top:8px">Strategy</h3><p>Define the content's purpose, positioning, search intent, editorial angle, and intended outcome. Every piece has a clear job before a word gets written.</p></div>
+      <div class="cw-block"><span style="font-family:'Geist Mono',monospace;font-size:11.5px;color:var(--cw-accent)">03</span><h3 style="margin-top:8px">Execution</h3><p>Translate complex information into useful, engaging, well-structured content. The result is usable, not just published.</p></div>
+      <div class="cw-block"><span style="font-family:'Geist Mono',monospace;font-size:11.5px;color:var(--cw-accent)">04</span><h3 style="margin-top:8px">Systems</h3><p>Ensure content contributes to a consistent communication experience and supports broader business objectives. Results compound instead of resetting with every new piece.</p></div>
     </div>
   </section>
 
@@ -488,7 +475,7 @@ footer.site-footer a{color:var(--cw-soft)}
     </div>
   </section>
 
-  <section class="cw cw-sec" style="padding-bottom:96px">
+  <section class="cw cw-sec">
     <span class="cw-eyebrow">Have Something Worth Communicating?</span>
     <h2 class="cw-h2" style="max-width:22ch;font-size:clamp(28px,4vw,40px)">Let's give your ideas the words and strategy they deserve.</h2>
     <p class="cw-intro">Whether you're explaining a product, sharing expertise, or building visibility in your industry, let's turn it into content that gets read, trusted, and acted on.</p>
@@ -496,6 +483,20 @@ footer.site-footer a{color:var(--cw-soft)}
       <a href="/contact" class="cw-btn-primary">Tell me what you're working on</a>
       <a href="/writing" class="cw-btn-ghost">Explore my writing</a>
     </div>
+  </section>
+
+  <section class="cw cw-sec" style="padding-bottom:96px">
+    <span class="cw-eyebrow">The Person Behind The Words</span>
+    <h2 class="cw-h2">I'm Precious Okoro. I work where language, technology, and business meet.</h2>
+    <p class="cw-intro">I'm a content strategist, content designer, and writer with 6+ years of experience across digital products, technology, and editorial. I've worked with teams in fintech, SaaS, education, language technology, and AI, building content practices, shaping product experiences, and making complex information easier to understand.</p>
+    <p style="font-weight:700;font-size:clamp(18px,2.2vw,22px);line-height:1.55;max-width:52ch;margin:0 0 36px;color:var(--cw-ink)">That experience shapes how I write. I care about the argument, the research, and what the reader takes away, not just the word count.</p>
+    <div class="cw-grid4">
+      <div class="cw-block"><h3>Product understanding</h3><p>I can make complex features and concepts accessible.</p></div>
+      <div class="cw-block"><h3>Strategic thinking</h3><p>I connect individual pieces to wider content goals.</p></div>
+      <div class="cw-block"><h3>Reader experience</h3><p>I structure information around what people need to know.</p></div>
+      <div class="cw-block"><h3>Business context</h3><p>I understand the outcomes content is expected to support.</p></div>
+    </div>
+    <a href="/about" class="cw-btn-ghost" style="margin-top:36px">More about me</a>
   </section>
 
 </main>
