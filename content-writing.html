@@ -21,6 +21,23 @@
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..600;1,9..144,400..600&family=Manrope:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&family=IBM+Plex+Mono:wght@400;500;600&family=Caveat:wght@500;700&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/assets/style.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "name": "Precious Okoro, B2B SaaS Content Writing & Strategy",
+  "url": "https://www.preciousokoro.site/content-writing",
+  "image": "https://www.preciousokoro.site/images/precious-headshot.jpg",
+  "description": "B2B SaaS content writer and strategist. Thought leadership, technical explainers, product education, and content strategy.",
+  "areaServed": "Worldwide",
+  "founder": {
+    "@type": "Person",
+    "name": "Precious Okoro",
+    "url": "https://www.preciousokoro.site/"
+  },
+  "serviceType": ["B2B SaaS Content Writing", "Thought Leadership Writing", "Content Strategy", "SEO Content", "AEO and GEO Content Optimization"]
+}
+</script>
 <style>
 /* Writing & Editorial: its own design system, separate from the Content Design
    nav/theme. One accent (blue), two verified pairs: #5B8DEF on dark (6.1:1 on
@@ -185,11 +202,28 @@ footer.site-footer a{color:var(--cw-soft)}
   .cw-sec{padding:48px 0}
   .cw{padding:0 20px}
 }
+
+.cw-progress{position:fixed;top:0;left:0;height:3px;width:0%;background:var(--cw-accent);z-index:50;transition:width .1s linear}
+
+.cw-sec:nth-of-type(even){background:var(--cw-card);box-shadow:0 0 0 100vmax var(--cw-card);clip-path:inset(0 -100vmax)}
+
+.cw-reveal{opacity:0;transform:translateY(24px);transition:opacity .7s cubic-bezier(.2,.8,.2,1),transform .7s cubic-bezier(.2,.8,.2,1)}
+.cw-reveal.cw-visible{opacity:1;transform:translateY(0)}
+@media (prefers-reduced-motion: reduce){
+  .cw-reveal{opacity:1;transform:none;transition:none}
+}
+
+.cw-cs-status{animation:cwPulse 2.4s ease-in-out infinite}
+@keyframes cwPulse{0%,100%{opacity:1}50%{opacity:.5}}
+@media (prefers-reduced-motion: reduce){
+  .cw-cs-status{animation:none}
+}
 </style>
 </head>
 <body>
 
 <a class="skip-link" href="#main">Skip to content</a>
+<div class="cw-progress" id="cwProgress" aria-hidden="true"></div>
 
 <header class="nav">
   <div class="nav-inner">
@@ -341,56 +375,40 @@ footer.site-footer a{color:var(--cw-soft)}
     <p style="font-weight:600;font-size:16px;margin:36px 0 0;color:var(--cw-ink)">The goal: useful content that remains discoverable as search evolves.</p>
   </section>
 
-  <section class="cw cw-sec">
-    <span class="cw-eyebrow">Strategic Content</span>
-    <h2 class="cw-h2">Every stage has a different question to answer.</h2>
-    <div class="cw-grid3">
-      <div class="cw-block"><h3>Awareness &mdash; TOFU</h3><ul><li>Industry insights</li><li>Thought leadership</li><li>Educational articles</li><li>Technical explainers</li></ul></div>
-      <div class="cw-block"><h3>Consideration &mdash; MOFU</h3><ul><li>Product-led content</li><li>How-to guides</li><li>Use-case articles</li><li>Comparisons and buying guides</li></ul></div>
-      <div class="cw-block"><h3>Decision &mdash; BOFU</h3><ul><li>Case studies</li><li>Customer stories</li><li>Product and solution pages</li><li>Alternatives pages</li></ul></div>
-    </div>
-  </section>
-
-  <section class="cw cw-sec">
-    <span class="cw-eyebrow">Subject Matter</span>
-    <h2 class="cw-h2">I write about the products and technologies changing how we work and live.</h2>
-    <div class="cw-grid2" style="margin-top:8px">
-      <div class="cw-block"><h3>AI &amp; Intelligent Technology</h3><p>AI products, automation, agents, and emerging technologies.</p></div>
-      <div class="cw-block"><h3>Fintech</h3><p>Digital banking, payments, financial infrastructure, and financial products.</p></div>
-      <div class="cw-block"><h3>Healthcare &amp; Healthtech</h3><p>Digital health, healthcare technology, and patient experiences.</p></div>
-      <div class="cw-block"><h3>Enterprise SaaS</h3><p>Business software, productivity, operations, and workflow tools.</p></div>
-      <div class="cw-block"><h3>Education &amp; EdTech</h3><p>Learning platforms, education technology, and digital learning.</p></div>
-      <div class="cw-block"><h3>Consumer Technology</h3><p>Digital products and the experiences built around them.</p></div>
-    </div>
-  </section>
-
   <section class="cw cw-sec" id="samples">
     <span class="cw-eyebrow">The Editorial Desk</span>
     <h2 class="cw-h2">Ideas worth exploring. Products worth understanding.</h2>
     <p class="cw-intro">A selection of commissioned work, original articles, and independent editorial projects across technology and business.</p>
+    <div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:28px">
+      <span class="cw-pill active" data-filter="all">All Writing</span>
+      <span class="cw-pill" data-filter="guest">Guest Essay</span>
+      <span class="cw-pill" data-filter="thought">Thought Leadership</span>
+      <span class="cw-pill" data-filter="industry">Industry Analysis</span>
+      <span class="cw-pill" data-filter="personal">Personal Essay</span>
+    </div>
     <div class="cw-samples">
-      <a href="https://www.dittowords.com/blog/agentic-ai-content-design" target="_blank" rel="noopener" class="cw-card">
+      <a href="https://www.dittowords.com/blog/agentic-ai-content-design" target="_blank" rel="noopener" class="cw-card" data-cat="guest">
         <img src="images/ditto-hero.webp" alt="Ditto blog guest post header: 'Ditto x Precious Okoro'">
         <span class="cw-tag">Guest Essay &middot; B2B SaaS</span>
         <h3>Why Agentic AI Requires a New Approach to Content Design</h3>
         <p>dittowords.com</p>
         <span class="cw-arrow">Read the piece &#8599;</span>
       </a>
-      <a href="/writing/ai-agent-trust-is-a-content-design-problem" class="cw-card">
+      <a href="/writing/ai-agent-trust-is-a-content-design-problem" class="cw-card" data-cat="thought">
         <img src="images/writing/ai-agent-trust-is-a-content-design-problem-1.png" alt="Cover card for 'AI Agent Trust Is a Content Design Problem'">
         <span class="cw-tag">Thought Leadership</span>
         <h3>AI Agent Trust Is a Content Design Problem</h3>
         <p>preciousokoro.site</p>
         <span class="cw-arrow">Read the piece &#8599;</span>
       </a>
-      <a href="/writing/content-design-isnt-dying-it-s-being-promoted-into-ai-experience-strategy" class="cw-card">
+      <a href="/writing/content-design-isnt-dying-it-s-being-promoted-into-ai-experience-strategy" class="cw-card" data-cat="industry">
         <img src="images/writing/content-design-isnt-dying-it-s-being-promoted-into-ai-experience-strategy-1.png" alt="Cover card for 'Content Design Isn't Dying. It's Being Promoted Into AI Experience Strategy'">
         <span class="cw-tag">Industry Analysis</span>
         <h3>Content Design Isn't Dying. It's Being Promoted Into AI Experience Strategy</h3>
         <p>preciousokoro.site</p>
         <span class="cw-arrow">Read the piece &#8599;</span>
       </a>
-      <a href="/writing/why-i-stopped-calling-myself-a-content-designer" class="cw-card">
+      <a href="/writing/why-i-stopped-calling-myself-a-content-designer" class="cw-card" data-cat="personal">
         <div class="cw-text-cover"><p>&ldquo;I stayed in a job longer than I should have.&rdquo;</p></div>
         <span class="cw-tag">Personal Essay</span>
         <h3>Why I Stopped Calling Myself a Content Designer</h3>
@@ -514,6 +532,46 @@ footer.site-footer a{color:var(--cw-soft)}
 <script src="/assets/nav-toggle.js"></script>
 <script>
 (function(){
+  var bar = document.getElementById('cwProgress');
+  if(bar){
+    var updateProgress = function(){
+      var h = document.documentElement;
+      var max = h.scrollHeight - h.clientHeight;
+      var pct = max > 0 ? (h.scrollTop / max) * 100 : 0;
+      bar.style.width = pct + '%';
+    };
+    window.addEventListener('scroll', updateProgress, {passive:true});
+    window.addEventListener('resize', updateProgress);
+    updateProgress();
+  }
+
+  if('IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if(entry.isIntersecting){
+          entry.target.classList.add('cw-visible');
+          io.unobserve(entry.target);
+        }
+      });
+    }, {threshold:0.1, rootMargin:'0px 0px -60px 0px'});
+    document.querySelectorAll('main .cw-sec').forEach(function(el){
+      el.classList.add('cw-reveal');
+      io.observe(el);
+    });
+  }
+
+  document.querySelectorAll('.cw-pill[data-filter]').forEach(function(pill){
+    pill.addEventListener('click', function(){
+      document.querySelectorAll('.cw-pill[data-filter]').forEach(function(p){ p.classList.remove('active'); });
+      pill.classList.add('active');
+      var filter = pill.getAttribute('data-filter');
+      document.querySelectorAll('.cw-samples .cw-card').forEach(function(card){
+        var cat = card.getAttribute('data-cat');
+        card.style.display = (filter === 'all' || cat === filter) ? '' : 'none';
+      });
+    });
+  });
+
   document.querySelectorAll('.cw-faqrow').forEach(function(row){
     var btn = row.querySelector('.cw-faqq');
     var icon = row.querySelector('.cw-faqicon');
