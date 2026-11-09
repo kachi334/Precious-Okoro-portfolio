@@ -156,6 +156,12 @@ footer.site-footer a{color:var(--cw-soft)}
 .cw-faqa.open{max-height:200px}
 .cw-faqa p{font-size:13.5px;color:var(--cw-soft2);margin:0 0 20px;line-height:1.6;max-width:70ch}
 
+.cw-fit-list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:14px}
+.cw-fit-list li{display:flex;gap:12px;align-items:flex-start;font-size:14px;line-height:1.55;color:var(--cw-soft2)}
+.cw-fit-mark{flex-shrink:0;font-family:'IBM Plex Mono',monospace;font-size:13px;font-weight:600;width:18px}
+.cw-fit-mark.yes{color:var(--cw-accent)}
+.cw-fit-mark.no{color:var(--cw-faint)}
+
 .cw-navlink{position:relative}
 .cw-navlink::after{content:"";position:absolute;left:0;right:0;bottom:-4px;height:1px;background:var(--cw-ink);transform:scaleX(0);transform-origin:left;transition:transform .25s cubic-bezier(.2,.8,.2,1)}
 .cw-navlink:hover::after{transform:scaleX(1)}
@@ -212,20 +218,25 @@ footer.site-footer a{color:var(--cw-soft)}
   <section class="cw cw-hero-sec">
     <span class="cw-eyebrow" style="margin-bottom:20px">B2B SaaS Content &middot; Content Marketing &middot; Editorial Strategy &middot; Issue No. 01</span>
     <div class="cw-hero">
-      <h1 style="font-family:'Instrument Serif',serif;font-style:normal;font-weight:400;font-size:clamp(34px,5.2vw,62px);line-height:1.12;letter-spacing:-0.015em;margin:0;color:var(--cw-ink);max-width:16ch">I make complex products, technologies, and ideas worth understanding.</h1>
+      <h1 style="font-family:'Instrument Serif',serif;font-style:normal;font-weight:400;font-size:clamp(32px,4.8vw,58px);line-height:1.14;letter-spacing:-0.015em;margin:0;color:var(--cw-ink);max-width:17ch">I turn complex SaaS products into content buyers understand, trust, and act on.</h1>
       <div class="cw-hero-photo">
         <div style="position:absolute;width:300px;height:300px;border-radius:999px;background:radial-gradient(circle,rgba(var(--cw-accent-rgb),0.3) 0%,rgba(var(--cw-accent-rgb),0) 70%);filter:blur(8px)"></div>
         <img src="/images/precious-headshot.jpg" alt="Precious Okoro" style="position:relative;width:240px;height:240px;border-radius:999px;object-fit:cover;border:2px solid var(--cw-border-strong)">
       </div>
     </div>
     <div class="cw-hero-row">
-      <p style="font-size:15.5px;line-height:1.7;color:var(--cw-soft);margin:0;max-width:48ch">I write research-led content for SaaS and technology companies. From thought leadership and technical explainers to SEO articles and product education, I turn complex subjects into content people can understand, trust, and act on.</p>
+      <p style="font-size:15.5px;line-height:1.7;color:var(--cw-soft);margin:0;max-width:48ch">Research-led content for SaaS and technology companies, grounded in 6+ years inside content design and product teams. From thought leadership and technical explainers to product education and content strategy, every piece starts with how the product actually works.</p>
       <div style="display:flex;gap:10px;flex-wrap:wrap">
         <a href="#samples" class="cw-btn-primary">Explore my writing &#8599;</a>
         <a href="/contact" class="cw-btn-ghost">Work with me</a>
       </div>
     </div>
-    <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:28px;padding-top:20px;border-top:1px solid var(--cw-border)">
+    <div style="display:flex;gap:40px;flex-wrap:wrap;margin-top:28px;padding-top:28px;border-top:1px solid var(--cw-border)">
+      <div><span style="display:block;font-family:'Instrument Serif',serif;font-size:28px;color:var(--cw-ink)">6+</span><span class="cw-tag-strip">YEARS IN B2B SAAS &amp; PRODUCT CONTENT</span></div>
+      <div><span style="display:block;font-family:'Instrument Serif',serif;font-size:28px;color:var(--cw-ink)">Nearly 2x</span><span class="cw-tag-strip">STUDENT LOGINS AFTER A CONTENT REDESIGN, FASTTRACKUX</span></div>
+      <div><span style="display:block;font-family:'Instrument Serif',serif;font-size:28px;color:var(--cw-ink)">4</span><span class="cw-tag-strip">INDUSTRIES: FINTECH, SAAS, EDTECH, AI</span></div>
+    </div>
+    <div style="margin-top:20px">
       <span class="cw-tag-strip">B2B SAAS &middot; AI &amp; TECHNOLOGY &middot; FINTECH &middot; EDTECH &middot; ENTERPRISE SOFTWARE</span>
     </div>
     <a href="/writing" class="cw-navlink" style="font-size:13px;color:var(--cw-soft);margin-top:14px;display:inline-block">Looking for essays on content design and AI instead? &rarr;</a>
@@ -253,21 +264,25 @@ footer.site-footer a{color:var(--cw-soft)}
         <span class="num">01</span>
         <h3>B2B SaaS &amp; Technology</h3>
         <ul><li>SEO articles &amp; long-form content</li><li>Technical explainers</li><li>Product-led articles</li><li>Comparison &amp; alternatives pages</li></ul>
+        <p style="font-size:12.5px;color:var(--cw-faint);margin:4px 0 0;line-height:1.5">The result: prospects understand what your product does before they ever talk to sales.</p>
       </div>
       <div class="cw-svc-card">
         <span class="num">02</span>
         <h3>Thought Leadership</h3>
         <ul><li>Founder &amp; executive articles</li><li>Expert-led editorial</li><li>Research-backed opinion pieces</li><li>Ghostwriting &amp; newsletters</li></ul>
+        <p style="font-size:12.5px;color:var(--cw-faint);margin:4px 0 0;line-height:1.5">The result: your team's expertise builds trust before a deal starts.</p>
       </div>
       <div class="cw-svc-card">
         <span class="num">03</span>
         <h3>Product Education</h3>
         <ul><li>Product &amp; feature explainers</li><li>Tutorials &amp; how-to guides</li><li>Use-case articles</li><li>Customer stories</li></ul>
+        <p style="font-size:12.5px;color:var(--cw-faint);margin:4px 0 0;line-height:1.5">The result: customers get more value from what they already bought.</p>
       </div>
       <div class="cw-svc-card">
         <span class="num">04</span>
         <h3>Content Strategy</h3>
         <ul><li>Content audits &amp; planning</li><li>Editorial calendars</li><li>Messaging frameworks</li><li>Content performance analysis</li></ul>
+        <p style="font-size:12.5px;color:var(--cw-faint);margin:4px 0 0;line-height:1.5">The result: every piece of content has a clear job to do.</p>
       </div>
     </div>
   </section>
@@ -365,7 +380,7 @@ footer.site-footer a{color:var(--cw-soft)}
         <span class="cw-arrow">Read the piece &#8599;</span>
       </a>
     </div>
-    <p style="font-size:13.5px;color:var(--cw-faint);margin:0 0 24px">Each article displays its category, industry, format, funnel stage, publication date, and reading time.</p>
+    <p style="font-size:13.5px;color:var(--cw-faint);margin:0 0 24px">Each article is tagged by category and format so you can find the kind of work you are looking for.</p>
     <a href="/writing" class="cw-btn-primary">Explore all writing &#8599;</a>
   </section>
 
@@ -373,10 +388,10 @@ footer.site-footer a{color:var(--cw-soft)}
     <span class="cw-eyebrow">How I Work</span>
     <h2 class="cw-h2">Research first. Writing follows.</h2>
     <div class="cw-grid4" style="margin-top:8px">
-      <div class="cw-block"><span style="font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:var(--cw-accent)">01</span><h3 style="margin-top:8px">Research</h3><p>Understand the audience, product, industry, competitive landscape, and questions that matter.</p></div>
-      <div class="cw-block"><span style="font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:var(--cw-accent)">02</span><h3 style="margin-top:8px">Strategy</h3><p>Define the content's purpose, positioning, search intent, editorial angle, and intended outcome.</p></div>
-      <div class="cw-block"><span style="font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:var(--cw-accent)">03</span><h3 style="margin-top:8px">Execution</h3><p>Translate complex information into useful, engaging, well-structured content.</p></div>
-      <div class="cw-block"><span style="font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:var(--cw-accent)">04</span><h3 style="margin-top:8px">Systems</h3><p>Ensure content contributes to a consistent communication experience and supports broader business objectives.</p></div>
+      <div class="cw-block"><span style="font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:var(--cw-accent)">01</span><h3 style="margin-top:8px">Research</h3><p>Understand the audience, product, industry, competitive landscape, and questions that matter. The brief reflects what your audience actually needs to know, not assumptions.</p></div>
+      <div class="cw-block"><span style="font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:var(--cw-accent)">02</span><h3 style="margin-top:8px">Strategy</h3><p>Define the content's purpose, positioning, search intent, editorial angle, and intended outcome. Every piece has a clear job before a word gets written.</p></div>
+      <div class="cw-block"><span style="font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:var(--cw-accent)">03</span><h3 style="margin-top:8px">Execution</h3><p>Translate complex information into useful, engaging, well-structured content. The result is usable, not just published.</p></div>
+      <div class="cw-block"><span style="font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:var(--cw-accent)">04</span><h3 style="margin-top:8px">Systems</h3><p>Ensure content contributes to a consistent communication experience and supports broader business objectives. Results compound instead of resetting with every new piece.</p></div>
     </div>
   </section>
 
@@ -404,6 +419,33 @@ footer.site-footer a{color:var(--cw-soft)}
         <blockquote>&ldquo;Her writing skills are exceptional, making content easy to understand and engage with effortlessly. She possesses a deep understanding of UX writing and is well-versed in UX laws, which reflects in the quality of her work.&rdquo;</blockquote>
         <figcaption><span class="name">Lahek Gupta</span><span class="role">Product Designer &middot; FastTrackUX</span></figcaption>
       </figure>
+    </div>
+  </section>
+
+  <section class="cw cw-sec">
+    <span class="cw-eyebrow">Before We Work Together</span>
+    <h2 class="cw-h2">A quick fit check.</h2>
+    <p class="cw-intro">I take on a limited number of clients at a time, so it is worth being direct about who this is for.</p>
+    <div class="cw-grid2">
+      <div class="cw-block">
+        <h3 style="margin-bottom:14px">Good fit</h3>
+        <ul class="cw-fit-list">
+          <li><span class="cw-fit-mark yes">&#10003;</span>You are a B2B SaaS or technology company with a product worth explaining well.</li>
+          <li><span class="cw-fit-mark yes">&#10003;</span>You want content informed by product thinking, not just keywords.</li>
+          <li><span class="cw-fit-mark yes">&#10003;</span>You need one senior writer across strategy and execution, not a volume mill.</li>
+          <li><span class="cw-fit-mark yes">&#10003;</span>You are building thought leadership, not just chasing search traffic.</li>
+          <li><span class="cw-fit-mark yes">&#10003;</span>You would rather approve a draft than rewrite one from scratch.</li>
+        </ul>
+      </div>
+      <div class="cw-block">
+        <h3 style="margin-bottom:14px">Probably not a fit</h3>
+        <ul class="cw-fit-list">
+          <li><span class="cw-fit-mark no">&#10005;</span>You need high-volume content at the lowest possible cost.</li>
+          <li><span class="cw-fit-mark no">&#10005;</span>You want keyword-stuffed posts with no product understanding behind them.</li>
+          <li><span class="cw-fit-mark no">&#10005;</span>You need a finished article live by tomorrow morning.</li>
+          <li><span class="cw-fit-mark no">&#10005;</span>You want a writer who takes instructions without weighing in on strategy.</li>
+        </ul>
+      </div>
     </div>
   </section>
 
