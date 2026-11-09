@@ -469,7 +469,19 @@ mark{background:var(--t-mint-a);color:var(--ink);padding:1px 5px;border-radius:5
 .engagement-card.amber .idx,.engagement-card.amber .cat{color:var(--amber-text)}
 .engagement-card.violet{background:linear-gradient(160deg,var(--t-violet-a) 0%,var(--t-violet-b) 100%);box-shadow:0 30px 70px -45px rgba(107,79,214,0.4)}
 .engagement-card.violet .idx,.engagement-card.violet .cat{color:var(--accent)}
+.engagement-card.sky{background:linear-gradient(160deg,var(--t-sky-a) 0%,var(--t-sky-b) 100%);box-shadow:0 30px 70px -45px rgba(63,160,224,0.4)}
+.engagement-card.sky .idx,.engagement-card.sky .cat{color:var(--sky-text)}
+.engagement-card.ember{background:linear-gradient(160deg,var(--t-ember-a) 0%,var(--t-ember-b) 100%);box-shadow:0 30px 70px -45px rgba(156,62,31,0.4)}
+.engagement-card.ember .idx,.engagement-card.ember .cat{color:var(--ember-text)}
 a.engagement-card{color:inherit;text-decoration:none}
+
+/* ===== FEATURED WRITING ===== */
+.featured-writing-card{display:block;text-decoration:none;color:#FAF6ED;background:#17130E;border-radius:32px;padding:clamp(32px,4vw,56px);transition:transform .3s cubic-bezier(.2,.8,.2,1);box-shadow:0 30px 70px -40px rgba(23,19,14,0.5)}
+.featured-writing-card:hover{transform:translateY(-4px)}
+.featured-writing-card .fw-eyebrow{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:1px;text-transform:uppercase;color:#9B85E8}
+.featured-writing-card h2{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(28px,3.4vw,44px);letter-spacing:-0.02em;line-height:1.1;color:#FAF6ED;margin:14px 0 18px;max-width:20ch}
+.featured-writing-card p{font-family:'Fraunces',serif;font-style:italic;font-size:clamp(18px,2vw,22px);line-height:1.5;color:#E8E1D2;max-width:60ch;margin:0}
+.featured-writing-card .fw-link{display:inline-block;margin-top:24px;font-family:'Manrope',sans-serif;font-weight:600;font-size:15px;color:#9B85E8}
 
 /* ===== ABOUT ===== */
 /* Image sits beside the heading (not below it) at any width ≥ the 860px

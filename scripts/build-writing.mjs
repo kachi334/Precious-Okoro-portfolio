@@ -215,14 +215,32 @@ ${bodyHtml}
 ${FOOTER}`
 }
 
+const CARD_COLORS = ['coral', 'violet', 'amber', 'mint', 'sky', 'ember']
+
 function indexPage(entries) {
-  const items = entries
+  const [featured, ...rest] = entries
+  const featuredBlock = featured
+    ? `
+  <section class="wrap" style="padding-bottom:40px">
+    <a href="/writing/${esc(featured.slug)}" class="featured-writing-card">
+      <span class="fw-eyebrow">${esc(featured.date)} · ${esc(featured.category || 'Latest')}</span>
+      <h2>${esc(featured.title)}</h2>
+      <p>${esc(featured.summary)}</p>
+      <span class="fw-link">Read essay →</span>
+    </a>
+  </section>`
+    : ''
+  const items = rest
     .map(
-      (p) => `
-      <a href="/writing/${esc(p.slug)}" class="writing-item">
-        <span class="w-date">${esc(p.date)}</span>
-        <h2>${esc(p.title)}</h2>
-        <p>${esc(p.summary)}</p>
+      (p, i) => `
+      <a href="/writing/${esc(p.slug)}" class="engagement-card ${CARD_COLORS[i % CARD_COLORS.length]}">
+        <span class="idx">${esc(p.date)}</span>
+        <div class="body">
+          <span class="cat">${esc(p.category || 'Essay')}</span>
+          <h3 style="font-size:22px">${esc(p.title)}</h3>
+          <p>${esc(p.summary)}</p>
+        </div>
+        <span class="btn-link accent" style="margin-top:auto">Read essay →</span>
       </a>`
     )
     .join('')
@@ -257,9 +275,9 @@ ${NAV}
     <h1><span class="fade">Things I'm thinking</span> <span class="accent-italic">about</span></h1>
     <a href="/content-writing" class="btn-link accent" style="margin-top:4px">Looking for content writing samples instead? →</a>
   </section>
-
+${featuredBlock}
   <section class="wrap writing-list-wrap">
-    <div class="writing-list">${items}
+    <div class="engagement-grid">${items}
     </div>
   </section>
 </main>
