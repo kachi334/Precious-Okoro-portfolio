@@ -207,6 +207,46 @@ footer.site-footer a{color:var(--cw-soft)}
 
 .cw-sec:nth-of-type(even){background:var(--cw-card);box-shadow:0 0 0 100vmax var(--cw-card);clip-path:inset(0 -100vmax)}
 
+:root .cw-inverted{
+  --cw-bg:#0A0A0B;
+  --cw-card:#101012;
+  --cw-card-alt:#19191C;
+  --cw-card-alt-hover:#1D1D20;
+  --cw-border:#1C1C1F;
+  --cw-border-strong:#28282C;
+  --cw-border-pill:#2A2A2E;
+  --cw-ink:#EDEAE2;
+  --cw-soft:#8E8B85;
+  --cw-soft2:#9C988F;
+  --cw-muted:#B5B1A8;
+  --cw-faint:#6B6862;
+  --cw-accent:#5B8DEF;
+  --cw-accent-rgb:91,141,239;
+  --cw-invert-bg:#EDEAE2;
+  --cw-invert-text:#0A0A0B;
+  --cw-invert-hover:#FFFFFF;
+}
+:root[data-theme="dark"] .cw-inverted{
+  --cw-bg:#FFFFFF;
+  --cw-card:#F6F6F7;
+  --cw-card-alt:#F0F0F1;
+  --cw-card-alt-hover:#EAEAEC;
+  --cw-border:#E7E7E9;
+  --cw-border-strong:#DADADC;
+  --cw-border-pill:#D4D4D7;
+  --cw-ink:#15151A;
+  --cw-soft:#55555A;
+  --cw-soft2:#5F5E59;
+  --cw-muted:#4A4945;
+  --cw-faint:#8A8882;
+  --cw-accent:#1D4ED8;
+  --cw-accent-rgb:29,78,216;
+  --cw-invert-bg:#15151A;
+  --cw-invert-text:#FFFFFF;
+  --cw-invert-hover:#000000;
+}
+.cw-sec.cw-inverted{background:var(--cw-bg);box-shadow:0 0 0 100vmax var(--cw-bg);clip-path:inset(0 -100vmax);color:var(--cw-ink)}
+
 .cw-reveal{opacity:0;transform:translateY(24px);transition:opacity .7s cubic-bezier(.2,.8,.2,1),transform .7s cubic-bezier(.2,.8,.2,1)}
 .cw-reveal.cw-visible{opacity:1;transform:translateY(0)}
 @media (prefers-reduced-motion: reduce){
@@ -332,7 +372,7 @@ footer.site-footer a{color:var(--cw-soft)}
     <p style="font-weight:600;font-size:16px;margin:36px 0 0;color:var(--cw-ink)">This is where the writing comes in.</p>
   </section>
 
-  <section class="cw cw-sec" id="services">
+  <section class="cw cw-sec cw-inverted" id="services">
     <span class="cw-eyebrow">What I Do</span>
     <h2 class="cw-h2">Content built around what your business needs to communicate.</h2>
     <div class="cw-grid4">
@@ -493,7 +533,7 @@ footer.site-footer a{color:var(--cw-soft)}
     </div>
   </section>
 
-  <section class="cw cw-sec">
+  <section class="cw cw-sec cw-inverted">
     <span class="cw-eyebrow">Have Something Worth Communicating?</span>
     <h2 class="cw-h2" style="max-width:22ch;font-size:clamp(28px,4vw,40px)">Let's give your ideas the words and strategy they deserve.</h2>
     <p class="cw-intro">Whether you're explaining a product, sharing expertise, or building visibility in your industry, let's turn it into content that gets read, trusted, and acted on.</p>
