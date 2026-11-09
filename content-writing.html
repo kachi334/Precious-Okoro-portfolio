@@ -20,6 +20,68 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..600;1,9..144,400..600&family=Manrope:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&family=IBM+Plex+Mono:wght@400;500;600&family=Caveat:wght@500;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/assets/style.css">
+<style>
+/* Editorial palette, scoped to this page only: Deep Burgundy + Warm Cream,
+   Terracotta sparingly for buttons/highlights. Verified contrast pairs:
+   burgundy-on-cream 10.75:1, dark-terracotta-on-cream 5.18:1,
+   near-black-on-terracotta 4.85:1, cream-on-dark-terracotta 5.18:1,
+   peach-terracotta-on-burgundy 4.75:1. */
+:root{
+  --paper:#F5EBDD;--paper-rgb:245,235,221;
+  --surface:#FBF4E8;
+  --ink:#581F32;--ink-rgb:88,31,50;
+  --ink-soft:#7A3F52;
+  --ink-faint:#9A6B7A;
+  --fade:#8C5D6E;
+  --accent:#9C4A30;
+  --accent-strong:#7D3B26;
+  --mint-text:#6B2F42;
+  --amber-text:#8C5631;
+  --coral-text:#9C4A30;
+  --sky-text:#6B3045;
+  --ember-text:#7D3B26;
+  --t-mint-a:#EADCE0;--t-mint-b:#F3EBEC;
+  --t-amber-a:#F0DCC0;--t-amber-b:#F7EDDC;
+  --t-violet-a:#E3D0D6;--t-violet-b:#EFE3E6;
+  --t-coral-a:#F3DCCF;--t-coral-b:#F8EBE2;
+  --t-sky-a:#E8D9DC;--t-sky-b:#F2E9EA;
+  --t-ember-a:#E8C9B8;--t-ember-b:#F3E2D7;
+  --t-violet-chip:#EFE3E6;
+  --t-neutral:#EFE3D4;
+  --t-field:#F1E6D6;
+}
+:root[data-theme="dark"]{
+  --paper:#581F32;--paper-rgb:88,31,50;
+  --surface:#6B2840;
+  --ink:#F5EBDD;--ink-rgb:245,235,221;
+  --ink-soft:#D9C9B5;
+  --ink-faint:#B8A48F;
+  --fade:#C9B49F;
+  --accent:#E08862;
+  --accent-strong:#EDA183;
+  --mint-text:#E8A8BC;
+  --amber-text:#E8B98C;
+  --coral-text:#E8967A;
+  --sky-text:#D99BAE;
+  --ember-text:#E89068;
+  --t-mint-a:#6B2F42;--t-mint-b:#5E2438;
+  --t-amber-a:#6B3D28;--t-amber-b:#5E321F;
+  --t-violet-a:#6B2840;--t-violet-b:#5E2036;
+  --t-coral-a:#6B3A28;--t-coral-b:#5E2F1F;
+  --t-sky-a:#6B2840;--t-sky-b:#5E2036;
+  --t-ember-a:#6B3220;--t-ember-b:#5E2818;
+  --t-violet-chip:#6B2840;
+  --t-neutral:#6B2840;
+  --t-field:#6B2840;
+}
+.highlight-pill.amber{background:#C46A4B}
+.engagement-card.coral{box-shadow:0 30px 70px -45px rgba(156,62,31,0.35)}
+.engagement-card.mint{box-shadow:0 30px 70px -45px rgba(88,31,50,0.3)}
+.engagement-card.amber{box-shadow:0 30px 70px -45px rgba(140,86,49,0.35)}
+.engagement-card.violet{box-shadow:0 30px 70px -45px rgba(88,31,50,0.3)}
+.engagement-card.sky{box-shadow:0 30px 70px -45px rgba(88,31,50,0.3)}
+.engagement-card.ember{box-shadow:0 30px 70px -45px rgba(125,59,38,0.35)}
+</style>
 </head>
 <body>
 
@@ -52,18 +114,30 @@
 <main id="main">
 
   <section class="work-hero" style="padding-bottom:40px">
-    <span class="eyebrow">Content Writing</span>
+    <span class="eyebrow">Writing &amp; Editorial</span>
     <span style="display:block;font-family:'IBM Plex Mono',monospace;font-size:13px;font-weight:600;color:var(--ink-soft);margin-top:6px">B2B SaaS Content Writer &amp; Strategist</span>
-    <h1><span class="fade">I write</span> <span class="highlight-pill amber">blog posts, essays, and brand content</span> <span class="fade">that sound like a person, not a template</span><em>.</em></h1>
-    <p style="font-size:18px;line-height:1.7;color:var(--ink-soft);max-width:62ch;margin:8px 0 0">Six years writing for product and marketing teams. Most of them fully remote, spread across the US, the UK, and Africa.</p>
-    <p style="font-size:18px;line-height:1.7;color:var(--ink-soft);max-width:62ch;margin:0">Blog posts, guest essays, newsletters, and landing pages for fintech, SaaS, edtech, and AI companies. I work async, hit deadlines across time zones, and tell you honestly when a brief needs more thinking before it needs more writing.</p>
-    <a href="/contact" class="btn-link accent" style="margin-top:4px">Hire me for your next piece →</a>
-    <a href="/writing" class="btn-link accent" style="margin-top:4px">Looking for essays on content design and AI instead? →</a>
-    <div style="display:flex;flex-wrap:wrap;gap:10px;margin-top:20px">
-      <span class="stat-blob"><span class="dot" style="background:#1FAE6E"></span>6+ years writing for products</span>
-      <span class="stat-blob"><span class="dot" style="background:#D69A1A"></span>4 industries written for</span>
-      <span class="stat-blob"><span class="dot" style="background:#6B4FD6"></span>5 time zones worked across</span>
+    <h1 style="max-width:18ch">I turn complex products into content people <span class="highlight-pill amber">understand, trust, and act on.</span></h1>
+    <p style="font-size:18px;line-height:1.7;color:var(--ink-soft);max-width:62ch;margin:8px 0 0">I develop strategic, research-driven content for B2B SaaS and technology companies. From technical explainers and industry insights to product-led articles and thought leadership, I help businesses communicate complex ideas, demonstrate their value, and build meaningful connections with their audiences.</p>
+    <p style="font-size:18px;line-height:1.7;color:var(--ink-soft);max-width:62ch;margin:0">My work combines editorial thinking, product understanding, and content strategy.</p>
+    <div class="hero-actions" style="margin-top:8px">
+      <a href="#samples" class="btn btn-primary">Explore my writing</a>
+      <a href="/contact" class="btn btn-ghost">Work with me</a>
     </div>
+    <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--ink-faint);margin-top:6px">B2B SaaS &middot; AI &amp; Technology &middot; Fintech &middot; Healthtech &middot; Enterprise Software</span>
+    <a href="/writing" class="btn-link accent" style="margin-top:12px">Looking for essays on content design and AI instead? →</a>
+    <div style="display:flex;flex-wrap:wrap;gap:10px;margin-top:20px">
+      <span class="stat-blob"><span class="dot" style="background:#C46A4B"></span>6+ years writing for products</span>
+      <span class="stat-blob"><span class="dot" style="background:#9C4A30"></span>4 industries written for</span>
+      <span class="stat-blob"><span class="dot" style="background:#581F32"></span>5 time zones worked across</span>
+    </div>
+  </section>
+
+  <section class="wrap" style="display:flex;flex-direction:column;gap:24px;padding-bottom:100px;max-width:900px">
+    <span class="section-eyebrow" style="color:var(--mint-text)">The Thinking Behind The Writing</span>
+    <h2 class="section-h2">Good content starts long before the first draft.</h2>
+    <p style="font-size:18px;line-height:1.7;color:var(--ink-soft);margin:0">I approach writing with an understanding of the product, the people using it, and the business behind it. That means looking beyond keywords and word counts to understand what an audience needs to know, what questions a product needs to answer, and what a business needs its content to accomplish.</p>
+    <p style="font-size:18px;line-height:1.7;color:var(--ink-soft);margin:0">With over six years of experience across content design, strategy, editorial work, and product communications, I bring a broader perspective to the writing process.</p>
+    <p class="section-h2" style="margin:8px 0 0">I don't just think about what needs to be written. I think about why it needs to exist, where it fits, and what it should make possible.</p>
   </section>
 
   <section class="wrap" style="padding-bottom:64px">
@@ -85,71 +159,68 @@
         <span class="idx">01</span>
         <div class="body">
           <span class="cat">B2B SaaS Content</span>
-          <h3 style="font-size:20px">Making complex products easy to understand</h3>
-          <p>SEO articles, technical explainers, product-led content, comparison and alternative pages.</p>
+          <h3 style="font-size:20px">I help technology companies make complex products easier to understand and valuable ideas easier to discover.</h3>
+          <div class="tag-row">
+            <span class="tag-pill">SEO articles</span><span class="tag-pill">Long-form educational content</span><span class="tag-pill">Technical explainers</span><span class="tag-pill">Industry analysis</span><span class="tag-pill">Pillar pages &amp; topic clusters</span><span class="tag-pill">Product-led articles</span><span class="tag-pill">Comparison &amp; alternative pages</span>
+          </div>
         </div>
       </div>
       <div class="engagement-card" style="border:1px solid rgba(var(--ink-rgb),0.14)">
         <span class="idx">02</span>
         <div class="body">
           <span class="cat">Thought Leadership &amp; Editorial</span>
-          <h3 style="font-size:20px">Turning a point of view into authority</h3>
-          <p>Founder-led articles, opinion pieces, research-backed perspectives, guest bylines.</p>
+          <h3 style="font-size:20px">I turn industry knowledge, original perspectives, and emerging ideas into editorial content that establishes authority.</h3>
+          <div class="tag-row">
+            <span class="tag-pill">Executive thought leadership</span><span class="tag-pill">Founder-led articles</span><span class="tag-pill">Opinion pieces</span><span class="tag-pill">Research-backed perspectives</span><span class="tag-pill">Industry commentary</span><span class="tag-pill">Editorial newsletters</span><span class="tag-pill">Expert interviews</span>
+          </div>
         </div>
       </div>
       <div class="engagement-card" style="border:1px solid rgba(var(--ink-rgb),0.14)">
         <span class="idx">03</span>
         <div class="body">
           <span class="cat">Product &amp; Customer Education</span>
-          <h3 style="font-size:20px">Helping people get more from what they already use</h3>
-          <p>Explainers, how-to guides, onboarding resources, use-case articles.</p>
+          <h3 style="font-size:20px">I create content that helps audiences understand products, evaluate solutions, and get more value from the technology they use.</h3>
+          <div class="tag-row">
+            <span class="tag-pill">Product explainers</span><span class="tag-pill">Feature education</span><span class="tag-pill">Tutorials &amp; how-to guides</span><span class="tag-pill">Customer onboarding resources</span><span class="tag-pill">Knowledge base articles</span><span class="tag-pill">Use-case articles</span><span class="tag-pill">Customer stories &amp; case studies</span>
+          </div>
         </div>
       </div>
       <div class="engagement-card" style="border:1px solid rgba(var(--ink-rgb),0.14)">
         <span class="idx">04</span>
         <div class="body">
           <span class="cat">Content Strategy &amp; Marketing</span>
-          <h3 style="font-size:20px">Connecting content to what the business actually needs</h3>
-          <p>Content strategy, editorial planning, content audits, messaging frameworks.</p>
+          <h3 style="font-size:20px">I help businesses connect content production to their positioning, marketing objectives, and customer journey.</h3>
+          <div class="tag-row">
+            <span class="tag-pill">Content strategy</span><span class="tag-pill">Editorial planning</span><span class="tag-pill">Content audits</span><span class="tag-pill">SEO content planning</span><span class="tag-pill">Messaging frameworks</span><span class="tag-pill">Content distribution strategy</span><span class="tag-pill">Content performance analysis</span>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="wrap" style="padding-bottom:100px">
-    <p class="section-h2" style="max-width:900px;margin:0">Most writers explain the product. I figure out what it should say in the first place.</p>
-  </section>
-
   <section class="wrap" style="display:flex;flex-direction:column;gap:40px;padding-bottom:140px">
     <div style="display:flex;flex-direction:column;gap:16px">
-      <span class="section-eyebrow" style="color:var(--sky-text)">How I Work With Teams</span>
-      <h2 class="section-h2">Built for <span class="accent-italic">distributed</span> teams</h2>
+      <span class="section-eyebrow" style="color:var(--sky-text)">How I Work</span>
+      <h2 class="section-h2">I bring a <span class="accent-italic">product mindset</span> to editorial work</h2>
+      <p style="font-size:17px;line-height:1.7;color:var(--ink-soft);max-width:62ch;margin:0">My approach is informed by years of working across digital products, content systems, and multidisciplinary teams.</p>
     </div>
-    <div class="craft-3grid" style="max-width:none;margin:0;padding:0">
-      <div class="craft-item">
-        <span class="num">01 · Discovery</span>
-        <h2>I start with your reader, not your brief</h2>
-        <p>A call or an async doc. I ask who's actually reading this and what they need to believe before they act.</p>
+    <div class="side-project-list">
+      <div class="side-project-row">
+        <div class="sp-body"><span class="sp-name">Research</span><span class="sp-desc">Understand the audience, product, industry, competitive landscape, and questions that matter.</span></div>
       </div>
-      <div class="craft-item">
-        <span class="num">02 · Drafting</span>
-        <h2>I write in your voice, not mine</h2>
-        <p>I work from a style guide if you have one, and build one from your existing content if you don't.</p>
+      <div class="side-project-row">
+        <div class="sp-body"><span class="sp-name">Strategy</span><span class="sp-desc">Define the content's purpose, positioning, search intent, editorial angle, and intended outcome.</span></div>
       </div>
-      <div class="craft-item">
-        <span class="num">03 · Feedback</span>
-        <h2>Async by default, live when it's faster</h2>
-        <p>Comments in your docs, not a meeting you have to stay up for. I've worked this way with teams five time zones away.</p>
+      <div class="side-project-row">
+        <div class="sp-body"><span class="sp-name">Execution</span><span class="sp-desc">Translate complex information into useful, engaging, well-structured content.</span></div>
       </div>
-      <div class="craft-item">
-        <span class="num">04 · Delivery</span>
-        <h2>On deadline, in your format</h2>
-        <p>Docs, CMS, Figma, markdown. I ship it where your team actually works.</p>
+      <div class="side-project-row">
+        <div class="sp-body"><span class="sp-name">Systems</span><span class="sp-desc">Ensure content contributes to a consistent communication experience and supports broader business objectives.</span></div>
       </div>
     </div>
   </section>
 
-  <section class="wrap" style="display:flex;flex-direction:column;gap:40px;padding-bottom:80px">
+  <section class="wrap" style="display:flex;flex-direction:column;gap:40px;padding-bottom:80px" id="samples">
     <div style="display:flex;flex-direction:column;gap:16px">
       <span class="section-eyebrow" style="color:var(--coral-text)">Writing Samples</span>
       <h2 class="section-h2">Published <span class="accent-italic">work</span></h2>
@@ -204,9 +275,10 @@
   </section>
 
   <section class="wrap" style="padding-bottom:160px;display:flex;flex-direction:column;gap:20px;max-width:760px">
-    <h2 class="section-h2">Need a writer who can also <span class="accent-italic">think</span>?</h2>
-    <p style="font-size:17px;line-height:1.7;color:var(--ink-soft);margin:0">Send me the brief, the audience, and the deadline, wherever your team is based. I'll tell you honestly whether I'm the right fit before I take the job.</p>
-    <a href="/contact" class="btn-link accent">Start a conversation →</a>
+    <span class="eyebrow">Have Something Worth Communicating?</span>
+    <h2 class="section-h2">Let's make your product easier to understand and your ideas <span class="accent-italic">harder to ignore</span>.</h2>
+    <p style="font-size:17px;line-height:1.7;color:var(--ink-soft);margin:0">Whether you're building a SaaS product, entering a new market, establishing industry authority, or strengthening your content operation, I'd love to hear what you're working on.</p>
+    <a href="/contact" class="btn btn-primary" style="align-self:flex-start">Let's work together</a>
   </section>
 
 </main>
