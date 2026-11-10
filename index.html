@@ -23,7 +23,28 @@
 <meta name="twitter:image" content="https://www.preciousokoro.site/images/precious-headshot.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..600;1,9..144,400..600&family=Manrope:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&family=IBM+Plex+Mono:wght@400;500;600&family=Caveat:wght@500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/style.css">
+<style>
+/* Home hero only: massive-type direction, mapped on canvas and approved for
+   this section. Scoped to index.html, the shared .hero class elsewhere
+   (404.html) is untouched. */
+.hero-massive{padding:64px 32px 96px;gap:0}
+.hero-massive-top{display:flex;justify-content:space-between;align-items:center;width:100%;margin-bottom:56px;flex-wrap:wrap;gap:16px}
+.hero-massive-h1{margin:0;max-width:none;width:100%;text-wrap:initial}
+.hero-lead{display:block;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(16px,1.8vw,20px);letter-spacing:-0.01em;color:var(--ink-faint);margin-bottom:10px}
+.hero-giant{display:block;font-family:'Archivo Black',sans-serif;font-weight:400;text-transform:uppercase;font-size:clamp(44px,9vw,128px);line-height:0.88;letter-spacing:-0.01em;color:var(--ink)}
+.hero-giant-dot{color:var(--accent)}
+.hero-massive-bottom{display:flex;align-items:flex-end;gap:32px;flex-wrap:wrap;width:100%;margin-top:56px;padding-top:40px;border-top:1px solid rgba(var(--ink-rgb),0.12)}
+.hero-massive-photo{width:88px;height:88px;border-radius:999px;overflow:hidden;flex-shrink:0}
+.hero-massive-photo img{width:100%;height:100%;object-fit:cover;display:block}
+.hero-massive-copy{flex:1;min-width:260px;display:flex;flex-direction:column;gap:20px}
+@media (max-width:700px){
+  .hero-massive{padding:40px 20px 64px}
+  .hero-massive-top{margin-bottom:40px}
+  .hero-massive-bottom{margin-top:40px;padding-top:28px}
+}
+</style>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -83,16 +104,24 @@
 <main id="main">
 
   <!-- HERO -->
-  <section class="hero">
-    <div class="availability-badge"><span class="badge-icon">🪄</span>Available for Work</div>
-    <span class="hero-greeting">Hi, I'm Precious</span>
-    <h1>I design the <span class="highlight-pill blue">systems</span> <span class="fade">behind products people</span> <span class="accent-italic">trust</span></h1>
-    <div class="hero-sub-group">
-      <p class="hero-sub">I'm a Senior Content Designer. I build the language, systems, and trust design behind products, from everyday UX to AI agents acting on their own.</p>
+  <section class="hero hero-massive">
+    <div class="hero-massive-top">
+      <span class="hero-greeting">Hi, I'm Precious</span>
+      <div class="availability-badge"><span class="badge-icon">🪄</span>Available for Work</div>
     </div>
-    <div class="hero-actions">
-      <a href="#work" class="btn btn-primary">View Case Studies</a>
-      <a href="#contact" class="btn btn-ghost">Let's Work Together</a>
+    <h1 class="hero-massive-h1">
+      <span class="hero-lead">I design the systems behind</span>
+      <span class="hero-giant">Products people trust<span class="hero-giant-dot">.</span></span>
+    </h1>
+    <div class="hero-massive-bottom">
+      <div class="hero-massive-photo"><img src="images/precious-headshot.jpg" alt="Precious Okoro"></div>
+      <div class="hero-massive-copy">
+        <p class="hero-sub">I'm a Senior Content Designer. I build the language, systems, and trust design behind products, from everyday UX to AI agents acting on their own.</p>
+        <div class="hero-actions">
+          <a href="#work" class="btn btn-primary">View Case Studies</a>
+          <a href="#contact" class="btn btn-ghost">Let's Work Together</a>
+        </div>
+      </div>
     </div>
   </section>
 
