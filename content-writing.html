@@ -43,8 +43,12 @@
    nav/theme. One accent (blue), two verified pairs: #5B8DEF on dark (6.1:1 on
    #0A0A0B, 5.7:1 on card), #1D4ED8 on light (6.7:1 on white). Light theme is
    true white, never cream. This page has its own nav (no Projects/About/CV/
-   Features), reusing the site's nav chrome and toggle wiring. Body/UI font is
-   Geist, labels/mono is Geist Mono, headlines stay Instrument Serif. */
+   Features), reusing the site's nav chrome and toggle wiring.
+
+   Type scale (fixed steps, display headings use clamp() separately):
+   12 / 13.5 / 15 / 16 / 20 / 28px.
+   Gray tiers (3, not 4 — soft/soft2/faint), each independently verified
+   >=4.5:1 against every background it's used on, light and dark. */
 :root{
   --cw-bg:#FFFFFF;
   --cw-card:#F6F6F7;
@@ -54,10 +58,9 @@
   --cw-border-strong:#DADADC;
   --cw-border-pill:#D4D4D7;
   --cw-ink:#15151A;
-  --cw-soft:#55555A;
-  --cw-soft2:#5F5E59;
-  --cw-muted:#4A4945;
-  --cw-faint:#8A8882;
+  --cw-soft:#4A4A52;
+  --cw-soft2:#6B6B72;
+  --cw-faint:#767678;
   --cw-accent:#1D4ED8;
   --cw-accent-rgb:29,78,216;
   --cw-invert-bg:#15151A;
@@ -67,9 +70,9 @@
   --paper:#FFFFFF;--paper-rgb:255,255,255;
   --surface:#F6F6F7;
   --ink:#15151A;--ink-rgb:21,21,26;
-  --ink-soft:#4A4945;
-  --ink-faint:#8A8882;
-  --fade:#8A8882;
+  --ink-soft:#4A4A52;
+  --ink-faint:#767678;
+  --fade:#767678;
   --accent:#1D4ED8;
   --accent-strong:#1540B0;
 }
@@ -83,9 +86,8 @@
   --cw-border-pill:#2A2A2E;
   --cw-ink:#EDEAE2;
   --cw-soft:#8E8B85;
-  --cw-soft2:#9C988F;
-  --cw-muted:#B5B1A8;
-  --cw-faint:#6B6862;
+  --cw-soft2:#A8A49C;
+  --cw-faint:#827F7A;
   --cw-accent:#5B8DEF;
   --cw-accent-rgb:91,141,239;
   --cw-invert-bg:#EDEAE2;
@@ -95,9 +97,9 @@
   --paper:#0A0A0B;--paper-rgb:10,10,11;
   --surface:#101012;
   --ink:#EDEAE2;--ink-rgb:237,234,226;
-  --ink-soft:#B5B1A8;
-  --ink-faint:#6B6862;
-  --fade:#6B6862;
+  --ink-soft:#A8A49C;
+  --ink-faint:#827F7A;
+  --fade:#827F7A;
   --accent:#5B8DEF;
   --accent-strong:#7AA0F2;
 }
@@ -109,65 +111,65 @@ footer.site-footer a{color:var(--cw-soft)}
 
 .cw{max-width:1120px;margin:0 auto;padding:0 32px}
 .cw-sec{padding:72px 0;border-top:1px solid var(--cw-border)}
-.cw-eyebrow{display:block;font-family:'Geist Mono',monospace;font-size:11.5px;font-weight:500;letter-spacing:1.5px;text-transform:uppercase;color:var(--cw-soft);margin-bottom:16px}
+.cw-eyebrow{display:block;font-family:'Geist Mono',monospace;font-size:12px;font-weight:500;letter-spacing:1.5px;text-transform:uppercase;color:var(--cw-soft);margin-bottom:16px}
 .cw-h2{font-family:'Instrument Serif',serif;font-style:normal;font-weight:400;font-size:clamp(28px,3.8vw,38px);line-height:1.2;letter-spacing:-0.01em;margin:0 0 16px;max-width:22ch;color:var(--cw-ink)}
 .cw-intro{font-size:15px;line-height:1.7;color:var(--cw-soft);margin:0 0 36px;max-width:60ch}
 .cw-block{background:var(--cw-card);border:1px solid var(--cw-border);border-radius:16px;padding:24px;transition:border-color .2s ease}
 .cw-block:hover{border-color:var(--cw-border-strong)}
 .cw-block h3{font-family:'Geist',sans-serif;font-weight:700;font-size:16px;margin:0 0 10px;color:var(--cw-ink)}
-.cw-block ul{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:6px}
+.cw-block ul{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:8px}
 .cw-block li{font-size:13.5px;color:var(--cw-soft2);line-height:1.5}
 .cw-block p{font-size:13.5px;color:var(--cw-soft2);margin:0;line-height:1.5}
 .cw-plain h3{font-family:'Instrument Serif',serif;font-weight:400;font-size:19px;margin:0 0 10px;color:var(--cw-ink)}
-.cw-plain p{font-size:14px;color:var(--cw-soft2);margin:0;line-height:1.6}
+.cw-plain p{font-size:13.5px;color:var(--cw-soft2);margin:0;line-height:1.6}
 .cw-grid2{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
 .cw-grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
 .cw-grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
-.cw-pill{display:inline-flex;align-items:center;font-size:12px;font-weight:500;color:var(--cw-muted);border:1px solid var(--cw-border-pill);border-radius:999px;padding:7px 15px;cursor:pointer;transition:border-color .2s ease,background .2s ease,color .2s ease}
+.cw-pill{display:inline-flex;align-items:center;justify-content:center;min-height:40px;font-family:inherit;font-size:12px;font-weight:500;color:var(--cw-soft2);background:none;border:1px solid var(--cw-border-pill);border-radius:999px;padding:10px 18px;cursor:pointer;transition:border-color .2s ease,background .2s ease,color .2s ease}
 .cw-pill:hover{border-color:var(--cw-accent)}
 .cw-pill.active{background:var(--cw-invert-bg);color:var(--cw-invert-text);border-color:var(--cw-invert-bg);font-weight:700}
-.cw-btn-primary,.cw-btn-ghost{display:inline-flex;align-items:center;gap:6px;font-weight:700;font-size:13px;padding:12px 22px;border-radius:999px;transition:transform .15s ease,background .15s ease,border-color .15s ease}
+.cw-btn-primary,.cw-btn-ghost{display:inline-flex;align-items:center;gap:6px;font-weight:700;font-size:13.5px;padding:12px 22px;border-radius:999px;transition:transform .15s ease,background .15s ease,border-color .15s ease}
 .cw-btn-primary{background:var(--cw-invert-bg);color:var(--cw-invert-text)}
 .cw-btn-primary:hover{background:var(--cw-invert-hover);transform:translateY(-2px)}
 .cw-btn-ghost{background:var(--cw-card-alt);border:1px solid var(--cw-border-strong);color:var(--cw-ink);font-weight:600}
 .cw-btn-ghost:hover{border-color:var(--cw-accent);background:var(--cw-card-alt-hover)}
 
-.cw-tag-strip{font-family:'Geist Mono',monospace;font-size:11px;color:var(--cw-faint)}
+.cw-tag-strip{font-family:'Geist Mono',monospace;font-size:12px;color:var(--cw-faint)}
 
-.cw-svc-card{background:var(--cw-card);border:1px solid var(--cw-border);border-radius:18px;padding:26px;display:flex;flex-direction:column;gap:10px;transition:transform .25s cubic-bezier(.2,.8,.2,1),border-color .2s ease,box-shadow .25s ease}
+.cw-svc-card{background:var(--cw-card);border:1px solid var(--cw-border);border-radius:18px;padding:32px;display:flex;flex-direction:column;gap:12px;transition:transform .25s cubic-bezier(.2,.8,.2,1),border-color .2s ease,box-shadow .25s ease}
 .cw-svc-card:hover{transform:translateY(-4px);border-color:var(--cw-accent);box-shadow:0 24px 50px -28px rgba(var(--cw-accent-rgb),0.4)}
-.cw-svc-card .num{font-family:'Geist Mono',monospace;font-size:11.5px;color:var(--cw-accent)}
-.cw-svc-card h3{font-family:'Geist',sans-serif;font-weight:700;font-size:17px;margin:0;color:var(--cw-ink)}
-.cw-svc-card .lead{font-size:13px;color:var(--cw-soft2);line-height:1.5;margin:0}
-.cw-svc-card ul{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:6px}
-.cw-svc-card li{font-size:13px;color:var(--cw-soft2);line-height:1.5}
+.cw-svc-card .num{font-family:'Geist Mono',monospace;font-size:12px;color:var(--cw-accent)}
+.cw-svc-card h3{font-family:'Geist',sans-serif;font-weight:700;font-size:20px;margin:0;color:var(--cw-ink)}
+.cw-svc-card .lead{font-size:13.5px;color:var(--cw-soft2);line-height:1.6;margin:0;max-width:52ch}
+.cw-svc-card ul{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:8px}
+.cw-svc-card li{font-size:13.5px;color:var(--cw-soft2);line-height:1.5}
 
 .cw-cs-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-bottom:28px}
 .cw-cs-card{border:1.5px dashed var(--cw-border-pill);border-radius:18px;padding:28px;display:flex;flex-direction:column;gap:10px;min-height:180px;justify-content:space-between}
-.cw-cs-card .cw-cs-num{font-family:'Geist Mono',monospace;font-size:11px;color:var(--cw-faint)}
+.cw-cs-card .cw-cs-num{font-family:'Geist Mono',monospace;font-size:12px;color:var(--cw-faint)}
 .cw-cs-card h3{font-family:'Geist',sans-serif;font-weight:700;font-size:15px;margin:0;color:var(--cw-soft)}
-.cw-cs-card .cw-cs-status{display:inline-flex;align-self:flex-start;font-family:'Geist Mono',monospace;font-size:10.5px;letter-spacing:0.4px;text-transform:uppercase;color:var(--cw-faint);border:1px solid var(--cw-border-pill);border-radius:999px;padding:5px 12px}
+.cw-cs-card .cw-cs-status{display:inline-flex;align-self:flex-start;font-family:'Geist Mono',monospace;font-size:12px;letter-spacing:0.4px;text-transform:uppercase;color:var(--cw-faint);border:1px solid var(--cw-border-pill);border-radius:999px;padding:5px 12px}
 
-.cw-card{background:var(--cw-card);border:1px solid var(--cw-border-strong);border-radius:20px;padding:22px;transition:transform .25s cubic-bezier(.2,.8,.2,1),box-shadow .25s ease,border-color .25s ease;display:block}
+.cw-card{background:var(--cw-card);border:1px solid var(--cw-border-strong);border-radius:20px;padding:24px;transition:transform .25s cubic-bezier(.2,.8,.2,1),box-shadow .25s ease,border-color .25s ease;display:block}
 .cw-card:hover{transform:translateY(-6px);border-color:var(--cw-accent);box-shadow:0 24px 50px -24px rgba(var(--cw-accent-rgb),0.35)}
-.cw-card .cw-tag{font-size:11px;color:var(--cw-accent);font-weight:600;letter-spacing:0.5px;text-transform:uppercase}
-.cw-card h3{font-size:16.5px;margin:10px 0 6px;color:var(--cw-ink);transition:color .2s ease}
-.cw-card p{font-size:13px;color:var(--cw-soft);margin:0;line-height:1.5}
+.cw-card .cw-tag{font-size:12px;color:var(--cw-accent);font-weight:600;letter-spacing:0.5px;text-transform:uppercase}
+.cw-card h3{font-size:16px;margin:10px 0 6px;color:var(--cw-ink);transition:color .2s ease}
+.cw-card p{font-size:13.5px;color:var(--cw-soft);margin:0;line-height:1.5}
 .cw-card img{width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:12px;margin-bottom:14px;background:var(--cw-card-alt)}
 .cw-card .cw-text-cover{aspect-ratio:16/9;border-radius:12px;margin-bottom:14px;background:var(--cw-card-alt);display:flex;align-items:center;justify-content:center;padding:20px;text-align:center}
-.cw-card .cw-text-cover p{font-family:'Caveat',cursive;font-size:22px;color:var(--cw-muted);margin:0}
-.cw-card .cw-arrow{display:inline-block;font-size:12.5px;color:var(--cw-muted);margin-top:12px;transition:transform .25s cubic-bezier(.2,.8,.2,1),color .25s ease}
+.cw-card .cw-text-cover p{font-family:'Caveat',cursive;font-size:22px;color:var(--cw-soft2);margin:0}
+.cw-card .cw-arrow{display:inline-block;font-size:13.5px;color:var(--cw-soft2);margin-top:12px;transition:transform .25s cubic-bezier(.2,.8,.2,1),color .25s ease}
 .cw-card:hover .cw-arrow{transform:translate(4px,-3px);color:var(--cw-ink)}
 .cw-samples{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:20px;margin-bottom:28px}
 
-.cw-trustrow{display:flex;flex-wrap:wrap;align-items:baseline;gap:14px 28px}
-.cw-trustrow .cw-names{display:flex;flex-wrap:wrap;gap:10px 26px;font-weight:700;font-size:16px;color:var(--cw-muted)}
+.cw-trustrow{display:flex;flex-wrap:wrap;align-items:baseline;gap:16px 28px}
+.cw-trustrow .cw-names{display:flex;flex-wrap:wrap;gap:12px 28px;font-weight:700;font-size:16px;color:var(--cw-soft2)}
 
 .cw-testi{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:20px}
 .cw-testi figure{background:var(--cw-card);border:1px solid var(--cw-border);border-radius:18px;padding:28px;margin:0}
-.cw-testi blockquote{margin:0 0 16px;font-size:15px;line-height:1.65;color:var(--cw-muted)}
-.cw-testi figcaption .name{display:block;font-weight:700;color:var(--cw-ink);font-size:14px}
-.cw-testi figcaption .role{display:block;color:var(--cw-faint);font-size:12.5px;margin-top:2px}
+.cw-testi blockquote{margin:0 0 16px;font-size:15px;line-height:1.65;color:var(--cw-soft2)}
+.cw-testi figcaption .name{display:block;font-weight:700;color:var(--cw-ink);font-size:13.5px}
+.cw-testi figcaption .role{display:block;color:var(--cw-faint);font-size:12px;margin-top:2px}
 
 .cw-faqrow{border-bottom:1px solid var(--cw-border)}
 .cw-faqq{display:flex;justify-content:space-between;align-items:center;gap:16px;width:100%;padding:20px 0;font-weight:700;font-size:15px;color:var(--cw-ink);background:none;border:none;text-align:left;cursor:pointer;font-family:inherit}
@@ -177,9 +179,9 @@ footer.site-footer a{color:var(--cw-soft)}
 .cw-faqa.open{max-height:200px}
 .cw-faqa p{font-size:13.5px;color:var(--cw-soft2);margin:0 0 20px;line-height:1.6;max-width:70ch}
 
-.cw-fit-list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:14px}
-.cw-fit-list li{display:flex;gap:12px;align-items:flex-start;font-size:14px;line-height:1.55;color:var(--cw-soft2)}
-.cw-fit-mark{flex-shrink:0;font-family:'Geist Mono',monospace;font-size:13px;font-weight:600;width:18px}
+.cw-fit-list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:12px}
+.cw-fit-list li{display:flex;gap:12px;align-items:flex-start;font-size:13.5px;line-height:1.55;color:var(--cw-soft2)}
+.cw-fit-mark{flex-shrink:0;font-family:'Geist Mono',monospace;font-size:13.5px;font-weight:600;width:18px}
 .cw-fit-mark.yes{color:var(--cw-accent)}
 .cw-fit-mark.no{color:var(--cw-faint)}
 
@@ -212,17 +214,16 @@ footer.site-footer a{color:var(--cw-soft)}
 
 :root .cw-inverted{
   --cw-bg:#0A0A0B;
-  --cw-card:#101012;
-  --cw-card-alt:#19191C;
-  --cw-card-alt-hover:#1D1D20;
-  --cw-border:#1C1C1F;
-  --cw-border-strong:#28282C;
-  --cw-border-pill:#2A2A2E;
+  --cw-card:#19191C;
+  --cw-card-alt:#222226;
+  --cw-card-alt-hover:#28282C;
+  --cw-border:#262629;
+  --cw-border-strong:#323236;
+  --cw-border-pill:#343438;
   --cw-ink:#EDEAE2;
   --cw-soft:#8E8B85;
-  --cw-soft2:#9C988F;
-  --cw-muted:#B5B1A8;
-  --cw-faint:#6B6862;
+  --cw-soft2:#A8A49C;
+  --cw-faint:#827F7A;
   --cw-accent:#5B8DEF;
   --cw-accent-rgb:91,141,239;
   --cw-invert-bg:#EDEAE2;
@@ -231,17 +232,16 @@ footer.site-footer a{color:var(--cw-soft)}
 }
 :root[data-theme="dark"] .cw-inverted{
   --cw-bg:#FFFFFF;
-  --cw-card:#F6F6F7;
-  --cw-card-alt:#F0F0F1;
-  --cw-card-alt-hover:#EAEAEC;
-  --cw-border:#E7E7E9;
-  --cw-border-strong:#DADADC;
-  --cw-border-pill:#D4D4D7;
+  --cw-card:#EFEFF0;
+  --cw-card-alt:#E6E6E8;
+  --cw-card-alt-hover:#DCDCDE;
+  --cw-border:#DCDCDE;
+  --cw-border-strong:#C9C9CC;
+  --cw-border-pill:#C2C2C5;
   --cw-ink:#15151A;
-  --cw-soft:#55555A;
-  --cw-soft2:#5F5E59;
-  --cw-muted:#4A4945;
-  --cw-faint:#8A8882;
+  --cw-soft:#4A4A52;
+  --cw-soft2:#6B6B72;
+  --cw-faint:#767678;
   --cw-accent:#1D4ED8;
   --cw-accent-rgb:29,78,216;
   --cw-invert-bg:#15151A;
@@ -303,8 +303,8 @@ footer.site-footer a{color:var(--cw-soft)}
       </div>
     </div>
     <div class="cw-hero-row">
-      <p style="font-size:15.5px;line-height:1.7;color:var(--cw-soft);margin:0;max-width:48ch">I combine editorial judgment, product understanding, and content strategy to help technology and SaaS companies turn complex ideas into compelling content that communicates value, earns trust, and supports buying decisions.</p>
-      <div style="display:flex;gap:10px;flex-wrap:wrap">
+      <p style="font-size:15px;line-height:1.7;color:var(--cw-soft);margin:0;max-width:48ch">I combine editorial judgment, product understanding, and content strategy to help technology and SaaS companies turn complex ideas into compelling content that communicates value, earns trust, and supports buying decisions.</p>
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
         <a href="#samples" class="cw-btn-primary">Explore my writing &#8599;</a>
         <a href="/contact" class="cw-btn-ghost">Work with me</a>
       </div>
@@ -315,10 +315,10 @@ footer.site-footer a{color:var(--cw-soft)}
       <div><span style="display:block;font-family:'Instrument Serif',serif;font-size:28px;color:var(--cw-ink)">2+</span><span class="cw-tag-strip">YEARS, CONTENT PARTNERSHIP WITH MONIGER</span></div>
       <div><span style="display:block;font-family:'Instrument Serif',serif;font-size:28px;color:var(--cw-ink)">4</span><span class="cw-tag-strip">INDUSTRIES: FINTECH, SAAS, EDTECH, AI</span></div>
     </div>
-    <div style="margin-top:20px">
+    <div style="margin-top:24px">
       <span class="cw-tag-strip">B2B SAAS &middot; AI &amp; TECHNOLOGY &middot; FINTECH &middot; EDTECH &middot; ENTERPRISE SOFTWARE</span>
     </div>
-    <a href="/writing" class="cw-navlink" style="font-size:13px;color:var(--cw-soft);margin-top:14px;display:inline-block">Looking for essays on content design and AI instead? &rarr;</a>
+    <a href="/writing" class="cw-navlink" style="font-size:13.5px;color:var(--cw-soft);margin-top:16px;display:inline-block">Looking for essays on content design and AI instead? &rarr;</a>
   </section>
 
   <section class="cw cw-sec" style="margin-top:48px">
@@ -344,12 +344,12 @@ footer.site-footer a{color:var(--cw-soft)}
     <h2 class="cw-h2">Ideas worth exploring. Products worth understanding.</h2>
     <p class="cw-intro">A selection of published work and original editorial projects across technology, business, and digital products.</p>
     <p class="cw-tag-strip" style="margin-bottom:24px">WRITING ACROSS: SEO &amp; ORGANIC SEARCH &middot; TECHNICAL EXPLAINERS &middot; PRODUCT &amp; FEATURE CONTENT &middot; COMPARISONS &amp; ALTERNATIVES &middot; THOUGHT LEADERSHIP &middot; INDUSTRY ANALYSIS</p>
-    <div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:28px">
-      <span class="cw-pill active" data-filter="all">All Writing</span>
-      <span class="cw-pill" data-filter="guest">Guest Essay</span>
-      <span class="cw-pill" data-filter="thought">Thought Leadership</span>
-      <span class="cw-pill" data-filter="industry">Industry Analysis</span>
-      <span class="cw-pill" data-filter="personal">Personal Essay</span>
+    <div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:28px" role="group" aria-label="Filter writing by category">
+      <button type="button" class="cw-pill active" data-filter="all">All Writing</button>
+      <button type="button" class="cw-pill" data-filter="guest">Guest Essay</button>
+      <button type="button" class="cw-pill" data-filter="thought">Thought Leadership</button>
+      <button type="button" class="cw-pill" data-filter="industry">Industry Analysis</button>
+      <button type="button" class="cw-pill" data-filter="personal">Personal Essay</button>
     </div>
     <div class="cw-samples">
       <a href="https://www.dittowords.com/blog/agentic-ai-content-design" target="_blank" rel="noopener" class="cw-card" data-cat="guest">
@@ -399,7 +399,7 @@ footer.site-footer a{color:var(--cw-soft)}
   <section class="cw cw-sec cw-inverted" id="services">
     <span class="cw-eyebrow">What I Do</span>
     <h2 class="cw-h2">Content for every stage of understanding.</h2>
-    <div class="cw-grid4">
+    <div class="cw-grid2">
       <div class="cw-svc-card">
         <span class="num">01</span>
         <h3>B2B SaaS &amp; Product Content</h3>
@@ -469,15 +469,15 @@ footer.site-footer a{color:var(--cw-soft)}
     <a href="/work" class="cw-btn-ghost">View selected work &#8599;</a>
   </section>
 
-  <section class="cw cw-sec">
+  <section class="cw cw-sec cw-inverted">
     <span class="cw-eyebrow">How I Work</span>
     <h2 class="cw-h2">Research first. Writing follows.</h2>
     <p class="cw-intro">Good content starts well before the first draft. I take the time to understand the subject, the audience, and what the work needs to achieve.</p>
     <div class="cw-grid4" style="margin-top:8px">
-      <div class="cw-block"><span style="font-family:'Geist Mono',monospace;font-size:11.5px;color:var(--cw-accent)">01</span><h3 style="margin-top:8px">Understand</h3><p>I get to know the product, audience, industry, competitive landscape, and business objectives. I work with subject-matter experts where the subject demands it.</p></div>
-      <div class="cw-block"><span style="font-family:'Geist Mono',monospace;font-size:11.5px;color:var(--cw-accent)">02</span><h3 style="margin-top:8px">Find the angle</h3><p>I identify the questions worth answering, the story worth telling, and the most useful way to approach it. This includes search intent, positioning, and the content's role in the customer journey.</p></div>
-      <div class="cw-block"><span style="font-family:'Geist Mono',monospace;font-size:11.5px;color:var(--cw-accent)">03</span><h3 style="margin-top:8px">Develop</h3><p>I turn research and strategy into clear, engaging, well-structured content. Every claim has a reason to be there. Every section has a job.</p></div>
-      <div class="cw-block"><span style="font-family:'Geist Mono',monospace;font-size:11.5px;color:var(--cw-accent)">04</span><h3 style="margin-top:8px">Refine</h3><p>I work through feedback, editorial review, and optimization to make sure the final piece is accurate, useful, and ready for its intended audience.</p></div>
+      <div class="cw-block"><span style="font-family:'Geist Mono',monospace;font-size:12px;color:var(--cw-accent)">01</span><h3 style="margin-top:8px">Understand</h3><p>I get to know the product, audience, industry, competitive landscape, and business objectives. I work with subject-matter experts where the subject demands it.</p></div>
+      <div class="cw-block"><span style="font-family:'Geist Mono',monospace;font-size:12px;color:var(--cw-accent)">02</span><h3 style="margin-top:8px">Find the angle</h3><p>I identify the questions worth answering, the story worth telling, and the most useful way to approach it. This includes search intent, positioning, and the content's role in the customer journey.</p></div>
+      <div class="cw-block"><span style="font-family:'Geist Mono',monospace;font-size:12px;color:var(--cw-accent)">03</span><h3 style="margin-top:8px">Develop</h3><p>I turn research and strategy into clear, engaging, well-structured content. Every claim has a reason to be there. Every section has a job.</p></div>
+      <div class="cw-block"><span style="font-family:'Geist Mono',monospace;font-size:12px;color:var(--cw-accent)">04</span><h3 style="margin-top:8px">Refine</h3><p>I work through feedback, editorial review, and optimization to make sure the final piece is accurate, useful, and ready for its intended audience.</p></div>
     </div>
   </section>
 
@@ -547,7 +547,7 @@ footer.site-footer a{color:var(--cw-soft)}
     <span class="cw-eyebrow">Let's Work Together</span>
     <h2 class="cw-h2" style="max-width:22ch;font-size:clamp(28px,4vw,40px)">Have something worth communicating?</h2>
     <p class="cw-intro">Whether you're explaining a product, building an editorial program, or developing your company's point of view, I can help turn what your team knows into content your audience can understand, trust, and act on.</p>
-    <div style="display:flex;gap:10px;flex-wrap:wrap">
+    <div style="display:flex;gap:8px;flex-wrap:wrap">
       <a href="/contact" class="cw-btn-primary">Tell me what you're working on</a>
       <a href="/writing" class="cw-btn-ghost">Explore my writing</a>
     </div>
@@ -558,7 +558,7 @@ footer.site-footer a{color:var(--cw-soft)}
     <h2 class="cw-h2">I'm Precious Okoro. I work where language, technology, and business meet.</h2>
     <p class="cw-intro">I'm a content strategist, content designer, and writer with 6+ years of experience across digital products, technology, and editorial. I've worked with teams in fintech, SaaS, education, language technology, and AI, building content practices, shaping product experiences, and making complex information easier to understand.</p>
     <p class="cw-intro">That experience informs how I approach editorial work. I don't just want to explain what a product does. I want to understand the problem behind it, the people it serves, and the value it brings to their work.</p>
-    <p style="font-weight:700;font-size:clamp(18px,2.2vw,22px);line-height:1.55;max-width:52ch;margin:0 0 36px;color:var(--cw-ink)">I bring product thinking to writing, editorial judgment to technical subjects, and strategy to every piece of content.</p>
+    <p style="font-weight:700;font-size:20px;line-height:1.5;max-width:52ch;margin:0 0 36px;color:var(--cw-ink)">I bring product thinking to writing, editorial judgment to technical subjects, and strategy to every piece of content.</p>
     <a href="/about" class="cw-btn-ghost">More about me</a>
   </section>
 
