@@ -19,7 +19,7 @@
 <meta name="twitter:card" content="summary">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..600;1,9..144,400..600&family=Manrope:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&family=IBM+Plex+Mono:wght@400;500;600&family=Caveat:wght@500;700&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500;600&family=Archivo+Black&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/assets/style.css">
 <script type="application/ld+json">
 {
@@ -190,20 +190,20 @@ footer.site-footer a{color:var(--cw-soft)}
 .cw-navlink:hover::after{transform:scaleX(1)}
 
 .cw-hero-sec{padding:56px 32px 0}
-.cw-hero{display:grid;grid-template-columns:1fr 280px;align-items:center;gap:32px}
-.cw-hero-row{display:grid;grid-template-columns:1fr 280px;gap:40px;margin-top:32px;align-items:end}
-.cw-hero-photo{position:relative;display:flex;align-items:center;justify-content:center;min-height:240px}
+.cw-hero-lead{display:block;font-family:'Geist',sans-serif;font-weight:600;font-size:16px;color:var(--cw-soft);margin-bottom:10px}
+.cw-hero-giant{display:block;font-family:'Archivo Black',sans-serif;font-weight:400;text-transform:uppercase;font-size:clamp(34px,6.4vw,92px);line-height:0.92;letter-spacing:-0.01em;color:var(--cw-ink)}
+.cw-hero-giant-dot{color:var(--cw-accent)}
+.cw-hero-row{display:grid;grid-template-columns:1fr 280px;gap:40px;margin-top:40px;align-items:end}
+.cw-hero-intro{display:flex;align-items:center;gap:16px}
+.cw-hero-photo-sm{width:56px;height:56px;border-radius:999px;overflow:hidden;flex-shrink:0}
+.cw-hero-photo-sm img{width:100%;height:100%;object-fit:cover;display:block}
 
 @media (max-width:860px){
   .cw-grid2,.cw-grid3{grid-template-columns:1fr;gap:28px}
   .cw-hero-sec{padding:40px 20px 0}
-  .cw-hero{grid-template-columns:1fr;gap:28px}
   .cw-hero-row{grid-template-columns:1fr;gap:20px;align-items:start}
-  .cw-hero-photo{order:-1;min-height:0}
   .cw-grid4{grid-template-columns:1fr}
   .cw-cs-grid{grid-template-columns:1fr}
-  .cw-hero-photo img{width:160px!important;height:160px!important}
-  .cw-hero-photo div{width:200px!important;height:200px!important}
   .cw-sec{padding:48px 0}
   .cw{padding:0 20px}
 }
@@ -295,15 +295,15 @@ footer.site-footer a{color:var(--cw-soft)}
 
   <section class="cw cw-hero-sec">
     <span class="cw-eyebrow" style="margin-bottom:20px">B2B SaaS Content &middot; Content Marketing &middot; Editorial Strategy &middot; Issue No. 01</span>
-    <div class="cw-hero">
-      <h1 style="font-family:'Instrument Serif',serif;font-style:normal;font-weight:400;font-size:clamp(32px,4.8vw,58px);line-height:1.14;letter-spacing:-0.015em;margin:0;color:var(--cw-ink);max-width:17ch">I find the story inside the technology.</h1>
-      <div class="cw-hero-photo">
-        <div style="position:absolute;width:300px;height:300px;border-radius:999px;background:radial-gradient(circle,rgba(var(--cw-accent-rgb),0.3) 0%,rgba(var(--cw-accent-rgb),0) 70%);filter:blur(8px)"></div>
-        <img src="/images/precious-headshot.jpg" alt="Precious Okoro" style="position:relative;width:240px;height:240px;border-radius:999px;object-fit:cover;border:2px solid var(--cw-border-strong)">
-      </div>
-    </div>
+    <h1 style="margin:0">
+      <span class="cw-hero-lead">I find the story</span>
+      <span class="cw-hero-giant">Inside the technology<span class="cw-hero-giant-dot">.</span></span>
+    </h1>
     <div class="cw-hero-row">
-      <p style="font-size:15px;line-height:1.7;color:var(--cw-soft);margin:0;max-width:48ch">I combine editorial judgment, product understanding, and content strategy to help technology and SaaS companies turn complex ideas into compelling content that communicates value, earns trust, and supports buying decisions.</p>
+      <div class="cw-hero-intro">
+        <div class="cw-hero-photo-sm"><img src="/images/precious-headshot.jpg" alt="Precious Okoro"></div>
+        <p style="font-size:15px;line-height:1.7;color:var(--cw-soft);margin:0;max-width:44ch">I combine editorial judgment, product understanding, and content strategy to help technology and SaaS companies turn complex ideas into compelling content that communicates value, earns trust, and supports buying decisions.</p>
+      </div>
       <div style="display:flex;gap:8px;flex-wrap:wrap">
         <a href="#samples" class="cw-btn-primary">Explore my writing &#8599;</a>
         <a href="/contact" class="cw-btn-ghost">Work with me</a>
