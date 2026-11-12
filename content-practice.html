@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<script>(function(){try{var t=localStorage.getItem('theme');if(!t){t='dark';}document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Precious Okoro &middot; Content Writer &amp; Strategist</title>
+<meta name="description" content="B2B SaaS content writer and strategist. I find the story inside the technology.">
+<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16.png">
+<link rel="icon" type="image/png" sizes="512x512" href="/images/favicon.png">
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+<link rel="canonical" href="https://www.preciousokoro.site/content-practice">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.preciousokoro.site/content-practice">
+<meta property="og:title" content="Precious Okoro &middot; Content Writer &amp; Strategist">
+<meta property="og:description" content="B2B SaaS content writer and strategist. I find the story inside the technology.">
+<meta property="og:image" content="https://www.preciousokoro.site/images/precious-headshot.jpg">
+<meta name="twitter:card" content="summary">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/style.css">
+<style>
+/* Content Practice (new writer portfolio): fresh direction, Mangham-style
+   restraint, reusing the same verified palette as content-writing.html.
+   No Archivo Black, no massive type. Small mono labels, generous plain-text
+   first-person blocks, a thin project strip, nothing else competing. */
+:root{
+  --cp-bg:#FFFFFF;
+  --cp-card:#F6F6F7;
+  --cp-border:#E7E7E9;
+  --cp-ink:#15151A;
+  --cp-soft:#4A4A52;
+  --cp-faint:#767678;
+  --cp-accent:#1D4ED8;
+}
+:root[data-theme="dark"]{
+  --cp-bg:#0A0A0B;
+  --cp-card:#101012;
+  --cp-border:#1C1C1F;
+  --cp-ink:#EDEAE2;
+  --cp-soft:#A8A49C;
+  --cp-faint:#827F7A;
+  --cp-accent:#5B8DEF;
+}
+body{font-family:'Geist',sans-serif;background:var(--cp-bg);color:var(--cp-ink)}
+main,header.nav,footer.site-footer{background:var(--cp-bg)}
+.nav .wordmark{font-family:'Geist',sans-serif;font-weight:700;color:var(--cp-ink)}
+footer.site-footer{max-width:900px;color:var(--cp-faint)}
+footer.site-footer a{color:var(--cp-soft)}
+
+.cp{max-width:900px;margin:0 auto;padding:0 32px}
+
+.cp-topbar{display:flex;justify-content:space-between;align-items:flex-start;padding:28px 0 0;gap:24px;flex-wrap:wrap}
+.cp-id{font-family:'Geist Mono',monospace;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;line-height:1.6}
+.cp-id strong{display:block;color:var(--cp-ink);font-weight:600}
+.cp-id span{color:var(--cp-faint)}
+.cp-stats{font-family:'Geist Mono',monospace;font-size:12px;letter-spacing:0.04em;text-transform:uppercase;color:var(--cp-faint);text-align:right;line-height:1.6}
+.cp-stats b{color:var(--cp-ink);font-weight:600}
+
+.cp-hero{padding:72px 0 56px}
+.cp-lede{font-size:clamp(20px,2.4vw,25px);line-height:1.55;color:var(--cp-ink);margin:0 0 24px;max-width:38ch}
+.cp-lede + .cp-lede{color:var(--cp-soft)}
+.cp-lede .cp-accent{color:var(--cp-accent)}
+
+.cp-strip{display:flex;gap:16px;overflow-x:auto;padding:4px 0 8px;margin:40px 0 0}
+.cp-strip a{flex:0 0 auto;width:180px;border-radius:10px;overflow:hidden;border:1px solid var(--cp-border);background:var(--cp-card);text-decoration:none;display:block}
+.cp-strip img{width:100%;aspect-ratio:4/3;object-fit:cover;display:block}
+.cp-strip .cp-text-cover{width:100%;aspect-ratio:4/3;display:flex;align-items:center;justify-content:center;padding:14px;background:var(--cp-card)}
+.cp-strip .cp-text-cover p{font-family:'Instrument Serif',serif;font-style:italic;font-size:14px;line-height:1.4;color:var(--cp-ink);margin:0;text-align:center}
+.cp-strip span{display:block;font-family:'Geist Mono',monospace;font-size:10.5px;letter-spacing:0.04em;text-transform:uppercase;color:var(--cp-faint);padding:10px 12px 12px}
+
+.cp-connect{display:flex;flex-wrap:wrap;align-items:center;gap:10px 20px;margin-top:40px;padding-top:24px;border-top:1px solid var(--cp-border)}
+.cp-connect .cp-dot{width:6px;height:6px;border-radius:50%;background:var(--cp-accent);display:inline-block;margin-right:6px}
+.cp-connect-label{font-family:'Geist Mono',monospace;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;color:var(--cp-faint)}
+.cp-connect a{font-size:13.5px;color:var(--cp-soft);text-decoration:none;border-bottom:1px solid transparent}
+.cp-connect a:hover{color:var(--cp-ink);border-color:var(--cp-ink)}
+.cp-cta{display:inline-flex;align-items:center;gap:8px;margin-top:28px;font-size:14px;font-weight:600;color:var(--cp-bg);background:var(--cp-ink);padding:12px 20px;border-radius:999px;text-decoration:none}
+.cp-cta:hover{background:var(--cp-accent)}
+
+@media (max-width:640px){
+  .cp-topbar{flex-direction:column;align-items:flex-start}
+  .cp-stats{text-align:left}
+}
+</style>
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="nav">
+  <div class="nav-inner">
+    <a href="/" class="wordmark"><img src="/images/nav-avatar.png" alt="" width="30" height="30">Precious Okoro</a>
+    <div class="nav-controls">
+      <button class="theme-toggle" type="button" aria-label="Switch to dark theme">
+        <svg class="icon-sun" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M14 9.5A6 6 0 1 1 6.5 2 4.8 4.8 0 0 0 14 9.5Z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/></svg>
+        <svg class="icon-moon" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="8" cy="8" r="3" stroke="currentColor" stroke-width="1.4"/><path d="M8 0.5V2.5M8 13.5V15.5M15.5 8H13.5M2.5 8H0.5M13.3 2.7L11.9 4.1M4.1 11.9L2.7 13.3M13.3 13.3L11.9 11.9M4.1 4.1L2.7 2.7" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+  <section class="cp">
+
+    <div class="cp-topbar">
+      <div class="cp-id">
+        <strong>Precious Okoro</strong>
+        <span>B2B SaaS Content Writer &amp; Strategist</span>
+      </div>
+      <div class="cp-stats">
+        <div><b>6+</b> years in B2B SaaS &amp; product content</div>
+        <div><b>2+</b> years, content partnership with Moniger</div>
+        <div><b>4</b> industries: fintech, SaaS, edtech, AI</div>
+      </div>
+    </div>
+
+    <div class="cp-hero">
+      <p class="cp-lede">I find the story inside the technology<span class="cp-accent">.</span> I combine editorial judgment, product understanding, and content strategy to help SaaS companies turn complex ideas into content that earns trust and supports buying decisions.</p>
+      <p class="cp-lede">SaaS founders, product marketers, and content leads come to me when their product has outgrown what their current content can explain. I don't just explain what a product does. I want to understand the problem behind it, the people it serves, and the value it brings to their work.</p>
+
+      <div class="cp-strip">
+        <a href="https://www.dittowords.com/blog/agentic-ai-content-design" target="_blank" rel="noopener">
+          <img src="/images/ditto-hero.webp" alt="Ditto blog guest post header: 'Ditto x Precious Okoro'">
+          <span>Guest Essay, dittowords.com</span>
+        </a>
+        <a href="/writing/ai-agent-trust-is-a-content-design-problem">
+          <img src="/images/writing/ai-agent-trust-is-a-content-design-problem-1.png" alt="Cover card for 'AI Agent Trust Is a Content Design Problem'">
+          <span>Thought Leadership</span>
+        </a>
+        <a href="/writing/content-design-isnt-dying-it-s-being-promoted-into-ai-experience-strategy">
+          <img src="/images/writing/content-design-isnt-dying-it-s-being-promoted-into-ai-experience-strategy-1.png" alt="Cover card for 'Content Design Isn't Dying. It's Being Promoted Into AI Experience Strategy'">
+          <span>Industry Analysis</span>
+        </a>
+        <a href="/writing/why-i-stopped-calling-myself-a-content-designer">
+          <div class="cp-text-cover"><p>&ldquo;I stayed in a job longer than I should have.&rdquo;</p></div>
+          <span>Personal Essay</span>
+        </a>
+      </div>
+
+      <div class="cp-connect">
+        <span class="cp-connect-label"><span class="cp-dot"></span>Connect</span>
+        <a href="/writing">Writing</a>
+        <a href="/about">About</a>
+        <a href="https://www.linkedin.com/in/okoro-onyekachi-precious/" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="mailto:thepreciousokoro@gmail.com">Email</a>
+      </div>
+
+      <a href="/contact" class="cp-cta">Work with me &#8599;</a>
+    </div>
+
+  </section>
+</main>
+
+<footer class="site-footer">
+  <span>&copy; 2026 Precious Okoro. Language infrastructure and content systems for products built to scale.</span>
+  <div class="footer-links">
+    <a href="mailto:thepreciousokoro@gmail.com">Email</a>
+    <a href="https://www.linkedin.com/in/okoro-onyekachi-precious/" target="_blank" rel="noopener">LinkedIn</a>
+    <a href="https://calendly.com/thecontentdesignchief/30min" target="_blank" rel="noopener">Book a call</a>
+  </div>
+</footer>
+
+<script src="/assets/main.js"></script>
+</body>
+</html>
