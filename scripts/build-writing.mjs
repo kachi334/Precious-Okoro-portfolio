@@ -234,13 +234,13 @@ function indexPage(entries) {
     .map(
       (p, i) => `
       <a href="/writing/${esc(p.slug)}" class="engagement-card ${CARD_COLORS[i % CARD_COLORS.length]}">
-        <span class="idx">${esc(p.date)}</span>
-        <div class="body">
-          <span class="cat">${esc(p.category || 'Essay')}</span>
-          <h3 style="font-size:22px">${esc(p.title)}</h3>
-          <p>${esc(p.summary)}</p>
+        <div class="ec-top">
+          <span class="ec-pill">${esc(p.date)}</span>
+          <span class="ec-pill">${esc(p.category || 'Essay')}</span>
         </div>
-        <span class="btn-link accent" style="margin-top:auto">Read essay →</span>
+        <h3>${esc(p.title)}</h3>
+        <div class="excerpt"><p>${esc(p.summary)}</p></div>
+        <span class="read-cta">Read essay →</span>
       </a>`
     )
     .join('')

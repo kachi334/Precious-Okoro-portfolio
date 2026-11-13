@@ -453,27 +453,40 @@ mark{background:var(--t-mint-a);color:var(--ink);padding:1px 5px;border-radius:5
 .case-cta-panel .btn:hover{background:#EFC670;color:#17130E}
 
 /* ===== ADDITIONAL ENGAGEMENTS (Work.html) ===== */
-.engagement-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:24px}
-.engagement-card{border-radius:28px;padding:36px;display:flex;flex-direction:column;gap:28px;justify-content:flex-start;transition:transform .3s cubic-bezier(.2,.8,.2,1)}
+/* Single full-width card per row, not a packed multi-column grid: imports
+   content-practice's spacious one-per-row composition (top meta pills,
+   nested excerpt block, pill CTA) while keeping this page's own pastel
+   tint palette, fonts, and type scale instead of content-practice's. */
+.engagement-grid{display:flex;flex-direction:column;gap:20px}
+.engagement-card{border-radius:28px;padding:36px;display:flex;flex-direction:column;gap:20px;transition:transform .3s cubic-bezier(.2,.8,.2,1)}
 .engagement-card:hover{transform:translateY(-4px)}
-.engagement-card .idx{font-family:'IBM Plex Mono',monospace;font-size:12px}
-.engagement-card .body{display:flex;flex-direction:column;gap:10px}
-.engagement-card .cat{font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:var(--accent);letter-spacing:0.3px}
-.engagement-card h3{font-size:28px;letter-spacing:-0.02em}
-.engagement-card p{margin:0;font-size:16px;line-height:1.6;color:var(--ink-soft)}
+.ec-top{display:flex;gap:10px;flex-wrap:wrap}
+.ec-pill{font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:0.3px;padding:6px 14px;border-radius:999px;background:rgba(var(--ink-rgb),0.06)}
+.engagement-card h3{font-size:26px;letter-spacing:-0.02em;margin:0;max-width:22ch}
+.engagement-card .excerpt{border-radius:16px;padding:20px 22px;background:rgba(var(--ink-rgb),0.05)}
+.engagement-card .excerpt p{margin:0;font-family:'Fraunces',serif;font-style:italic;font-size:17px;line-height:1.6;color:var(--ink)}
+.engagement-card .read-cta{align-self:flex-start;font-weight:600;font-size:14px;padding:10px 20px;border-radius:999px;border:1px solid rgba(var(--ink-rgb),0.15);transition:border-color .2s ease,transform .25s cubic-bezier(.2,.8,.2,1)}
+.engagement-card .read-cta:hover{border-color:var(--ink);transform:translateY(-2px)}
 .engagement-card.coral{background:linear-gradient(160deg,var(--t-coral-a) 0%,var(--t-coral-b) 100%);box-shadow:0 30px 70px -45px rgba(236,111,142,0.4)}
-.engagement-card.coral .idx,.engagement-card.coral .cat{color:var(--coral-text)}
+.engagement-card.coral .ec-pill{color:var(--coral-text);background:rgba(236,111,142,0.14)}
+.engagement-card.coral .read-cta{color:var(--coral-text);border-color:rgba(236,111,142,0.35)}
 .engagement-card.mint{background:linear-gradient(160deg,var(--t-mint-a) 0%,var(--t-mint-b) 100%);box-shadow:0 30px 70px -45px rgba(31,174,110,0.4)}
-.engagement-card.mint .idx,.engagement-card.mint .cat{color:var(--mint-text)}
+.engagement-card.mint .ec-pill{color:var(--mint-text);background:rgba(31,174,110,0.14)}
+.engagement-card.mint .read-cta{color:var(--mint-text);border-color:rgba(31,174,110,0.35)}
 .engagement-card.amber{background:linear-gradient(160deg,var(--t-amber-a) 0%,var(--t-amber-b) 100%);box-shadow:0 30px 70px -45px rgba(214,154,26,0.4)}
-.engagement-card.amber .idx,.engagement-card.amber .cat{color:var(--amber-text)}
+.engagement-card.amber .ec-pill{color:var(--amber-text);background:rgba(214,154,26,0.14)}
+.engagement-card.amber .read-cta{color:var(--amber-text);border-color:rgba(214,154,26,0.35)}
 .engagement-card.violet{background:linear-gradient(160deg,var(--t-violet-a) 0%,var(--t-violet-b) 100%);box-shadow:0 30px 70px -45px rgba(107,79,214,0.4)}
-.engagement-card.violet .idx,.engagement-card.violet .cat{color:var(--accent)}
+.engagement-card.violet .ec-pill{color:var(--accent);background:rgba(107,79,214,0.14)}
+.engagement-card.violet .read-cta{color:var(--accent);border-color:rgba(107,79,214,0.35)}
 .engagement-card.sky{background:linear-gradient(160deg,var(--t-sky-a) 0%,var(--t-sky-b) 100%);box-shadow:0 30px 70px -45px rgba(63,160,224,0.4)}
-.engagement-card.sky .idx,.engagement-card.sky .cat{color:var(--sky-text)}
+.engagement-card.sky .ec-pill{color:var(--sky-text);background:rgba(63,160,224,0.14)}
+.engagement-card.sky .read-cta{color:var(--sky-text);border-color:rgba(63,160,224,0.35)}
 .engagement-card.ember{background:linear-gradient(160deg,var(--t-ember-a) 0%,var(--t-ember-b) 100%);box-shadow:0 30px 70px -45px rgba(156,62,31,0.4)}
-.engagement-card.ember .idx,.engagement-card.ember .cat{color:var(--ember-text)}
+.engagement-card.ember .ec-pill{color:var(--ember-text);background:rgba(156,62,31,0.14)}
+.engagement-card.ember .read-cta{color:var(--ember-text);border-color:rgba(156,62,31,0.35)}
 a.engagement-card{color:inherit;text-decoration:none}
+@media (max-width:640px){.engagement-card{padding:28px 24px}}
 
 /* ===== SAMPLE CARDS (real published pieces) ===== */
 .sample-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:28px}
@@ -494,7 +507,8 @@ a.engagement-card{color:inherit;text-decoration:none}
 .featured-writing-card .fw-eyebrow{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:1px;text-transform:uppercase;color:#9B85E8}
 .featured-writing-card h2{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(28px,3.4vw,44px);letter-spacing:-0.02em;line-height:1.1;color:#FAF6ED;margin:14px 0 18px;max-width:20ch}
 .featured-writing-card p{font-family:'Fraunces',serif;font-style:italic;font-size:clamp(18px,2vw,22px);line-height:1.5;color:#E8E1D2;max-width:60ch;margin:0}
-.featured-writing-card .fw-link{display:inline-block;margin-top:24px;font-family:'Manrope',sans-serif;font-weight:600;font-size:15px;color:#9B85E8}
+.featured-writing-card .fw-link{display:inline-flex;align-items:center;margin-top:28px;font-family:'Manrope',sans-serif;font-weight:600;font-size:14px;color:#9B85E8;padding:10px 20px;border-radius:999px;border:1px solid rgba(155,133,232,0.4);transition:border-color .2s ease,transform .25s cubic-bezier(.2,.8,.2,1)}
+.featured-writing-card:hover .fw-link{border-color:#9B85E8;transform:translateY(-2px)}
 
 /* ===== ABOUT ===== */
 /* Image sits beside the heading (not below it) at any width ≥ the 860px
