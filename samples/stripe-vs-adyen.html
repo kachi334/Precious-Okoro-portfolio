@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<script>(function(){try{var t=localStorage.getItem('theme');if(!t){t='dark';}document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Stripe vs Adyen: Pricing, Features &amp; Comparison &middot; Precious Okoro</title>
+<meta name="description" content="Compare Stripe and Adyen across payment processing, pricing, global payments, subscriptions, marketplaces, fraud prevention and omnichannel commerce. Find the right fit for your business.">
+<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16.png">
+<link rel="icon" type="image/png" sizes="512x512" href="/images/favicon.png">
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+<link rel="canonical" href="https://www.preciousokoro.site/samples/stripe-vs-adyen">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://www.preciousokoro.site/samples/stripe-vs-adyen">
+<meta property="og:title" content="Stripe vs Adyen: Pricing, Features & Comparison">
+<meta property="og:description" content="Compare Stripe and Adyen across payment processing, pricing, global payments, subscriptions, marketplaces, fraud prevention and omnichannel commerce. Find the right fit for your business.">
+<meta property="og:image" content="https://www.preciousokoro.site/images/precious-headshot.jpg">
+<meta name="twitter:card" content="summary">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "@id": "https://www.preciousokoro.site/samples/stripe-vs-adyen#article",
+  "url": "https://www.preciousokoro.site/samples/stripe-vs-adyen",
+  "headline": "Stripe vs Adyen: Which Payment Platform Should Your Business Choose?",
+  "description": "Compare Stripe and Adyen across payment processing, pricing, global payments, subscriptions, marketplaces, fraud prevention and omnichannel commerce. Find the right fit for your business.",
+  "image": "https://www.preciousokoro.site/images/precious-headshot.jpg",
+  "datePublished": "2026-11-13",
+  "dateModified": "2026-11-13",
+  "author": {"@type": "Person", "name": "Precious Okoro", "url": "https://www.preciousokoro.site/content-practice"}
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=Inter:wght@400;500;600;700&family=Geist+Mono:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<style>
+/* Detached sample reader: a client clicking through from /content-practice
+   should never land in the sitewide content-design chrome (Projects/CV/
+   Features nav). Same --pp- system as content-practice, read-only shell. */
+:root{
+  --pp-bg:#FBF8F2;
+  --pp-card:#F1ECE1;
+  --pp-ink:#15130F;
+  --pp-soft:#55503F;
+  --pp-faint:#78715C;
+  --pp-border:#E4DDCC;
+  --pp-blue:#3A56C4;
+  --pp-yellow:#E8BD4C;
+  --pp-chip-dark:#211E18;
+  --pp-chip-dark-text:#F3EEE4;
+  --pp-accent:#3A56C4;
+}
+:root[data-theme="dark"]{
+  --pp-bg:#15130F;
+  --pp-card:#1C1913;
+  --pp-ink:#F3EEE4;
+  --pp-soft:#A8A399;
+  --pp-faint:#78715C;
+  --pp-border:#2B2720;
+  --pp-blue:#4867D6;
+  --pp-yellow:#F1CF6E;
+  --pp-chip-dark:#211E18;
+  --pp-chip-dark-text:#F3EEE4;
+  --pp-accent:#4867D6;
+}
+*{box-sizing:border-box}
+body{margin:0;font-family:'Inter',sans-serif;background:var(--pp-bg);color:var(--pp-ink);-webkit-font-smoothing:antialiased;position:relative}
+a{color:inherit}
+.pp-wrap{max-width:720px;margin:0 auto;padding:0 24px;position:relative;z-index:1}
+
+.pp-grain{position:fixed;inset:0;z-index:0;pointer-events:none;opacity:0.035;mix-blend-mode:overlay;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+:root[data-theme="dark"] .pp-grain{opacity:0.05}
+
+.pp-nav{position:sticky;top:0;z-index:10;display:flex;justify-content:space-between;align-items:center;gap:12px;padding:18px 24px;background:var(--pp-bg)}
+.pp-nav-id{display:flex;align-items:center;gap:10px;padding:8px 16px 8px 8px;border:1px solid var(--pp-border);border-radius:999px;background:var(--pp-bg);font-weight:700;font-size:14px;text-decoration:none;color:var(--pp-ink)}
+.pp-nav-id img{width:28px;height:28px;border-radius:50%;object-fit:cover}
+.pp-icon-btn{width:40px;height:40px;border-radius:50%;border:1px solid var(--pp-border);background:var(--pp-bg);display:flex;align-items:center;justify-content:center;cursor:pointer;color:var(--pp-ink)}
+
+.pp-back{display:inline-flex;align-items:center;gap:6px;font-family:'Geist Mono',monospace;font-size:12px;letter-spacing:0.04em;text-transform:uppercase;color:var(--pp-faint);text-decoration:none;margin:40px 0 28px;transition:color .2s ease}
+.pp-back:hover{color:var(--pp-ink)}
+.pp-article-badge{display:inline-flex;align-items:center;gap:8px;padding:8px 16px;border:1px solid var(--pp-border);border-radius:999px;font-family:'Geist Mono',monospace;font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:var(--pp-soft);margin-bottom:24px}
+.pp-article-badge .dot{width:6px;height:6px;border-radius:50%;background:var(--pp-blue)}
+.pp-article-title{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:clamp(28px,4.5vw,44px);line-height:1.12;margin:0 0 44px;max-width:22ch}
+.pp-article-title .chip{display:inline-block;padding:0.03em 0.2em;border-radius:6px;transform:rotate(-1deg);box-shadow:4px 4px 0 rgba(0,0,0,0.5);background:var(--pp-yellow);color:var(--pp-chip-dark)}
+
+.pp-article-body{display:flex;flex-direction:column;gap:22px;font-size:17px;line-height:1.75;color:var(--pp-soft);padding-bottom:64px}
+.pp-article-body p{margin:0}
+.pp-article-body h2{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:clamp(22px,2.6vw,28px);line-height:1.25;margin:16px 0 0;padding-top:36px;border-top:1px solid var(--pp-border);color:var(--pp-ink);scroll-margin-top:24px}
+.pp-article-body h3{font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:19px;line-height:1.3;margin:4px 0 0;color:var(--pp-ink)}
+.pp-article-body strong{color:var(--pp-ink)}
+.pp-article-body a{color:var(--pp-accent);text-decoration:underline;text-underline-offset:3px}
+.pp-article-body ul,.pp-article-body ol{margin:0;padding-left:22px;display:flex;flex-direction:column;gap:8px}
+.pp-article-body blockquote{margin:0;padding:24px 28px;border-radius:16px;background:var(--pp-card);border:1px solid var(--pp-border);font-family:'Instrument Serif',serif;font-style:italic;font-size:20px;line-height:1.5;color:var(--pp-ink)}
+.pp-article-body .table-wrap{overflow-x:auto;border:1px solid var(--pp-border);border-radius:14px;padding:4px 20px}
+.pp-article-body table{width:100%;border-collapse:collapse;font-size:14.5px;min-width:480px}
+.pp-article-body th,.pp-article-body td{text-align:left;padding:12px 16px 12px 0;border-bottom:1px solid var(--pp-border);vertical-align:top}
+.pp-article-body th{font-family:'Geist Mono',monospace;font-weight:600;color:var(--pp-ink);font-size:11.5px;letter-spacing:0.04em;text-transform:uppercase;border-bottom:2px solid var(--pp-ink);white-space:nowrap}
+.pp-article-body tr:last-child td{border-bottom:none}
+.pp-article-body .note{font-size:14px;opacity:0.8}
+
+.pp-tldr{border-radius:16px;padding:26px 28px;background:var(--pp-card);border:1px solid var(--pp-border)}
+.pp-tldr .label{font-family:'Geist Mono',monospace;font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:var(--pp-accent);display:block;margin-bottom:14px}
+.pp-tldr ul{gap:10px}
+.pp-tldr li{font-size:15.5px}
+
+.pp-toc{border:1px solid var(--pp-border);border-radius:16px;padding:22px 26px}
+.pp-toc .label{font-family:'Geist Mono',monospace;font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:var(--pp-faint);display:block;margin-bottom:14px}
+.pp-toc ol{gap:9px}
+.pp-toc li{font-size:15px}
+.pp-toc a{text-decoration:none;color:var(--pp-ink)}
+.pp-toc a:hover{color:var(--pp-accent);text-decoration:underline}
+
+.pp-article-end{display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;padding:32px 0 56px;border-top:1px solid var(--pp-border)}
+.pp-article-end a{display:inline-flex;align-items:center;gap:6px;font-size:14px;font-weight:700;text-decoration:none;color:var(--pp-ink);padding:12px 22px;border:1px solid var(--pp-border);border-radius:999px;transition:transform .25s cubic-bezier(.2,.8,.2,1),border-color .2s ease,background .2s ease}
+.pp-article-end a:hover{border-color:var(--pp-ink);transform:translateY(-2px)}
+.pp-article-end a.primary{background:var(--pp-accent);color:#fff;border-color:var(--pp-accent)}
+.pp-article-end a.primary:hover{background:var(--pp-blue);border-color:var(--pp-blue)}
+
+.pp-footer{padding:0 24px 48px;text-align:center;font-size:12.5px;color:var(--pp-faint)}
+</style>
+</head>
+<body>
+
+<div class="pp-grain" aria-hidden="true"></div>
+
+<header class="pp-nav">
+  <a href="/content-practice" class="pp-nav-id"><img src="/images/nav-avatar.png" alt="">Precious Okoro</a>
+  <button class="pp-icon-btn" type="button" id="ppThemeToggle" aria-label="Switch theme">
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M14 9.5A6 6 0 1 1 6.5 2 4.8 4.8 0 0 0 14 9.5Z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/></svg>
+  </button>
+</header>
+
+<main class="pp-wrap">
+  <a href="/content-practice#work" class="pp-back">&larr; Back to Selected Work</a>
+  <span class="pp-article-badge"><span class="dot"></span>Nov 13, 2026 &middot; Payments &amp; Fintech Comparison</span>
+  <h1 class="pp-article-title">Stripe vs Adyen: Which Payment Platform Should Your Business <span class="chip">Choose?</span></h1>
+
+  <div class="pp-article-body">
+<p>Choosing a payment provider is rarely just a question of transaction fees. The platform you select affects how customers pay, how your business handles recurring revenue, how funds move across markets, and how much work your team takes on to manage payments as the business grows.</p>
+<p>Stripe and Adyen are two established options, but they approach payment infrastructure differently. Stripe offers a broad, developer-oriented payments platform with accessible tools for online businesses, SaaS companies and marketplaces. Adyen combines online and in-person payments with acquiring, risk management and commerce infrastructure designed for businesses operating across multiple channels and markets.</p>
+<p>Both can support international payment operations. Neither is automatically the better choice for every business. Your transaction model, operating markets, payment channels and need for financial control will determine which platform makes more sense.</p>
+
+<div class="pp-tldr">
+<span class="label">TL;DR</span>
+<ul>
+<li><strong>Choose Stripe</strong> if you want a developer-friendly payments platform with accessible APIs, prebuilt checkout, subscription management through Stripe Billing and marketplace capabilities through Stripe Connect.</li>
+<li><strong>Choose Adyen</strong> if you operate at significant scale across online and physical channels and want payment processing, acquiring, risk management and reconciliation within a unified commerce setup.</li>
+<li><strong>For subscriptions</strong>, Stripe Billing provides a dedicated subscription and revenue-management product. Adyen supports recurring transactions through tokenization, but this is not the same product proposition.</li>
+<li><strong>For marketplaces</strong>, both offer platform capabilities, but supported countries and onboarding requirements need careful checking. Adyen for Platforms does not currently list African countries among its supported sub-merchant onboarding markets.</li>
+<li><strong>For businesses in Africa</strong>, Stripe's global availability page lists Nigeria, Ghana, Kenya and South Africa under its Extended Network, linked to Paystack. Adyen's payment-method explorer includes several African markets, but that alone does not establish local merchant-account or product eligibility.</li>
+<li><strong>For pricing</strong>, Stripe's standard pricing is easier to estimate upfront in markets where it applies. Adyen's interchange-based pricing can offer more visibility into underlying card costs, but requires a transaction-level comparison.</li>
+</ul>
+</div>
+
+<div class="pp-toc">
+<span class="label">Table of Contents</span>
+<ol>
+<li><a href="#stripe-vs-adyen-at-a-glance">Stripe vs Adyen at a glance</a></li>
+<li><a href="#what-is-stripe">What is Stripe?</a></li>
+<li><a href="#what-is-adyen">What is Adyen?</a></li>
+<li><a href="#stripe-vs-adyen-feature-comparison">Stripe vs Adyen: Feature comparison</a></li>
+<li><a href="#stripe-vs-adyen-pricing">Stripe vs Adyen pricing</a></li>
+<li><a href="#global-payments-and-international-expansion">Global payments and international expansion</a></li>
+<li><a href="#subscriptions-and-recurring-payments">Subscriptions and recurring payments</a></li>
+<li><a href="#marketplaces-and-platform-businesses">Marketplaces and platform businesses</a></li>
+<li><a href="#online-payments-vs-omnichannel-commerce">Online payments vs omnichannel commerce</a></li>
+<li><a href="#what-businesses-in-africa-should-consider">What businesses in Africa should consider</a></li>
+<li><a href="#developer-experience-and-integration">Developer experience and integration</a></li>
+<li><a href="#which-platform-should-you-choose">Which platform should you choose?</a></li>
+<li><a href="#frequently-asked-questions">Frequently asked questions</a></li>
+</ol>
+</div>
+
+<h2 id="stripe-vs-adyen-at-a-glance">Stripe vs Adyen at a glance</h2>
+<div class="table-wrap"><table>
+<thead><tr><th>Comparison</th><th>Stripe</th><th>Adyen</th></tr></thead>
+<tbody>
+<tr><td>Core proposition</td><td>Developer-oriented payments and financial infrastructure</td><td>Unified payment processing and commerce infrastructure</td></tr>
+<tr><td>Online payments</td><td>Yes</td><td>Yes</td></tr>
+<tr><td>In-person payments</td><td>Stripe Terminal, where supported</td><td>In-person payment solutions</td></tr>
+<tr><td>Subscription management</td><td>Stripe Billing</td><td>Recurring payments through tokenization</td></tr>
+<tr><td>Marketplace infrastructure</td><td>Stripe Connect</td><td>Adyen for Platforms</td></tr>
+<tr><td>Fraud and risk tools</td><td>Stripe Radar</td><td>Adyen Protect and risk-management tools</td></tr>
+<tr><td>Pricing model</td><td>Standard, transaction-based pricing in supported markets; custom pricing available</td><td>Fixed processing fee plus payment-method fee; other products priced separately</td></tr>
+<tr><td>Best-known strength</td><td>Flexible APIs and a broad product ecosystem</td><td>Unified online and in-person payment operations</td></tr>
+</tbody>
+</table></div>
+<p>The most useful distinction is not that one platform is built for small businesses and the other for large enterprises. Both serve businesses with different levels of complexity.</p>
+<p>The distinction is how much of your payment operation you want to manage through a developer-oriented platform, and how much you want integrated into a broader acquiring and commerce infrastructure.</p>
+
+<h2 id="what-is-stripe">What is Stripe?</h2>
+<p><a href="https://stripe.com/" rel="noopener">Stripe</a> is a financial infrastructure platform that helps businesses accept payments, manage revenue and build payment-related experiences into their products.</p>
+<p>Its product ecosystem extends beyond card processing. Businesses can use Stripe to create checkout experiences, manage subscriptions, support marketplace transactions and automate parts of their financial operations.</p>
+<p>Some of its core products include:</p>
+<ul>
+<li><strong>Stripe Payments:</strong> APIs and tools for accepting online payments and supporting different payment methods.</li>
+<li><strong>Stripe Checkout:</strong> A prebuilt checkout experience that businesses can use instead of building the entire payment interface themselves.</li>
+<li><strong>Stripe Billing:</strong> Subscription management, recurring billing, usage-based pricing and revenue recovery tools.</li>
+<li><strong>Stripe Connect:</strong> Infrastructure for marketplaces and platforms that need to onboard sellers or service providers, route payments and manage payouts.</li>
+<li><strong>Stripe Radar:</strong> Fraud prevention tools that use machine learning and configurable rules to help identify suspicious transactions.</li>
+<li><strong>Stripe Terminal:</strong> Tools for accepting in-person payments through supported card readers and point-of-sale integrations.</li>
+</ul>
+<p>Stripe's appeal is its combination of APIs, prebuilt interfaces and products that can be adopted as a business grows. A SaaS company might start with one-time payments, add recurring billing later, and eventually use Connect to support a platform business model.</p>
+<p>That flexibility is useful, but it also means businesses need to understand which Stripe products they actually need. Not every capability is included in the basic cost of processing a payment.</p>
+
+<h2 id="what-is-adyen">What is Adyen?</h2>
+<p><a href="https://www.adyen.com/" rel="noopener">Adyen</a> is a global payments platform that provides online and in-person payment processing, acquiring, risk management and commerce capabilities.</p>
+<p>It is designed to help businesses manage payment operations across markets and customer touchpoints. A retailer, for example, may need to accept payments through its website, mobile app and physical stores while maintaining consistent reporting and payment data.</p>
+<p>Adyen's product offering includes:</p>
+<ul>
+<li><strong>Online payments:</strong> Payment processing for websites, apps and other digital channels.</li>
+<li><strong>In-person payments:</strong> Payment terminals and integrations for physical retail and other face-to-face transactions.</li>
+<li><strong>Unified Commerce:</strong> Capabilities for connecting online and in-person payment experiences.</li>
+<li><strong>Adyen Protect:</strong> Risk-management and fraud-prevention capabilities.</li>
+<li><strong>Adyen for Platforms:</strong> Payment infrastructure for platforms and marketplaces, including seller onboarding, payment processing and payouts.</li>
+<li><strong>Tokenization:</strong> Secure storage of payment details to support returning customers and recurring transactions.</li>
+</ul>
+<p>Adyen's proposition is particularly relevant to businesses with complex payment operations. Its acquiring and processing capabilities, combined with online and in-person payments, can help businesses manage more of their payment infrastructure through one provider.</p>
+<p>That does not mean every business needs that level of integration. If your operation is primarily online and your payment requirements are relatively straightforward, some of Adyen's broader capabilities may be unnecessary.</p>
+
+<h2 id="stripe-vs-adyen-feature-comparison">Stripe vs Adyen: Feature comparison</h2>
+<p>Both platforms support online payments, international transactions, fraud management and platform business models. The differences become clearer when you examine how each product handles specific business requirements.</p>
+<h3>1. Payment processing</h3>
+<p>Stripe offers a range of ways to accept payments. Businesses can integrate its APIs directly, use Stripe Checkout, or adopt other prebuilt payment interfaces. Its documentation and developer tools make it possible to build custom payment flows while relying on Stripe to handle payment processing.</p>
+<p>Adyen also supports API-based integrations and prebuilt payment experiences. Its payment infrastructure combines processing with acquiring capabilities, giving businesses more control over how they manage payment operations across markets.</p>
+<p><strong>Which is better?</strong></p>
+<p>Stripe is a strong option if your priority is building and iterating on online payment experiences. Adyen is worth evaluating if payment processing is part of a larger operation involving multiple markets, acquiring relationships and sales channels.</p>
+<h3>2. International payments</h3>
+<p>Both platforms support international payment operations, but global reach is not a single feature.</p>
+<p>A provider may support a customer's payment method in a country without being able to onboard a merchant incorporated there. It may also support processing a payment without offering local settlement, payouts or every associated product.</p>
+<p>Stripe supports businesses in the countries listed on its <a href="https://stripe.com/global" rel="noopener">global availability page</a>. It also provides access to a range of currencies and payment methods, subject to account location and product eligibility.</p>
+<p>Adyen supports a broad range of payment methods and markets. Its <a href="https://www.adyen.com/pricing/" rel="noopener">payment-method explorer</a> lets businesses examine available payment methods by location. However, the availability of a payment method should not be treated as confirmation that a business can open a local merchant account or use every Adyen product in that country.</p>
+<p><strong>Which is better?</strong></p>
+<p>Neither platform should be selected on the strength of a global coverage claim alone. Check merchant onboarding, acquiring, presentment currencies, settlement currencies, payout destinations and local payment methods for every market you intend to serve.</p>
+<h3>3. Subscription and recurring payments</h3>
+<p>Stripe has a dedicated subscription product: <a href="https://stripe.com/billing" rel="noopener">Stripe Billing</a>. It supports recurring billing, subscription lifecycle management, usage-based pricing and revenue recovery workflows.</p>
+<p>This makes Stripe a particularly relevant option for SaaS companies and other businesses with recurring revenue models. Rather than building every billing workflow from scratch, teams can use Billing alongside Stripe Payments.</p>
+<p>Adyen supports recurring payments through tokenization. Its <a href="https://docs.adyen.com/online-payments/tokenization/" rel="noopener">tokenization documentation</a> covers use cases such as subscriptions, one-click payments and automatic top-ups.</p>
+<p>There is an important product distinction here. Adyen's recurring payment capabilities allow businesses to store payment details securely and initiate subsequent transactions. They should not be treated as a direct equivalent to Stripe Billing's broader subscription-management proposition.</p>
+<p><strong>Which is better?</strong></p>
+<p>Stripe is the more straightforward comparison if you need a dedicated subscription-management product alongside payment processing. Adyen can support recurring payment transactions, but businesses may need additional billing software or internal infrastructure to manage the full subscription lifecycle.</p>
+<h3>4. Marketplace and platform payments</h3>
+<p>Marketplaces and platforms have payment requirements that go beyond accepting a customer's card. They may need to verify sellers, split payments, calculate commissions, manage refunds and coordinate payouts to multiple parties.</p>
+<p>Stripe Connect provides infrastructure for these workflows. Businesses can use it to onboard connected accounts, accept payments on behalf of sellers and manage different payout arrangements.</p>
+<p><a href="https://docs.adyen.com/adyen-for-platforms-model" rel="noopener">Adyen for Platforms</a> offers similar capabilities, including user onboarding, payment processing, payouts, fraud monitoring and reconciliation.</p>
+<p>The two products are not interchangeable in every market. Supported countries, account structures, onboarding requirements and payout capabilities differ.</p>
+<p><strong>Which is better?</strong></p>
+<p>Both are relevant options for marketplace businesses. The deciding factor should be whether the provider supports your platform's legal entity, the countries where your sellers operate, your payout model and the level of control you need over funds.</p>
+<h3>5. Fraud prevention and risk management</h3>
+<p>Stripe Radar uses machine learning and configurable rules to help businesses identify and manage potentially fraudulent payments. It is integrated into Stripe's payment ecosystem, allowing businesses to apply risk controls as part of their payment workflows.</p>
+<p>Adyen Protect provides risk-management capabilities designed to help businesses detect suspicious activity and manage fraud across payment operations.</p>
+<p>Neither platform can eliminate fraud. Their effectiveness depends on factors such as transaction data, business model, customer behaviour, configuration and the risk controls a business applies.</p>
+<p><strong>Which is better?</strong></p>
+<p>There is no reliable basis for declaring one universally better at fraud prevention. Compare the controls available for your payment channels, the level of customisation, the data you can use, the review process and the impact of false declines on legitimate customers.</p>
+<h3>6. Reporting and reconciliation</h3>
+<p>Payment reporting becomes more complicated as a business adds payment methods, currencies, sales channels and legal entities.</p>
+<p>Stripe provides reporting and financial data tools across its payments and revenue products. Teams can use its dashboard, reports and APIs to monitor transactions and reconcile payment activity.</p>
+<p>Adyen provides payment reporting and reconciliation capabilities as part of its broader payment infrastructure. This can be particularly useful for businesses managing multiple channels and payment flows.</p>
+<p><strong>Which is better?</strong></p>
+<p>The right choice depends on how your finance and operations teams work. Evaluate whether each platform can provide the transaction-level detail, settlement information, payout records and reporting integrations your team needs. A clean dashboard is useful; accurate reconciliation is essential.</p>
+
+<h2 id="stripe-vs-adyen-pricing">Stripe vs Adyen pricing</h2>
+<p>Payment processing fees can have a significant impact on margins, especially for businesses handling high transaction volumes. But comparing Stripe and Adyen by looking at one advertised percentage will not give you a reliable answer.</p>
+<p>Their standard pricing models are different.</p>
+<h3>How Stripe pricing works</h3>
+<p>Stripe offers standard transaction-based pricing in supported markets, with custom packages available for businesses with large payment volumes or more complex requirements.</p>
+<p>For example, its published US standard pricing for domestic card payments is:</p>
+<div class="table-wrap"><table>
+<thead><tr><th>Fee</th><th>Published US rate</th></tr></thead>
+<tbody>
+<tr><td>Domestic card payment</td><td>2.9% + $0.30</td></tr>
+<tr><td>International card payment</td><td>Additional 1.5%</td></tr>
+<tr><td>Currency conversion</td><td>Additional 1% when required</td></tr>
+</tbody>
+</table></div>
+<p>These figures are from <a href="https://stripe.com/pricing" rel="noopener">Stripe's pricing page</a> and are a US pricing example, not a universal rate. Fees vary by country, payment method, product and commercial agreement.</p>
+<p>Additional products and services may have separate fees. Businesses should also account for dispute fees, currency conversion, refunds and any other costs relevant to their payment setup.</p>
+<p>For businesses with substantial payment volume or specialised requirements, Stripe offers custom pricing arrangements.</p>
+<h3>How Adyen pricing works</h3>
+<p>Adyen's standard pricing model combines a fixed processing fee with a fee determined by the payment method.</p>
+<p>For eligible card transactions, Adyen may use Interchange++ pricing. This separates the underlying interchange and scheme costs from Adyen's processing markup, giving businesses more visibility into the components of card acceptance.</p>
+<p>Its <a href="https://www.adyen.com/pricing/" rel="noopener">public pricing page</a> shows examples such as a $0.13 processing fee plus Interchange++ and a 0.60% markup for applicable card payments. The exact fee depends on the payment method, region and transaction.</p>
+<p>Adyen states that its standard pricing has no setup or monthly fees, although minimum invoices may apply depending on the business model and commercial arrangement. Other Adyen products are priced separately.</p>
+<h3>Which platform is cheaper?</h3>
+<p>There is no universal answer.</p>
+<p>Stripe's flat-rate pricing can make costs easier to estimate, particularly for businesses with relatively straightforward payment needs. Adyen's interchange-based model provides a more detailed view of card costs, which may be useful for businesses with high transaction volumes and a varied card mix.</p>
+<p>However, Interchange++ does not automatically mean lower fees. The underlying interchange and scheme costs still apply, and the final amount depends on the transactions being processed.</p>
+<p>To compare the platforms properly, model the same transaction profile across both providers.</p>
+<p>Include:</p>
+<ul>
+<li>Average transaction value.</li>
+<li>Monthly transaction volume.</li>
+<li>Percentage of domestic and international cards.</li>
+<li>Debit, credit and corporate card mix.</li>
+<li>Local payment methods and digital wallets.</li>
+<li>Currency conversion requirements.</li>
+<li>Refunds and chargebacks.</li>
+<li>Settlement and payout costs.</li>
+<li>Any additional products, integrations or minimum fees.</li>
+</ul>
+<p>A provider that looks cheaper on a single domestic card transaction may cost more once international payments, currency conversion and additional services are included.</p>
+<p><strong>Pricing recommendation:</strong> Request a commercial quote from both providers using the same transaction assumptions. Compare the total cost of processing and managing payments, not just the headline transaction fee.</p>
+
+<h2 id="global-payments-and-international-expansion">Global payments and international expansion</h2>
+<p>A business expanding into new markets needs more than a provider that can process international cards. It needs to understand where it can establish a merchant account, which local payment methods it can offer, how it receives settlements and where it can send payouts.</p>
+<p>Stripe and Adyen both support international payment operations, but their availability and product coverage should be assessed market by market.</p>
+<p>Stripe's <a href="https://stripe.com/global" rel="noopener">global availability list</a> identifies countries where businesses can establish supported Stripe accounts. It separately labels some markets as part of its Extended Network. That distinction matters: an Extended Network listing is not the same as standard direct Stripe availability.</p>
+<p>Adyen's payment-method explorer provides a view of supported payment methods by market. However, businesses should separately confirm merchant onboarding and product eligibility with Adyen.</p>
+<p>Before choosing either provider for international expansion, verify:</p>
+<ol>
+<li>Can your legal entity open an account?</li>
+<li>Can you accept payments from customers in your target markets?</li>
+<li>Which local payment methods are available?</li>
+<li>Which currencies can you present prices in?</li>
+<li>Which currencies can you settle in?</li>
+<li>Can you pay out to the countries and account types your business needs?</li>
+<li>Are the products you intend to use available in those markets?</li>
+</ol>
+<p>This is particularly important for marketplaces, where the countries in which the platform operates may differ from the countries in which its sellers are based.</p>
+
+<h2 id="subscriptions-and-recurring-payments">Subscriptions and recurring payments</h2>
+<p>For a subscription business, payment processing is only one part of the billing operation.</p>
+<p>You may also need to manage plans, billing intervals, trials, upgrades, downgrades, usage-based charges, failed payments, retries, cancellations and customer access.</p>
+<p>Stripe Billing provides a dedicated product for many of these workflows. It can be used with Stripe Payments to manage recurring revenue and automate parts of the subscription lifecycle.</p>
+<p>Adyen supports recurring transactions through tokenization. Businesses can securely store payment details and use tokens for subscriptions and other subsequent payments.</p>
+<p>The distinction is the scope of the product. Adyen's recurring payment functionality supports payment execution, while Stripe Billing provides a broader subscription-management layer.</p>
+<p>If your business already uses a separate billing platform, Adyen's recurring payment capabilities may fit into that architecture. If you want payment processing and subscription management within one ecosystem, Stripe is a strong option to evaluate.</p>
+
+<h2 id="marketplaces-and-platform-businesses">Marketplaces and platform businesses</h2>
+<p>Marketplace payments introduce operational complexity that standard ecommerce checkout does not address.</p>
+<p>A platform may collect payment from a customer, deduct its commission, allocate funds to sellers and manage payouts according to different schedules. It may also be responsible for seller verification, refunds, disputes and financial reporting.</p>
+<p>Stripe Connect and Adyen for Platforms both address these requirements.</p>
+<p>Stripe Connect offers different integration and account configurations for platforms. The right setup depends on the platform's business model, responsibilities and the countries where its connected accounts operate.</p>
+<p>Adyen for Platforms supports seller onboarding, payment processing, payouts and reconciliation. Its capabilities are designed for platforms that need to manage the movement of funds between multiple parties.</p>
+<p>However, country coverage is a major consideration. Adyen's <a href="https://docs.adyen.com/marketplaces/onboard-users" rel="noopener">supported countries documentation</a> specifies where sub-merchants can be onboarded. African countries should not be assumed to be supported simply because they appear in Adyen's payment-method explorer.</p>
+<p>For either provider, confirm:</p>
+<ul>
+<li>Platform and connected-account eligibility.</li>
+<li>Seller onboarding countries.</li>
+<li>Identity verification and compliance requirements.</li>
+<li>Supported payout destinations and currencies.</li>
+<li>Split-payment and commission requirements.</li>
+<li>Refund and dispute responsibilities.</li>
+<li>Restrictions on holding or transferring funds.</li>
+</ul>
+<p>A marketplace should choose its payment infrastructure around its actual seller and payout footprint, not just the country where its own company is registered.</p>
+
+<h2 id="online-payments-vs-omnichannel-commerce">Online payments vs omnichannel commerce</h2>
+<p>A business that sells exclusively online has different payment requirements from a retailer operating through websites, mobile apps and physical stores.</p>
+<p>Stripe Terminal supports in-person payments through compatible hardware and integrations in supported markets. It can be relevant to businesses that want to connect online and physical payment experiences within the Stripe ecosystem.</p>
+<p>Adyen has a broader emphasis on connecting online and in-person commerce through its Unified Commerce proposition. This can be useful for retailers that need to manage payment experiences across stores, ecommerce and other customer touchpoints.</p>
+<p>The distinction is not simply that Adyen supports physical payments and Stripe does not. Both offer in-person payment capabilities. The question is how well each provider supports the business's channels, locations, hardware, acquiring arrangements and reporting requirements.</p>
+<p>For a retailer operating across multiple countries, evaluate the availability of terminals, local acquiring, supported payment methods, refunds across channels and the ability to reconcile online and in-store transactions.</p>
+<p>Do not assume that a provider's online payment availability guarantees that its in-person products are available in the same country. Check the relevant product's market coverage before making a decision.</p>
+
+<h2 id="what-businesses-in-africa-should-consider">What businesses in Africa should consider</h2>
+<p>For African businesses, choosing between Stripe and Adyen requires a closer look at local merchant eligibility, payment methods, settlement and product availability.</p>
+<p>A provider's global footprint does not necessarily translate into direct account access for a business registered in Nigeria, Ghana, Kenya or South Africa.</p>
+<h3>Stripe and the Extended Network</h3>
+<p>Stripe's <a href="https://stripe.com/global" rel="noopener">global availability page</a> lists Nigeria, Ghana, Kenya and South Africa under its Extended Network, with links to Paystack.</p>
+<p>This is different from standard direct Stripe account availability. Paystack is the payment service provider serving businesses registered in those countries, and its own <a href="https://support.paystack.com/en/articles/2130562" rel="noopener">country availability guidance</a> identifies Nigeria, Ghana, South Africa and Kenya as its current markets.</p>
+<p>Stripe also has a <a href="https://stripe.com/payment-method/nigeria" rel="noopener">Nigeria-specific payment methods page</a>. It describes a flow in which customers select a naira payment method and are redirected to the checkout page of the relevant merchant-of-record service provider and local processor.</p>
+<p>That should not be interpreted as a Nigerian-incorporated business being eligible for a standard direct Stripe merchant account.</p>
+<p>Businesses should establish which entity will process the transaction, who is responsible for the customer relationship, how settlement works and which product capabilities are actually available.</p>
+<h3>Adyen and African markets</h3>
+<p>Adyen's payment-method explorer includes markets such as Nigeria, Kenya, Egypt, Mozambique, Tanzania and Zambia. This indicates that payment methods are available for selection in those markets, but it does not establish that every locally registered business can open an Adyen merchant account.</p>
+<p>There is also an important distinction for marketplaces. Adyen's published <a href="https://docs.adyen.com/marketplaces/onboard-users" rel="noopener">Adyen for Platforms onboarding documentation</a> lists supported sub-merchant countries, and African countries are not included in the published list.</p>
+<p>Its <a href="https://docs.adyen.com/unified-commerce" rel="noopener">Unified Commerce documentation</a> also describes market availability that should be checked separately from online payment-method coverage.</p>
+<h3>What should an African business verify?</h3>
+<p>Before committing to either platform, ask the provider to confirm the following for your specific legal entity and operating countries:</p>
+<ul>
+<li>Whether your business can be onboarded directly.</li>
+<li>Which payment methods are available to local customers.</li>
+<li>Whether local currency presentment is supported.</li>
+<li>Which currencies you can receive as settlement.</li>
+<li>Whether payouts are available to your local bank account.</li>
+<li>Whether marketplace seller onboarding is supported in your target countries.</li>
+<li>Whether online and in-person products are available locally.</li>
+</ul>
+<p>For businesses registered in Nigeria, the distinction between a payment method being available to Nigerian customers and a Nigerian business being eligible for direct merchant onboarding is especially important.</p>
+<p>The right provider is the one that can support your actual legal, operational and settlement requirements. A global brand name is not a substitute for confirming those details.</p>
+
+<h2 id="developer-experience-and-integration">Developer experience and integration</h2>
+<p>Payment infrastructure becomes part of a product's architecture. The quality of the APIs, documentation, SDKs, testing environments and integration support can affect how quickly a team ships payment features and how much maintenance those features require.</p>
+<p>Stripe has a strong developer-oriented proposition. Its documentation, APIs, SDKs and prebuilt checkout options give teams several ways to integrate payments. Developers can start with a hosted or embedded experience and move towards more customised workflows as requirements become more complex.</p>
+<p>Adyen also provides APIs, documentation, test environments and integration options for online and in-person payments. Its integrations can support more involved payment operations, including acquiring, risk management and multi-channel commerce.</p>
+<p>The best developer experience is not necessarily the one with the shortest initial integration. It is the one that fits the architecture your team needs to maintain.</p>
+<p>Evaluate both providers against your actual implementation requirements:</p>
+<ul>
+<li>API coverage and documentation quality.</li>
+<li>SDKs for your programming languages and frameworks.</li>
+<li>Hosted checkout versus custom payment interfaces.</li>
+<li>Webhook reliability and event handling.</li>
+<li>Sandbox and testing capabilities.</li>
+<li>Error handling and payment recovery.</li>
+<li>Integration with your billing, accounting and data systems.</li>
+<li>Support for your required markets and payment methods.</li>
+</ul>
+<p>For a small team building a SaaS product, the ability to implement a reliable payment flow quickly may matter more than access to a broad enterprise payment architecture. For a retailer operating across several countries and channels, integration depth and operational consistency may carry more weight.</p>
+
+<h2 id="which-platform-should-you-choose">Which platform should you choose?</h2>
+<p>Stripe and Adyen are both capable payment platforms. The better choice depends on your business model and the complexity of your payment operations.</p>
+<h3>Choose Stripe if:</h3>
+<ul>
+<li>You need a developer-friendly platform for online payments.</li>
+<li>You want prebuilt checkout options alongside custom APIs.</li>
+<li>You run a SaaS business and need a dedicated subscription-management product.</li>
+<li>You are building a marketplace and Stripe Connect supports your platform's countries and payout model.</li>
+<li>You want to adopt payment capabilities incrementally as your product grows.</li>
+<li>Standard transaction-based pricing is a good fit for your current payment profile.</li>
+</ul>
+<h3>Choose Adyen if:</h3>
+<ul>
+<li>You process payments across online and physical channels.</li>
+<li>You operate across multiple markets and need a unified commerce approach.</li>
+<li>You want to evaluate acquiring and interchange-based pricing.</li>
+<li>Your business has complex payment operations, reporting and reconciliation requirements.</li>
+<li>You need platform payment capabilities and your seller countries are supported.</li>
+<li>Your organisation has the operational and technical capacity to implement a broader payment infrastructure.</li>
+</ul>
+<h3>When neither is an obvious choice</h3>
+<p>Some businesses will need to evaluate additional providers or use more than one payment partner.</p>
+<p>For example, an African marketplace expanding into Europe may find that its preferred provider supports its European operations but not its local seller onboarding requirements. A SaaS business may need a billing platform alongside a payment processor. A retailer may require local acquiring partners in markets where its primary provider has limited coverage.</p>
+<p>The decision should follow the payment architecture your business needs, not a general ranking of payment brands.</p>
+<h3>A practical selection checklist</h3>
+<p>Before signing a contract or beginning implementation, work through these questions:</p>
+<ol>
+<li><strong>Business eligibility:</strong> Can the provider onboard your legal entity?</li>
+<li><strong>Customer coverage:</strong> Can you accept payments from the countries where your customers are located?</li>
+<li><strong>Payment methods:</strong> Does it support the cards, wallets and local methods your customers use?</li>
+<li><strong>Currencies:</strong> Can you present, process and settle in the currencies you need?</li>
+<li><strong>Business model:</strong> Does it support your subscription, marketplace or retail requirements?</li>
+<li><strong>Payouts:</strong> Can you pay sellers, suppliers or other recipients in your operating countries?</li>
+<li><strong>Risk:</strong> Do the fraud controls and dispute workflows fit your risk profile?</li>
+<li><strong>Integration:</strong> Can your engineering and finance teams operate the system effectively?</li>
+<li><strong>Total cost:</strong> What will processing, conversion, disputes, payouts and additional products cost at your expected volume?</li>
+<li><strong>Growth:</strong> Will the platform support your next markets and payment channels, not just your current setup?</li>
+</ol>
+
+<h2 id="frequently-asked-questions">Frequently asked questions</h2>
+<h3>Is Stripe better than Adyen?</h3>
+<p>Neither platform is universally better. Stripe is a strong choice for developer-oriented online payments, SaaS billing and marketplace integrations. Adyen is particularly relevant to businesses managing payments across online and in-person channels, multiple markets and complex payment operations.</p>
+<h3>Is Adyen cheaper than Stripe?</h3>
+<p>Not necessarily. Stripe offers standard transaction-based pricing in supported markets, while Adyen combines a fixed processing fee with payment-method fees and may use Interchange++ for eligible card transactions. Compare both providers using the same transaction volume, card mix, currencies and payment methods.</p>
+<h3>Does Stripe support subscriptions?</h3>
+<p>Yes. Stripe Billing supports subscription management, recurring billing, usage-based pricing and revenue recovery workflows. Stripe Payments can be used alongside Billing to process the transactions.</p>
+<h3>Does Adyen support recurring payments?</h3>
+<p>Yes. Adyen supports recurring transactions through tokenization, including subscriptions, one-click payments and automatic top-ups. Its recurring payment capabilities are not the same as a full subscription-management product such as Stripe Billing.</p>
+<h3>Can I use Stripe in Nigeria?</h3>
+<p>Stripe's global availability page lists Nigeria under its Extended Network, linked to Paystack. This is not the same as standard direct Stripe account availability for a Nigerian-incorporated business. Check Paystack's eligibility and Stripe's specific product requirements before choosing an integration.</p>
+<h3>Does Adyen operate in Nigeria?</h3>
+<p>Adyen's payment-method explorer lists Nigeria among its markets. However, payment-method availability does not confirm that every Nigerian business can open a direct Adyen merchant account or access all Adyen products. Businesses should confirm onboarding, acquiring, settlement and payout eligibility directly with Adyen.</p>
+<h3>Can Stripe and Adyen support marketplaces?</h3>
+<p>Yes. Stripe offers Stripe Connect, while Adyen offers Adyen for Platforms. Both provide capabilities for platform payments, seller onboarding and payouts, but their supported countries, account structures and compliance requirements differ.</p>
+<h3>Can Stripe and Adyen accept in-person payments?</h3>
+<p>Both offer in-person payment capabilities. Stripe provides Stripe Terminal in supported markets, while Adyen offers in-person payment solutions and Unified Commerce capabilities. Availability depends on the country, hardware and product configuration.</p>
+<h3>Can a business use Stripe and Adyen at the same time?</h3>
+<p>Yes, a business can use multiple payment providers, provided its architecture, contracts and compliance arrangements support that setup. Some businesses use different providers for different markets, payment methods or sales channels. However, multiple providers introduce additional integration, reporting, reconciliation and operational complexity.</p>
+
+<h2>Final thoughts</h2>
+<p>Stripe and Adyen solve overlapping but not identical payment problems.</p>
+<p>Stripe brings together online payment processing, developer tools, subscription management and marketplace infrastructure in a broad product ecosystem. Adyen offers payment processing and acquiring alongside capabilities for businesses managing online and in-person commerce at scale.</p>
+<p>For a SaaS company building a recurring revenue model, Stripe may provide a more direct path through Payments and Billing. For a retailer coordinating payment operations across stores and digital channels, Adyen's unified commerce proposition may be more relevant.</p>
+<p>But product fit is only part of the decision. Merchant eligibility, market coverage, settlement, payouts and total processing costs can change the answer considerably, especially for businesses operating across emerging and established markets.</p>
+<p>Start with the countries where your business is legally established and where your customers, sellers and stores operate. Map the payment flows you need. Then compare what each provider can actually support, and what it will cost to run.</p>
+  </div>
+
+  <nav class="pp-article-end">
+    <a href="/content-practice#work">&larr; Back to Selected Work</a>
+    <a href="/contact" class="primary">Work with me &#8599;</a>
+  </nav>
+</main>
+
+<footer class="pp-footer">
+  &copy; 2026 Precious Okoro. Language infrastructure and content systems for products built to scale.
+</footer>
+
+<script>
+(function(){
+  var toggle = document.getElementById('ppThemeToggle');
+  if(toggle){
+    toggle.addEventListener('click', function(){
+      var next = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', next);
+      try { localStorage.setItem('theme', next); } catch(e){}
+    });
+  }
+})();
+</script>
+</body>
+</html>
