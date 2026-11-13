@@ -179,6 +179,32 @@ a{color:inherit}
 .pp-worktile:hover .pp-worktile-title{color:var(--pp-blue)}
 .pp-worktile-visual{border-radius:24px;padding:48px 32px;min-height:220px;display:flex;align-items:center;justify-content:center;position:relative}
 .pp-worktile-status{position:absolute;top:20px;left:20px}
+.pp-visual-1{background:radial-gradient(circle,rgba(255,255,255,0.14) 1px,transparent 1.5px) 0 0/20px 20px,linear-gradient(135deg,#1C2048,#2E3570 55%,#3A56C4)}
+.pp-visual-2{background:radial-gradient(circle,rgba(255,255,255,0.16) 1px,transparent 1.5px) 0 0/20px 20px,linear-gradient(135deg,#4A3B7A,#6B4FA0 55%,#E8964C)}
+.pp-mock{background:#fff;border-radius:16px;box-shadow:0 24px 48px rgba(0,0,0,0.35);overflow:hidden;width:100%;max-width:300px}
+.pp-mock-bar{display:flex;gap:6px;padding:10px 12px;background:#F1ECE1;border-bottom:1px solid #E4DDCC}
+.pp-mock-bar span{width:7px;height:7px;border-radius:50%;display:inline-block}
+.pp-mock-bar span:nth-child(1){background:#E4857A}
+.pp-mock-bar span:nth-child(2){background:#E8BD4C}
+.pp-mock-bar span:nth-child(3){background:#7CC98B}
+.pp-mock-cols{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:#EDE7DA}
+.pp-mock-col{background:#fff;padding:14px 10px;display:flex;flex-direction:column;gap:7px}
+.pp-mock-tag{width:26px;height:7px;border-radius:4px}
+.pp-mock-col-a .pp-mock-tag{background:#3A56C4}
+.pp-mock-col-b .pp-mock-tag{background:#E8964C}
+.pp-mock-col-c .pp-mock-tag{background:#4FAE6D}
+.pp-mock-line{height:5px;border-radius:3px;background:#E4DDCC;width:100%}
+.pp-mock-line.short{width:55%}
+.pp-mock-check{width:16px;height:16px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:9px;color:#fff;margin-top:2px}
+.pp-mock-col-a .pp-mock-check{background:#3A56C4}
+.pp-mock-col-b .pp-mock-check{background:#E8964C}
+.pp-mock-col-c .pp-mock-check{background:#4FAE6D}
+.pp-mock-flow{display:flex;align-items:center;justify-content:center;gap:6px;padding:30px 14px;flex-wrap:wrap}
+.pp-mock-node{font-family:'Geist Mono',monospace;font-size:10.5px;font-weight:700;letter-spacing:0.02em;padding:9px 13px;border-radius:9px;color:#fff;white-space:nowrap}
+.pp-mock-node-a{background:#3A56C4}
+.pp-mock-node-b{background:#E8BD4C;color:#211E18}
+.pp-mock-node-c{background:#4FAE6D}
+.pp-mock-arrow{color:#B9B2A0;font-size:13px}
 .pp-worktile-meta{display:flex;justify-content:space-between;gap:12px;margin-top:22px;font-family:'Geist Mono',monospace;font-size:11px;letter-spacing:0.06em;text-transform:uppercase;color:var(--pp-faint)}
 .pp-worktile-title{display:block;font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:clamp(19px,2.2vw,23px);line-height:1.3;margin:10px 0 14px;color:var(--pp-ink);transition:color .2s ease}
 .pp-worktile-tags{display:flex;gap:8px;flex-wrap:wrap}
@@ -351,9 +377,31 @@ a{color:inherit}
     <div class="pp-work-grid">
 
       <a href="/samples/claude-code-vs-codex-vs-cursor" class="pp-worktile">
-        <div class="pp-worktile-visual pp-work-dark">
+        <div class="pp-worktile-visual pp-visual-1">
           <span class="pp-work-live pp-worktile-status"><span class="dot"></span>Live</span>
-          <div class="pp-work-pull"><p>&ldquo;The best coding agent is the one that fits the way you build software and gives you an acceptable balance of capability, control and cost.&rdquo;</p></div>
+          <div class="pp-mock">
+            <div class="pp-mock-bar"><span></span><span></span><span></span></div>
+            <div class="pp-mock-cols">
+              <div class="pp-mock-col pp-mock-col-a">
+                <div class="pp-mock-tag"></div>
+                <div class="pp-mock-line"></div>
+                <div class="pp-mock-line short"></div>
+                <div class="pp-mock-check">&#10003;</div>
+              </div>
+              <div class="pp-mock-col pp-mock-col-b">
+                <div class="pp-mock-tag"></div>
+                <div class="pp-mock-line"></div>
+                <div class="pp-mock-line short"></div>
+                <div class="pp-mock-check">&#10003;</div>
+              </div>
+              <div class="pp-mock-col pp-mock-col-c">
+                <div class="pp-mock-tag"></div>
+                <div class="pp-mock-line"></div>
+                <div class="pp-mock-line short"></div>
+                <div class="pp-mock-check">&#10003;</div>
+              </div>
+            </div>
+          </div>
         </div>
         <div class="pp-worktile-meta">
           <span>Tool Comparison</span>
@@ -367,9 +415,18 @@ a{color:inherit}
       </a>
 
       <a href="/samples/what-is-model-context-protocol" class="pp-worktile">
-        <div class="pp-worktile-visual pp-work-blue">
+        <div class="pp-worktile-visual pp-visual-2">
           <span class="pp-work-live pp-worktile-status"><span class="dot"></span>Live</span>
-          <div class="pp-work-pull"><p>&ldquo;MCP does not provide the AI model, make the model intelligent or determine how an agent should behave. It provides the communication protocol through which an application can access external context and functionality.&rdquo;</p></div>
+          <div class="pp-mock">
+            <div class="pp-mock-bar"><span></span><span></span><span></span></div>
+            <div class="pp-mock-flow">
+              <span class="pp-mock-node pp-mock-node-a">Host</span>
+              <span class="pp-mock-arrow">&rarr;</span>
+              <span class="pp-mock-node pp-mock-node-b">Client</span>
+              <span class="pp-mock-arrow">&rarr;</span>
+              <span class="pp-mock-node pp-mock-node-c">Server</span>
+            </div>
+          </div>
         </div>
         <div class="pp-worktile-meta">
           <span>Technical Explainer</span>
