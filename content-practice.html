@@ -147,6 +147,16 @@ a{color:inherit}
 .pp-work-meta{display:table;padding:8px 18px;border:1px solid var(--pp-border);border-radius:999px;font-family:'Geist Mono',monospace;font-size:11px;letter-spacing:0.06em;text-transform:uppercase;color:var(--pp-faint);margin:0 auto 28px}
 @media (max-width:760px){.pp-workcard{grid-template-columns:1fr;padding:28px 24px}.pp-work-pull{transform:none}}
 
+/* At a glance: a scannable fact strip right after the hero, the way a
+   senior freelancer's site states track record before anyone has to
+   dig for it. Real facts only, already established elsewhere on site. */
+.pp-glance{max-width:720px;margin:0 auto;border:1px solid var(--pp-border);border-radius:20px;padding:4px 28px}
+.pp-glance-row{display:flex;justify-content:space-between;align-items:baseline;gap:24px;padding:18px 0;border-top:1px solid var(--pp-border)}
+.pp-glance-row:first-child{border-top:none}
+.pp-glance-label{font-family:'Geist Mono',monospace;font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:var(--pp-faint);flex-shrink:0}
+.pp-glance-value{font-size:14px;color:var(--pp-ink);text-align:right;max-width:60%;line-height:1.5}
+@media (max-width:560px){.pp-glance-row{flex-direction:column;gap:4px}.pp-glance-value{text-align:left;max-width:none}}
+
 /* Practice / What I Do */
 .pp-kitlist{display:flex;flex-direction:column}
 .pp-kititem{display:grid;grid-template-columns:52px 1fr;gap:20px;padding:26px 0;border-top:1px solid var(--pp-border)}
@@ -235,6 +245,15 @@ a{color:inherit}
       <a href="#work" class="pp-btn pp-btn-ghost">See my writing &rarr;</a>
     </div>
     <a href="#work" class="pp-scrollcue">Selected work &darr;</a>
+  </section>
+
+  <section class="pp-wrap" style="padding-bottom:48px">
+    <div class="pp-glance">
+      <div class="pp-glance-row"><span class="pp-glance-label">What I Write</span><span class="pp-glance-value">B2B SaaS content, thought leadership, technical explainers, and content strategy</span></div>
+      <div class="pp-glance-row"><span class="pp-glance-label">Clients</span><span class="pp-glance-value">Moniger, Babelos, Ditto Words, Culangex</span></div>
+      <div class="pp-glance-row"><span class="pp-glance-label">Industries</span><span class="pp-glance-value">Fintech, SaaS, EdTech, AI</span></div>
+      <div class="pp-glance-row"><span class="pp-glance-label">Track Record</span><span class="pp-glance-value">6+ years in B2B SaaS and product content</span></div>
+    </div>
   </section>
 
   <section class="pp-wrap pp-sec" id="work">
@@ -346,6 +365,7 @@ a{color:inherit}
       <div>
         <p>I'm a content strategist, content designer, and writer with 6+ years of experience across digital products, technology, and editorial. I've worked with teams in fintech, SaaS, education, language technology, and AI, building content practices, shaping product experiences, and making complex information easier to understand.</p>
         <p>That experience informs how I approach editorial work. I don't just want to explain what a product does. I want to understand the problem behind it, the people it serves, and the value it brings to their work.</p>
+        <p>I work independently. You brief me once, and the same person handles the research, the writing, and the final polish, no handoffs, no account managers in between.</p>
         <a href="/about" class="pp-btn pp-btn-ghost">More about me &#8599;</a>
       </div>
       <div class="pp-stat-row">
