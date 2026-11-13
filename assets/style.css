@@ -453,20 +453,21 @@ mark{background:var(--t-mint-a);color:var(--ink);padding:1px 5px;border-radius:5
 .case-cta-panel .btn:hover{background:#EFC670;color:#17130E}
 
 /* ===== ADDITIONAL ENGAGEMENTS (Work.html) ===== */
-/* Single full-width card per row, not a packed multi-column grid: imports
-   content-practice's spacious one-per-row composition (top meta pills,
-   nested excerpt block, pill CTA) while keeping this page's own pastel
-   tint palette, fonts, and type scale instead of content-practice's. */
-.engagement-grid{display:flex;flex-direction:column;gap:20px}
-.engagement-card{border-radius:28px;padding:36px;display:flex;flex-direction:column;gap:20px;transition:transform .3s cubic-bezier(.2,.8,.2,1)}
+/* Square-ish cards in a grid, not long full-width bars: imports
+   content-practice's top meta pills, nested excerpt block, and pill CTA,
+   but arranged in a compact aspect-ratio box instead of one long row per
+   card. Keeps this page's own pastel tint palette, fonts, and type scale. */
+.engagement-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:24px}
+.engagement-card{aspect-ratio:1/1;border-radius:28px;padding:32px;display:flex;flex-direction:column;justify-content:space-between;gap:16px;transition:transform .3s cubic-bezier(.2,.8,.2,1)}
 .engagement-card:hover{transform:translateY(-4px)}
-.ec-top{display:flex;gap:10px;flex-wrap:wrap}
-.ec-pill{font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:0.3px;padding:6px 14px;border-radius:999px;background:rgba(var(--ink-rgb),0.06)}
-.engagement-card h3{font-size:26px;letter-spacing:-0.02em;margin:0;max-width:22ch}
-.engagement-card .excerpt{border-radius:16px;padding:20px 22px;background:rgba(var(--ink-rgb),0.05)}
-.engagement-card .excerpt p{margin:0;font-family:'Fraunces',serif;font-style:italic;font-size:17px;line-height:1.6;color:var(--ink)}
-.engagement-card .read-cta{align-self:flex-start;font-weight:600;font-size:14px;padding:10px 20px;border-radius:999px;border:1px solid rgba(var(--ink-rgb),0.15);transition:border-color .2s ease,transform .25s cubic-bezier(.2,.8,.2,1)}
+.ec-top{display:flex;gap:8px;flex-wrap:wrap}
+.ec-pill{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.3px;padding:5px 12px;border-radius:999px;background:rgba(var(--ink-rgb),0.06)}
+.engagement-card h3{font-size:21px;line-height:1.25;letter-spacing:-0.01em;margin:0;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.engagement-card .excerpt{flex:1;border-radius:14px;padding:16px 18px;background:rgba(var(--ink-rgb),0.05);display:flex;align-items:center;overflow:hidden}
+.engagement-card .excerpt p{margin:0;font-family:'Fraunces',serif;font-style:italic;font-size:15px;line-height:1.5;color:var(--ink);display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.engagement-card .read-cta{align-self:flex-start;font-weight:600;font-size:13.5px;padding:9px 18px;border-radius:999px;border:1px solid rgba(var(--ink-rgb),0.15);transition:border-color .2s ease,transform .25s cubic-bezier(.2,.8,.2,1)}
 .engagement-card .read-cta:hover{border-color:var(--ink);transform:translateY(-2px)}
+@media (max-width:480px){.engagement-card{aspect-ratio:auto}}
 .engagement-card.coral{background:linear-gradient(160deg,var(--t-coral-a) 0%,var(--t-coral-b) 100%);box-shadow:0 30px 70px -45px rgba(236,111,142,0.4)}
 .engagement-card.coral .ec-pill{color:var(--coral-text);background:rgba(236,111,142,0.14)}
 .engagement-card.coral .read-cta{color:var(--coral-text);border-color:rgba(236,111,142,0.35)}
