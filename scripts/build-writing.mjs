@@ -273,7 +273,7 @@ ${NAV}
   <section class="work-hero" style="padding-bottom:40px">
     <span class="eyebrow">Writing</span>
     <h1><span class="fade">Things I'm thinking</span> <span class="accent-italic">about</span></h1>
-    <a href="/content-writing" class="btn-link accent" style="margin-top:4px">Looking for B2B SaaS writing &amp; editorial work instead? →</a>
+    <a href="/content-practice" class="btn-link accent" style="margin-top:4px">Looking for B2B SaaS writing &amp; editorial work instead? →</a>
   </section>
 ${featuredBlock}
   <section class="wrap writing-list-wrap">
@@ -317,7 +317,7 @@ async function main() {
 
   await writeFile(path.join(ROOT, 'writing.html'), indexPage(entries))
 
-  const staticPages = ['/', '/work', '/about', '/cv', '/contact', '/writing', '/content-writing', '/features', '/moniger', '/fasttrackux', '/beacon', '/payr-case-study', '/northwatch']
+  const staticPages = ['/', '/work', '/about', '/cv', '/contact', '/writing', '/content-practice', '/features', '/moniger', '/fasttrackux', '/beacon', '/payr-case-study', '/northwatch']
   const writingPages = entries.map((e) => `/writing/${e.slug}`)
   const today = new Date().toISOString().slice(0, 10)
   const urls = [...staticPages, ...writingPages]

@@ -2,5 +2,8 @@
   "cleanUrls": true,
   "trailingSlash": false,
   "buildCommand": "node scripts/build-writing.mjs",
-  "outputDirectory": "public"
+  "outputDirectory": "public",
+  "redirects": [
+    { "source": "/content-writing", "destination": "/content-practice", "permanent": true }
+  ]
 }
