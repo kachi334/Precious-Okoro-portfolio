@@ -120,20 +120,22 @@ a{color:inherit}
 .pp-h2 .chip{display:inline-block;padding:0.03em 0.2em;border-radius:6px;transform:rotate(-1deg);box-shadow:4px 4px 0 rgba(0,0,0,0.5)}
 .pp-sec-sub{font-size:14.5px;color:var(--pp-soft);line-height:1.6;margin:0}
 
-/* Work cards: compact grid of real pull-quotes, not website screenshots.
-   A writer's proof is the sentence, not a browser mockup. */
-.pp-work{display:grid;grid-template-columns:1fr 1fr;gap:20px}
-.pp-workcard{border-radius:22px;padding:28px;position:relative;overflow:hidden;display:flex;flex-direction:column;transition:transform .35s cubic-bezier(.2,.8,.2,1),box-shadow .35s ease}
+/* Work cards: full-width, one per row (matches the reference's actual
+   layout), but trimmed short with an internal text/quote split instead
+   of the reference's giant stacked screenshot, since a writer's proof
+   is the sentence, not a browser mockup. */
+.pp-work{display:flex;flex-direction:column;gap:20px}
+.pp-workcard{border-radius:24px;padding:36px 40px;position:relative;overflow:hidden;display:grid;grid-template-columns:1.2fr 1fr;gap:32px;align-items:center;transition:transform .35s cubic-bezier(.2,.8,.2,1),box-shadow .35s ease}
 .pp-workcard:hover{transform:translateY(-4px)}
-.pp-work-top{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:18px}
-.pp-work-tab{display:inline-flex;align-items:center;gap:8px;font-family:'Geist Mono',monospace;font-size:10.5px;letter-spacing:0.06em;text-transform:uppercase;padding:5px 12px;border-radius:999px;background:rgba(255,255,255,0.18)}
-.pp-work-live{display:inline-flex;align-items:center;gap:6px;font-family:'Geist Mono',monospace;font-size:10px;letter-spacing:0.06em;text-transform:uppercase;padding:5px 10px;border-radius:999px;background:rgba(255,255,255,0.1)}
+.pp-work-top{display:flex;align-items:center;gap:10px;margin-bottom:16px;flex-wrap:wrap}
+.pp-work-tab{display:inline-flex;align-items:center;gap:8px;font-family:'Geist Mono',monospace;font-size:11px;letter-spacing:0.06em;text-transform:uppercase;padding:6px 14px;border-radius:999px;background:rgba(255,255,255,0.18)}
+.pp-work-live{display:inline-flex;align-items:center;gap:6px;font-family:'Geist Mono',monospace;font-size:10.5px;letter-spacing:0.06em;text-transform:uppercase;padding:6px 12px;border-radius:999px;background:rgba(255,255,255,0.1)}
 .pp-work-live .dot{width:5px;height:5px;border-radius:50%;background:#7CE495;box-shadow:0 0 0 3px rgba(124,228,149,0.25)}
-.pp-work-tag{font-family:'Geist Mono',monospace;font-size:11px;letter-spacing:0.05em;text-transform:uppercase;opacity:0.85;display:block;margin-bottom:8px}
-.pp-work-title{font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:17px;line-height:1.3;margin:0 0 16px}
-.pp-work-pull{flex:1;border-radius:14px;padding:18px;margin-bottom:18px;background:rgba(255,255,255,0.12)}
-.pp-work-pull p{font-family:'Instrument Serif',serif;font-style:italic;font-size:16px;line-height:1.5;margin:0}
-.pp-work-cta{display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:700;text-decoration:none;padding:9px 16px;border-radius:999px;border:1px solid rgba(255,255,255,0.4);align-self:flex-start;transition:transform .25s cubic-bezier(.2,.8,.2,1),background .2s ease}
+.pp-work-tag{font-family:'Geist Mono',monospace;font-size:11.5px;letter-spacing:0.05em;text-transform:uppercase;opacity:0.85;display:block;margin-bottom:10px}
+.pp-work-title{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:clamp(20px,2.4vw,26px);line-height:1.22;margin:0 0 20px;max-width:24ch}
+.pp-work-pull{border-radius:16px;padding:24px;background:rgba(255,255,255,0.12);transform:rotate(1deg)}
+.pp-work-pull p{font-family:'Instrument Serif',serif;font-style:italic;font-size:19px;line-height:1.5;margin:0}
+.pp-work-cta{display:inline-flex;align-items:center;gap:6px;font-size:13.5px;font-weight:700;text-decoration:none;padding:10px 18px;border-radius:999px;border:1px solid rgba(255,255,255,0.4);align-self:flex-start;transition:transform .25s cubic-bezier(.2,.8,.2,1),background .2s ease}
 .pp-work-cta:hover{background:rgba(255,255,255,0.15);transform:translateY(-2px)}
 .pp-work-blue{background:var(--pp-blue);color:#fff}
 .pp-work-orange{background:var(--pp-orange-chip);color:#fff}
@@ -143,7 +145,7 @@ a{color:inherit}
 .pp-work-dark .pp-work-pull{background:rgba(255,255,255,0.05)}
 .pp-work-dark .pp-work-cta{border-color:var(--pp-border)}
 .pp-work-meta{display:table;padding:8px 18px;border:1px solid var(--pp-border);border-radius:999px;font-family:'Geist Mono',monospace;font-size:11px;letter-spacing:0.06em;text-transform:uppercase;color:var(--pp-faint);margin:0 auto 28px}
-@media (max-width:760px){.pp-work{grid-template-columns:1fr}}
+@media (max-width:760px){.pp-workcard{grid-template-columns:1fr;padding:28px 24px}.pp-work-pull{transform:none}}
 
 /* Practice / What I Do */
 .pp-kitlist{display:flex;flex-direction:column}
