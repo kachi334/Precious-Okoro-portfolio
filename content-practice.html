@@ -75,7 +75,7 @@ a{color:inherit}
 .pp-nav-id{display:flex;align-items:center;gap:10px;padding:8px 16px 8px 8px;border:1px solid var(--pp-border);border-radius:999px;background:var(--pp-bg);font-weight:700;font-size:14px;text-decoration:none;color:var(--pp-ink)}
 .pp-nav-id img{width:28px;height:28px;border-radius:50%;object-fit:cover}
 .pp-nav-links{display:flex;align-items:center;gap:4px;padding:6px;border:1px solid var(--pp-border);border-radius:999px;background:var(--pp-bg)}
-.pp-nav-links a{padding:8px 16px;border-radius:999px;font-size:13.5px;font-weight:600;text-decoration:none;color:var(--pp-soft);transition:background .2s ease,color .2s ease}
+.pp-nav-links a{padding:8px 16px;border-radius:999px;font-size:14.5px;font-weight:600;text-decoration:none;color:var(--pp-soft);transition:background .2s ease,color .2s ease}
 .pp-nav-links a:hover{color:var(--pp-ink);background:var(--pp-bg-alt)}
 .pp-nav-links a.pp-active{color:var(--pp-ink);background:var(--pp-bg-alt)}
 .pp-nav-right{display:flex;gap:8px;align-items:center}
@@ -87,6 +87,22 @@ a{color:inherit}
   .pp-nav-links.pp-open a{padding:14px 16px;text-align:left}
   .pp-nav-toggle{display:flex}
 }
+
+/* Section rail: a fixed left-side progress stepper for wide viewports,
+   mirrors the reference's folder-tab trail but as a persistent map of
+   the whole page rather than an accumulating scroll artifact. */
+.pp-rail{position:fixed;left:28px;top:50%;transform:translateY(-50%);z-index:30;display:flex;flex-direction:column;align-items:flex-start}
+.pp-rail-item{display:flex;align-items:center;gap:12px;text-decoration:none}
+.pp-rail-track{display:flex;flex-direction:column;align-items:center;align-self:stretch}
+.pp-rail-dot{width:12px;height:12px;border-radius:50%;border:2px solid var(--pp-border);background:var(--pp-bg);flex-shrink:0;transition:background .2s ease,border-color .2s ease,box-shadow .2s ease}
+.pp-rail-connector{width:2px;flex:1;min-height:22px;background:var(--pp-border)}
+.pp-rail-item:last-child .pp-rail-connector{display:none}
+.pp-rail-pill{font-family:'Geist Mono',monospace;font-size:10.5px;letter-spacing:0.04em;padding:7px 14px;border-radius:999px;border:1px solid var(--pp-border);color:var(--pp-faint);white-space:nowrap;margin:8px 0;transition:background .2s ease,color .2s ease,border-color .2s ease}
+.pp-rail-pill b{color:var(--pp-orange);font-weight:600;margin-right:6px}
+.pp-rail-item.pp-active .pp-rail-dot{background:var(--pp-orange);border-color:var(--pp-orange);box-shadow:0 0 0 4px rgba(196,78,30,0.2)}
+.pp-rail-item.pp-active .pp-rail-pill{background:var(--pp-ink);color:var(--pp-bg);border-color:var(--pp-ink)}
+.pp-rail-item.pp-active .pp-rail-pill b{color:var(--pp-bg);opacity:0.6}
+@media (max-width:1280px){.pp-rail{display:none}}
 
 /* Hero */
 .pp-hero{padding:56px 0 48px;text-align:center}
@@ -101,9 +117,9 @@ a{color:inherit}
 .chip-orange{background:var(--pp-orange-chip);color:#fff}
 .chip-green{background:var(--pp-green-chip);color:#fff}
 .chip-dark{background:var(--pp-chip-dark);color:var(--pp-chip-dark-text)}
-.pp-sub{font-size:16px;line-height:1.65;color:var(--pp-soft);max-width:52ch;margin:0 auto 32px}
+.pp-sub{font-size:17.5px;line-height:1.65;color:var(--pp-soft);max-width:52ch;margin:0 auto 32px}
 .pp-cta-row{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-bottom:40px}
-.pp-btn{display:inline-flex;align-items:center;gap:8px;padding:13px 24px;border-radius:999px;font-size:14.5px;font-weight:700;text-decoration:none;transition:transform .25s cubic-bezier(.2,.8,.2,1),background .2s ease,border-color .2s ease;will-change:transform}
+.pp-btn{display:inline-flex;align-items:center;gap:8px;padding:13px 24px;border-radius:999px;font-size:15.5px;font-weight:700;text-decoration:none;transition:transform .25s cubic-bezier(.2,.8,.2,1),background .2s ease,border-color .2s ease;will-change:transform}
 .pp-btn:hover{transform:translateY(-2px)}
 .pp-btn:active{transform:translateY(0) scale(0.98)}
 .pp-btn-primary{background:var(--pp-orange);color:#fff}
@@ -118,7 +134,7 @@ a{color:inherit}
 .pp-eyebrow{display:block;font-family:'Geist Mono',monospace;font-size:11.5px;letter-spacing:0.1em;text-transform:uppercase;color:var(--pp-faint);margin-bottom:14px}
 .pp-h2{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:clamp(28px,4.5vw,42px);line-height:1.1;margin:0 0 12px}
 .pp-h2 .chip{display:inline-block;padding:0.03em 0.2em;border-radius:6px;transform:rotate(-1deg);box-shadow:4px 4px 0 rgba(0,0,0,0.5)}
-.pp-sec-sub{font-size:14.5px;color:var(--pp-soft);line-height:1.6;margin:0}
+.pp-sec-sub{font-size:15.5px;color:var(--pp-soft);line-height:1.6;margin:0}
 
 /* Work cards: full-width, one per row (matches the reference's actual
    layout), but trimmed short with an internal text/quote split instead
@@ -134,8 +150,8 @@ a{color:inherit}
 .pp-work-tag{font-family:'Geist Mono',monospace;font-size:11.5px;letter-spacing:0.05em;text-transform:uppercase;opacity:0.85;display:block;margin-bottom:10px}
 .pp-work-title{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:clamp(20px,2.4vw,26px);line-height:1.22;margin:0 0 20px;max-width:24ch}
 .pp-work-pull{border-radius:16px;padding:24px;background:rgba(255,255,255,0.12);transform:rotate(1deg)}
-.pp-work-pull p{font-family:'Instrument Serif',serif;font-style:italic;font-size:19px;line-height:1.5;margin:0}
-.pp-work-cta{display:inline-flex;align-items:center;gap:6px;font-size:13.5px;font-weight:700;text-decoration:none;padding:10px 18px;border-radius:999px;border:1px solid rgba(255,255,255,0.4);align-self:flex-start;transition:transform .25s cubic-bezier(.2,.8,.2,1),background .2s ease}
+.pp-work-pull p{font-family:'Instrument Serif',serif;font-style:italic;font-size:20.5px;line-height:1.5;margin:0}
+.pp-work-cta{display:inline-flex;align-items:center;gap:6px;font-size:14.5px;font-weight:700;text-decoration:none;padding:10px 18px;border-radius:999px;border:1px solid rgba(255,255,255,0.4);align-self:flex-start;transition:transform .25s cubic-bezier(.2,.8,.2,1),background .2s ease}
 .pp-work-cta:hover{background:rgba(255,255,255,0.15);transform:translateY(-2px)}
 .pp-work-blue{background:var(--pp-blue);color:#fff}
 .pp-work-orange{background:var(--pp-orange-chip);color:#fff}
@@ -145,17 +161,11 @@ a{color:inherit}
 .pp-work-dark .pp-work-pull{background:rgba(255,255,255,0.05)}
 .pp-work-dark .pp-work-cta{border-color:var(--pp-border)}
 .pp-work-meta{display:table;padding:8px 18px;border:1px solid var(--pp-border);border-radius:999px;font-family:'Geist Mono',monospace;font-size:11px;letter-spacing:0.06em;text-transform:uppercase;color:var(--pp-faint);margin:0 auto 28px}
+.pp-work-metarow{grid-column:1/-1;display:flex;gap:10px;flex-wrap:wrap;margin-top:24px;padding-top:20px;border-top:1px solid rgba(255,255,255,0.2)}
+.pp-work-metatag{font-family:'Geist Mono',monospace;font-size:10.5px;letter-spacing:0.05em;text-transform:uppercase;padding:7px 14px;border-radius:999px;background:rgba(255,255,255,0.92);color:#15130F;font-weight:600}
+.pp-work-metatag b{font-weight:700}
+.pp-work-dark .pp-work-metarow{border-top-color:var(--pp-border)}
 @media (max-width:760px){.pp-workcard{grid-template-columns:1fr;padding:28px 24px}.pp-work-pull{transform:none}}
-
-/* At a glance: a scannable fact strip right after the hero, the way a
-   senior freelancer's site states track record before anyone has to
-   dig for it. Real facts only, already established elsewhere on site. */
-.pp-glance{max-width:720px;margin:0 auto;border:1px solid var(--pp-border);border-radius:20px;padding:4px 28px}
-.pp-glance-row{display:flex;justify-content:space-between;align-items:baseline;gap:24px;padding:18px 0;border-top:1px solid var(--pp-border)}
-.pp-glance-row:first-child{border-top:none}
-.pp-glance-label{font-family:'Geist Mono',monospace;font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:var(--pp-faint);flex-shrink:0}
-.pp-glance-value{font-size:14px;color:var(--pp-ink);text-align:right;max-width:60%;line-height:1.5}
-@media (max-width:560px){.pp-glance-row{flex-direction:column;gap:4px}.pp-glance-value{text-align:left;max-width:none}}
 
 /* Practice / What I Do */
 .pp-kitlist{display:flex;flex-direction:column}
@@ -163,21 +173,45 @@ a{color:inherit}
 .pp-kititem:first-child{border-top:none;padding-top:0}
 .pp-kit-icon{width:52px;height:52px;border-radius:14px;background:var(--pp-chip-dark);color:var(--pp-chip-dark-text);display:flex;align-items:center;justify-content:center}
 .pp-kit-label{font-family:'Geist Mono',monospace;font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:var(--pp-orange);display:block;margin-bottom:6px}
-.pp-kititem h3{font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:19px;margin:0 0 8px}
-.pp-kititem p{font-size:14px;line-height:1.6;color:var(--pp-soft);margin:0;max-width:56ch}
+.pp-kititem h3{font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:20.5px;margin:0 0 8px}
+.pp-kititem p{font-size:15.5px;line-height:1.6;color:var(--pp-soft);margin:0;max-width:56ch}
 
 /* About */
-.pp-about-grid{display:grid;grid-template-columns:1.1fr 0.9fr;gap:48px;align-items:start}
-.pp-about-grid p{font-size:15px;line-height:1.75;color:var(--pp-soft);max-width:52ch;margin:0 0 18px}
-.pp-stat-row{display:flex;flex-direction:column;gap:18px;padding:24px;border:1px solid var(--pp-border);border-radius:20px}
+.pp-about-grid{display:grid;grid-template-columns:260px 1fr;gap:48px;align-items:start}
+.pp-about-grid p{font-size:16.5px;line-height:1.75;color:var(--pp-soft);max-width:52ch;margin:0 0 18px}
+.pp-stat-row{display:flex;flex-direction:column;gap:18px;padding:24px;border:1px solid var(--pp-border);border-radius:20px;margin-bottom:24px;max-width:360px}
 .pp-stat{display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding-bottom:18px;border-bottom:1px solid var(--pp-border)}
 .pp-stat:last-child{border-bottom:none;padding-bottom:0}
 .pp-stat b{font-family:'Bricolage Grotesque',sans-serif;font-size:26px;font-weight:800}
 .pp-stat span{font-family:'Geist Mono',monospace;font-size:11px;letter-spacing:0.04em;text-transform:uppercase;color:var(--pp-faint);text-align:right;max-width:18ch}
-@media (max-width:760px){.pp-about-grid{grid-template-columns:1fr}}
+
+/* Polaroid portrait, replacing a plain headshot with the pinned, tilted
+   photo treatment. No flip gimmick, static but still gives the section
+   a physical, human anchor instead of just text. */
+.pp-polaroid{background:#F3EEE4;padding:14px 14px 44px;border-radius:4px;box-shadow:0 20px 44px rgba(0,0,0,0.3);transform:rotate(-3deg);position:relative;max-width:260px}
+.pp-polaroid-photo{width:100%;aspect-ratio:1;overflow:hidden;border-radius:2px;background:#ddd}
+.pp-polaroid-photo img{width:100%;height:100%;object-fit:cover;display:block}
+.pp-polaroid-caption{position:absolute;bottom:14px;left:0;right:0;text-align:center;font-family:'Geist Mono',monospace;font-size:10.5px;letter-spacing:0.08em;text-transform:uppercase;color:#15130F}
+.pp-polaroid::before{content:"";position:absolute;top:-10px;left:50%;transform:translateX(-50%) rotate(-4deg);width:70px;height:24px;background:rgba(255,255,255,0.55);border:1px solid rgba(255,255,255,0.35)}
+
+.pp-about-links{display:flex;gap:18px;margin:0 0 24px}
+.pp-about-links a{font-size:14.5px;color:var(--pp-soft);text-decoration:underline;text-underline-offset:3px}
+.pp-about-links a:hover{color:var(--pp-ink)}
+
+.pp-bricks-wrap{margin-top:44px}
+.pp-bricks-label{font-family:'Geist Mono',monospace;font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:var(--pp-faint);margin-bottom:16px;display:block}
+.pp-bricks{display:flex;flex-wrap:wrap;gap:10px}
+.pp-brick{font-family:'Geist Mono',monospace;font-size:12px;font-weight:700;letter-spacing:0.02em;padding:10px 16px;border-radius:8px;color:#fff;box-shadow:0 3px 0 rgba(0,0,0,0.3)}
+.brick-1{background:var(--pp-blue)}
+.brick-2{background:var(--pp-orange-chip)}
+.brick-3{background:var(--pp-green-chip)}
+.brick-4{background:var(--pp-yellow);color:var(--pp-chip-dark);box-shadow:0 3px 0 rgba(0,0,0,0.15)}
+.brick-5{background:var(--pp-chip-dark);color:var(--pp-chip-dark-text);box-shadow:none;border:1px solid var(--pp-border)}
+
+@media (max-width:760px){.pp-about-grid{grid-template-columns:1fr}.pp-polaroid{margin:0 auto 32px}}
 
 /* Trust + quote */
-.pp-trustnames{display:flex;flex-wrap:wrap;gap:10px 28px;justify-content:center;font-family:'Geist Mono',monospace;font-size:13px;color:var(--pp-soft);margin-bottom:48px}
+.pp-trustnames{display:flex;flex-wrap:wrap;gap:10px 28px;justify-content:center;font-family:'Geist Mono',monospace;font-size:14px;color:var(--pp-soft);margin-bottom:48px}
 .pp-quote-card{background:var(--pp-chip-dark);color:var(--pp-chip-dark-text);border-radius:28px;padding:48px;text-align:center;max-width:720px;margin:0 auto}
 .pp-quote-card blockquote{font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:clamp(19px,2.6vw,24px);line-height:1.45;margin:0 0 20px}
 .pp-quote-card figcaption{font-family:'Geist Mono',monospace;font-size:12px;letter-spacing:0.04em;color:#A8A399}
@@ -186,19 +220,19 @@ a{color:inherit}
 /* FAQ */
 .pp-faqrow{border-top:1px solid var(--pp-border)}
 .pp-faqrow:last-child{border-bottom:1px solid var(--pp-border)}
-.pp-faqq{width:100%;display:flex;justify-content:space-between;align-items:center;gap:16px;background:none;border:none;text-align:left;padding:20px 4px;font-family:'Inter',sans-serif;font-size:15px;font-weight:600;color:var(--pp-ink);cursor:pointer}
+.pp-faqq{width:100%;display:flex;justify-content:space-between;align-items:center;gap:16px;background:none;border:none;text-align:left;padding:20px 4px;font-family:'Inter',sans-serif;font-size:16.5px;font-weight:600;color:var(--pp-ink);cursor:pointer}
 .pp-faqicon{font-family:'Geist Mono',monospace;color:var(--pp-faint);flex-shrink:0;transition:transform .2s ease}
 .pp-faqicon.open{transform:rotate(45deg)}
 .pp-faqa{max-height:0;overflow:hidden;transition:max-height .25s ease}
 .pp-faqa.open{max-height:220px}
-.pp-faqa p{font-size:14px;line-height:1.65;color:var(--pp-soft);margin:0 0 20px 4px;max-width:60ch}
+.pp-faqa p{font-size:15.5px;line-height:1.65;color:var(--pp-soft);margin:0 0 20px 4px;max-width:60ch}
 
 /* Contact */
 .pp-contact-card{background:var(--pp-chip-dark);color:var(--pp-chip-dark-text);border-radius:28px;padding:48px;text-align:center}
 .pp-contact-card .pp-h2{color:#F3EEE4}
 .pp-contact-card .pp-sec-sub{color:#A8A399;max-width:48ch;margin:0 auto 28px}
 .pp-socials{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
-.pp-socials a{display:inline-flex;align-items:center;gap:6px;padding:10px 16px;border-radius:999px;border:1px solid rgba(255,255,255,0.25);font-size:13.5px;font-weight:600;text-decoration:none;color:#F3EEE4}
+.pp-socials a{display:inline-flex;align-items:center;gap:6px;padding:10px 16px;border-radius:999px;border:1px solid rgba(255,255,255,0.25);font-size:14.5px;font-weight:600;text-decoration:none;color:#F3EEE4}
 .pp-socials a:hover{background:rgba(255,255,255,0.12)}
 .pp-signoff{font-family:'Caveat',cursive;font-size:22px;color:var(--pp-faint);text-align:center;margin:40px 0 0}
 
@@ -215,6 +249,33 @@ a{color:inherit}
 
 <a class="skip-link" href="#main" style="position:absolute;left:-9999px">Skip to content</a>
 <div class="pp-grain" aria-hidden="true"></div>
+
+<nav class="pp-rail" id="ppRail" aria-label="Page sections">
+  <a href="#work" class="pp-rail-item" data-section="work">
+    <span class="pp-rail-track"><span class="pp-rail-dot"></span><span class="pp-rail-connector"></span></span>
+    <span class="pp-rail-pill"><b>01</b>Work</span>
+  </a>
+  <a href="#practice" class="pp-rail-item" data-section="practice">
+    <span class="pp-rail-track"><span class="pp-rail-dot"></span><span class="pp-rail-connector"></span></span>
+    <span class="pp-rail-pill"><b>02</b>Practice</span>
+  </a>
+  <a href="#about" class="pp-rail-item" data-section="about">
+    <span class="pp-rail-track"><span class="pp-rail-dot"></span><span class="pp-rail-connector"></span></span>
+    <span class="pp-rail-pill"><b>03</b>About</span>
+  </a>
+  <a href="#word-of-mouth" class="pp-rail-item" data-section="word-of-mouth">
+    <span class="pp-rail-track"><span class="pp-rail-dot"></span><span class="pp-rail-connector"></span></span>
+    <span class="pp-rail-pill"><b>04</b>Word of Mouth</span>
+  </a>
+  <a href="#faq" class="pp-rail-item" data-section="faq">
+    <span class="pp-rail-track"><span class="pp-rail-dot"></span><span class="pp-rail-connector"></span></span>
+    <span class="pp-rail-pill"><b>05</b>FAQ</span>
+  </a>
+  <a href="#contact" class="pp-rail-item" data-section="contact">
+    <span class="pp-rail-track"><span class="pp-rail-dot"></span></span>
+    <span class="pp-rail-pill"><b>06</b>Contact</span>
+  </a>
+</nav>
 
 <header class="pp-nav">
   <a href="/" class="pp-nav-id"><img src="/images/nav-avatar.png" alt="">Precious Okoro</a>
@@ -247,15 +308,6 @@ a{color:inherit}
     <a href="#work" class="pp-scrollcue">Selected work &darr;</a>
   </section>
 
-  <section class="pp-wrap" style="padding-bottom:48px">
-    <div class="pp-glance">
-      <div class="pp-glance-row"><span class="pp-glance-label">What I Write</span><span class="pp-glance-value">B2B SaaS content, thought leadership, technical explainers, and content strategy</span></div>
-      <div class="pp-glance-row"><span class="pp-glance-label">Clients</span><span class="pp-glance-value">Moniger, Babelos, Ditto Words, Culangex</span></div>
-      <div class="pp-glance-row"><span class="pp-glance-label">Industries</span><span class="pp-glance-value">Fintech, SaaS, EdTech, AI</span></div>
-      <div class="pp-glance-row"><span class="pp-glance-label">Track Record</span><span class="pp-glance-value">6+ years in B2B SaaS and product content</span></div>
-    </div>
-  </section>
-
   <section class="pp-wrap pp-sec" id="work">
     <div class="pp-sec-head">
       <span class="pp-eyebrow">01 &middot; Selected Work</span>
@@ -274,6 +326,10 @@ a{color:inherit}
         <h3 class="pp-work-title">Why Agentic AI Requires a New Approach to Content Design</h3>
         <div class="pp-work-pull"><p>&ldquo;When you hand someone your car keys, you say more than &lsquo;here.&rsquo; Now we're handing the keys to software that can drive.&rdquo;</p></div>
         <a href="https://www.dittowords.com/blog/agentic-ai-content-design" target="_blank" rel="noopener" class="pp-work-cta">Read the piece &#8599;</a>
+        <div class="pp-work-metarow">
+          <span class="pp-work-metatag"><b>Content Writer</b> &middot; Oct 2026</span>
+          <span class="pp-work-metatag">Agentic AI &middot; Content Design</span>
+        </div>
       </article>
 
       <article class="pp-workcard pp-work-orange">
@@ -285,6 +341,10 @@ a{color:inherit}
         <h3 class="pp-work-title">AI Agent Trust Is a Content Design Problem</h3>
         <div class="pp-work-pull"><p>&ldquo;An AI agent doesn't just answer you anymore. It acts. And the moment software stops suggesting and starts doing is the moment trust becomes the whole game.&rdquo;</p></div>
         <a href="/writing/ai-agent-trust-is-a-content-design-problem" class="pp-work-cta">Read the piece &#8599;</a>
+        <div class="pp-work-metarow">
+          <span class="pp-work-metatag"><b>Content Writer</b> &middot; Aug 2026</span>
+          <span class="pp-work-metatag">AI UX &middot; Trust Patterns</span>
+        </div>
       </article>
 
       <article class="pp-workcard pp-work-green">
@@ -296,6 +356,10 @@ a{color:inherit}
         <h3 class="pp-work-title">Content Design Isn't Dying. It's Being Promoted Into AI Experience Strategy</h3>
         <div class="pp-work-pull"><p>&ldquo;Nobody wrote a bad sentence. The chatbot was fluent, friendly, and confident. What broke was not the copy.&rdquo;</p></div>
         <a href="/writing/content-design-isnt-dying-it-s-being-promoted-into-ai-experience-strategy" class="pp-work-cta">Read the piece &#8599;</a>
+        <div class="pp-work-metarow">
+          <span class="pp-work-metatag"><b>Content Writer</b> &middot; Jul 2026</span>
+          <span class="pp-work-metatag">AI Strategy &middot; Content Design</span>
+        </div>
       </article>
 
       <article class="pp-workcard pp-work-dark">
@@ -307,6 +371,10 @@ a{color:inherit}
         <h3 class="pp-work-title">Why I Stopped Calling Myself a Content Designer</h3>
         <div class="pp-work-pull"><p>&ldquo;I stayed in a job longer than I should have.&rdquo;</p></div>
         <a href="/writing/why-i-stopped-calling-myself-a-content-designer" class="pp-work-cta">Read the piece &#8599;</a>
+        <div class="pp-work-metarow">
+          <span class="pp-work-metatag"><b>Content Writer</b> &middot; Aug 2026</span>
+          <span class="pp-work-metatag">Career &middot; Personal Essay</span>
+        </div>
       </article>
 
     </div>
@@ -362,20 +430,41 @@ a{color:inherit}
       <h2 class="pp-h2">Language, technology, and <span class="chip chip-blue">business</span> meet here.</h2>
     </div>
     <div class="pp-about-grid">
+      <div class="pp-polaroid">
+        <div class="pp-polaroid-photo"><img src="/images/precious-headshot.jpg" alt="Precious Okoro"></div>
+        <span class="pp-polaroid-caption">Precious Okoro</span>
+      </div>
       <div>
         <p>I'm a content strategist, content designer, and writer with 6+ years of experience across digital products, technology, and editorial. I've worked with teams in fintech, SaaS, education, language technology, and AI, building content practices, shaping product experiences, and making complex information easier to understand.</p>
         <p>That experience informs how I approach editorial work. I don't just want to explain what a product does. I want to understand the problem behind it, the people it serves, and the value it brings to their work.</p>
         <p>I work independently. You brief me once, and the same person handles the research, the writing, and the final polish, no handoffs, no account managers in between.</p>
+        <div class="pp-stat-row">
+          <div class="pp-stat"><b>6+</b><span>Years in B2B SaaS &amp; product content</span></div>
+          <div class="pp-stat"><b>4</b><span>Industries: fintech, SaaS, edtech, AI</span></div>
+        </div>
+        <div class="pp-about-links">
+          <a href="https://www.linkedin.com/in/okoro-onyekachi-precious/" target="_blank" rel="noopener">LinkedIn</a>
+          <a href="mailto:thepreciousokoro@gmail.com">Email</a>
+        </div>
         <a href="/about" class="pp-btn pp-btn-ghost">More about me &#8599;</a>
       </div>
-      <div class="pp-stat-row">
-        <div class="pp-stat"><b>6+</b><span>Years in B2B SaaS &amp; product content</span></div>
-        <div class="pp-stat"><b>4</b><span>Industries: fintech, SaaS, edtech, AI</span></div>
+    </div>
+    <div class="pp-bricks-wrap">
+      <span class="pp-bricks-label">Built With &middot; 8 Skills</span>
+      <div class="pp-bricks">
+        <span class="pp-brick brick-1">SEO</span>
+        <span class="pp-brick brick-2">AEO</span>
+        <span class="pp-brick brick-3">GEO</span>
+        <span class="pp-brick brick-4">Content Strategy</span>
+        <span class="pp-brick brick-5">Thought Leadership</span>
+        <span class="pp-brick brick-1">Technical Writing</span>
+        <span class="pp-brick brick-2">Editorial Review</span>
+        <span class="pp-brick brick-3">Ghostwriting</span>
       </div>
     </div>
   </section>
 
-  <section class="pp-wrap pp-sec">
+  <section class="pp-wrap pp-sec" id="word-of-mouth">
     <div class="pp-sec-head">
       <span class="pp-eyebrow">04 &middot; Word of Mouth</span>
       <h2 class="pp-h2">From people I've worked with.</h2>
@@ -506,15 +595,19 @@ a{color:inherit}
     revealTargets.forEach(function(el){ io.observe(el); });
   }
 
-  var sections = ['work','practice','about','faq','contact'].map(function(id){ return document.getElementById(id); }).filter(Boolean);
+  var sections = ['work','practice','about','word-of-mouth','faq','contact'].map(function(id){ return document.getElementById(id); }).filter(Boolean);
   var navAnchors = Array.from(document.querySelectorAll('.pp-nav-links a'));
-  if(sections.length && navAnchors.length && 'IntersectionObserver' in window){
+  var railItems = Array.from(document.querySelectorAll('.pp-rail-item'));
+  if(sections.length && 'IntersectionObserver' in window){
     var spy = new IntersectionObserver(function(entries){
       entries.forEach(function(entry){
         if(entry.isIntersecting){
           var id = entry.target.id;
           navAnchors.forEach(function(a){
             a.classList.toggle('pp-active', a.getAttribute('href') === '#' + id);
+          });
+          railItems.forEach(function(r){
+            r.classList.toggle('pp-active', r.getAttribute('data-section') === id);
           });
         }
       });
