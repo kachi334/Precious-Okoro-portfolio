@@ -120,32 +120,30 @@ a{color:inherit}
 .pp-h2 .chip{display:inline-block;padding:0.03em 0.2em;border-radius:6px;transform:rotate(-1deg);box-shadow:4px 4px 0 rgba(0,0,0,0.5)}
 .pp-sec-sub{font-size:14.5px;color:var(--pp-soft);line-height:1.6;margin:0}
 
-/* Work cards */
-.pp-work{display:flex;flex-direction:column;gap:28px}
-.pp-workcard{border-radius:28px;padding:40px;position:relative;overflow:hidden;transition:transform .35s cubic-bezier(.2,.8,.2,1),box-shadow .35s ease}
+/* Work cards: compact grid of real pull-quotes, not website screenshots.
+   A writer's proof is the sentence, not a browser mockup. */
+.pp-work{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.pp-workcard{border-radius:22px;padding:28px;position:relative;overflow:hidden;display:flex;flex-direction:column;transition:transform .35s cubic-bezier(.2,.8,.2,1),box-shadow .35s ease}
 .pp-workcard:hover{transform:translateY(-4px)}
-.pp-work-top{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:24px}
-.pp-work-tab{display:inline-flex;align-items:center;gap:8px;font-family:'Geist Mono',monospace;font-size:11px;letter-spacing:0.06em;text-transform:uppercase;padding:6px 14px;border-radius:999px;background:rgba(255,255,255,0.18)}
-.pp-work-live{display:inline-flex;align-items:center;gap:6px;font-family:'Geist Mono',monospace;font-size:10.5px;letter-spacing:0.06em;text-transform:uppercase;padding:6px 12px;border-radius:999px;background:rgba(255,255,255,0.1)}
-.pp-work-live .dot{width:6px;height:6px;border-radius:50%;background:#7CE495;box-shadow:0 0 0 3px rgba(124,228,149,0.25)}
-.pp-work-tag{font-family:'Geist Mono',monospace;font-size:11.5px;letter-spacing:0.05em;text-transform:uppercase;opacity:0.85;display:block;margin-bottom:10px}
-.pp-work-title{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:clamp(22px,3.2vw,30px);line-height:1.18;margin:0 0 24px;max-width:22ch}
-.pp-work-shot{position:relative;border-radius:14px;overflow:hidden;border:1px solid rgba(255,255,255,0.25);margin-bottom:24px;transform:rotate(1deg);box-shadow:0 18px 40px rgba(0,0,0,0.25)}
-.pp-work-shot img{width:100%;display:block;aspect-ratio:16/9;object-fit:cover}
-.pp-work-shot.quote{aspect-ratio:16/9;display:flex;align-items:center;justify-content:center;padding:24px;background:rgba(255,255,255,0.1)}
-.pp-work-shot.quote p{font-family:'Instrument Serif',serif;font-style:italic;font-size:18px;text-align:center;margin:0}
-.pp-work-shot::before,.pp-work-shot::after{content:"";position:absolute;top:-8px;width:46px;height:20px;background:rgba(255,255,255,0.55);border:1px solid rgba(255,255,255,0.3)}
-.pp-work-shot::before{left:14%;transform:rotate(-6deg)}
-.pp-work-shot::after{right:14%;transform:rotate(6deg)}
-.pp-work-cta{display:inline-flex;align-items:center;gap:6px;font-size:13.5px;font-weight:700;text-decoration:none;padding:10px 18px;border-radius:999px;border:1px solid rgba(255,255,255,0.4);transition:transform .25s cubic-bezier(.2,.8,.2,1),background .2s ease}
+.pp-work-top{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:18px}
+.pp-work-tab{display:inline-flex;align-items:center;gap:8px;font-family:'Geist Mono',monospace;font-size:10.5px;letter-spacing:0.06em;text-transform:uppercase;padding:5px 12px;border-radius:999px;background:rgba(255,255,255,0.18)}
+.pp-work-live{display:inline-flex;align-items:center;gap:6px;font-family:'Geist Mono',monospace;font-size:10px;letter-spacing:0.06em;text-transform:uppercase;padding:5px 10px;border-radius:999px;background:rgba(255,255,255,0.1)}
+.pp-work-live .dot{width:5px;height:5px;border-radius:50%;background:#7CE495;box-shadow:0 0 0 3px rgba(124,228,149,0.25)}
+.pp-work-tag{font-family:'Geist Mono',monospace;font-size:11px;letter-spacing:0.05em;text-transform:uppercase;opacity:0.85;display:block;margin-bottom:8px}
+.pp-work-title{font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:17px;line-height:1.3;margin:0 0 16px}
+.pp-work-pull{flex:1;border-radius:14px;padding:18px;margin-bottom:18px;background:rgba(255,255,255,0.12)}
+.pp-work-pull p{font-family:'Instrument Serif',serif;font-style:italic;font-size:16px;line-height:1.5;margin:0}
+.pp-work-cta{display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:700;text-decoration:none;padding:9px 16px;border-radius:999px;border:1px solid rgba(255,255,255,0.4);align-self:flex-start;transition:transform .25s cubic-bezier(.2,.8,.2,1),background .2s ease}
 .pp-work-cta:hover{background:rgba(255,255,255,0.15);transform:translateY(-2px)}
 .pp-work-blue{background:var(--pp-blue);color:#fff}
 .pp-work-orange{background:var(--pp-orange-chip);color:#fff}
 .pp-work-green{background:var(--pp-green-chip);color:#fff}
 .pp-work-dark{background:var(--pp-chip-dark);color:var(--pp-chip-dark-text);border:1px solid var(--pp-border)}
 .pp-work-dark .pp-work-tab{background:rgba(255,255,255,0.08)}
+.pp-work-dark .pp-work-pull{background:rgba(255,255,255,0.05)}
 .pp-work-dark .pp-work-cta{border-color:var(--pp-border)}
-.pp-work-meta{display:table;padding:8px 18px;border:1px solid var(--pp-border);border-radius:999px;font-family:'Geist Mono',monospace;font-size:11px;letter-spacing:0.06em;text-transform:uppercase;color:var(--pp-faint);margin:0 auto 32px}
+.pp-work-meta{display:table;padding:8px 18px;border:1px solid var(--pp-border);border-radius:999px;font-family:'Geist Mono',monospace;font-size:11px;letter-spacing:0.06em;text-transform:uppercase;color:var(--pp-faint);margin:0 auto 28px}
+@media (max-width:760px){.pp-work{grid-template-columns:1fr}}
 
 /* Practice / What I Do */
 .pp-kitlist{display:flex;flex-direction:column}
@@ -253,7 +251,7 @@ a{color:inherit}
         </div>
         <span class="pp-work-tag">dittowords.com</span>
         <h3 class="pp-work-title">Why Agentic AI Requires a New Approach to Content Design</h3>
-        <div class="pp-work-shot"><img src="/images/ditto-hero.webp" alt="Ditto blog guest post header: 'Ditto x Precious Okoro'"></div>
+        <div class="pp-work-pull"><p>&ldquo;When you hand someone your car keys, you say more than &lsquo;here.&rsquo; Now we're handing the keys to software that can drive.&rdquo;</p></div>
         <a href="https://www.dittowords.com/blog/agentic-ai-content-design" target="_blank" rel="noopener" class="pp-work-cta">Read the piece &#8599;</a>
       </article>
 
@@ -264,7 +262,7 @@ a{color:inherit}
         </div>
         <span class="pp-work-tag">preciousokoro.site</span>
         <h3 class="pp-work-title">AI Agent Trust Is a Content Design Problem</h3>
-        <div class="pp-work-shot"><img src="/images/writing/ai-agent-trust-is-a-content-design-problem-1.png" alt="Cover card for 'AI Agent Trust Is a Content Design Problem'"></div>
+        <div class="pp-work-pull"><p>&ldquo;An AI agent doesn't just answer you anymore. It acts. And the moment software stops suggesting and starts doing is the moment trust becomes the whole game.&rdquo;</p></div>
         <a href="/writing/ai-agent-trust-is-a-content-design-problem" class="pp-work-cta">Read the piece &#8599;</a>
       </article>
 
@@ -275,7 +273,7 @@ a{color:inherit}
         </div>
         <span class="pp-work-tag">preciousokoro.site</span>
         <h3 class="pp-work-title">Content Design Isn't Dying. It's Being Promoted Into AI Experience Strategy</h3>
-        <div class="pp-work-shot"><img src="/images/writing/content-design-isnt-dying-it-s-being-promoted-into-ai-experience-strategy-1.png" alt="Cover card for 'Content Design Isn't Dying. It's Being Promoted Into AI Experience Strategy'"></div>
+        <div class="pp-work-pull"><p>&ldquo;Nobody wrote a bad sentence. The chatbot was fluent, friendly, and confident. What broke was not the copy.&rdquo;</p></div>
         <a href="/writing/content-design-isnt-dying-it-s-being-promoted-into-ai-experience-strategy" class="pp-work-cta">Read the piece &#8599;</a>
       </article>
 
@@ -286,7 +284,7 @@ a{color:inherit}
         </div>
         <span class="pp-work-tag">preciousokoro.site</span>
         <h3 class="pp-work-title">Why I Stopped Calling Myself a Content Designer</h3>
-        <div class="pp-work-shot quote"><p>&ldquo;I stayed in a job longer than I should have.&rdquo;</p></div>
+        <div class="pp-work-pull"><p>&ldquo;I stayed in a job longer than I should have.&rdquo;</p></div>
         <a href="/writing/why-i-stopped-calling-myself-a-content-designer" class="pp-work-cta">Read the piece &#8599;</a>
       </article>
 
@@ -350,7 +348,6 @@ a{color:inherit}
       </div>
       <div class="pp-stat-row">
         <div class="pp-stat"><b>6+</b><span>Years in B2B SaaS &amp; product content</span></div>
-        <div class="pp-stat"><b>2+</b><span>Years, content partnership with Moniger</span></div>
         <div class="pp-stat"><b>4</b><span>Industries: fintech, SaaS, edtech, AI</span></div>
       </div>
     </div>
