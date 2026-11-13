@@ -317,7 +317,15 @@ async function main() {
 
   await writeFile(path.join(ROOT, 'writing.html'), indexPage(entries))
 
-  const staticPages = ['/', '/work', '/about', '/cv', '/contact', '/writing', '/content-practice', '/features', '/moniger', '/fasttrackux', '/beacon', '/payr-case-study', '/northwatch']
+  // Detached writing samples (/samples/*): hand-authored pages, same
+  // pattern as writing/legacy.json's slugs but reusing content-practice's
+  // own design shell, not the sitewide nav. Append new slugs here.
+  const SAMPLE_SLUGS = ['claude-code-vs-codex-vs-cursor']
+  const staticPages = [
+    '/', '/work', '/about', '/cv', '/contact', '/writing', '/content-practice', '/features',
+    '/moniger', '/fasttrackux', '/beacon', '/payr-case-study', '/northwatch',
+    ...SAMPLE_SLUGS.map((s) => `/samples/${s}`),
+  ]
   const writingPages = entries.map((e) => `/writing/${e.slug}`)
   const today = new Date().toISOString().slice(0, 10)
   const urls = [...staticPages, ...writingPages]
@@ -331,7 +339,7 @@ async function main() {
   console.log(`[writing] built ${sanityEntries.length} Sanity post(s), index has ${entries.length} entries`)
 }
 
-const PUBLISHED_DIRS = ['assets', 'images', 'writing']
+const PUBLISHED_DIRS = ['assets', 'images', 'writing', 'samples']
 const PUBLISHED_FILES = ['sitemap.xml', 'robots.txt', 'llms.txt', 'precious-okoro-cv.pdf']
 
 async function publish() {

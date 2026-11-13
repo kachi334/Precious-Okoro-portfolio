@@ -4,82 +4,125 @@
 <meta charset="UTF-8">
 <script>(function(){try{var t=localStorage.getItem('theme');if(!t){t='dark';}document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Claude Code vs. OpenAI Codex vs. Cursor: Which AI Coding Tool Should Developers Choose? · Precious Okoro</title>
+<title>Claude Code vs. OpenAI Codex vs. Cursor: Which AI Coding Tool Should Developers Choose? &middot; Precious Okoro</title>
 <meta name="description" content="A comparison of Claude Code, OpenAI Codex, and Cursor covering development environments, permissions and security, pricing, and which one fits your workflow.">
 <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16.png">
 <link rel="icon" type="image/png" sizes="512x512" href="/images/favicon.png">
 <link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
-<link rel="canonical" href="https://www.preciousokoro.site/writing/claude-code-vs-codex-vs-cursor">
+<link rel="canonical" href="https://www.preciousokoro.site/samples/claude-code-vs-codex-vs-cursor">
 <meta property="og:type" content="article">
-<meta property="og:url" content="https://www.preciousokoro.site/writing/claude-code-vs-codex-vs-cursor">
+<meta property="og:url" content="https://www.preciousokoro.site/samples/claude-code-vs-codex-vs-cursor">
 <meta property="og:title" content="Claude Code vs. OpenAI Codex vs. Cursor: Which AI Coding Tool Should Developers Choose?">
 <meta property="og:description" content="A comparison of Claude Code, OpenAI Codex, and Cursor covering development environments, permissions and security, pricing, and which one fits your workflow.">
 <meta property="og:image" content="https://www.preciousokoro.site/images/precious-headshot.jpg">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Claude Code vs. OpenAI Codex vs. Cursor: Which AI Coding Tool Should Developers Choose?">
-<meta name="twitter:description" content="A comparison of Claude Code, OpenAI Codex, and Cursor covering development environments, permissions and security, pricing, and which one fits your workflow.">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "BlogPosting",
-  "@id": "https://www.preciousokoro.site/writing/claude-code-vs-codex-vs-cursor#blogposting",
-  "url": "https://www.preciousokoro.site/writing/claude-code-vs-codex-vs-cursor",
+  "@type": "Article",
+  "@id": "https://www.preciousokoro.site/samples/claude-code-vs-codex-vs-cursor#article",
+  "url": "https://www.preciousokoro.site/samples/claude-code-vs-codex-vs-cursor",
   "headline": "Claude Code vs. OpenAI Codex vs. Cursor: Which AI Coding Tool Should Developers Choose?",
   "description": "A comparison of Claude Code, OpenAI Codex, and Cursor covering development environments, permissions and security, pricing, and which one fits your workflow.",
   "image": "https://www.preciousokoro.site/images/precious-headshot.jpg",
   "datePublished": "2026-11-13",
   "dateModified": "2026-11-13",
-  "author": {
-    "@type": "Person",
-    "@id": "https://www.preciousokoro.site/#person",
-    "name": "Precious Okoro",
-    "url": "https://www.preciousokoro.site/"
-  },
-  "publisher": {
-    "@id": "https://www.preciousokoro.site/#person"
-  },
-  "mainEntityOfPage": "https://www.preciousokoro.site/writing/claude-code-vs-codex-vs-cursor"
+  "author": {"@type": "Person", "name": "Precious Okoro", "url": "https://www.preciousokoro.site/content-practice"}
 }
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..600;1,9..144,400..600&family=Manrope:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&family=IBM+Plex+Mono:wght@400;500;600&family=Caveat:wght@500;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/style.css">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=Inter:wght@400;500;600;700&family=Geist+Mono:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<style>
+/* Detached sample reader: a client clicking through from /content-practice
+   should never land in the sitewide content-design chrome (Projects/CV/
+   Features nav). Same --pp- system as content-practice, read-only shell. */
+:root{
+  --pp-bg:#FBF8F2;
+  --pp-card:#F1ECE1;
+  --pp-ink:#15130F;
+  --pp-soft:#55503F;
+  --pp-faint:#78715C;
+  --pp-border:#E4DDCC;
+  --pp-blue:#3A56C4;
+  --pp-yellow:#E8BD4C;
+  --pp-chip-dark:#211E18;
+  --pp-chip-dark-text:#F3EEE4;
+  --pp-accent:#3A56C4;
+}
+:root[data-theme="dark"]{
+  --pp-bg:#15130F;
+  --pp-card:#1C1913;
+  --pp-ink:#F3EEE4;
+  --pp-soft:#A8A399;
+  --pp-faint:#78715C;
+  --pp-border:#2B2720;
+  --pp-blue:#4867D6;
+  --pp-yellow:#F1CF6E;
+  --pp-chip-dark:#211E18;
+  --pp-chip-dark-text:#F3EEE4;
+  --pp-accent:#4867D6;
+}
+*{box-sizing:border-box}
+body{margin:0;font-family:'Inter',sans-serif;background:var(--pp-bg);color:var(--pp-ink);-webkit-font-smoothing:antialiased;position:relative}
+a{color:inherit}
+.pp-wrap{max-width:720px;margin:0 auto;padding:0 24px;position:relative;z-index:1}
+
+.pp-grain{position:fixed;inset:0;z-index:0;pointer-events:none;opacity:0.035;mix-blend-mode:overlay;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+:root[data-theme="dark"] .pp-grain{opacity:0.05}
+
+.pp-nav{position:sticky;top:0;z-index:10;display:flex;justify-content:space-between;align-items:center;gap:12px;padding:18px 24px;background:var(--pp-bg)}
+.pp-nav-id{display:flex;align-items:center;gap:10px;padding:8px 16px 8px 8px;border:1px solid var(--pp-border);border-radius:999px;background:var(--pp-bg);font-weight:700;font-size:14px;text-decoration:none;color:var(--pp-ink)}
+.pp-nav-id img{width:28px;height:28px;border-radius:50%;object-fit:cover}
+.pp-icon-btn{width:40px;height:40px;border-radius:50%;border:1px solid var(--pp-border);background:var(--pp-bg);display:flex;align-items:center;justify-content:center;cursor:pointer;color:var(--pp-ink)}
+
+.pp-back{display:inline-flex;align-items:center;gap:6px;font-family:'Geist Mono',monospace;font-size:12px;letter-spacing:0.04em;text-transform:uppercase;color:var(--pp-faint);text-decoration:none;margin:40px 0 28px;transition:color .2s ease}
+.pp-back:hover{color:var(--pp-ink)}
+.pp-article-badge{display:inline-flex;align-items:center;gap:8px;padding:8px 16px;border:1px solid var(--pp-border);border-radius:999px;font-family:'Geist Mono',monospace;font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:var(--pp-soft);margin-bottom:24px}
+.pp-article-badge .dot{width:6px;height:6px;border-radius:50%;background:var(--pp-blue)}
+.pp-article-title{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:clamp(28px,4.5vw,44px);line-height:1.12;margin:0 0 44px;max-width:19ch}
+.pp-article-title .chip{display:inline-block;padding:0.03em 0.2em;border-radius:6px;transform:rotate(-1deg);box-shadow:4px 4px 0 rgba(0,0,0,0.5);background:var(--pp-yellow);color:var(--pp-chip-dark)}
+
+.pp-article-body{display:flex;flex-direction:column;gap:22px;font-size:17px;line-height:1.75;color:var(--pp-soft);padding-bottom:64px}
+.pp-article-body p{margin:0}
+.pp-article-body h2{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:clamp(22px,2.6vw,28px);line-height:1.25;margin:16px 0 0;padding-top:36px;border-top:1px solid var(--pp-border);color:var(--pp-ink)}
+.pp-article-body h3{font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:19px;line-height:1.3;margin:4px 0 0;color:var(--pp-ink)}
+.pp-article-body strong{color:var(--pp-ink)}
+.pp-article-body a{color:var(--pp-accent);text-decoration:underline;text-underline-offset:3px}
+.pp-article-body ul,.pp-article-body ol{margin:0;padding-left:22px;display:flex;flex-direction:column;gap:8px}
+.pp-article-body blockquote{margin:0;padding:24px 28px;border-radius:16px;background:var(--pp-card);border:1px solid var(--pp-border);font-family:'Instrument Serif',serif;font-style:italic;font-size:20px;line-height:1.5;color:var(--pp-ink)}
+.pp-article-body .table-wrap{overflow-x:auto;border:1px solid var(--pp-border);border-radius:14px;padding:4px 20px}
+.pp-article-body table{width:100%;border-collapse:collapse;font-size:14.5px;min-width:480px}
+.pp-article-body th,.pp-article-body td{text-align:left;padding:12px 16px 12px 0;border-bottom:1px solid var(--pp-border);vertical-align:top}
+.pp-article-body th{font-family:'Geist Mono',monospace;font-weight:600;color:var(--pp-ink);font-size:11.5px;letter-spacing:0.04em;text-transform:uppercase;border-bottom:2px solid var(--pp-ink);white-space:nowrap}
+.pp-article-body tr:last-child td{border-bottom:none}
+
+.pp-article-end{display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;padding:32px 0 56px;border-top:1px solid var(--pp-border)}
+.pp-article-end a{display:inline-flex;align-items:center;gap:6px;font-size:14px;font-weight:700;text-decoration:none;color:var(--pp-ink);padding:12px 22px;border:1px solid var(--pp-border);border-radius:999px;transition:transform .25s cubic-bezier(.2,.8,.2,1),border-color .2s ease,background .2s ease}
+.pp-article-end a:hover{border-color:var(--pp-ink);transform:translateY(-2px)}
+.pp-article-end a.primary{background:var(--pp-accent);color:#fff;border-color:var(--pp-accent)}
+.pp-article-end a.primary:hover{background:var(--pp-blue);border-color:var(--pp-blue)}
+
+.pp-footer{padding:0 24px 48px;text-align:center;font-size:12.5px;color:var(--pp-faint)}
+</style>
 </head>
 <body>
 
-<a class="skip-link" href="#main">Skip to content</a>
+<div class="pp-grain" aria-hidden="true"></div>
 
-<header class="nav">
-  <div class="nav-inner">
-    <a href="/" class="wordmark"><img src="/images/nav-avatar.png" alt="" width="30" height="30">Precious Okoro</a>
-    <nav class="links">
-      <a href="/work">Projects</a>
-      <a href="/about">About</a>
-      <a href="/cv">CV</a>
-      <a href="/writing" class="active" aria-current="page">Writing</a>
-      <a href="/features">Features</a>
-      <a href="/contact" class="nav-cta">Work Together</a>
-    </nav>
-    <div class="nav-controls">
-      <button class="theme-toggle" type="button" aria-label="Switch to dark theme">
-        <svg class="icon-sun" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M14 9.5A6 6 0 1 1 6.5 2 4.8 4.8 0 0 0 14 9.5Z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/></svg>
-        <svg class="icon-moon" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="8" cy="8" r="3" stroke="currentColor" stroke-width="1.4"/><path d="M8 0.5V2.5M8 13.5V15.5M15.5 8H13.5M2.5 8H0.5M13.3 2.7L11.9 4.1M4.1 11.9L2.7 13.3M13.3 13.3L11.9 11.9M4.1 4.1L2.7 2.7" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
-      </button>
-      <button class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false">
-        <svg class="icon-menu" width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M2 5H16M2 9H16M2 13H16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
-        <svg class="icon-close" width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M3.5 3.5L14.5 14.5M14.5 3.5L3.5 14.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
-      </button>
-    </div>
-  </div>
+<header class="pp-nav">
+  <a href="/content-practice" class="pp-nav-id"><img src="/images/nav-avatar.png" alt="">Precious Okoro</a>
+  <button class="pp-icon-btn" type="button" id="ppThemeToggle" aria-label="Switch theme">
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M14 9.5A6 6 0 1 1 6.5 2 4.8 4.8 0 0 0 14 9.5Z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/></svg>
+  </button>
 </header>
 
-<main id="main">
-  <article class="article">
-    <a href="/writing" class="back-link">&larr; All writing</a>
-    <span class="meta-line" style="color:var(--accent)">Nov 13, 2026</span>
-    <h1>Claude Code vs. OpenAI Codex vs. Cursor: Which AI Coding Tool Should Developers Choose?</h1>
-    <div class="article-body">
+<main class="pp-wrap">
+  <a href="/content-practice#work" class="pp-back">&larr; Back to Selected Work</a>
+  <span class="pp-article-badge"><span class="dot"></span>Nov 13, 2026 &middot; SaaS Tools Comparison</span>
+  <h1 class="pp-article-title">Claude Code vs. OpenAI Codex vs. Cursor: Which AI Coding Tool Should Developers <span class="chip">Choose?</span></h1>
+
+  <div class="pp-article-body">
 <p>AI coding tools have changed quite a bit. What started as code suggestions and autocomplete has developed into agents that can explore repositories, edit multiple files, run commands, investigate bugs and carry out development tasks with less direct input from developers.</p>
 <p>That gives developers more to consider when choosing a tool.</p>
 <p>It's no longer just about which product generates code or which model performs best. You also need to consider where the agent works, how much control you have over its actions, how it handles your code and what you'll spend using it.</p>
@@ -353,24 +396,29 @@
 <p>If you're choosing between them, look at the tasks you need to complete, the environment you prefer, the level of oversight your work requires and the total cost of using each product.</p>
 <p>A useful way to make the decision is to try each available option on the same kind of work: explore an unfamiliar repository, implement a feature, investigate a bug and review the changes. Pay attention not just to whether the agent completes the task, but also to how much correction and supervision it needs.</p>
 <p>That will tell you considerably more about whether a tool belongs in your development workflow than a feature list or a headline ranking.</p>
-    </div>
-    <nav class="article-end">
-      <a href="/writing">&larr; All writing</a>
-      <a href="/contact">Work together &rarr;</a>
-    </nav>
-  </article>
+  </div>
+
+  <nav class="pp-article-end">
+    <a href="/content-practice#work">&larr; Back to Selected Work</a>
+    <a href="/contact" class="primary">Work with me &#8599;</a>
+  </nav>
 </main>
 
-<footer class="site-footer">
-  <span>&copy; 2026 Precious Okoro. Language infrastructure and content systems for products built to scale.</span>
-  <div class="footer-links">
-    <a href="mailto:thepreciousokoro@gmail.com">Email</a>
-    <a href="https://www.linkedin.com/in/okoro-onyekachi-precious/" target="_blank" rel="noopener">LinkedIn</a>
-    <a href="https://calendly.com/thecontentdesignchief/30min" target="_blank" rel="noopener">Book a call</a>
-  </div>
+<footer class="pp-footer">
+  &copy; 2026 Precious Okoro. Language infrastructure and content systems for products built to scale.
 </footer>
 
-<script src="/assets/main.js"></script>
-<script src="/assets/nav-toggle.js"></script>
+<script>
+(function(){
+  var toggle = document.getElementById('ppThemeToggle');
+  if(toggle){
+    toggle.addEventListener('click', function(){
+      var next = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', next);
+      try { localStorage.setItem('theme', next); } catch(e){}
+    });
+  }
+})();
+</script>
 </body>
 </html>
