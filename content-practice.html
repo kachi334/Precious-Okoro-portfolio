@@ -174,6 +174,7 @@ a{color:inherit}
 
 /* Selected Work: image-first tiles, title itself is the link, no CTA/domain clutter */
 .pp-work-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:40px 32px}
+.pp-work-grid>*:last-child:nth-child(odd){grid-column:1/-1}
 .pp-worktile{display:block;text-decoration:none;color:inherit;transition:transform .3s cubic-bezier(.2,.8,.2,1)}
 .pp-worktile:hover{transform:translateY(-4px)}
 .pp-worktile:hover .pp-worktile-title{color:var(--pp-blue)}
@@ -223,6 +224,41 @@ a{color:inherit}
 .pp-mock-agenticon{width:22px;height:22px;border-radius:7px;background:#E4575A;color:#fff;font-family:'Geist Mono',monospace;font-size:9px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0}
 .pp-mock-agentline{flex:1;height:6px;border-radius:3px;background:#E4DDCC;max-width:140px}
 .pp-mock-statuspill{font-family:'Geist Mono',monospace;font-size:9.5px;font-weight:700;letter-spacing:0.04em;text-transform:uppercase;padding:6px 11px;border-radius:999px;color:#fff;background:#E4575A}
+.pp-visual-5{background:radial-gradient(circle,rgba(255,255,255,0.14) 1px,transparent 1.5px) 0 0/20px 20px,linear-gradient(135deg,#1C3A20,#2E6B3C 55%,#8BC34A)}
+.pp-visual-6{background:radial-gradient(circle,rgba(255,255,255,0.14) 1px,transparent 1.5px) 0 0/20px 20px,linear-gradient(135deg,#3A1C32,#8B2E6B 55%,#E8964C)}
+.pp-visual-7{background:radial-gradient(circle,rgba(255,255,255,0.14) 1px,transparent 1.5px) 0 0/20px 20px,linear-gradient(135deg,#3A2E1C,#8B6B2E 55%,#E8BD4C)}
+.pp-visual-8{background:radial-gradient(circle,rgba(255,255,255,0.14) 1px,transparent 1.5px) 0 0/20px 20px,linear-gradient(135deg,#1C2E3A,#2E5C6B 55%,#4FC3E8)}
+.pp-visual-9{background:radial-gradient(circle,rgba(255,255,255,0.14) 1px,transparent 1.5px) 0 0/20px 20px,linear-gradient(135deg,#2E1C3A,#6B2E5C 55%,#C94F8B)}
+.pp-mock-chartbody{padding:18px 16px 20px;display:flex;flex-direction:column;gap:10px}
+.pp-mock-bars{display:flex;align-items:flex-end;gap:8px;height:70px}
+.pp-mock-bars span{flex:1;border-radius:4px 4px 0 0;background:linear-gradient(180deg,#4FAE6D,#2E7D4F);display:block}
+.pp-mock-chartline{height:1px;background:#E4DDCC}
+.pp-mock-calbody{padding:18px 16px;display:flex;flex-direction:column;gap:10px}
+.pp-mock-calrow{display:flex;align-items:center;justify-content:space-between;padding:10px 12px;border-radius:10px;background:#F6F2E9}
+.pp-mock-calmonth{font-family:'Geist Mono',monospace;font-size:10.5px;font-weight:700;color:#55503F;letter-spacing:0.05em}
+.pp-mock-calbudget{font-family:'Geist Mono',monospace;font-size:11px;font-weight:700;padding:4px 10px;border-radius:999px;color:#fff}
+.pp-mock-calbudget.over{background:#E4575A}
+.pp-mock-calbudget.safe{background:#4FAE6D}
+.pp-mock-savebody{padding:16px 16px 18px;display:flex;flex-direction:column;gap:9px}
+.pp-mock-saverow{display:flex;align-items:center;gap:9px}
+.pp-mock-savedot{width:14px;height:14px;border-radius:50%;border:2px solid #E4DDCC;flex-shrink:0;display:inline-block}
+.pp-mock-savedot.done{background:#E8BD4C;border-color:#E8BD4C}
+.pp-mock-saveline{height:6px;border-radius:3px;background:#E4DDCC;flex:1;display:inline-block}
+.pp-mock-saveline.short{width:60%;flex:none}
+.pp-mock-saveprogress{height:8px;border-radius:4px;background:#EDE7DA;margin-top:4px;overflow:hidden}
+.pp-mock-saveprogress span{display:block;height:100%;background:#E8BD4C;border-radius:4px}
+.pp-mock-subbody{padding:16px;display:flex;flex-direction:column;gap:9px}
+.pp-mock-subrow{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.pp-mock-subline{height:7px;border-radius:4px;background:#E4DDCC;flex:1;display:inline-block}
+.pp-mock-subtag{font-family:'Geist Mono',monospace;font-size:9px;font-weight:700;letter-spacing:0.04em;text-transform:uppercase;padding:4px 9px;border-radius:999px;color:#fff;white-space:nowrap}
+.pp-mock-subtag.keep{background:#4FAE6D}
+.pp-mock-subtag.cut{background:#E4575A}
+.pp-mock-appsbody{padding:16px;display:flex;flex-direction:column;gap:10px}
+.pp-mock-approw{display:flex;align-items:center;gap:10px}
+.pp-mock-appchip{width:22px;height:22px;border-radius:7px;background:#E8BD4C;color:#211E18;font-family:'Geist Mono',monospace;font-size:10px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.pp-mock-appchip.alt{background:#D8D1C0;color:#55503F}
+.pp-mock-appstars{font-size:11px;letter-spacing:1px;color:#E8BD4C}
+.pp-mock-appstars.dim{color:#D8D1C0}
 .pp-worktile-meta{display:flex;justify-content:space-between;gap:12px;margin-top:22px;font-family:'Geist Mono',monospace;font-size:11px;letter-spacing:0.06em;text-transform:uppercase;color:var(--pp-faint)}
 .pp-worktile-title{display:block;font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:clamp(19px,2.2vw,23px);line-height:1.3;margin:10px 0 14px;color:var(--pp-ink);transition:color .2s ease}
 .pp-worktile-tags{display:flex;gap:8px;flex-wrap:wrap}
@@ -510,6 +546,120 @@ a{color:inherit}
         <div class="pp-worktile-tags">
           <span>AI Agents</span>
           <span>Customer Support</span>
+        </div>
+      </a>
+
+      <a href="https://blog.moniger.com/2026/01/19/how-to-start-investing-in-nigeria-a-beginners-guide-2026/" target="_blank" rel="noopener" class="pp-worktile">
+        <div class="pp-worktile-visual pp-visual-5">
+          <span class="pp-work-live pp-worktile-status"><span class="dot"></span>Live</span>
+          <div class="pp-mock">
+            <div class="pp-mock-bar"><span></span><span></span><span></span></div>
+            <div class="pp-mock-chartbody">
+              <div class="pp-mock-bars"><span style="height:28%"></span><span style="height:42%"></span><span style="height:38%"></span><span style="height:60%"></span><span style="height:82%"></span></div>
+              <div class="pp-mock-chartline"></div>
+            </div>
+          </div>
+        </div>
+        <div class="pp-worktile-meta">
+          <span>Investing Guide</span>
+          <span>Jan 2026</span>
+        </div>
+        <h3 class="pp-worktile-title">How to Start Investing in Nigeria &rarr;</h3>
+        <div class="pp-worktile-tags">
+          <span>Personal Finance</span>
+          <span>Investing</span>
+        </div>
+      </a>
+
+      <a href="https://blog.moniger.com/2025/12/12/how-to-survive-detty-december-without-going-broke-in-january-moniger/" target="_blank" rel="noopener" class="pp-worktile">
+        <div class="pp-worktile-visual pp-visual-6">
+          <span class="pp-work-live pp-worktile-status"><span class="dot"></span>Live</span>
+          <div class="pp-mock">
+            <div class="pp-mock-bar"><span></span><span></span><span></span></div>
+            <div class="pp-mock-calbody">
+              <div class="pp-mock-calrow"><span class="pp-mock-calmonth">DEC</span><span class="pp-mock-calbudget over">&#8358;120k</span></div>
+              <div class="pp-mock-calrow"><span class="pp-mock-calmonth">JAN</span><span class="pp-mock-calbudget safe">&#8358;45k</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="pp-worktile-meta">
+          <span>Seasonal Spending</span>
+          <span>Dec 2025</span>
+        </div>
+        <h3 class="pp-worktile-title">How to Survive Detty December Without Going Broke &rarr;</h3>
+        <div class="pp-worktile-tags">
+          <span>Budgeting</span>
+          <span>Seasonal Spending</span>
+        </div>
+      </a>
+
+      <a href="https://blog.moniger.com/2025/10/22/how-to-save-money-in-nigeria/" target="_blank" rel="noopener" class="pp-worktile">
+        <div class="pp-worktile-visual pp-visual-7">
+          <span class="pp-work-live pp-worktile-status"><span class="dot"></span>Live</span>
+          <div class="pp-mock">
+            <div class="pp-mock-bar"><span></span><span></span><span></span></div>
+            <div class="pp-mock-savebody">
+              <div class="pp-mock-saverow"><span class="pp-mock-savedot done"></span><span class="pp-mock-saveline"></span></div>
+              <div class="pp-mock-saverow"><span class="pp-mock-savedot done"></span><span class="pp-mock-saveline"></span></div>
+              <div class="pp-mock-saverow"><span class="pp-mock-savedot"></span><span class="pp-mock-saveline short"></span></div>
+              <div class="pp-mock-saveprogress"><span style="width:62%"></span></div>
+            </div>
+          </div>
+        </div>
+        <div class="pp-worktile-meta">
+          <span>Savings Habits</span>
+          <span>Oct 2025</span>
+        </div>
+        <h3 class="pp-worktile-title">How to Save Money in Nigeria &rarr;</h3>
+        <div class="pp-worktile-tags">
+          <span>Personal Finance</span>
+          <span>Savings</span>
+        </div>
+      </a>
+
+      <a href="https://blog.moniger.com/2025/09/22/are-subscriptions-draining-your-wallet-how-to-track-and-cut-hidden-charges/" target="_blank" rel="noopener" class="pp-worktile">
+        <div class="pp-worktile-visual pp-visual-8">
+          <span class="pp-work-live pp-worktile-status"><span class="dot"></span>Live</span>
+          <div class="pp-mock">
+            <div class="pp-mock-bar"><span></span><span></span><span></span></div>
+            <div class="pp-mock-subbody">
+              <div class="pp-mock-subrow"><span class="pp-mock-subline"></span><span class="pp-mock-subtag keep">Keep</span></div>
+              <div class="pp-mock-subrow"><span class="pp-mock-subline"></span><span class="pp-mock-subtag cut">Cut</span></div>
+              <div class="pp-mock-subrow"><span class="pp-mock-subline"></span><span class="pp-mock-subtag cut">Cut</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="pp-worktile-meta">
+          <span>Spending Audit</span>
+          <span>Sep 2025</span>
+        </div>
+        <h3 class="pp-worktile-title">Are Subscriptions Draining Your Wallet? &rarr;</h3>
+        <div class="pp-worktile-tags">
+          <span>Budgeting</span>
+          <span>Subscriptions</span>
+        </div>
+      </a>
+
+      <a href="https://blog.moniger.com/2025/08/29/the-best-budgeting-apps-for-2025-what-to-look-for-and-why-moniger-stands-out/" target="_blank" rel="noopener" class="pp-worktile">
+        <div class="pp-worktile-visual pp-visual-9">
+          <span class="pp-work-live pp-worktile-status"><span class="dot"></span>Live</span>
+          <div class="pp-mock">
+            <div class="pp-mock-bar"><span></span><span></span><span></span></div>
+            <div class="pp-mock-appsbody">
+              <div class="pp-mock-approw"><span class="pp-mock-appchip">M</span><span class="pp-mock-appstars">&#9733;&#9733;&#9733;&#9733;&#9733;</span></div>
+              <div class="pp-mock-approw"><span class="pp-mock-appchip alt">B</span><span class="pp-mock-appstars dim">&#9733;&#9733;&#9733;</span></div>
+              <div class="pp-mock-approw"><span class="pp-mock-appchip alt">S</span><span class="pp-mock-appstars dim">&#9733;&#9733;&#9733;&#9733;</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="pp-worktile-meta">
+          <span>App Roundup</span>
+          <span>Aug 2025</span>
+        </div>
+        <h3 class="pp-worktile-title">The Best Budgeting Apps for 2025 &rarr;</h3>
+        <div class="pp-worktile-tags">
+          <span>SaaS Tools</span>
+          <span>Fintech</span>
         </div>
       </a>
 
