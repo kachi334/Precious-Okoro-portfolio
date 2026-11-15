@@ -320,7 +320,7 @@ async function main() {
   // Detached writing samples (/samples/*): hand-authored pages, same
   // pattern as writing/legacy.json's slugs but reusing content-practice's
   // own design shell, not the sitewide nav. Append new slugs here.
-  const SAMPLE_SLUGS = ['claude-code-vs-codex-vs-cursor', 'what-is-model-context-protocol', 'stripe-vs-adyen', 'build-ai-agent-workflow-customer-support']
+  const SAMPLE_SLUGS = ['claude-code-vs-codex-vs-cursor', 'what-is-model-context-protocol', 'stripe-vs-adyen', 'build-ai-agent-workflow-customer-support', 'best-ai-meeting-assistants-for-sales-teams']
   const staticPages = [
     '/', '/work', '/about', '/cv', '/contact', '/writing', '/content-practice', '/features',
     '/moniger', '/fasttrackux', '/beacon', '/payr-case-study', '/northwatch',
