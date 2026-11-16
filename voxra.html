@@ -116,48 +116,38 @@
   </section>
 
   <section class="case-cover">
-    <div class="case-cover-panel indigo" style="display:flex;align-items:center;justify-content:center;padding:clamp(24px,4vw,56px)">
-      <svg viewBox="0 0 760 260" width="100%" style="max-width:720px" role="img" aria-label="Voxra review flow: a draft is checked against deterministic trigger terms before the model runs; a clean result goes to the Claude-powered review against the style guide, which returns a structured decision that branches to approve, request changes, or escalate to a human.">
-        <defs>
-          <marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="var(--ink-faint)"/></marker>
-        </defs>
-        <g font-family="IBM Plex Mono, monospace" font-size="12" fill="var(--ink)">
-          <rect x="16" y="110" width="120" height="48" rx="10" fill="var(--t-field)" stroke="var(--ink-faint)" stroke-opacity="0.3"/>
-          <text x="76" y="138" text-anchor="middle">Draft + context</text>
-
-          <line x1="136" y1="134" x2="178" y2="134" stroke="var(--ink-faint)" stroke-opacity="0.5" marker-end="url(#arrow)"/>
-
-          <rect x="178" y="90" width="150" height="88" rx="10" fill="var(--t-field)" stroke="var(--ink-faint)" stroke-opacity="0.3"/>
-          <text x="253" y="120" text-anchor="middle" font-weight="600">Deterministic</text>
-          <text x="253" y="138" text-anchor="middle" font-weight="600">trigger check</text>
-          <text x="253" y="158" text-anchor="middle" font-size="10.5" fill="var(--ink-faint)">actions/triggers.ts</text>
-
-          <line x1="328" y1="110" x2="368" y2="72" stroke="var(--ink-faint)" stroke-opacity="0.5" marker-end="url(#arrow)"/>
-          <text x="330" y="66" font-size="10.5" fill="var(--ink-faint)">hit</text>
-          <line x1="328" y1="158" x2="368" y2="196" stroke="var(--ink-faint)" stroke-opacity="0.5" marker-end="url(#arrow)"/>
-          <text x="330" y="212" font-size="10.5" fill="var(--ink-faint)">clean</text>
-
-          <rect x="368" y="34" width="150" height="56" rx="10" fill="var(--t-ember-a)" stroke="var(--ember-text)" stroke-opacity="0.4"/>
-          <text x="443" y="58" text-anchor="middle" fill="var(--ember-text)" font-weight="600">Escalate</text>
-          <text x="443" y="76" text-anchor="middle" font-size="10.5" fill="var(--ember-text)">no model call</text>
-
-          <rect x="368" y="168" width="150" height="72" rx="10" fill="var(--t-field)" stroke="var(--ink-faint)" stroke-opacity="0.3"/>
-          <text x="443" y="194" text-anchor="middle" font-weight="600">Claude review</text>
-          <text x="443" y="212" text-anchor="middle" font-size="10.5" fill="var(--ink-faint)">vs. style-guide.md</text>
-          <text x="443" y="228" text-anchor="middle" font-size="10.5" fill="var(--ink-faint)">structured output</text>
-
-          <line x1="518" y1="204" x2="558" y2="204" stroke="var(--ink-faint)" stroke-opacity="0.5" marker-end="url(#arrow)"/>
-
-          <rect x="558" y="34" width="186" height="206" rx="10" fill="var(--t-field)" stroke="var(--ink-faint)" stroke-opacity="0.3"/>
-          <text x="651" y="58" text-anchor="middle" font-weight="600">Branch</text>
-          <text x="651" y="96" text-anchor="middle" fill="var(--mint-text)">requires_human_review:</text>
-          <text x="651" y="114" text-anchor="middle" fill="var(--mint-text)">false → approve / rewrite</text>
-          <text x="651" y="150" text-anchor="middle" fill="var(--ember-text)">requires_human_review:</text>
-          <text x="651" y="168" text-anchor="middle" fill="var(--ember-text)">true → hand off, no rewrite</text>
-          <text x="651" y="204" text-anchor="middle" font-size="10.5" fill="var(--ink-faint)">violation_type names</text>
-          <text x="651" y="220" text-anchor="middle" font-size="10.5" fill="var(--ink-faint)">why, for the reviewer</text>
-        </g>
-      </svg>
+    <div class="case-cover-panel indigo" style="display:flex;align-items:center;justify-content:center;padding:clamp(32px,5vw,64px)">
+      <div style="width:100%;max-width:640px" role="img" aria-label="Conceptual interface for Voxra's review flow, shown as a laptop mockup: a draft is pasted in, and Voxra returns an assessment, cited reasoning, and a verdict. The Botpress conversational surface this would run in has not been built yet; this represents the intended interaction.">
+        <div style="background:#0E0C1A;border-radius:14px 14px 0 0;padding:10px 10px 0;box-shadow:0 30px 60px -20px rgba(0,0,0,0.45)">
+          <div style="background:#fff;border-radius:8px 8px 0 0;overflow:hidden">
+            <div style="display:flex;align-items:center;gap:6px;padding:10px 14px;background:#F1ECE1;border-bottom:1px solid #E4DDCC">
+              <span style="width:9px;height:9px;border-radius:50%;background:#E4857A;display:inline-block"></span>
+              <span style="width:9px;height:9px;border-radius:50%;background:#E8BD4C;display:inline-block"></span>
+              <span style="width:9px;height:9px;border-radius:50%;background:#7CC98B;display:inline-block"></span>
+              <span style="margin-left:10px;font-family:'IBM Plex Mono',monospace;font-size:11px;color:#78715C">voxra — review</span>
+            </div>
+            <div style="padding:26px;display:flex;flex-direction:column;gap:16px;background:#fff">
+              <div>
+                <span style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:0.05em;text-transform:uppercase;color:#78715C">Draft</span>
+                <p style="font-family:'Manrope',sans-serif;font-size:14.5px;color:#17130E;margin:5px 0 0">"We are sorry your purchase is outside the refund window."</p>
+              </div>
+              <div style="height:1px;background:#E4DDCC"></div>
+              <div>
+                <span style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:0.05em;text-transform:uppercase;color:#4338CA">Assessment</span>
+                <p style="font-family:'Manrope',sans-serif;font-size:14.5px;color:#17130E;margin:5px 0 0;font-weight:600">Needs changes. Apologizes for the policy, not the outcome.</p>
+              </div>
+              <div>
+                <span style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:0.05em;text-transform:uppercase;color:#78715C">Reasoning</span>
+                <p style="font-family:'IBM Plex Mono',monospace;font-size:12.5px;line-height:1.6;color:#55503F;margin:5px 0 0">RECOVERY-002: "We are sorry your purchase is outside the refund window." Apologizes for the policy, not the outcome.</p>
+              </div>
+              <span style="align-self:flex-start;font-family:'IBM Plex Mono',monospace;font-size:10.5px;padding:5px 12px;border-radius:999px;background:#F7E7C4;color:#8C5E0C">requires_human_review: false</span>
+            </div>
+          </div>
+        </div>
+        <div style="height:14px;background:linear-gradient(180deg,#1A1730,#0E0C1A);border-radius:0 0 10px 10px;position:relative">
+          <div style="position:absolute;left:50%;top:0;transform:translateX(-50%);width:80px;height:5px;background:#2B2745;border-radius:0 0 6px 6px"></div>
+        </div>
+      </div>
     </div>
   </section>
 
