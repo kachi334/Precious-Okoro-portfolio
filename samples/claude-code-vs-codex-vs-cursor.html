@@ -38,29 +38,29 @@
    should never land in the sitewide content-design chrome (Projects/CV/
    Features nav). Same --pp- system as content-practice, read-only shell. */
 :root{
-  --pp-bg:#FBF8F2;
-  --pp-card:#F1ECE1;
-  --pp-ink:#15130F;
-  --pp-soft:#55503F;
-  --pp-faint:#78715C;
-  --pp-border:#E4DDCC;
+  --pp-bg:#FFFFFF;
+  --pp-card:#F5F5F5;
+  --pp-ink:#111111;
+  --pp-soft:#404040;
+  --pp-faint:#737373;
+  --pp-border:#E5E5E5;
   --pp-blue:#3A56C4;
   --pp-yellow:#E8BD4C;
-  --pp-chip-dark:#211E18;
-  --pp-chip-dark-text:#F3EEE4;
+  --pp-chip-dark:#181818;
+  --pp-chip-dark-text:#F5F5F5;
   --pp-accent:#3A56C4;
 }
 :root[data-theme="dark"]{
-  --pp-bg:#15130F;
-  --pp-card:#1C1913;
-  --pp-ink:#F3EEE4;
-  --pp-soft:#A8A399;
-  --pp-faint:#78715C;
-  --pp-border:#2B2720;
+  --pp-bg:#0A0A0A;
+  --pp-card:#1A1A1A;
+  --pp-ink:#F5F5F5;
+  --pp-soft:#B0B0B0;
+  --pp-faint:#808080;
+  --pp-border:#2A2A2A;
   --pp-blue:#4867D6;
   --pp-yellow:#F1CF6E;
-  --pp-chip-dark:#211E18;
-  --pp-chip-dark-text:#F3EEE4;
+  --pp-chip-dark:#181818;
+  --pp-chip-dark-text:#F5F5F5;
   --pp-accent:#4867D6;
 }
 *{box-sizing:border-box}
@@ -80,7 +80,7 @@ a{color:inherit}
 .pp-back:hover{color:var(--pp-ink)}
 .pp-article-badge{display:inline-flex;align-items:center;gap:8px;padding:8px 16px;border:1px solid var(--pp-border);border-radius:999px;font-family:'Geist Mono',monospace;font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:var(--pp-soft);margin-bottom:24px}
 .pp-article-badge .dot{width:6px;height:6px;border-radius:50%;background:var(--pp-blue)}
-.pp-article-title{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:clamp(28px,4.5vw,44px);line-height:1.12;margin:0 0 44px;max-width:19ch}
+.pp-article-title{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:clamp(34px,5.8vw,58px);line-height:1.06;letter-spacing:-0.015em;margin:0 0 40px;max-width:18ch}
 .pp-article-title .chip{display:inline-block;padding:0.03em 0.2em;border-radius:6px;transform:rotate(-1deg);box-shadow:4px 4px 0 rgba(0,0,0,0.5);background:var(--pp-yellow);color:var(--pp-chip-dark)}
 
 .pp-article-body{display:flex;flex-direction:column;gap:22px;font-size:17px;line-height:1.75;color:var(--pp-soft);padding-bottom:64px}
